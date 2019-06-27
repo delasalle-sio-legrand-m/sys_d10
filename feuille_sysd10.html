@@ -377,12 +377,13 @@
   <div class="sheet-tab-content sheet-tab2">
     <div class='sheet-col'>
       <input type="radio" name="attr_secondary_magic_tab" class="small_tab secondary_magic_tab1" checked="checked" value="1" title="Général" />
-      <!--<input type="radio" name="attr_secondary_magic_tab" class="small_tab secondary_magic_tab2" value="2" title="Magie Innée" />
-      <input type="radio" name="attr_secondary_magic_tab" class="small_tab secondary_magic_tab3" value="3" title="Haute Magie" />
-      <input type="radio" name="attr_secondary_magic_tab" class="small_tab secondary_magic_tab4" value="4" title="Vivemagie" />
-      <input type="radio" name="attr_secondary_magic_tab" class="small_tab secondary_magic_tab5" value="5" title="Magie des Mots" />-->
+      <input type="radio" name="attr_secondary_magic_tab" class="small_tab secondary_magic_tab2" value="2" title="Affinitées" />
+      <input type="radio" name="attr_secondary_magic_tab" class="small_tab secondary_magic_tab3" value="3" title="Mage Aspect" />
+      <input type="radio" name="attr_secondary_magic_tab" class="small_tab secondary_magic_tab4" value="4" title="Arcaniste" />
+      <input type="radio" name="attr_secondary_magic_tab" class="small_tab secondary_magic_tab5" value="5" title="Magie Vitale" />
+
       <div class="sheet-tab-content sheet-secondary_magic_tab1">
-        <h3>Compétences magiques</h3>
+        <h3>Compétences générales</h3>
         <fieldset class="repeating_magic-skills">
           <input class="sheet-skill_name" type="text" name="attr_magic_skillname" />
           <input type="number" name="attr_magic_skillcost" title="Coût de la compétence" />
@@ -401,7 +402,59 @@
           <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{magic_skillname}}} {{dice_name=@{dice}}} {{result=[[@{magic_skilllevel}+(@{Skill_magic_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{magic_skilllevel}+(@{Skill_magic_attribute_select})]]}}"></button>
         </fieldset>
       </div>
-      <!--<div class="sheet-tab-content sheet-secondary_magic_tab2"><h3>Magie Innée</h3></div><div class="sheet-tab-content sheet-secondary_magic_tab3"><h3>Haute Magie</h3></div><div class="sheet-tab-content sheet-secondary_magic_tab4"><h3>Vivemagie</h3></div><div class="sheet-tab-content sheet-secondary_magic_tab5"><h3>Magie des Mots</h3></div>-->
+      <div class="sheet-tab-content sheet-secondary_magic_tab2">
+        <h3>Affinités magiques</h3>
+        <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à générer des boucliers et les dégats des attaques élémentaires de vent" name="attr_magic_elem_air" value="Affinité à l'Air (Int)" />
+        <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="elem_air" title="Valeur de l'affinité" />
+        <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="elem_air_buff" title="Bonus temporaire" />
+        <input class="sheet-skill_name" disabled="true" value="floor(@{elem_air}+@{elem_air_buff})" style="margin-right: 4px;" type="number" name="elem_air_tot" title="Total" />
+        <br/>
+
+        <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à prodiguer des soins et les dégats des attaques élémentaires d'eau" name="attr_magic_elem_eau" value="Affinité à l'Eau (Ag)" />
+        <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="elem_eau" title="Valeur de l'affinité" />
+        <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="elem_eau_buff" title="Bonus temporaire" /><br/>
+
+        <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à infliger des altération d'état physiques (renversement etc...) et les dégats des attaques élémentaires de terre" name="attr_magic_elem_terre" value="Affinité à la Terre (For)" />
+        <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="elem_terre" title="Valeur de l'affinité" />
+        <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="elem_terre_buff" title="Bonus temporaire" /><br/>
+
+        <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à infliger des dégats et les dégats des attaques élémentaires de feu" name="attr_magic_elem_feu" value="Affinité au Feu (Psy)" />
+        <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="elem_feu" title="Valeur de l'affinité" />
+        <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="elem_feu_buff" title="Bonus temporaire" /><br/>
+
+        <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à infliger des altération d'état magiques et les dégats des attaques élémentaires de glace" name="attr_magic_elem_glace" value="Affinité à la Glace (Vol)" />
+        <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="elem_glace" title="Valeur de l'affinité" />
+        <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="elem_glace_buff" title="Bonus temporaire" /><br/>
+
+        <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à changer les caractéristiques physiques, négativement et positivement" name="attr_magic_elem_metal" value="Affinité au Metal (Chn)" />
+        <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="elem_metal" title="Valeur de l'affinité" />
+        <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="elem_metal_buff" title="Bonus temporaire" /><br/>
+
+        <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text"  title="Influence l'aptitude à changer les caractéristiques magiques, négativement et positivement" name="attr_magic_elem_vapeur" value="Affinité à la Vapeur (Per)" />
+        <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="elem_vapeur" title="Valeur de l'affinité" />
+        <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="elem_vapeur_buff" title="Bonus temporaire" /><br/>
+
+        <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à infliger des maux et maladies ainsi que les dégats de lave" name="attr_magic_elem_magma" value="Affinité au Magma (Chr)" />
+        <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="elem_magma" title="Valeur de l'affinité" />
+        <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="elem_magma_buff" title="Bonus temporaire" /><br/>
+
+        <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à détruire les défences magiques, diminuer les soins et dimminuer les dégats infligés" name="attr_magic_elem_bois" value="Affinité au Bois" />
+        <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="elem_bois" title="Valeur de l'affinité" />
+        <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="elem_bois_buff" title="Bonus temporaire" /><br/>
+
+        <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text"  title="Influence l'aptitude à détruire les boucliers et protections physiques et les dégats des attaques élémentaires de foudre" name="attr_magic_elem_foudre" value="Affinité à la Foudre" />
+        <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="elem_foudre" title="Valeur de l'affinité" />
+        <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="elem_foudre_buff" title="Bonus temporaire" /><br/>
+
+      </div>
+      <div class="sheet-tab-content sheet-secondary_magic_tab3"><h3>Mage Aspect</h3>
+      </div>
+
+      <div class="sheet-tab-content sheet-secondary_magic_tab4"><h3>Arcaniste</h3>
+      </div>
+
+      <div class="sheet-tab-content sheet-secondary_magic_tab5"><h3>Magie Vitale</h3>
+      </div>
     </div>
   </div>
 

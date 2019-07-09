@@ -29,11 +29,11 @@ contexts=[
     "Influence l'aptitude à infliger des altération d'état physiques (renversement etc...) et les dégats des attaques élémentaires de terre",
     "Influence l'aptitude à infliger des dégats et les dégats des attaques élémentaires de feu",
     "Influence l'aptitude à infliger des altération d'état magiques et les dégats des attaques élémentaires de glace",
-    "Influence l'aptitude à changer les caractéristiques physiques, négativement et positivement",
+    "Influence l'aptitude à changer les caractéristiques physiques, négativement et positivement et les dégats non élémentaires",
     "Influence l'aptitude à infliger des maux et maladies ainsi que les dégats de lave",
-    "Influence l'aptitude à changer les caractéristiques magiques, négativement et positivement",
-    "Influence l'aptitude à détruire les défences magiques, diminuer les soins et dimminuer les dégats infligés",
-    "Influence l'aptitude à détruire les boucliers et protections physiques et les dégats des attaques élémentaires de foudre"
+    "Influence l'aptitude à changer les caractéristiques magiques, négativement et positivement ainsi que les dégats toxiques",
+    "Influence l'aptitude à détruire les resistances physiques, diminuer les soins et dimminuer les dégats infligés ainsi qu'augmenter les dégats de bois",
+    "Influence l'aptitude à détruire les resistances magiques, les boucliers et diminuer les défences et les dégats des attaques élémentaires de foudre"
 ]
 texts=[
     "Affinité à l'Eau (Ag)",
@@ -48,13 +48,25 @@ texts=[
     "Affinité à la Foudre"
 ]
 
+addentum=[
+    "Agilite",
+    "Intelligence",
+    "Force",
+    "Psyche",
+    "Volonte",
+    "Chance",
+    "Charisme",
+    "Perception",
+    "",
+    ""
+]
 
 
-blob="""<input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="{contex}" name="attr_magic_elem_{elem}" value="{text}" />
-<input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="attr_elem_{elem}" title="Valeur de l'affinité" />
-<input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="attr_elem_{elem}_buff" title="Bonus temporaire" />
-<input class="sheet-trait" disabled="true" name="attr_elem_{elem}_tot" value="{val}" />
-<br/>
+blob="""        <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="{contex}" name="attr_magic_elem_{elem}" value="{text}" />
+        <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="attr_elem_{elem}" title="Valeur de l'affinité" />
+        <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="attr_elem_{elem}_buff" title="Bonus temporaire" />
+        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_{elem}_tot" value="{val}" />
+        <br/>
 """
 
 for i in range(10):
@@ -68,5 +80,7 @@ for i in range(10):
             else:
                 ret+="{}*({}+{})+".format(mat[j],makes(e),makeb(e))
     ret=ret[:-1]
+    if addentum[i]:
+        ret+="+(@{{base-{c}}}+@{{exal-{c}}})*20".format(c=addentum[i])
 
-    print(blob.format(contex=contexts[i], elem=elems[i],text=texts[i],val="floor({}/2.5)".format(ret)))
+    print(blob.format(contex=contexts[i], elem=elems[i],text=texts[i],val="floor({}/10)".format(ret)))

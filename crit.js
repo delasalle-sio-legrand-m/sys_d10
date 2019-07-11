@@ -436,11 +436,11 @@ function parse_command(message){
              i+=2;
              break;
           case "v":
-             d_vars.pctreceived=to_number(tab[i+1]);
+             d_vars.pctreceived+=to_number(tab[i+1]);
              i+=2;
              break;
           case "f":
-             d_vars.pctinflicted=to_number(tab[i+1]);
+             d_vars.pctinflicted+=to_number(tab[i+1]);
              i+=2;
              break;
           case "I":

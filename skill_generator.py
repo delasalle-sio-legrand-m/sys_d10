@@ -83,8 +83,8 @@ list.append(['player_name','Nom du joueur',1,'str','n',0,'""',"",None])
 
 list.append(['crit_level','Niveau de critique',1,'pint','c',0,2,"",None])
 list.append(['transcendence','Transcendence',1,'pint','t',0,3,"",None])
-list.append(['pctreceived','Pourcentage dégats recus',1,'int','v',0,0,"",None])
-list.append(['pctinflicted','Pourcentage dégats infligés',1,'int','f',0,0,"",None])
+list.append(['pctreceived','Pourcentage dégats recus',1,'int','v',0,0,"+",None])
+list.append(['pctinflicted','Pourcentage dégats infligés',1,'int','f',0,0,"+",None])
 
 list.append(['nb_dices','Nombre de des',1,'pint','',0,0,"",None])
 list.append(['nb_flat_dices','Nombre de des fixes',1,'pint','',0,0,"",None])

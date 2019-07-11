@@ -80,8 +80,11 @@ list.append(['replace','Des de substitution',1,'int','L',0,-1,"",None])
 list.append(['add_to_all','Valeur d\'ajout aux des',1,'int','l',0,0,"",None])
 list.append(['max_dices','Nombre de des max',1,'pint','m',0,-1,"",None])
 list.append(['player_name','Nom du joueur',1,'str','n',0,'""',"",None])
+
 list.append(['crit_level','Niveau de critique',1,'pint','c',0,2,"",None])
 list.append(['transcendence','Transcendence',1,'pint','t',0,3,"",None])
+list.append(['pctreceived','Pourcentage dégats recus',1,'int','v',0,0,"",None])
+list.append(['pctinflicted','Pourcentage dégats infligés',1,'int','f',0,0,"",None])
 
 list.append(['nb_dices','Nombre de des',1,'pint','',0,0,"",None])
 list.append(['nb_flat_dices','Nombre de des fixes',1,'pint','',0,0,"",None])
@@ -91,6 +94,9 @@ list.append(['cleave','Fauchage',1,'pint','',0,"[]","",None])
 list.append(['encaissement_result','Resultat d\'encaissement',1,'pint','',0,0,"",None])
 list.append(['technique_result','Dégats technique martiale',1,'int','',0,0,"",None])
 list.append(['coup_d_results','Coup déchirant results',1,'pint','',0,"[]","",None])
+
+
+
 
 class megaListWrapper():
     def __init__(self,table=list):
@@ -368,7 +374,7 @@ class testReroll(minitest.simpleTestUnit):
 
     def _testReroll(self):
         self.currentTest("regex generation")
-        model=""""var msg_relance="<a class='sheet-rolltemplate-d10fight' href='!crit 0 P "+d_vars.perfection+" I 1 "+d_vars.defense_i_0+" I 2 "+d_vars.defense_i_1+" I 4 "+d_vars.defense_i_2+" R "+d_vars.rempart_p+" F "+d_vars.fauchage+" E 1 "+d_vars.exploiter_p_0+" E 2 "+d_vars.exploiter_p_1+" E 4 "+d_vars.exploiter_p_2+" T 2 "+d_vars.tir_p_0+" T 4 "+d_vars.tir_p_1+" i "+d_vars.tir_i+" C "+d_vars.charge+" N "+d_vars.charge_i+" + "+(d_vars.nb_2add+d_vars.technique_result+d_vars.encaissement_result)+" - "+d_vars.nb_2sub+" r ?{Relances ?}"+" s "+d_vars.seuil+" a "+d_vars.action+" H "+d_vars.on_hit_c+" A "+d_vars.attribute+" L "+d_vars.replace+" l "+d_vars.add_to_all+" m "+d_vars.max_dices+" : "+d_vars.player_name;
+        model=""""var msg_relance="<a class='sheet-rolltemplate-d10fight' href='!crit 0 P "+d_vars.perfection+" I 1 "+d_vars.defense_i_0+" I 2 "+d_vars.defense_i_1+" I 4 "+d_vars.defense_i_2+" R "+d_vars.rempart_p+" F "+d_vars.fauchage+" E 1 "+d_vars.exploiter_p_0+" E 2 "+d_vars.exploiter_p_1+" E 4 "+d_vars.exploiter_p_2+" T 2 "+d_vars.tir_p_0+" T 4 "+d_vars.tir_p_1+" i "+d_vars.tir_i+" C "+d_vars.charge+" N "+d_vars.charge_i+" + "+(d_vars.nb_2add+d_vars.technique_result+d_vars.encaissement_result)+" - "+d_vars.nb_2sub+" r ?{Relances ?}"+" s "+d_vars.seuil+" a "+d_vars.action+" H "+d_vars.on_hit_c+" A "+d_vars.attribute+" L "+d_vars.replace+" l "+d_vars.add_to_all+" m "+d_vars.max_dices+" n "+d_vars.player_name;
         for (var i=0,len=d_vars.results.length;i<len;i++) msg_relance+=" d "+d_vars.results[i];
         msg_relance+="'>Relancer ce jet</a>";"""
         var=re.compile(' ([a-zA-Z:+_] .*?".*?)(?:\+"|;)')

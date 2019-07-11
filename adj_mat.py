@@ -1,3 +1,4 @@
+#!/bin/python3
 #coding: utf-8
 elems=["eau", "air","terre","feu","glace","metal","magma","vapeur","bois","foudre"]
 
@@ -29,9 +30,9 @@ contexts=[
     "Influence l'aptitude à infliger des altération d'état physiques (renversement etc...) et les dégats des attaques élémentaires de terre",
     "Influence l'aptitude à infliger des dégats et les dégats des attaques élémentaires de feu",
     "Influence l'aptitude à infliger des altération d'état magiques et les dégats des attaques élémentaires de glace",
-    "Influence l'aptitude à changer les caractéristiques physiques, négativement et positivement et les dégats non élémentaires",
+    "Influence l'aptitude à changer les caractéristiques et resistences physiques, négativement et positivement et les dégats non élémentaires",
     "Influence l'aptitude à infliger des maux et maladies ainsi que les dégats de lave",
-    "Influence l'aptitude à changer les caractéristiques magiques, négativement et positivement ainsi que les dégats toxiques",
+    "Influence l'aptitude à changer les caractéristiques et resistences magiques, négativement et positivement ainsi que les dégats toxiques",
     "Influence l'aptitude à détruire les resistances physiques, diminuer les soins et dimminuer les dégats infligés ainsi qu'augmenter les dégats de bois",
     "Influence l'aptitude à détruire les resistances magiques, les boucliers et diminuer les défences et les dégats des attaques élémentaires de foudre"
 ]

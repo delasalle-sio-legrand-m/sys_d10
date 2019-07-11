@@ -82,6 +82,6 @@ for i in range(10):
                 ret+="{}*({}+{})+".format(mat[j],makes(e),makeb(e))
     ret=ret[:-1]
     if addentum[i]:
-        ret+="+(@{{base-{c}}}+@{{exal-{c}}})*20".format(c=addentum[i])
+        ret+="+(@{{base-{c}}}+@{{exal-{c}}})*2".format(c=addentum[i])
 
-    print(blob.format(contex=contexts[i], elem=elems[i],text=texts[i],val="floor({}/10)".format(ret)))
+    print(blob.format(contex=contexts[i], elem=elems[i],text=texts[i],val="floor(({})/3)".format(ret)))

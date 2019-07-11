@@ -407,61 +407,61 @@
         <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à prodiguer des soins et les dégats des attaques élémentaires d'eau" name="attr_magic_elem_eau" value="Affinité à l'Eau (Ag)" />
         <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="attr_elem_eau" title="Valeur de l'affinité" />
         <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="attr_elem_eau_buff" title="Bonus temporaire" />
-        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_eau_tot" value="floor(2*(@{elem_eau}+@{elem_eau_buff})+@{elem_glace}+@{elem_glace_buff}+@{elem_vapeur}+@{elem_vapeur_buff}+@{elem_bois}+@{elem_bois_buff}+(@{base-Agilite}+@{exal-Agilite})*20/10)" />
+        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_eau_tot" value="floor((2*(@{elem_eau}+@{elem_eau_buff})+@{elem_glace}+@{elem_glace_buff}+@{elem_vapeur}+@{elem_vapeur_buff}+@{elem_bois}+@{elem_bois_buff}+(@{base-Agilite}+@{exal-Agilite})*2)/3)" />
         <br/>
 
         <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à générer des boucliers et les dégats des attaques élémentaires de vent" name="attr_magic_elem_air" value="Affinité à l'Air (Int)" />
         <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="attr_elem_air" title="Valeur de l'affinité" />
         <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="attr_elem_air_buff" title="Bonus temporaire" />
-        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_air_tot" value="floor(2*(@{elem_air}+@{elem_air_buff})+@{elem_glace}+@{elem_glace_buff}+@{elem_metal}+@{elem_metal_buff}+@{elem_foudre}+@{elem_foudre_buff}+(@{base-Intelligence}+@{exal-Intelligence})*20/10)" />
+        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_air_tot" value="floor((2*(@{elem_air}+@{elem_air_buff})+@{elem_glace}+@{elem_glace_buff}+@{elem_metal}+@{elem_metal_buff}+@{elem_foudre}+@{elem_foudre_buff}+(@{base-Intelligence}+@{exal-Intelligence})*2)/3)" />
         <br/>
 
         <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à infliger des altération d'état physiques (renversement etc...) et les dégats des attaques élémentaires de terre" name="attr_magic_elem_terre" value="Affinité à la Terre (For)" />
         <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="attr_elem_terre" title="Valeur de l'affinité" />
         <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="attr_elem_terre_buff" title="Bonus temporaire" />
-        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_terre_tot" value="floor(2*(@{elem_terre}+@{elem_terre_buff})+@{elem_metal}+@{elem_metal_buff}+@{elem_magma}+@{elem_magma_buff}+@{elem_bois}+@{elem_bois_buff}+(@{base-Force}+@{exal-Force})*20/10)" />
+        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_terre_tot" value="floor((2*(@{elem_terre}+@{elem_terre_buff})+@{elem_metal}+@{elem_metal_buff}+@{elem_magma}+@{elem_magma_buff}+@{elem_bois}+@{elem_bois_buff}+(@{base-Force}+@{exal-Force})*2)/3)" />
         <br/>
 
         <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à infliger des dégats et les dégats des attaques élémentaires de feu" name="attr_magic_elem_feu" value="Affinité au Feu (Psy)" />
         <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="attr_elem_feu" title="Valeur de l'affinité" />
         <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="attr_elem_feu_buff" title="Bonus temporaire" />
-        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_feu_tot" value="floor(2*(@{elem_feu}+@{elem_feu_buff})+@{elem_magma}+@{elem_magma_buff}+@{elem_vapeur}+@{elem_vapeur_buff}+@{elem_foudre}+@{elem_foudre_buff}+(@{base-Psyche}+@{exal-Psyche})*20/10)" />
+        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_feu_tot" value="floor((2*(@{elem_feu}+@{elem_feu_buff})+@{elem_magma}+@{elem_magma_buff}+@{elem_vapeur}+@{elem_vapeur_buff}+@{elem_foudre}+@{elem_foudre_buff}+(@{base-Psyche}+@{exal-Psyche})*2)/3)" />
         <br/>
 
         <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à infliger des altération d'état magiques et les dégats des attaques élémentaires de glace" name="attr_magic_elem_glace" value="Affinité à la Glace (Vol)" />
         <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="attr_elem_glace" title="Valeur de l'affinité" />
         <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="attr_elem_glace_buff" title="Bonus temporaire" />
-        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_glace_tot" value="floor(@{elem_eau}+@{elem_eau_buff}+@{elem_air}+@{elem_air_buff}+3*(@{elem_glace}+@{elem_glace_buff})+(@{base-Volonte}+@{exal-Volonte})*20/10)" />
+        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_glace_tot" value="floor((@{elem_eau}+@{elem_eau_buff}+@{elem_air}+@{elem_air_buff}+3*(@{elem_glace}+@{elem_glace_buff})+(@{base-Volonte}+@{exal-Volonte})*2)/3)" />
         <br/>
 
         <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à changer les caractéristiques et resistences physiques, négativement et positivement et les dégats non élémentaires" name="attr_magic_elem_metal" value="Affinité au Metal (Chn)" />
         <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="attr_elem_metal" title="Valeur de l'affinité" />
         <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="attr_elem_metal_buff" title="Bonus temporaire" />
-        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_metal_tot" value="floor(@{elem_air}+@{elem_air_buff}+@{elem_terre}+@{elem_terre_buff}+3*(@{elem_metal}+@{elem_metal_buff})+(@{base-Chance}+@{exal-Chance})*20/10)" />
+        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_metal_tot" value="floor((@{elem_air}+@{elem_air_buff}+@{elem_terre}+@{elem_terre_buff}+3*(@{elem_metal}+@{elem_metal_buff})+(@{base-Chance}+@{exal-Chance})*2)/3)" />
         <br/>
 
         <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à infliger des maux et maladies ainsi que les dégats de lave" name="attr_magic_elem_magma" value="Affinité au Magma (Chr)" />
         <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="attr_elem_magma" title="Valeur de l'affinité" />
         <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="attr_elem_magma_buff" title="Bonus temporaire" />
-        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_magma_tot" value="floor(@{elem_terre}+@{elem_terre_buff}+@{elem_feu}+@{elem_feu_buff}+3*(@{elem_magma}+@{elem_magma_buff})+(@{base-Charisme}+@{exal-Charisme})*20/10)" />
+        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_magma_tot" value="floor((@{elem_terre}+@{elem_terre_buff}+@{elem_feu}+@{elem_feu_buff}+3*(@{elem_magma}+@{elem_magma_buff})+(@{base-Charisme}+@{exal-Charisme})*2)/3)" />
         <br/>
 
         <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à changer les caractéristiques et resistences magiques, négativement et positivement ainsi que les dégats toxiques" name="attr_magic_elem_vapeur" value="Affinité à la Vapeur (Per)" />
         <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="attr_elem_vapeur" title="Valeur de l'affinité" />
         <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="attr_elem_vapeur_buff" title="Bonus temporaire" />
-        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_vapeur_tot" value="floor(@{elem_eau}+@{elem_eau_buff}+@{elem_feu}+@{elem_feu_buff}+3*(@{elem_vapeur}+@{elem_vapeur_buff})+(@{base-Perception}+@{exal-Perception})*20/10)" />
+        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_vapeur_tot" value="floor((@{elem_eau}+@{elem_eau_buff}+@{elem_feu}+@{elem_feu_buff}+3*(@{elem_vapeur}+@{elem_vapeur_buff})+(@{base-Perception}+@{exal-Perception})*2)/3)" />
         <br/>
 
         <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à détruire les resistances physiques, diminuer les soins et dimminuer les dégats infligés ainsi qu'augmenter les dégats de bois" name="attr_magic_elem_bois" value="Affinité au Bois" />
         <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="attr_elem_bois" title="Valeur de l'affinité" />
         <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="attr_elem_bois_buff" title="Bonus temporaire" />
-        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_bois_tot" value="floor(@{elem_eau}+@{elem_eau_buff}+@{elem_terre}+@{elem_terre_buff}+3*(@{elem_bois}+@{elem_bois_buff})/10)" />
+        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_bois_tot" value="floor((@{elem_eau}+@{elem_eau_buff}+@{elem_terre}+@{elem_terre_buff}+3*(@{elem_bois}+@{elem_bois_buff}))/3)" />
         <br/>
 
         <input class="sheet-skill_name" disabled="true" style="margin-right: 4px;" type="text" title="Influence l'aptitude à détruire les resistances magiques, les boucliers et diminuer les défences et les dégats des attaques élémentaires de foudre" name="attr_magic_elem_foudre" value="Affinité à la Foudre" />
         <input class="sheet-skill_name" value="1" style="margin-right: 4px;" type="number" name="attr_elem_foudre" title="Valeur de l'affinité" />
         <input class="sheet-skill_name" value="0" style="margin-right: 4px;" type="number" name="attr_elem_foudre_buff" title="Bonus temporaire" />
-        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_foudre_tot" value="floor(@{elem_air}+@{elem_air_buff}+@{elem_feu}+@{elem_feu_buff}+3*(@{elem_foudre}+@{elem_foudre_buff})/10)" />
+        <input class="sheet-trait" disabled="true" title="Valeur totale de l'affinité" name="attr_elem_foudre_tot" value="floor((@{elem_air}+@{elem_air_buff}+@{elem_feu}+@{elem_feu_buff}+3*(@{elem_foudre}+@{elem_foudre_buff}))/3)" />
         <br/>
 
 

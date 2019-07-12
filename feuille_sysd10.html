@@ -252,6 +252,12 @@
           <td><input type="number" class="sheet-trait" name="attr_exal-Charisme" title="Modificateur" value="0"/></td>
           <td><button type='roll' class="sheet-trait_roll" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=Charisme}} {{dice_name=@{dice}}} {{result=[[(@{base-Charisme}+@{exal-Charisme})*2-d@{dice}cs1cf@{dice}]]}} {{threshold=[[(@{base-Charisme}+@{exal-Charisme})*2]]}}"></button></td>
           <td><button type='roll' class="sheet-trait_roll" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=Charisme}} {{dice_name=@{dice}}} {{result=[[(@{base-Charisme}+@{exal-Charisme})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[(@{base-Charisme}+@{exal-Charisme})]]}}">Brut</button></td>
+        </tr><tr>
+          <td><input type="text" class="sheet-trait" name="attr_base-custom-name" title="Carac spéciale" style="width:100px;"value="Carac spéciale"/></td>
+          <td><input type="number" class="sheet-trait" name="attr_base-custom" title="Valeur de base" value="0" min="0" max="10"/></td>
+          <td><input type="number" class="sheet-trait" name="attr_exal-custom" title="Modificateur" value="0"/></td>
+          <td><button type='roll' class="sheet-trait_roll" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{base-custom-name}}} {{dice_name=@{dice}}} {{result=[[(@{base-custom}+@{exal-custom})*2-d@{dice}cs1cf@{dice}]]}} {{threshold=[[(@{base-custom}+@{exal-custom})*2]]}}"></button></td>
+          <td><button type='roll' class="sheet-trait_roll" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{base-custom-name}}} {{dice_name=@{dice}}} {{result=[[(@{base-custom}+@{exal-custom})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[(@{base-custom}+@{exal-custom})]]}}">Brut</button></td>
         </tr>
       </table>
     </div>
@@ -321,6 +327,7 @@
             <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
             <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
             <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+            <option value="@{base-custom} + @{exal-custom}">Spé</option>
           </select>
           <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skillname}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel}+(@{Skill_general_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel}+(@{Skill_general_attribute_select})]]}}"></button>
         </fieldset>
@@ -343,6 +350,7 @@
             <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
             <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
             <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+            <option value="@{base-custom} + @{exal-custom}">Spé</option>
           </select>
           <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{social_skillname}}} {{dice_name=@{dice}}} {{result=[[@{social_skilllevel}+(@{social_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{social_skilllevel}+(@{social_attribute_select})]]}}"></button>
         </fieldset>
@@ -365,6 +373,7 @@
             <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
             <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
             <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+            <option value="@{base-custom} + @{exal-custom}">Spé</option>
           </select>
           <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{intelect_skillname}}} {{dice_name=@{dice}}} {{result=[[@{intelect_skilllevel}+(@{intelect_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{intelect_skilllevel}+(@{intelect_attribute_select})]]}}"></button>
         </fieldset>
@@ -398,6 +407,7 @@
             <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
             <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
             <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+            <option value="@{base-custom} + @{exal-custom}">Spé</option>
           </select>
           <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{magic_skillname}}} {{dice_name=@{dice}}} {{result=[[@{magic_skilllevel}+(@{Skill_magic_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{magic_skilllevel}+(@{Skill_magic_attribute_select})]]}}"></button>
         </fieldset>
@@ -496,6 +506,7 @@
       <select class="sheet-skill_select" style="margin-right:4px" name="attr_Skill_general_attribute_select_attaque">
         <option value="@{base-Force} A @{exal-Force}">For</option>
         <option value="@{base-Agilite} A @{exal-Agilite}">Agi</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       ><input type="number" class="sheet-numberbox" name="attr_general_attack_threshold" title="Seuil pour toucher l'attaque" value="0"/>
       &forall;<input type="number" class="sheet-numberbox" name="attr_general_attack_addall" title="Modificateur sur chaque des" value="0"/>
@@ -515,6 +526,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_supernatural_reflexes}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_supernatural_reflexes}+(@{Skill_general_attribute_select_supernatural_reflexes})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_supernatural_reflexes}+(@{Skill_general_attribute_select_supernatural_reflexes})]]}} "></button>
       <br/>
@@ -552,6 +564,7 @@
           <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
           <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
           <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+          <option value="@{base-custom} + @{exal-custom}">Spé</option>
         </select>
         <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_combat_skillname}}} {{dice_name=@{dice}}} {{result=[[@{general_combat_skilllevel}+(@{general_combat_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_combat_skilllevel}+(@{general_combat_attribute_select})]]}}"></button>
       </fieldset>
@@ -575,6 +588,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Perfection}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Perfection}+(@{Skill_general_attribute_select_Perfection})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Perfection}+(@{Skill_general_attribute_select_Perfection})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" value="1" name="attr_skill_Perfection_activation" />
@@ -595,6 +609,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Technique_martiale}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Technique_martiale}+(@{Skill_general_attribute_select_Technique_martiale})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Technique_martiale}+(@{Skill_general_attribute_select_Technique_martiale})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" style="margin-right: 4px;" value="1" name="attr_skill_Technique_martiale_activation" />
@@ -615,6 +630,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Coup_dechirant}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Coup_dechirant}+(@{Skill_general_attribute_select_Coup_dechirant})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Coup_dechirant}+(@{Skill_general_attribute_select_Coup_dechirant})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" style="margin-right: 4px;" value="1" name="attr_skill_Coup_dechirant_activation" />
@@ -635,6 +651,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Fauchage}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Fauchage}+(@{Skill_general_attribute_select_Fauchage})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Fauchage}+(@{Skill_general_attribute_select_Fauchage})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" style="margin-right: 4px;" value="1" name="attr_skill_Fauchage_activation" />
@@ -655,6 +672,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Exploiter_les_points_faibles}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Exploiter_les_points_faibles}+(@{Skill_general_attribute_select_Exploiter_les_points_faibles})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Exploiter_les_points_faibles}+(@{Skill_general_attribute_select_Exploiter_les_points_faibles})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" style="margin-right: 4px;" value="1" name="attr_skill_Exploiter_les_points_faibles_activation" />
@@ -676,6 +694,7 @@
           <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
           <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
           <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+          <option value="@{base-custom} + @{exal-custom}">Spé</option>
         </select>
         <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{offensive_combat_skillname}}} {{dice_name=@{dice}}} {{result=[[@{offensive_combat_skilllevel}+(@{offensive_combat_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{offensive_combat_skilllevel}+(@{offensive_combat_attribute_select})]]}}"></button>
       </fieldset>
@@ -692,6 +711,7 @@
         <option value="@{base-Agilite} A @{exal-Agilite}">Agi</option>
         <option value="@{base-Volonte} A @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} A @{exal-Psyche}">Psy</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       ><input type="number" class="sheet-numberbox" name="attr_general_defense_threshold" title="Seuil pour toucher l'attaque" value="0"/>
       &forall;<input type="number" class="sheet-numberbox" name="attr_general_defense_addall" title="Modificateur sur chaque des" value="0"/>
@@ -737,6 +757,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Defense_impenetrable}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Defense_impenetrable}+(@{Skill_general_attribute_select_Defense_impenetrable})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Defense_impenetrable}+(@{Skill_general_attribute_select_Defense_impenetrable})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" style="margin-right: 4px;" value="1" name="attr_skill_Defense_impenetrable_activation" />
@@ -757,6 +778,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Rempart_parfait}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Rempart_parfait}+(@{Skill_general_attribute_select_Rempart_parfait})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Rempart_parfait}+(@{Skill_general_attribute_select_Rempart_parfait})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" style="margin-right: 4px;" value="1" name="attr_skill_Rempart_parfait_activation" />
@@ -777,6 +799,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Endurance_surnaturelle}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Endurance_surnaturelle}+(@{Skill_general_attribute_select_Endurance_surnaturelle})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Endurance_surnaturelle}+(@{Skill_general_attribute_select_Endurance_surnaturelle})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" style="margin-right: 4px;" value="1" name="attr_skill_Endurance_surnaturelle_activation" />
@@ -797,6 +820,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Encaissement}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Encaissement}+(@{Skill_general_attribute_select_Encaissement})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Encaissement}+(@{Skill_general_attribute_select_Encaissement})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" style="margin-right: 4px;" value="1" name="attr_skill_Encaissement_activation" />
@@ -818,6 +842,7 @@
           <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
           <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
           <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+          <option value="@{base-custom} + @{exal-custom}">Spé</option>
         </select>
         <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{defensive_combat_skillname}}} {{dice_name=@{dice}}} {{result=[[@{defensive_combat_skilllevel}+(@{defensive_combat_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{defensive_combat_skilllevel}+(@{defensive_combat_attribute_select})]]}}"></button>
       </fieldset>
@@ -834,6 +859,7 @@
         <option value="@{base-Perception} + @{exal-Perception}">Per</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Agilite} + @{exal-Agilite}">Agi</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <br/>
 
@@ -851,6 +877,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Tir_precis}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Tir_precis}+(@{Skill_general_attribute_select_Tir_precis})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Tir_precis}+(@{Skill_general_attribute_select_Tir_precis})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" style="margin-right: 4px;" value="1" name="attr_skill_Tir_precis_activation" />
@@ -871,6 +898,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Tir_implacable}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Tir_implacable}+(@{Skill_general_attribute_select_Tir_implacable})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Tir_implacable}+(@{Skill_general_attribute_select_Tir_implacable})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" style="margin-right: 4px;" value="1" name="attr_skill_Tir_implacable_activation" />
@@ -891,6 +919,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Charge}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Charge}+(@{Skill_general_attribute_select_Charge})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Charge}+(@{Skill_general_attribute_select_Charge})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" style="margin-right: 4px;" value="1" name="attr_skill_Charge_activation" />
@@ -911,6 +940,7 @@
         <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
         <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
         <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+        <option value="@{base-custom} + @{exal-custom}">Spé</option>
       </select>
       <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_skill_Charge_indomptable}}} {{dice_name=@{dice}}} {{result=[[@{general_skilllevel_Charge_indomptable}+(@{Skill_general_attribute_select_Charge_indomptable})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_skilllevel_Charge_indomptable}+(@{Skill_general_attribute_select_Charge_indomptable})]]}} "></button>
       <input type="checkbox" class="sheet-skill_activation" style="margin-right: 4px;" value="1" name="attr_skill_Charge_indomptable_activation" />
@@ -932,6 +962,7 @@
           <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
           <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
           <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+          <option value="@{base-custom} + @{exal-custom}">Spé</option>
         </select>
         <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{tir_charge_combat_skillname}}} {{dice_name=@{dice}}} {{result=[[@{tir_charge_combat_skilllevel}+(@{tir_charge_combat_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{tir_charge_combat_skilllevel}+(@{tir_charge_combat_attribute_select})]]}}"></button>
       </fieldset>

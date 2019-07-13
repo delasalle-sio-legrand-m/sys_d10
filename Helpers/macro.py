@@ -35,11 +35,14 @@ def diff(characters,output,version):
     if len(chars)==0:
         dprint(errors["notfound"].format(char="any character"))
         return
+    list=["git", "diff","HEAD","--word-diff=color","--function-context"]+chars
     if output=="tty":
         dprint("Printing diff")
-        list=["git", "diff","HEAD","--word-diff=color","--function-context"]+chars
         subprocess.call(list)
-
+    else:
+        proc=subprocess.Popen(list,stdout=subprocess.PIPE)
+        pi=subprocess.check_output(("./ansi2html.sh","test.html"),stdin=proc.stdout)
+        print(pi)
 
 def get_char(names):
     if names[0]=="all":

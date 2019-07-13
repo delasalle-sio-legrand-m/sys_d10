@@ -38,11 +38,13 @@ def diff(characters,output,version):
     list=["git", "diff","HEAD","--word-diff=color","--function-context"]+chars
     if output=="tty":
         dprint("Printing diff")
-        subprocess.call(list)
+        pi=subprocess.check_output(list).decode("utf-8")
+        print(pi)
     else:
         proc=subprocess.Popen(list,stdout=subprocess.PIPE)
-        pi=subprocess.check_output(("./ansi2html.sh","test.html"),stdin=proc.stdout)
-        print(pi)
+        pi=subprocess.check_output(("./ansi2html.sh"),stdin=proc.stdout)
+        with open(output,"wb") as file:
+            file.write(pi)
 
 def get_char(names):
     if names[0]=="all":

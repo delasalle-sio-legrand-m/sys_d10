@@ -1,8 +1,9 @@
+#encoding:UTF-8
 import sys,os,traceback
 import re,argparse,configparser
 from os import listdir
 from os.path import isfile, join
-
+import subprocess
 import blessings
 term=blessings.Terminal()
 
@@ -11,7 +12,7 @@ parser.add_argument('command',choices=["macro","varnames","diff",'show'],help="T
 parser.add_argument('characters',default=["all"],help="Name of the characters to list, all by default",nargs="*")
 parser.add_argument("-o",metavar="output",default="tty",help="File for the output command, tty by default",nargs="?")
 parser.add_argument("-v",default=False,action='store_true',help="Default")
-parser.add_argument("--version",default="last",help="The version to pick from or from wich to make the diff from",nargs="?")
+parser.add_argument("--version",default="HEAD",help="The version to pick from or from wich to make the diff from",nargs="?")
 verbose=False
 def dprint(text):
     if verbose:
@@ -20,8 +21,11 @@ def dprint(text):
 reserved_chars=["exemple.ini","God.ini"]
 errors={
     "notfound":term.red("Couldn't find {char} in the Character directory"),
-    "sectionnotfound":term.red("Coulnd't find section {section} in {where}")
+    "sectionnotfound":term.red("Coulnd't find section {section} in {where}"),
+    "noreplacement":term.red("Couldn't find replacement for {var} in {where}")
 }
+god=configparser.ConfigParser()
+god.read("Characters/God.ini")
 
 
 def macro(e):
@@ -37,8 +41,17 @@ def show(characters,output,version):
     if output=="tty":
         print(ret)
     else:
-        with open(output,"r") as f:
-            f.write(ret)
+        pi=subprocess.Popen(("./ansi2html.sh","--palette=xterm"),stdin=subprocess.PIPE,stdout=subprocess.PIPE)
+        e=str.encode(ret,"utf8")
+        pi.stdin.write(e)
+        pi.stdin.close()
+        with open(output,"wb") as f:
+            while True:
+                line=pi.stdout.readline()
+                if not line:
+                    break
+                f.write(line)
+
 
 def show_one(character,output,version):
     config=configparser.ConfigParser()
@@ -46,26 +59,44 @@ def show_one(character,output,version):
     ret=""
     for sect in config.sections():
         text=""
-        text+=term.bold_green("[{level}] {title}\n").format(title=config[sect]["display_name"],level=config[sect]["level"])
+        text+=term.bold_blue("[{level}] {title}\n").format(title=config[sect]["display_name"],level=config[sect]["level"])
         for dname,sname in (('Description',"description"),("Description personelle",'self'),("Description publique","others"),("Spécial","special")):
             try:
-                adden=" {t}\n   {c}\n".format(t=term.green_underline(dname),c=config[sect][sname].replace("\n","\n   "))
+                content=replace_vars(config[sect][sname],config,god,sname,sect)
+                adden=" {t}\n   {c}\n".format(t=term.blue_underline(dname),c=content.replace("\n","\n   "))
                 text+=adden
-            except:
+            except KeyError:
                 dprint(errors["sectionnotfound"].format(section=sname,where=sect))
-        ret+=text
+        ret+=text+'\n'
     return ret
+
+toreplace=re.compile("(?:[^@]|$)\{([\w_-]*)\}")
+def replace_vars(text,char,god,section,name):
+    vars=toreplace.findall(text)
+    if vars:
+        for group in vars:
+            try:
+                text=text.replace("{"+group+"}",char[name][group])
+            except:
+                try:
+                    if name not in god:
+                        w="DEFAULT"
+                    else:
+                        w=name
+                    text=text.replace("{"+group+"}",god[w][group])
+                except:
+                    dprint(errors["noreplacement"].format(var=group,where=name))
+    return text
 
 def varnames(e):
     pass
 
 def diff(characters,output,version):
-    import subprocess
     chars=get_char(characters)
     if len(chars)==0:
         dprint(errors["notfound"].format(char="any character"))
         return
-    list=["git", "diff","HEAD","--word-diff=color","--function-context"]+chars
+    list=["git", "diff",version,"--word-diff=color","--function-context"]+chars
     if output=="tty":
         dprint("Printing diff")
         pi=subprocess.check_output(list).decode("utf-8")

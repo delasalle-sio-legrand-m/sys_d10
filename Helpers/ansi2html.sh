@@ -114,83 +114,13 @@ fi
 [ "$css_only" ] || [ "$body_only" ] || printf '%s' "<html>
 <head>
 <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>
-<style type=\"text/css\">
-pre { white-space: pre-wrap; }
+<link rel=\"stylesheet\" type=\"text/css\" href=\"term.css\"/>
 "
-[ "$body_only" ] || printf ".ef0,.f0 { color: #$P0; } .eb0,.b0 { background-color: #$P0; }
-.ef1,.f1 { color: #$P1; } .eb1,.b1 { background-color: #$P1; }
-.ef2,.f2 { color: #$P2; } .eb2,.b2 { background-color: #$P2; }
-.ef3,.f3 { color: #$P3; } .eb3,.b3 { background-color: #$P3; }
-.ef4,.f4 { color: #$P4; } .eb4,.b4 { background-color: #$P4; }
-.ef5,.f5 { color: #$P5; } .eb5,.b5 { background-color: #$P5; }
-.ef6,.f6 { color: #$P6; } .eb6,.b6 { background-color: #$P6; }
-.ef7,.f7 { color: #$P7; } .eb7,.b7 { background-color: #$P7; }
-.ef8, .f0 > .bold,.bold > .f0 { color: #$P8; font-weight: normal; }
-.ef9, .f1 > .bold,.bold > .f1 { color: #$P9; font-weight: normal; }
-.ef10,.f2 > .bold,.bold > .f2 { color: #$P10; font-weight: normal; }
-.ef11,.f3 > .bold,.bold > .f3 { color: #$P11; font-weight: normal; }
-.ef12,.f4 > .bold,.bold > .f4 { color: #$P12; font-weight: normal; }
-.ef13,.f5 > .bold,.bold > .f5 { color: #$P13; font-weight: normal; }
-.ef14,.f6 > .bold,.bold > .f6 { color: #$P14; font-weight: normal; }
-.ef15,.f7 > .bold,.bold > .f7 { color: #$P15; font-weight: normal; }
-.eb8  { background-color: #$P8; }
-.eb9  { background-color: #$P9; }
-.eb10 { background-color: #$P10; }
-.eb11 { background-color: #$P11; }
-.eb12 { background-color: #$P12; }
-.eb13 { background-color: #$P13; }
-.eb14 { background-color: #$P14; }
-.eb15 { background-color: #$P15; }
-"
-# The default xterm 256 colour palette
-for red in 0 1 2 3 4 5 ; do
-  for green in 0 1 2 3 4 5 ; do
-    for blue in 0 1 2 3 4 5 ; do
-      c=$((16 + ($red * 36) + ($green * 6) + $blue))
-      r=$((($red * 40 + 55) * ($red > 0)))
-      g=$((($green * 40 + 55) * ($green > 0)))
-      b=$((($blue * 40 + 55) * ($blue > 0)))
-      [ "$body_only" ] || printf ".ef%d { color: #%2.2x%2.2x%2.2x; } " $c $r $g $b
-      [ "$body_only" ] || printf ".eb%d { background-color: #%2.2x%2.2x%2.2x; }\n" $c $r $g $b
-    done
-  done
-done
-for gray in $(seq 0 23); do
-  c=$(($gray+232))
-  l=$(($gray*10 + 8))
-  [ "$body_only" ] || printf ".ef%d { color: #%2.2x%2.2x%2.2x; } " $c $l $l $l
-  [ "$body_only" ] || printf ".eb%d { background-color: #%2.2x%2.2x%2.2x; }\n" $c $l $l $l
-done
-
-[ "$body_only" ] || printf '%s' '
-.f9 { color: '`[ "$dark_bg" ] && printf "#$P7;" || printf "#$P0;"`' }
-.b9 { background-color: #'`[ "$dark_bg" ] && printf $P0 || printf $P15`'; }
-.f9 > .bold,.bold > .f9, body.f9 > pre > .bold {
-  /* Bold is heavy black on white, or bright white
-     depending on the default background */
-  color: '`[ "$dark_bg" ] && printf "#$P15;" || printf "#$P0;"`'
-  font-weight: '`[ "$dark_bg" ] && printf 'normal;' || printf 'bold;'`'
-}
-.reverse {
-  /* CSS does not support swapping fg and bg colours unfortunately,
-     so just hardcode something that will look OK on all backgrounds. */
-  '"color: #$P0; background-color: #$P7;"'
-}
-.underline { text-decoration: underline; }
-.line-through { text-decoration: line-through; }
-.blink { text-decoration: blink; }
-
-/* Avoid pixels between adjacent span elements.
-   Note this only works for lines less than 80 chars
-   where we close span elements on the same line.
-span { display: inline-block; }
-*/
-'
 [ "$body_only" ] || [ "$css_only" ] && printf '%s\n' \
 'To use the css generated from --css-only, do: '\
-'<head><link rel="stylesheet" type="text/css" href="style.css"></head>' >&2
+'<head><link rel="stylesheet" type="text/css" href="style.css"/></head>' >&2
 [ "$css_only" ] && exit
-[ "$body_only" ] || printf '%s' '</style>
+[ "$body_only" ] || printf '%s' '
 </head>
 
 <body class="f9 b9">

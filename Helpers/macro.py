@@ -36,21 +36,22 @@ def show(characters,output,version):
     if not list_files:
         return
     ret=""
-    for file in list_files:
-        ret+=show_one(file,output,version)
-    if output=="tty":
-        print(ret)
-    else:
-        pi=subprocess.Popen(("./ansi2html.sh","--palette=xterm"),stdin=subprocess.PIPE,stdout=subprocess.PIPE)
-        e=str.encode(ret,"utf8")
-        pi.stdin.write(e)
-        pi.stdin.close()
-        with open(output,"wb") as f:
-            while True:
-                line=pi.stdout.readline()
-                if not line:
-                    break
-                f.write(line)
+    for file,name in zip(list_files,characters):
+        ret=show_one(file,output,version)
+        if output=="tty":
+            print(ret)
+        else:
+            pi=subprocess.Popen(("./ansi2html.sh","--palette=xterm"),stdin=subprocess.PIPE,stdout=subprocess.PIPE)
+            e=str.encode(ret,"utf8")
+            pi.stdin.write(e)
+            pi.stdin.close()
+            output=join(output,name+".html")
+            with open(output,"wb") as f:
+                while True:
+                    line=pi.stdout.readline()
+                    if not line:
+                        break
+                    f.write(line)
 
 
 def show_one(character,output,version):

@@ -60,7 +60,7 @@ def show_one(character,output,version):
     ret=""
     for sect in config.sections():
         text=""
-        text+=term.bold_blue("[{level}] {title}\n").format(title=config[sect]["display_name"],level=config[sect]["level"])
+        text+=term.bold_blue("[{level}] {title} [{cost}]\n").format(title=config[sect]["display_name"],level=config[sect]["level"],cost=config[sect]["cost"])
         for dname,sname in (('Description',"description"),("Description personelle",'self'),("Description publique","others"),("Spécial","special"),("Type de technique","type")):
             try:
                 content=replace_vars(config[sect][sname],config,god,sname,sect,character)

@@ -60,9 +60,9 @@ def show_one(character,output,version):
     for sect in config.sections():
         text=""
         text+=term.bold_blue("[{level}] {title}\n").format(title=config[sect]["display_name"],level=config[sect]["level"])
-        for dname,sname in (('Description',"description"),("Description personelle",'self'),("Description publique","others"),("Spécial","special")):
+        for dname,sname in (('Description',"description"),("Description personelle",'self'),("Description publique","others"),("Spécial","special"),("Type de technique","type")):
             try:
-                content=replace_vars(config[sect][sname],config,god,sname,sect)
+                content=replace_vars(config[sect][sname],config,god,sname,sect,character)
                 adden=" {t}\n   {c}\n".format(t=term.blue_underline(dname),c=content.replace("\n","\n   "))
                 text+=adden
             except KeyError:
@@ -70,8 +70,8 @@ def show_one(character,output,version):
         ret+=text+'\n'
     return ret
 
-toreplace=re.compile("(?:[^@]|$)\{([\w_-]*)\}")
-def replace_vars(text,char,god,section,name):
+toreplace=re.compile("\{([\w_-]*)\}")
+def replace_vars(text,char,god,section,name,character):
     vars=toreplace.findall(text)
     if vars:
         for group in vars:
@@ -79,10 +79,10 @@ def replace_vars(text,char,god,section,name):
                 text=text.replace("{"+group+"}",char[name][group])
             except:
                 try:
-                    if name not in god:
+                    if character not in god:
                         w="DEFAULT"
                     else:
-                        w=name
+                        w=character
                     text=text.replace("{"+group+"}",god[w][group])
                 except:
                     dprint(errors["noreplacement"].format(var=group,where=name))

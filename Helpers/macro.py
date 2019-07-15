@@ -2,7 +2,7 @@
 import sys,os,traceback
 import re,argparse,configparser
 from os import listdir
-from os.path import isfile, join
+from os.path import isfile, join,basename
 import subprocess
 import blessings
 term=blessings.Terminal()
@@ -20,11 +20,11 @@ def dprint(text):
 
 reserved_chars=["exemple.ini","God.ini"]
 errors={
-    "notfound":term.red("Couldn't find {char} in the Character directory"),
-    "sectionnotfound":term.red("Coulnd't find section {section} in {where}"),
-    "noreplacement":term.red("Couldn't find replacement for {var} in {where}")
+    "notfound":term.red("[Error] Couldn't find {char} in the Character directory"),
+    "sectionnotfound":term.red("[Error] Coulnd't find section {section} in {where}"),
+    "noreplacement":term.yellow("[Warning] Couldn't find replacement for {var} in {where}")
 }
-god=configparser.ConfigParser()
+god=configparser.ConfigParser(inline_comment_prefixes="#")
 god.read("Characters/God.ini")
 
 
@@ -32,11 +32,11 @@ def macro(e):
     pass
 
 def show(characters,output,version):
-    list_files=get_char(characters)
+    list_files,names=get_char(characters)
     if not list_files:
         return
     ret=""
-    for file,name in zip(list_files,characters):
+    for file,name in zip(list_files,names):
         ret=show_one(file,output,version)
         if output=="tty":
             print(ret)
@@ -55,7 +55,7 @@ def show(characters,output,version):
 
 
 def show_one(character,output,version):
-    config=configparser.ConfigParser()
+    config=configparser.ConfigParser(inline_comment_prefixes="#")
     config.read(character)
     ret=""
     for sect in config.sections():
@@ -63,6 +63,8 @@ def show_one(character,output,version):
         text+=term.bold_blue("[{level}] {title} [{cost}]\n").format(title=config[sect]["display_name"],level=config[sect]["level"],cost=config[sect]["cost"])
         for dname,sname in (('Description',"description"),("Description personelle",'self'),("Description publique","others"),("Spécial","special"),("Type de technique","type")):
             try:
+                if not config[sect][sname]:
+                    continue
                 content=replace_vars(config[sect][sname],config,god,sname,sect,character)
                 adden=" {t}\n   {c}\n".format(t=term.blue_underline(dname),c=content.replace("\n","\n   "))
                 text+=adden
@@ -93,7 +95,7 @@ def varnames(e):
     pass
 
 def diff(characters,output,version):
-    chars=get_char(characters)
+    chars,names=get_char(characters)
     if len(chars)==0:
         dprint(errors["notfound"].format(char="any character"))
         return
@@ -111,17 +113,19 @@ def diff(characters,output,version):
 def get_char(names):
     if names[0]=="all":
         return get_all_chars()
-    char=[]
+    char,names=[],[]
     for n in names:
         c=join("Characters", n+".ini")
         if isfile(c):
             char.append(c)
+            names.append(n)
         else:
             dprint(errors["notfound"].format(char=c))
-    return char
+    return char,names
 
 def get_all_chars():
-    return [join("Characters", f) for f in listdir("Characters") if (f not in reserved_chars and isfile(join("Characters", f)))]
+    names=[f for f in listdir("Characters") if (f not in reserved_chars and isfile(join("Characters", f)))]
+    return [join("Characters", f) for f in names],[n[:-4] for n in names] # MOAR BLOBSHITCODING
 
 if __name__ == '__main__':
     try:

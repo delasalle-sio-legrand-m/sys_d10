@@ -45,8 +45,8 @@ def show(characters,output,version):
             e=str.encode(ret,"utf8")
             pi.stdin.write(e)
             pi.stdin.close()
-            output=join(output,name+".html")
-            with open(output,"wb") as f:
+            foutput=join(output,name+".html")
+            with open(foutput,"wb") as f:
                 while True:
                     line=pi.stdout.readline()
                     if not line:
@@ -113,15 +113,15 @@ def diff(characters,output,version):
 def get_char(names):
     if names[0]=="all":
         return get_all_chars()
-    char,names=[],[]
+    char,rnames=[],[]
     for n in names:
         c=join("Characters", n+".ini")
         if isfile(c):
             char.append(c)
-            names.append(n)
+            rnames.append(n)
         else:
             dprint(errors["notfound"].format(char=c))
-    return char,names
+    return char,rnames
 
 def get_all_chars():
     names=[f for f in listdir("Characters") if (f not in reserved_chars and isfile(join("Characters", f)))]

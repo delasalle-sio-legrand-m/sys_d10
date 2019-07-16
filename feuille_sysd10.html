@@ -477,12 +477,68 @@
 
       </div>
       <div class="sheet-tab-content sheet-secondary_magic_tab3"><h3>Mage Aspect</h3>
+      <fieldset class="repeating_magic-aspected-skills">
+        <input class="sheet-skill_name" type="text" name="attr_magic_aspected_skillname" />
+        <input type="number" name="attr_magic_aspected_skillcost" title="Coût de la compétence" />
+        <input type="number" min="0" max="10" name="attr_magic_aspected_skilllevel" title="Niveau dans la compétence" />
+        <select class="sheet-skill_select" name="attr_magic_aspected_attribute_select">
+          <option value="@{base-Force} + @{exal-Force}">For</option>
+          <option value="@{base-Agilite} + @{exal-Agilite}">Agi</option>
+          <option value="@{base-Perception} + @{exal-Perception}">Per</option>
+          <option value="@{base-Charisme} + @{exal-Charisme}">Cha</option>
+          <option value="@{base-Intelligence} + @{exal-Intelligence}">Int</option>
+          <option value="@{base-Perception} + @{exal-Perception}">Per</option>
+          <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
+          <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
+          <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+          <option value="@{base-custom} + @{exal-custom}">Spé</option>
+        </select>
+        <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{magic_aspected_skillname}}} {{dice_name=@{dice}}} {{result=[[@{magic_aspected_skilllevel}+(@{magic_aspected_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{magic_aspected_skilllevel}+(@{magic_aspected_attribute_select})]]}}"></button>
+      </fieldset
       </div>
 
       <div class="sheet-tab-content sheet-secondary_magic_tab4"><h3>Arcaniste</h3>
+          <fieldset class="repeating_magic-arcanist-skills">
+            <input class="sheet-skill_name" type="text" name="attr_magic_arcanist_skillname" />
+            <input type="number" name="attr_magic_arcanist_skillcost" title="Coût de la compétence" />
+            <input type="number" min="0" max="10" name="attr_magic_arcanist_skilllevel" title="Niveau dans la compétence" />
+            <select class="sheet-skill_select" name="attr_magic_arcanist_attribute_select">
+              <option value="@{base-Force} + @{exal-Force}">For</option>
+              <option value="@{base-Agilite} + @{exal-Agilite}">Agi</option>
+              <option value="@{base-Perception} + @{exal-Perception}">Per</option>
+              <option value="@{base-Charisme} + @{exal-Charisme}">Cha</option>
+              <option value="@{base-Intelligence} + @{exal-Intelligence}">Int</option>
+              <option value="@{base-Perception} + @{exal-Perception}">Per</option>
+              <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
+              <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
+              <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+              <option value="@{base-custom} + @{exal-custom}">Spé</option>
+            </select>
+            <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{magic_arcanist_skillname}}} {{dice_name=@{dice}}} {{result=[[@{magic_arcanist_skilllevel}+(@{magic_arcanist_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{magic_arcanist_skilllevel}+(@{magic_arcanist_attribute_select})]]}}"></button>
+          </fieldset
+          </div>
       </div>
 
       <div class="sheet-tab-content sheet-secondary_magic_tab5"><h3>Magie Vitale</h3>
+        <fieldset class="repeating_magic-vital-skills">
+            <input class="sheet-skill_name" type="text" name="attr_magic_vital_skillname" />
+            <input type="number" name="attr_magic_vital_skillcost" title="Coût de la compétence" />
+            <input type="number" min="0" max="10" name="attr_magic_vital_skilllevel" title="Niveau dans la compétence" />
+            <select class="sheet-skill_select" name="attr_magic_vital_attribute_select">
+              <option value="@{base-Force} + @{exal-Force}">For</option>
+              <option value="@{base-Agilite} + @{exal-Agilite}">Agi</option>
+              <option value="@{base-Perception} + @{exal-Perception}">Per</option>
+              <option value="@{base-Charisme} + @{exal-Charisme}">Cha</option>
+              <option value="@{base-Intelligence} + @{exal-Intelligence}">Int</option>
+              <option value="@{base-Perception} + @{exal-Perception}">Per</option>
+              <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
+              <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
+              <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+              <option value="@{base-custom} + @{exal-custom}">Spé</option>
+            </select>
+            <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{magic_vital_skillname}}} {{dice_name=@{dice}}} {{result=[[@{magic_vital_skilllevel}+(@{magic_vital_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{magic_vital_skilllevel}+(@{magic_vital_attribute_select})]]}}"></button>
+          </fieldset
+          </div >
       </div>
     </div>
   </div>

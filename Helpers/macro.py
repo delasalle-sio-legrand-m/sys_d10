@@ -61,7 +61,7 @@ def show_one(character,output,version):
     for sect in config.sections():
         text=""
         text+=term.bold_blue("[{level}] {title} [{cost}]\n").format(title=config[sect]["display_name"],level=config[sect]["level"],cost=config[sect]["cost"])
-        for dname,sname in (('Description',"description"),("Description personelle",'self'),("Description publique","others"),("Spécial","special"),("Type de technique","type")):
+        for dname,sname in (("Type de technique","type"),('Description',"description"),("Description personelle",'self'),("Description publique","others"),("Spécial","special")):
             try:
                 if not config[sect][sname]:
                     continue

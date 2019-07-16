@@ -7,99 +7,105 @@
 
 <body class="f9 b9">
 <pre>
-<span class="bold"><span class="f4">[Ultime] Morsure de l'Hiver []</span></span>
+<span class="bold"><span class="f4">[Ultime] Morsure de l'Hiver [8]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Sous certaines conditions, ou si un sort de glace atteint un ennemi directement,
    il appliquera un stack de cet effet. Plus cet effet aura été appliqué, plus la cible subira de dégâts supplémentaires.
    Les effets persistent un tour après application, suite à quoi un effet est perdu à chaque tour.
+ <span class="f4"><span class="underline">Spécial</span></span>
+   Je suggere dure @{morsure_hiver_level} tours voire ou plusieurs variantes, a voir
  <span class="f4"><span class="underline">Type de technique</span></span>
    Passif
 
-<span class="bold"><span class="f4">[Ultime] Robustesse de l'Hiver []</span></span>
+<span class="bold"><span class="f4">[Ultime] Robustesse de l'Hiver [8]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Sous certaines conditions, ou si un sort de glace atteint un allié directement,
    il appliquera un stack de cet effet. La cible gagne des résistances aux dégâts pour chaque stack.
    Un effet est perdu à chaque fois que la cible prend des dégâts.
+ <span class="f4"><span class="underline">Spécial</span></span>
+   Je suggere max X staks ou durent @{robustesse_hiver_level} tours ou resiste @{robustesse_hiver_level}, a voir cf ^
  <span class="f4"><span class="underline">Type de technique</span></span>
    Passif
 
-<span class="bold"><span class="f4">[Avancée] Revigoration []</span></span>
+<span class="bold"><span class="f4">[Avancée] Revigoration [2]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
-   Consomme les effets Robustesse de l'hiver d'une cible pour lui rendre X*2 points de vie par effet.
+   Consomme les effets Robustesse de l'hiver d'une cible pour lui rendre @{revigoration_level}*4 points de vie par effet.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Instant
 
-<span class="bold"><span class="f4">[Avancée] Transfert de Froid []</span></span>
+<span class="bold"><span class="f4">[Avancée] Transfert de Froid [2]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
-   Transfère jusqu'à X effets Morsure de l'hiver d'une cible ennemie vers une autre au choix.
+   Transfère jusqu'à @{transfert_froid_level} effets Morsure de l'hiver d'une cible ennemie vers une autre au choix.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Instant
 
-<span class="bold"><span class="f4">[Avancée] Symbiose de l'aspect []</span></span>
+<span class="bold"><span class="f4">[Avancée] Symbiose de l'aspect [4]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
-   L'aspect peut prendre jusqu'à X*2 points de dégâts à votre place.
+   L'aspect peut prendre jusqu'à @{symbiose_aspect_level}*2 points de dégâts à votre place.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Passif/Instant
 
-<span class="bold"><span class="f4">[Avancée] Stimulation de l'aspect []</span></span>
+<span class="bold"><span class="f4">[Avancée] Stimulation de l'aspect [4]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Si le personnage ne peut plus agir quelqu'en soit la raison,
-   l'aspect gagne X actions supplémentaires jusqu'à la reprise de contrôle du personnage.
+   l'aspect gagne @{stimulation_aspect_level} actions supplémentaires jusqu'à la reprise de contrôle du personnage.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Passif/Buff
 
-<span class="bold"><span class="f4">[Avancée] Garde de l'aspect []</span></span>
+<span class="bold"><span class="f4">[Avancée] Garde de l'aspect [4]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Lorsque vous allez subir des dégâts, lance jusqu'à X dés.
    Les dégâts sont réduits à hauteur de la somme de la valeur des dés.
+ <span class="f4"><span class="underline">Spécial</span></span>
+   A rescale avec les affinitées
  <span class="f4"><span class="underline">Type de technique</span></span>
    Passif/Instant
 
-<span class="bold"><span class="f4">[Avancée] Colère de l'aspect []</span></span>
+<span class="bold"><span class="f4">[Avancée] Colère de l'aspect [4]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
-   L'aspect peut supprimer jusqu'à X effets Morsure de l'hiver d'une cible pour augmenter les dégâts de son prochain sort.
+   L'aspect peut supprimer jusqu'à @{colere_aspect_level} effets Morsure de l'hiver d'une cible pour augmenter les dégâts de son prochain sort.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Empower
 
-<span class="bold"><span class="f4">[Avancée] prélude de l'hiver []</span></span>
+<span class="bold"><span class="f4">[Avancée] prélude de l'hiver [16]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
-   Quand le personnage va subir des dégâts létaux, Stase Cryogénique est utilisé sur lui-même.
+   @{prelude_hiver_level} fois par combat, si le personnage devrait subir des dégâts létaux, Stase Cryogénique est utilisé sur lui-même a la place.
  <span class="f4"><span class="underline">Spécial</span></span>
    Voir le sort Stase Cryogénique, situé 3 sorts plus bas
  <span class="f4"><span class="underline">Type de technique</span></span>
    Passif/Instant/Buff
 
-<span class="bold"><span class="f4">[Simple] Armure de Givre []</span></span>
+<span class="bold"><span class="f4">[Simple] Armure de Givre [4]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
-   Crée une armure de Givre sur une cible, lui conférant 1 effet Robustesse de l’hiver,
+   Crée une armure de Givre sur une cible, lui conférant @{armure_givre_level} effet Robustesse de l’hiver,
    tout en créant un bouclier sur la cible.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Buff
 
-<span class="bold"><span class="f4">[Simple] Rayon de Glace []</span></span>
+<span class="bold"><span class="f4">[Simple] Rayon de Glace [8]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Frappe un ennemi avec la puissance brute de la Glace, occasionnant de lourds dégâts si l’attaque touche.
-   Cette attaque inflige 3 effets Morsure de l’Hiver contrairement aux autres.
+   Cette attaque inflige @{rayon_glace_level} effets Morsure de l’Hiver supplémentaires.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Instant
 
-<span class="bold"><span class="f4">[Avancée] Stase Cryogénique []</span></span>
+<span class="bold"><span class="f4">[Avancée] Stase Cryogénique [4]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Protège une cible des dégâts, l’empêche d’utiliser des actions.
-   Régénère des points de vie si la cible est alliée et est déjà sous l’effet Robustesse de l’Hiver.
+   Régénère @{stase_cryogenique_level}*5 points de vie par marque de Robustesse de l’Hiver sur la cible.
    Peut-être utilisé sur un ennemi affecté par Morsure de l’hiver pour les mêmes effets.
    Dure jusqu’au prochain tour de la cible.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Empower
 
-<span class="bold"><span class="f4">[Simple] Brume Gelée []</span></span>
+<span class="bold"><span class="f4">[Simple] Brume Gelée [2]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
-   Invoque une brume qui recouvre une très grande zone, handicapant la vision des ennemis,
-   et donnant un effet Robustesse de l’hiver aux alliés à l’intérieur chaque tour. La Brume dure X tours.
+   Invoque une brume qui recouvre une zone de @{brume_gelee_level}*5 metres de rayon handicapant la vision des ennemis,
+   et donnant un effet Robustesse de l’hiver aux alliés à l’intérieur chaque tour. La Brume dure @{brume_gelee_level} tours.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Buff/Durée
 
-<span class="bold"><span class="f4">[Avancée] Mur réfléchissant []</span></span>
+<span class="bold"><span class="f4">[Avancée] Mur réfléchissant [8]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Invoque un grand mur qui bloque les attaques physiques et réfléchit les sorts.
    Si un ennemi voit son attaque bloquée ou son sort réfléchi,
@@ -107,14 +113,14 @@
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Debuff
 
-<span class="bold"><span class="f4">[Simple] Vague de Glace []</span></span>
+<span class="bold"><span class="f4">[Simple] Vague de Glace [4]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Crée une grande vague de glace qui part du lanceur, occasionnant des dégâts,
    applique Morsure de l’hiver, et entrave tout ennemi n’ayant pas réussi à l’esquiver.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Instant/Debuff
 
-<span class="bold"><span class="f4">[Avancée] Etreinte Glaciale []</span></span>
+<span class="bold"><span class="f4">[Avancée] Etreinte Glaciale [8]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Ce sort nécessite que la cible soit affectée par au moins 3 effets Morsure de l’hiver.
    Tant que la cible est affectée par Morsure de l’hiver,
@@ -122,22 +128,22 @@
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Instant/Durée
 
-<span class="bold"><span class="f4">[Avancée] Bénédiction de l'hiver []</span></span>
+<span class="bold"><span class="f4">[Avancée] Bénédiction de l'hiver [8]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Ce sort nécessite que la cible soit affectée par au moins 3 effets Robustesse de l’hiver.
-   La cible voit ses dégâts augmenter pendant X tours et gagne un effet Robustesse de l’hiver.
+   La cible voit ses dégâts augmenter pendant @{benediction_hiver_level} tours et gagne un effet Robustesse de l’hiver.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Buff/Durée
 
-<span class="bold"><span class="f4">[Avancée] Blizzard []</span></span>
+<span class="bold"><span class="f4">[Avancée] Blizzard [16]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
-   Crée une tempête dévastatrice dans une grande zone pendant X tours.
+   Crée une tempête dévastatrice dans une grande zone pendant @{blizzard_level} tours.
    Les ennemis pris dans le Blizzard prennent d’importants dégâts et subissent deux effets Morsure de l’hiver
-   chaque tour tant qu’ils sont dedans.
+   chaque tour commencé dans cette zone.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Durée
 
-<span class="bold"><span class="f4">[Avancée] Dôme de l'hiver []</span></span>
+<span class="bold"><span class="f4">[Avancée] Dôme de l'hiver [16]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Invoque un grand dôme protecteur autour du lanceur.
    Ce dôme va protéger tous les alliés qui se trouvent à l’intérieur d’une énorme quantité de dégâts,
@@ -147,24 +153,24 @@
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Canalisation/Buff
 
-<span class="bold"><span class="f4">[Avancée] Hiver sans fin []</span></span>
+<span class="bold"><span class="f4">[Avancée] Hiver sans fin [16]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
-   Sacrifie jusqu'à X effets Robustesse de l’hiver sur le lanceur.
+   Sacrifie jusqu'à @{hiver_sans_fin_level} effets Robustesse de l’hiver sur le lanceur.
    Pendant Y tours, Y étant ce nombre d'effets, tous les sorts génèrent le double d’effets Robustesse de l’hiver et Morsure de l’hiver.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Instant/Buff/Durée
 
-<span class="bold"><span class="f4">[Simple] Bourrasque Gelée []</span></span>
+<span class="bold"><span class="f4">[Simple] Bourrasque Gelée [4]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Envoie une grosse bourrasque d’air glacé qui inflige des dégâts,
    un effet Morsure de l’hiver, et repousse les ennemis autour du lanceur.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Instant/Debuff
 
-<span class="bold"><span class="f4">[Ultime] Permafrost []</span></span>
+<span class="bold"><span class="f4">[Ultime] Permafrost [16]</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Tous les ennemis aux alentours affectés par Morsure de l’hiver voient leurs mouvements considérablement ralentis.
-   Ils perdent X actions, ainsi que X points dans leur caractéristique principale (For/Agi/Psy),
+   Ils perdent @{permafrost_level} actions, ainsi que X points dans leur caractéristique principale (For/Agi/Psy),
    et subissent des dégâts tous les tours, jusqu’à ce qu’ils ne soient plus affectés par Morsure de l’hiver.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Instant/Debuff/Durée
@@ -172,8 +178,8 @@
 <span class="bold"><span class="f4">[Ultime] Voile de l'aurore []</span></span>
  <span class="f4"><span class="underline">Description</span></span>
    Projette un voile sur toutes les cibles alliées affectés par Robustesse de l’hiver.
-   Ce voile annule les dégâts des X prochaines attaques/sorts.
-   Tant que le voile n’est pas brisé, la Volonté des personnes affectées augmente de X points.
+   Ce voile annule les dégâts des @{voile_aurore_level} prochaines attaques/sorts.
+   Tant que le voile n’est pas brisé, la Volonté des personnes affectées augmente de @{voile_aurore_level} points.
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Buff/Durée
 

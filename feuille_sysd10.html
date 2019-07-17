@@ -539,7 +539,7 @@
           </fieldset>
      </div >
   </div>
-
+  </div>
   <!--TAB 3 -->
   <div class="sheet-tab-content sheet-tab3">
     <!--GENERAL -->
@@ -621,12 +621,10 @@
         </select>
         <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{general_combat_skillname}}} {{dice_name=@{dice}}} {{result=[[@{general_combat_skilllevel}+(@{general_combat_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{general_combat_skilllevel}+(@{general_combat_attribute_select})]]}}"></button>
       </fieldset>
-
     </div>
 
     <!--OFFENCE -->
     <div class="sheet-tab-content sheet-secondary_tab2">
-
       <!--Perfection -->
       <input class="sheet-skill_name" style="margin-right: 4px;" type="text" name="attr_general_skill_Perfection" disabled="true" value="Perfection" />
       <input type="number" min="0" value="0" name="attr_skillcost_Perfection" title="Coût de la compétence" />

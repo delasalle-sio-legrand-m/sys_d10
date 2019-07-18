@@ -114,7 +114,7 @@ fi
 [ "$css_only" ] || [ "$body_only" ] || printf '%s' "<html>
 <head>
 <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>
-<link rel=\"stylesheet\" type=\"text/css\" href=\"term.css\"/>
+<link rel=\"stylesheet\" type=\"text/css\" href=\"../term.css\"/>
 "
 [ "$body_only" ] || [ "$css_only" ] && printf '%s\n' \
 'To use the css generated from --css-only, do: '\

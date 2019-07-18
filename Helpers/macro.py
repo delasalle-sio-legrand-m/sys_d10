@@ -95,11 +95,12 @@ def varnames(e):
     pass
 
 def diff(characters,output,version):
+    import datetime
     chars,names=get_char(characters)
     if len(chars)==0:
         dprint(errors["notfound"].format(char="any character"))
         return
-    list=["git", "diff",version,"--word-diff=color","--function-context"]+chars
+    list=["git", "diff",version,"--word-diff=color","-U5"]+chars
     if output=="tty":
         dprint("Printing diff")
         pi=subprocess.check_output(list).decode("utf-8")
@@ -107,8 +108,12 @@ def diff(characters,output,version):
     else:
         proc=subprocess.Popen(list,stdout=subprocess.PIPE)
         pi=subprocess.check_output(("./ansi2html.sh"),stdin=proc.stdout)
-        with open(output,"wb") as file:
+        date=datetime.datetime.now().strftime("%y-%m-%d-%H-%M.html")
+        save_file=join(output,date)
+        with open(save_file,"wb") as file:
             file.write(pi)
+        with open(join(output,"latest.html"),"w") as file:
+            file.write('<html><head><title>Redirect</title><meta http-equiv="refresh" content="0;URL=./{}"></head><body></body></html>'.format(date))
 
 def get_char(names):
     if names[0]=="all":

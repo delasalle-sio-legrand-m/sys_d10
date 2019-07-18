@@ -31,6 +31,20 @@ god.read("Characters/God.ini")
 def macro(e):
     pass
 
+
+def save_text_ansi(foutput,ret):
+    pi=subprocess.Popen(("./ansi2html.sh","--palette=xterm"),stdin=subprocess.PIPE,stdout=subprocess.PIPE)
+    e=str.encode(ret,"utf8")
+    pi.stdin.write(e)
+    pi.stdin.close()
+
+    with open(foutput,"wb") as f:
+        while True:
+            line=pi.stdout.readline()
+            if not line:
+                break
+            f.write(line)
+
 def show(characters,output,version):
     list_files,names=get_char(characters)
     if not list_files:
@@ -41,18 +55,8 @@ def show(characters,output,version):
         if output=="tty":
             print(ret)
         else:
-            pi=subprocess.Popen(("./ansi2html.sh","--palette=xterm"),stdin=subprocess.PIPE,stdout=subprocess.PIPE)
-            e=str.encode(ret,"utf8")
-            pi.stdin.write(e)
-            pi.stdin.close()
             foutput=join(output,name+".html")
-            with open(foutput,"wb") as f:
-                while True:
-                    line=pi.stdout.readline()
-                    if not line:
-                        break
-                    f.write(line)
-
+            save_text_ansi(foutput,ret)
 
 def show_one(character,output,version):
     config=configparser.ConfigParser(inline_comment_prefixes="#")

@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="../term.css"/>
+
+</head>
+
+<body class="f9 b9">
+<pre>
+<span class="bold">diff --git a/Helpers/Characters/God.ini b/Helpers/Characters/God.ini</span>
+<span class="bold">index 90b4f79..3a7d99f 100644</span>
+<span class="bold">--- a/Helpers/Characters/God.ini</span>
+<span class="bold">+++ b/Helpers/Characters/God.ini</span>
+<span class="f6">@@ -69,12 +69,12 @@</span>
+    b_iresanglante_dmg=30
+    b_brumesang_value=20
+    b_torrentpourpre_abysse=
+    b_torrentpourpre_souffrance=2
+    b_torrentpourpre_sang=5
+    <span class="f1">b_soifimpie_rgn=2</span>
+<span class="f1">    d_soif_heal=2</span><span class="f2">b_soifimpie_rgn=6</span>
+<span class="f2">    d_soif_heal=10</span>
+    b_foudresang_init=9
+    b_bainsang_act=2
+
+[Characters/frene.ini]
+    #TOUT faire dependre des affinitée
+<span class="bold">diff --git a/Helpers/Characters/voile.ini b/Helpers/Characters/voile.ini</span>
+<span class="bold">index eea45fd..55e66aa 100644</span>
+<span class="bold">--- a/Helpers/Characters/voile.ini</span>
+<span class="bold">+++ b/Helpers/Characters/voile.ini</span>
+<span class="f6">@@ -1,8 +1,8 @@</span>
+[DEFAULT]
+    momentum = @{Voile|momentum}    # Niveau actuel du momentum
+    momentum_max = <span class="f1">@{Voile|repeating_skills_-Lk0MZh88yaOnxpRaacq_general_skilllevel}</span><span class="f2">@{Voile|repeating_skills_-Lk0MZh88yaOnxpRaacq_general_skilllevel}*10</span>    # Niveau maximum du momentum
+    harmony = @{Voile|harmony}  # ADD STACKS
+    harmony_max = @{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel} # Compétence d'harmonie
+    blood_g=@{blood_gate}       # Niveau actuel de la jauge
+    suffer_g=@{suffering_gate}  # Niveau actuel de la jauge
+    abyss_g=@{abyss_gate}       # Niveau actuel de la jauge
+<span class="f6">@@ -20,11 +20,11 @@</span>
+[harmony]
+    level=Ultime
+    type = Reserve/Passif
+    display_name=Harmony
+    cost=8
+    <span class="f1">X=</span><span class="f2">X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}</span>
+    description=Les points d’harmonie se gagnent au cours d’une longue méditation.
+        A hauteur de {harmony_charge} de méditation, et peuvent servir de coût à certaines techniques majeures.
+        Les points d'harmonie donnent un bonus passif a la discrétion, l'initiative et aux techniques de résistance mentale et de perception.
+    self=Vous atteignez un niveau d'harmonie de {harmony},
+            Voile obtiens un bonus de +{b_harmony}*{harmony} point a l’initiative et aux actions de perception
+<span class="f6">@@ -209,11 +209,11 @@</span>
+[Souffle de sang]
+    level=Mineure
+    display_name=Souffle De Sang
+    type=Actif/Instant/Empower
+    X = @{Voile|repeating_magic-vital-skills_-Lk0IuscZnLZGW3GnEx0_magic_vital_skilllevel}
+    <span class="f1">cost=2</span><span class="f2">cost=4</span>
+    description=Consomme {b_souffle_de_sang_charge_level} points de la Porte de Souffrance
+        Votre prochaine attaque gagne un Fauchage
+    self=Votre prochaine attaque peut toucher jusqu'a {X} cibles supplémentaires sans malus, elle obeit aux regles de fauchage.
+    others= La souffrance canalisée en une lame éthérée, tranchant tout sur son passage
+    special =
+</pre>
+</body>
+</html>

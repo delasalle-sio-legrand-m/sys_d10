@@ -17,8 +17,9 @@ verbose=False
 def dprint(text):
     if verbose:
         print(text)
-
+notrash_chars=["exemple.ini"]
 reserved_chars=["exemple.ini","God.ini"]
+
 errors={
     "notfound":term.red("[Error] Couldn't find {char} in the Character directory"),
     "sectionnotfound":term.red("[Error] Coulnd't find section {section} in {where}"),
@@ -100,7 +101,7 @@ def varnames(e):
 
 def diff(characters,output,version):
     import datetime
-    chars,names=get_char(characters)
+    chars,names=get_char(characters,all=True)
     if len(chars)==0:
         dprint(errors["notfound"].format(char="any character"))
         return
@@ -119,9 +120,9 @@ def diff(characters,output,version):
         with open(join(output,"latest.html"),"w") as file:
             file.write('<html><head><title>Redirect</title><meta http-equiv="refresh" content="0;URL=./{}"></head><body></body></html>'.format(date))
 
-def get_char(names):
+def get_char(names,all=False):
     if names[0]=="all":
-        return get_all_chars()
+        return get_all_chars(all=all)
     char,rnames=[],[]
     for n in names:
         c=join("Characters", n+".ini")
@@ -132,7 +133,9 @@ def get_char(names):
             dprint(errors["notfound"].format(char=c))
     return char,rnames
 
-def get_all_chars():
+def get_all_chars(all):
+    if all:
+        reserved_chars=notrash_chars
     names=[f for f in listdir("Characters") if (f not in reserved_chars and isfile(join("Characters", f)))]
     return [join("Characters", f) for f in names],[n[:-4] for n in names] # MOAR BLOBSHITCODING
 

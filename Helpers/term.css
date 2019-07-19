@@ -1,3 +1,11 @@
+a,a:link, a:visited {
+    color: #06005f;
+    text-decoration: none;
+}
+a:hover, a:active {
+    color: #9f99ff;;;
+  background-color: #666666;
+}
 pre { white-space: pre-wrap; }
 .ef0,.f0 { color: #000000; } .eb0,.b0 { background-color: #000000; }
 .ef1,.f1 { color: #CD0000; } .eb1,.b1 { background-color: #CD0000; }

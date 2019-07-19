@@ -17,8 +17,7 @@ verbose=False
 def dprint(text):
     if verbose:
         print(text)
-notrash_chars=["exemple.ini"]
-reserved_chars=["exemple.ini","God.ini"]
+reserved_chars=["God.ini"]
 
 errors={
     "notfound":term.red("[Error] Couldn't find {char} in the Character directory"),
@@ -29,9 +28,28 @@ god=configparser.ConfigParser(inline_comment_prefixes="#")
 god.read("Characters/God.ini")
 
 
-def macro(e):
-    pass
 
+
+def write_index(output):
+    list=[f for f in listdir(output) if (f != "latest.html" and isfile(join(output, f)))]
+    towrite="""<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="../term.css"/>
+
+    </head>
+
+    <body class="f9 b9">
+    <pre>
+<span class="bold">Liste des modifications</span>
+"""
+    for file in list:
+        towrite+='    <span class="bold"><a href="./{}">Modifications du {}</a></span>\n'.format(file,file[:-5])
+    towrite+="""    </pre>
+    </body>
+</html>"""
+    with open(join(output,"latest.html"),"w") as f:
+        f.write(towrite)
 
 def save_text_ansi(foutput,ret):
     pi=subprocess.Popen(("./ansi2html.sh","--palette=xterm"),stdin=subprocess.PIPE,stdout=subprocess.PIPE)
@@ -45,6 +63,37 @@ def save_text_ansi(foutput,ret):
             if not line:
                 break
             f.write(line)
+
+
+def macro(characters,output,version):
+    list_files,names=get_char(characters)
+    if not list_files:
+        return
+    ret=""
+    for file,name in zip(list_files,names):
+        ret=macro_one(file,output,version)
+        if output=="tty":
+            print(ret)
+        else:
+            foutput=join(output,name+"_macro.html")
+            save_text_ansi(foutput,ret)
+
+def macro_one(character,output,version):
+    config=configparser.ConfigParser(inline_comment_prefixes="#")
+    config.read(character)
+    ret=term.bold(character)+"\n"
+    for sect in config.sections():
+        try:
+            text=""
+            if (config[sect]["macro"]) != "":
+                text+=term.bold_blue("[{name}]\n".format(name=config[sect]["display_name"]))
+                text+="    "+replace_vars(config[sect]["macro"],config,god,"macro",sect,character).replace("\n","\n   ")
+                text+="\n"
+                ret+=text
+        except KeyError:
+            pass # No macro found, not really important
+
+    return ret
 
 def show(characters,output,version):
     list_files,names=get_char(characters)
@@ -117,8 +166,7 @@ def diff(characters,output,version):
         save_file=join(output,date)
         with open(save_file,"wb") as file:
             file.write(pi)
-        with open(join(output,"latest.html"),"w") as file:
-            file.write('<html><head><title>Redirect</title><meta http-equiv="refresh" content="0;URL=./{}"></head><body></body></html>'.format(date))
+        write_index(output)
 
 def get_char(names,all=False):
     if names[0]=="all":
@@ -135,7 +183,9 @@ def get_char(names,all=False):
 
 def get_all_chars(all):
     if all:
-        reserved_chars=notrash_chars
+        c=[]
+    else:
+        c=reserved_chars
     names=[f for f in listdir("Characters") if (f not in reserved_chars and isfile(join("Characters", f)))]
     return [join("Characters", f) for f in names],[n[:-4] for n in names] # MOAR BLOBSHITCODING
 

@@ -32,6 +32,7 @@ god.read("Characters/God.ini")
 
 def write_index(output):
     list=[f for f in listdir(output) if (f != "latest.html" and isfile(join(output, f)))]
+    list.sort()
     towrite="""<html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>

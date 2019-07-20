@@ -8,11 +8,12 @@ import blessings
 term=blessings.Terminal()
 
 parser = argparse.ArgumentParser(description='Macro generator')
-parser.add_argument('command',choices=["macro","varnames","diff",'show'],help="The selected command")
+parser.add_argument('command',choices=["macro","varnames","diff",'show',"index"],help="The selected command")
 parser.add_argument('characters',default=["all"],help="Name of the characters to list, all by default",nargs="*")
 parser.add_argument("-o",metavar="output",default="tty",help="File for the output command, tty by default",nargs="?")
+parser.add_argument("-s",metavar="suffix",default="",help="Suffix to append to all the files",nargs="?")
 parser.add_argument("-v",default=False,action='store_true',help="Default")
-parser.add_argument("--version",default="HEAD",help="The version to pick from or from wich to make the diff from",nargs="?")
+parser.add_argument("--version",default="@~1",help="The version to pick from or from wich to make the diff from",nargs="?")
 verbose=False
 def dprint(text):
     if verbose:
@@ -30,8 +31,8 @@ god.read("Characters/God.ini")
 
 
 
-def write_index(output):
-    list=[f for f in listdir(output) if (f != "latest.html" and isfile(join(output, f)))]
+def write_index(output,suffix):
+    list=[f for f in listdir(output) if (f != "index.html" and isfile(join(output, f)))]
     list.sort()
     towrite="""<html>
     <head>
@@ -42,14 +43,15 @@ def write_index(output):
 
     <body class="f9 b9">
     <pre>
-<span class="bold">Liste des modifications</span>
+<span class="bold">Liste des fichiers</span>
 """
     for file in list:
-        towrite+='    <span class="bold"><a href="./{}">Modifications du {}</a></span>\n'.format(file,file[:-5])
+        towrite+='    <span class="bold"><a href="./{}">&rsaquo; {}</a></span>\n'.format(file,file[:-5].title())
     towrite+="""    </pre>
     </body>
 </html>"""
-    with open(join(output,"latest.html"),"w") as f:
+    
+    with open(join(output,"index.html"),"w") as f:
         f.write(towrite)
 
 def save_text_ansi(foutput,ret):
@@ -66,7 +68,7 @@ def save_text_ansi(foutput,ret):
             f.write(line)
 
 
-def macro(characters,output,version):
+def macro(characters,output,version,suffix):
     list_files,names=get_char(characters)
     if not list_files:
         return
@@ -76,10 +78,10 @@ def macro(characters,output,version):
         if output=="tty":
             print(ret)
         else:
-            foutput=join(output,name+"_macro.html")
+            foutput=join(output,"{}_macro{}.html".format(name,suffix))
             save_text_ansi(foutput,ret)
 
-def macro_one(character,output,version):
+def macro_one(character,output,version,suffix):
     config=configparser.ConfigParser(inline_comment_prefixes="#")
     config.read(character)
     ret=term.bold(character)+"\n"
@@ -96,20 +98,20 @@ def macro_one(character,output,version):
 
     return ret
 
-def show(characters,output,version):
+def show(characters,output,version,suffix):
     list_files,names=get_char(characters)
     if not list_files:
         return
     ret=""
     for file,name in zip(list_files,names):
-        ret=show_one(file,output,version)
+        ret=show_one(file,output,version,suffix)
         if output=="tty":
             print(ret)
         else:
-            foutput=join(output,name+".html")
+            foutput=join(output,"{}{}.html".format(name,suffix))
             save_text_ansi(foutput,ret)
 
-def show_one(character,output,version):
+def show_one(character,output,version,suffix):
     config=configparser.ConfigParser(inline_comment_prefixes="#")
     config.read(character)
     ret=""
@@ -149,7 +151,10 @@ def replace_vars(text,char,god,section,name,character):
 def varnames(e):
     pass
 
-def diff(characters,output,version):
+def index(characters,output,version,suffix):
+    write_index(output,suffix)
+
+def diff(characters,output,version,suffix):
     import datetime
     chars,names=get_char(characters,all=True)
     if len(chars)==0:
@@ -163,11 +168,10 @@ def diff(characters,output,version):
     else:
         proc=subprocess.Popen(list,stdout=subprocess.PIPE)
         pi=subprocess.check_output(("./ansi2html.sh"),stdin=proc.stdout)
-        date=datetime.datetime.now().strftime("%y-%m-%d-%H-%M.html")
-        save_file=join(output,date)
+        date=datetime.datetime.now().strftime("%y-%m-%d-%H-%M")
+        save_file=join(output,"{}{}.html".format(date,suffix))
         with open(save_file,"wb") as file:
             file.write(pi)
-        write_index(output)
 
 def get_char(names,all=False):
     if names[0]=="all":
@@ -197,6 +201,7 @@ if __name__ == '__main__':
     except:
         parser.print_help()
         sys.exit()
-    #print(args)
-    commands={"macro":macro,"varnames":varnames,"diff":diff,"show":show}
-    commands[args.command](args.characters,args.o,args.version)
+    if args.s!="":
+        args.s=" "+args.s
+    commands={"macro":macro,"varnames":varnames,"diff":diff,"show":show,"index":index}
+    commands[args.command](args.characters,args.o,args.version,args.s)

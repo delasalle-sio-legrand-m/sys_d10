@@ -50,7 +50,7 @@ def write_index(output,suffix):
     towrite+="""    </pre>
     </body>
 </html>"""
-    
+
     with open(join(output,"index.html"),"w") as f:
         f.write(towrite)
 
@@ -74,7 +74,7 @@ def macro(characters,output,version,suffix):
         return
     ret=""
     for file,name in zip(list_files,names):
-        ret=macro_one(file,output,version)
+        ret=macro_one(file,output,version,suffix)
         if output=="tty":
             print(ret)
         else:
@@ -89,9 +89,13 @@ def macro_one(character,output,version,suffix):
         try:
             text=""
             if (config[sect]["macro"]) != "":
-                text+=term.bold_blue("[{name}]\n".format(name=config[sect]["display_name"]))
-                text+="    "+replace_vars(config[sect]["macro"],config,god,"macro",sect,character).replace("\n","\n   ")
+                text+=term.bold_blue("[{name}]\n".format(name=sect))
+                selfw=replace_vars('/w {you} ',config,god,"self",sect,character)
+                text+=replace_vars(config[sect]["macro"],config,god,"macro",sect,character)
                 text+="\n"
+                for l in replace_vars(config[sect]["self"],config,god,"self",sect,character).split("\n"):
+                    text+=selfw+l+"\n"
+                text+=replace_vars(config[sect]["others"],config,god,"others",sect,character)+"\n"
                 ret+=text
         except KeyError:
             pass # No macro found, not really important
@@ -117,6 +121,8 @@ def show_one(character,output,version,suffix):
     ret=""
     for sect in config.sections():
         text=""
+        if "display_name" not in config[sect]:
+            continue
         text+=term.bold_blue("[{level}] {title} [{cost}]\n").format(title=config[sect]["display_name"],level=config[sect]["level"],cost=config[sect]["cost"])
         for dname,sname in (("Type de technique","type"),('Description',"description"),("Description personelle",'self'),("Description publique","others"),("Spécial","special")):
             try:

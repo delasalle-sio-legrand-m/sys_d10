@@ -156,12 +156,24 @@
       };
     });
   });
+  on("change:base-force change:base-volonte", function() {
+    getAttrs(["base-force","base-volonte","transcendence"], function(values) {
+        setAttrs({"shield_maximum":(Number(values['base-force'])+Number(values['base-volonte'])+10)*Number(values['transcendence'])*20});
+        setAttrs({"shield_max":(Number(values['base-force'])+Number(values['base-volonte'])+10)*Number(values['transcendence'])*20});
+    });
+  });
+  on("change:base-psyche change:base-volonte change:magic_skilllevel_abime_mana", function() {
+    getAttrs(["base-psyche","base-volonte","magic_skilllevel_abime_mana"], function(values) {
+        setAttrs({"mana_maximum":(Number(values['base-psyche'])+Number(values['base-volonte'])+Number(values['magic_skilllevel_abime_mana']))*2});
+        setAttrs({"mana_max":(Number(values['base-psyche'])+Number(values['base-volonte'])+Number(values['magic_skilllevel_abime_mana']))*2});
+    });
+  });
   </script>
 </head>
 <div class="sheet-content">
   <div class="sheet-center">
     <input type="text" class="sheet-bigname" name="attr_character_name" placeholder="Nom"/>
-    <span style="color:#ffffff;" name="attr_undescored_name" /></span><br/>
+    <span style="color:#ffffff;" name="attr_undescored_name" /><span/><br/>
     <input type="text" class="sheet-mediumname" name="attr_character_race" placeholder="Race"/>
   </div>
   <br/>
@@ -184,6 +196,11 @@
           <td><input class="sheet-trait" type="number" name="attr_Grievious_Wounds" title="Dégats aggravés supplémentaires" value="0"/></td>
           <td><input class="sheet-trait" disabled="true" name="attr_Grievious_Wounds_current" title="Dégats aggravés actuels" value="@{Grievious_Wounds_effective}"/></td>
           <td><input class="sheet-trait" disabled="true" name="attr_Grievious_Wounds_max" title="Dégats aggravés maximum" value="floor(@{Life_Points_maximum}/4)"/></td>
+        </tr>
+        <tr>
+          <td><h4>Boucliers</h4></td>
+          <td><input class="sheet-trait" type="number" name="attr_shield" title="Boucliers actuels" value="0"/></td>
+          <td colspan="2"><input class="sheet-trait" style="width:60px" disabled="true" name="attr_mirror_shield_maximum" title="Boucliers maximum" value="@{shield_maximum}"/></td>
         </tr>
       </table>
     </div>
@@ -477,24 +494,35 @@
 
       </div>
       <div class="sheet-tab-content sheet-secondary_magic_tab3"><h3>Mage Aspect</h3>
-      <fieldset class="repeating_magic-aspected-skills">
-        <input class="sheet-skill_name" type="text" name="attr_magic_aspected_skillname" />
-        <input type="number" name="attr_magic_aspected_skillcost" title="Coût de la compétence" />
-        <input type="number" min="0" max="10" name="attr_magic_aspected_skilllevel" title="Niveau dans la compétence" />
-        <select class="sheet-skill_select" name="attr_magic_aspected_attribute_select">
-          <option value="@{base-Force} + @{exal-Force}">For</option>
-          <option value="@{base-Agilite} + @{exal-Agilite}">Agi</option>
-          <option value="@{base-Perception} + @{exal-Perception}">Per</option>
-          <option value="@{base-Charisme} + @{exal-Charisme}">Cha</option>
-          <option value="@{base-Intelligence} + @{exal-Intelligence}">Int</option>
-          <option value="@{base-Perception} + @{exal-Perception}">Per</option>
-          <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
-          <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
-          <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
-          <option value="@{base-custom} + @{exal-custom}">Spé</option>
-        </select>
-        <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{magic_aspected_skillname}}} {{dice_name=@{dice}}} {{result=[[@{magic_aspected_skilllevel}+(@{magic_aspected_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{magic_aspected_skilllevel}+(@{magic_aspected_attribute_select})]]}}"></button>
-      </fieldset>
+
+          <input class="sheet-skill_name" style="margin-right: 4px;" type="text" name="attr_mana_skillname" disabled="true" value="Mana" title="Nom de la compétence" />
+          <input type="number" min="0" value= "0" name="attr_mana" title="Mana actuel"/>
+          <input class="sheet-trait" disabled="true" value= "@{mana_maximum}" style="margin-right: 4px;" type="number"  name="attr_mirror_mana_maximum" title="Mana maximum" />
+          <br/>
+          <input class="sheet-skill_name" style="margin-right: 4px;" type="text" name="attr_magic_skillname_abime_mana" disabled="true" value="Abime de mana" title="Nom de la compétence" />
+          <input type="number" min="0" value= "0" name="attr_magic_skilllevel_abime_mana" title="Reserve de mana"/>
+          <br/>
+          <input class="sheet-skill_name" style="margin-right: 4px;" type="text" name="attr_magic_skillname_vortex_mana" disabled="true" value="Vortex de mana" title="Nom de la compétence" />
+          <input type="number" min="0" value= "0" name="attr_magic_skilllevel_vortex_mana" title="Régeneration de mana"/>
+
+          <fieldset class="repeating_magic-aspected-skills">
+            <input class="sheet-skill_name" type="text" name="attr_magic_aspected_skillname" />
+            <input type="number" name="attr_magic_aspected_skillcost" title="Coût de la compétence" />
+            <input type="number" min="0" max="10" name="attr_magic_aspected_skilllevel" title="Niveau dans la compétence" />
+            <select class="sheet-skill_select" name="attr_magic_aspected_attribute_select">
+              <option value="@{base-Force} + @{exal-Force}">For</option>
+              <option value="@{base-Agilite} + @{exal-Agilite}">Agi</option>
+              <option value="@{base-Perception} + @{exal-Perception}">Per</option>
+              <option value="@{base-Charisme} + @{exal-Charisme}">Cha</option>
+              <option value="@{base-Intelligence} + @{exal-Intelligence}">Int</option>
+              <option value="@{base-Perception} + @{exal-Perception}">Per</option>
+              <option value="@{base-Volonte} + @{exal-Volonte}">Vol</option>
+              <option value="@{base-Psyche} + @{exal-Psyche}">Psy</option>
+              <option value="@{base-Chance} + @{exal-Chance}">Chn</option>
+              <option value="@{base-custom} + @{exal-custom}">Spé</option>
+            </select>
+            <button type='roll' class="sheet-skillbutton" value="&{template:d10skillcheck}{{name=@{character_name}}} {{roll_name=@{magic_aspected_skillname}}} {{dice_name=@{dice}}} {{result=[[@{magic_aspected_skilllevel}+(@{magic_aspected_attribute_select})-d@{dice}cs1cf@{dice}]]}} {{threshold=[[@{magic_aspected_skilllevel}+(@{magic_aspected_attribute_select})]]}}"></button>
+          </fieldset>
       </div>
 
       <div class="sheet-tab-content sheet-secondary_magic_tab4"><h3>Arcaniste</h3>

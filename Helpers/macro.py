@@ -93,9 +93,11 @@ def macro_one(character,output,version,suffix):
                 selfw=replace_vars('/w {you} ',config,god,"self",sect,character)
                 text+=replace_vars(config[sect]["macro"],config,god,"macro",sect,character)
                 text+="\n"
-                for l in replace_vars(config[sect]["self"],config,god,"self",sect,character).split("\n"):
-                    text+=selfw+l+"\n"
-                text+=replace_vars(config[sect]["others"],config,god,"others",sect,character)+"\n"
+                if (config[sect]['self']!=""):
+                    for l in replace_vars(config[sect]["self"],config,god,"self",sect,character).split("\n"):
+                        text+=selfw+l+"\n"
+                if (config[sect]["others"]!=""):
+                    text+=replace_vars(config[sect]["others"],config,god,"others",sect,character)+"\n"
                 ret+=text
         except KeyError:
             pass # No macro found, not really important
@@ -116,7 +118,7 @@ def show(characters,output,version,suffix):
             save_text_ansi(foutput,ret)
 
 def show_one(character,output,version,suffix):
-    config=configparser.ConfigParser(inline_comment_prefixes="#")
+    config=configparser.ConfigParser(inline_comment_prefixes=" #")
     config.read(character)
     ret=""
     for sect in config.sections():
@@ -136,7 +138,7 @@ def show_one(character,output,version,suffix):
         ret+=text+'\n'
     return ret
 
-toreplace=re.compile("\{([\w_-]*)\}")
+toreplace=re.compile("(?:[^@]|^)\{([\w_-]+)\}")
 def replace_vars(text,char,god,section,name,character):
     vars=toreplace.findall(text)
     if vars:

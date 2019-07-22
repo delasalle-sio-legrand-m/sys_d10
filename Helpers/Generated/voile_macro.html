@@ -8,16 +8,64 @@
 <body class="f9 b9">
 <pre>
 <span class="bold">Characters/voile.ini</span>
-<span class="bold"><span class="f4">[Harmony]</span></span>
-    Une macro sert a ajuster l'harmonie et generer tous les bonus necessaires puis afficher ces bonus
-<span class="bold"><span class="f4">[Impact]</span></span>
-    Reset du momentum, génération du hit
-<span class="bold"><span class="f4">[Adagio]</span></span>
-    Augmenter le momentum
-<span class="bold"><span class="f4">[Tempo Martial]</span></span>
-    sacrifier actions et générer un hit/afficher le bonus
+<span class="bold"><span class="f4">[start]</span></span>
+!setattr --name &quot;Voile&quot; --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0
+/w &quot;Voile&quot; Début du combat
+/w &quot;Voile&quot; Toutes les reserves sont réinitialisées.
+<span class="bold"><span class="f4">[turn]</span></span>
+!setattr --name &quot;Voile&quot; --mod --Life_Points|@{regen} --Life_Points|[[-1*@{dot}]]
+<span class="bold"><span class="f4">[show_harmony]</span></span>
+/w &quot;Voile&quot; &amp;{template:default} {{name=Etat d'harmonie}} {{initiative=+[[3*@{Voile|harmony}]]}} {{perception=+[[3*@{Voile|harmony}]]}} {{Discretion=[[@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}@{Voile|harmony}]]}} {{Nombre d'actions=[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|supernatural_reflexes}*2+@{Voile|*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}}]]}} {{Attaques d'opportunités=-[[@{Voile|harmony}*2*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}]]}} {{RM=[[@{Voile|harmony}{b_metal_har}*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}]]}}
+<span class="bold"><span class="f4">[show_momentum]</span></span>
+/w &quot;Voile&quot; &amp;{template:default} {{name=Momentum}} {{Attaque=[[5*@{Voile|momentum}]]}}{{Parade=[[5*@{Voile|momentum}]]}}{{Esquive=[[3*@{Voile|momentum}]]}}{{Déplacement=[[(@{base-Agilite}+@{exal-Agilite})+2*@{Voile|momentum}]]}}
+<span class="bold"><span class="f4">[attaque_macro]</span></span>
+!crit ?{Nombre de des d'attaque} P @{Voile|general_effective_Perfection} c @{Voile|crit_level} M @{Voile|skillcost_Technique_martiale} @{Voile|general_effective_Technique_martiale} E @{Voile|skillcost_Exploiter_les_points_faibles} @{Voile|general_effective_Exploiter_les_points_faibles} F @{Voile|general_effective_Fauchage} D @{Voile|general_effective_Coup_dechirant} H @{Voile|base_damage_dices} H @{Voile|exal_damage_dices} A @{Voile|Skill_general_attribute_select_attaque} s @{Voile|general_attack_threshold} l @{Voile|general_attack_addall} a a n @{Voile|undescored_name} + @{Voile|additional_damage_dices} + @{Voile|general_effective_weapon1} + @{Voile|general_effective_weapon2} t @{Voile|transcendence} + @{Voile|general_effective_weapon3} f @{Voile|pctinflicted} f @{Voile|pctinflicted_s} f @{Voile|pctinflicted_b} + @{Voile|temp_dmg} f {Voile|temp_pdmg}
+!setattr --name Voile --temp_pdmg|0 --temp_dmg|0
+<span class="bold"><span class="f4">[harmony]</span></span>
+!setattr --name &quot;Voile&quot; --harmony|[[?{Niveau d'harmonie}]]
+/w &quot;Voile&quot; 
+/w &quot;Voile&quot; Voile obtiens un bonus a la discrétion de @{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}@{Voile|harmony}
+/w &quot;Voile&quot; Voile obtiens un bonus a son nombre d’action de @{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}@{Voile|harmony} et rend les attaques d’opportunités plus difficiles d'un facteur @{Voile|harmony}{b_wind_har_opp}*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}
+/w &quot;Voile&quot; Voile obtiens un bonus limitant l'effet de certaines contraintes physiques (frottement vent, courant gravité, résistance des matériaux) pour les actions de Voile, facilitant les actions de mouvements.
+/w &quot;Voile&quot; Voile obtiens un bonus de @{Voile|harmony}{b_metal_har}*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel} aux test de résistance mentale.
+La conscience de Voile de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci se renforce.
+<span class="bold"><span class="f4">[shadow_har]</span></span>
+!setattr --name &quot;Voile&quot; --mod --harmony|-1
+#show_harmony
+/w &quot;Voile&quot; Voile augmente son état de conscience du réel, les adversaires et objets dans un cercle de 10*@{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel} metres aux alentours revelent leur vraie nature.
+Voile Obtiens pendant un cours instant une image de la réalité au dela des apparences. @{Voile|harmony}{b_metal_har}*@{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel} aux test. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+<span class="bold"><span class="f4">[wind_har]</span></span>
+!setattr --name &quot;Voile&quot; --mod --harmony|-1
+#show_harmony
+/w &quot;Voile&quot; Vous pouvez réapparaitre n'importe ou dans un cercle de @{Voile|repeating_skills_-Lk0LfoIZqkpZCKWUf8I_general_skilllevel} metres autours de vous.
+La présence de Voile deviens intangible pendant un bref instant, la rendant insensible a toutes les formes de dégats. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+<span class="bold"><span class="f4">[water_har]</span></span>
+!setattr --name &quot;Voile&quot; --mod --harmony|-1
+#show_harmony
+/w &quot;Voile&quot; Vous pouvez ignorer la plupars des contraintes physiques pendant @{Voile|repeating_skills_-Lk0Li-kTIahFB0V9Iny_general_skilllevel} actions.
+Pendant un cours instant, Voile dénie les effets des regles du monde materiel. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+<span class="bold"><span class="f4">[metal_har]</span></span>
+!setattr --name &quot;Voile&quot; --mod --harmony|-1
+#show_harmony
+/w &quot;Voile&quot; Votre esprit se renforce, repoussant les effets déléteres sur vous.
+La volontée de Voile s'affirme, soufflant les influences négatives. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+<span class="bold"><span class="f4">[impact]</span></span>
+!setattr --name &quot;Voile&quot; --momentum|0
+!setattr --name &quot;Voile&quot; --mod --temp_dmg|[[@{Voile|repeating_skills_-Lk0Mb-NlPrZS0G8qZEt_general_skilllevel}*12*@{Voile|momentum}]]
+/w &quot;Voile&quot; Vous perdez votre momentum
+Un terrible impact sur une zone de [[2*@{Voile|repeating_skills_-Lk0Mb-NlPrZS0G8qZEt_general_skilllevel}]] mètres infligeant [[@{Voile|repeating_skills_-Lk0Mb-NlPrZS0G8qZEt_general_skilllevel}*12*@{Voile|momentum}]] dégâts bonus à l’attaque
+<span class="bold"><span class="f4">[adagio]</span></span>
+!setattr --name &quot;Voile&quot; --mod|{}
+#show_momentum
+/w &quot;Voile&quot; Voile saute d'adversaire en adversaire (jusqu'a @{Voile|repeating_skills_-Lk0Mbt8pCFsrUR0Oddn_general_skilllevel} adversaires différent), n'appliquant que ses on hit [[00]]. Votre momentum augmente de [[@{Voile|repeating_skills_-Lk0Mbt8pCFsrUR0Oddn_general_skilllevel}{b_adagio}]] par adversaire.
+Voile utilise ses differents adversaires pour rebondir de l'un a l'autre et augmenter son Momentum
+<span class="bold"><span class="f4">[tempo_martial]</span></span>
+sacrifier actions et générer un hit/afficher le bonus
+/w &quot;Voile&quot; Sacrifiez jusqu'a 4 votre prochaine action physique gagne @{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}{b_tempo_degre} degrés de réussite, vous gagnez un bonus de 42*@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel} a votre  prochaine attaque et votre prochaine la parade.
+Voile se synchronyse au tempo de son adversaire pour se servir se ses propres actions contre lui.
 <span class="bold"><span class="f4">[Ire Sanglante]</span></span>
-    Afficher le total
+Afficher le total
+/w &quot;Voile&quot; Vous gagnez un bonus de 30*@{Voile|repeating_magic-vital-skills_-Lk0K39r7eCcYVEBFeKy_magic_vital_skilllevel} dégat d’arme a votre prochaine attaque
 </pre>
 </body>
 </html>

@@ -1,0 +1,439 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="../term.css"/>
+
+</head>
+
+<body class="f9 b9">
+<pre>
+<span class="bold">diff --git a/Helpers/Characters/frene.ini b/Helpers/Characters/frene.ini</span>
+<span class="bold">index d932365..4bedb9f 100644</span>
+<span class="bold">--- a/Helpers/Characters/frene.ini</span>
+<span class="bold">+++ b/Helpers/Characters/frene.ini</span>
+<span class="f6">@@ -10,10 +10,11 @@</span>
+    a_vapeur={vapeur}
+    a_bois={bois}
+    a_foudre={foudre}
+    marques=@{selected|marque_hivers}
+    # Base = 4, Good = 11
+    <span class="f2">#!token-mod --set statusmarkers|frozen-orb:[[2+2]]</span>
+
+[morsure_hiver]
+    level=Ultime
+    type=Passif
+    display_name=Morsure de l'Hiver
+<span class="bold">diff --git a/Helpers/Characters/voile.ini b/Helpers/Characters/voile.ini</span>
+<span class="bold">index c193694..4268d78 100644</span>
+<span class="bold">--- a/Helpers/Characters/voile.ini</span>
+<span class="bold">+++ b/Helpers/Characters/voile.ini</span>
+<span class="f6">@@ -1,59 +1,93 @@</span>
+[DEFAULT]
+    momentum = @{Voile|momentum}    # Niveau actuel du momentum
+    momentum_max = @{Voile|repeating_skills_-Lk0MZh88yaOnxpRaacq_general_skilllevel}*10    # Niveau maximum du momentum
+    harmony = @{Voile|harmony}  # ADD STACKS
+    harmony_max = @{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel} # Compétence d'harmonie
+    <span class="f1">blood_g=@{blood_gate}</span><span class="f2">blood_gate=@{Hellsdoor|blood_gate}</span>          # Niveau actuel de la jauge
+    <span class="f1">suffer_g=@{suffering_gate}</span><span class="f2">suffering_gate=@{Hellsdoor|suffering_gate}</span>  # Niveau actuel de la jauge
+    <span class="f1">abyss_g=@{abyss_gate}</span><span class="f2">abyss_gate=@{Hellsdoor|abyss_gate}</span>          # Niveau actuel de la jauge
+    you=&quot;Voile&quot;
+    <span class="f2">door=Hellsdoor</span>
+    #Discretion=@{Voile|repeating_skills_-Lk0ONlvjF-Ke6kBOfV1_general_skilllevel}
+    #Discretion <span class="f1">Modifié</span><span class="f2">modifiée</span> =@{Voile|repeating_skills_-Lk0OZCwmTWY0AVmn5jZ_general_skilllevel}
+    #Resistance mentale=@{Voile|repeating_skills_-Lk0OpSq7JnSaXtidJlz_general_skilllevel}
+    #Resistance mentale <span class="f1">modifié=@{Voile|repeating_skills_-Lk0Oqd0D-uzwPP2JgQI_general_skilllevel}</span><span class="f2">modifiée=@{Voile|repeating_skills_-Lk0Oqd0D-uzwPP2JgQI_general_skilllevel}
+</span>    #Course=@{Voile|repeating_skills_-Lk0OsyNJXcxSDfPiOrM_general_skilllevel}
+    #Course <span class="f1">modifié=@{Voile|repeating_skills_-Lk0Ou0iuRqjFl3zh6j8_general_skilllevel}</span><span class="f2">modifiée=@{Voile|repeating_skills_-Lk0Ou0iuRqjFl3zh6j8_general_skilllevel}</span>
+    #Accrobatie=@{Voile|repeating_skills_-Lk0OvBC82YsRXaMneDn_general_skilllevel}
+    #Accrobatie <span class="f1">modifé=@{Voile|repeating_skills_-Lk0OyMid1KcRS6-i3NF_general_skilllevel}</span><span class="f2">modifée=@{Voile|repeating_skills_-Lk0OyMid1KcRS6-i3NF_general_skilllevel}</span>
+    #Saut=@{Voile|repeating_skills_-Lk0P-9iI72bg79b2W3e_general_skilllevel}
+    #Saut modifié=@{Voile|repeating_skills_-Lk0P0QpdsqtnER6E3hZ_general_skilllevel}
+    <span class="f2">on_hit=00</span>
+<span class="f2">    m=#</span>
+
+[start]
+    description=Macro de début de combat
+    self=Début du combat
+        Toutes les reserves sont réinitialisées.
+    others=
+    macro={vset} {you} --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 <span class="f2">--frostdamage|0 --frostshield|0</span>
+
+[turn]
+    description=Macro de début de tour
+    self=
+    others=
+    <span class="f1">macro=</span><span class="f2">macro={vset} {you} --mod --Life_Points|@{regen} --Life_Points|[[-1*@{dot}]]</span>
+
+[show_harmony]
+    description=
+    self=
+    others=
+    <span class="f2">X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}</span>
+    macro=/w {you} &amp;{template:default} {{name=Etat d'harmonie}} {{initiative=+[[{b_harmony}*{harmony}]]}} {{perception=+[[{b_harmony}*{harmony}]]}} <span class="f2">{{Discretion=[[{b_shadow_har_disc}{X}{harmony}]]}} {{Nombre d'actions=[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|supernatural_reflexes}*2+@{Voile|{b_wind_har_act}*{X}*{harmony}}]]}} {{Attaques d'opportunités=-[[{harmony}*{b_wind_har_opp}*{X}]]}} {{RM=[[{harmony}{b_metal_har}*{X}]]}}
+</span>
+<span class="f2">[show_momentum]</span>
+<span class="f2">    description=</span>
+<span class="f2">    others=</span>
+<span class="f2">    self=Votre attaque et votre parade bénéficient d'un bonus de [[{b_momentum_dmg}*{momentum}]], votre esquive beneficie d'un bonus de [[{n_momentum_esq}*{momentum}]] et votre vitesse de déplacement est désormais de [[{ag}+{b_momentum_speed}*{momentum}]].</span>
+<span class="f2">    macro=/w {you} &amp;{template:default} {{name=Momentum}} {{Attaque=[[{b_momentum_dmg}*{momentum}]]}}{{Parade=[[{b_momentum_dmg}*{momentum}]]}}{{Esquive=[[{n_momentum_esq}*{momentum}]]}}{{Déplacement=[[{ag}+{b_momentum_speed}*{momentum}]]}}</span>
+
+<span class="f2">[show_blood]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    B = @{Voile|repeating_magic-vital-skills_-Lk0JovHaDzlyDlxntqG_magic_vital_skilllevel}</span>
+<span class="f2">    I = @{Voile|repeating_magic-vital-skills_-Lk0K39r7eCcYVEBFeKy_magic_vital_skilllevel}</span>
+<span class="f2">    S = @{Voile|repeating_magic-vital-skills_-Lk0KBJLxY9ZzAgs4ZHh_magic_vital_skilllevel}</span>
+<span class="f2">    F = @{Voile|repeating_magic-vital-skills_-Lk0KH9sMaVvV9aafAeU_magic_vital_skilllevel}</span>
+<span class="f2">    BA = @{Voile|repeating_magic-vital-skills_-Lk0KWNdsKB9AeKJwoRI_magic_vital_skilllevel}</span>
+<span class="f2">    others=Offre un bonus de {b_brumesang_value}*{B} sur votre prochaine esquive</span>
+<span class="f2">        Vous gagnez un bonus de {b_iresanglante_dmg}*{I} dégat d’arme a votre prochaine attaque</span>
+<span class="f2">        Vous regagnez ({S}*{d_soif_heal})d10 points de vie et un bonus de {b_soifimpie_rgn}*{S} en régénération jusqu'a la fin du combat</span>
+<span class="f2">        Offre un bonus {b_foudresang_init}*{F} en initiative sur votre prochaine attaque</span>
+<span class="f2">        Offre un bonus {b_bainsang_act}*{BA} en nombre d’action</span>
+<span class="f2">    macro= {vset} {you} --mod regen|[[{b_soifimpie_rgn}*{S}]] Life_Points|[[({S}*{d_soif_heal})d10]] actions_max|[[{b_bainsang_act}*{BA}]] actions|[[{b_bainsang_act}*{BA}]]</span>
+
+<span class="f2">[attaque_macro]</span>
+<span class="f2">    description=Macro d'attaque</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=</span>
+<span class="f2">        !crit ?{Nombre de des d'attaque} P @{Voile|general_effective_Perfection} c @{Voile|crit_level} M @{Voile|skillcost_Technique_martiale} @{Voile|general_effective_Technique_martiale} E @{Voile|skillcost_Exploiter_les_points_faibles} @{Voile|general_effective_Exploiter_les_points_faibles} F @{Voile|general_effective_Fauchage} D @{Voile|general_effective_Coup_dechirant} H @{Voile|base_damage_dices} H @{Voile|exal_damage_dices} A @{Voile|Skill_general_attribute_select_attaque} s @{Voile|general_attack_threshold} l @{Voile|general_attack_addall} a a n @{Voile|undescored_name} + @{Voile|additional_damage_dices} + @{Voile|general_effective_weapon1} + @{Voile|general_effective_weapon2} t @{Voile|transcendence} + @{Voile|general_effective_weapon3} f @{Voile|pctinflicted} f @{Voile|pctinflicted_s} f @{Voile|pctinflicted_b} + @{Voile|temp_dmg} f {Voile|temp_pdmg} + [[{b_momentum_dmg}*{momentum}]] #ADD BUFF HAR
+        !setattr --name Voile --temp_pdmg|0 --temp_dmg|0</span>
+<span class="f2">        !setattr --name Voile --momentum|[[{{b_momentum_max}*{momentum_max},{momentum}+1}kl1]]</span>
+
+[harmony]
+    level=Ultime
+    type = Reserve/Passif
+    display_name=Harmony
+    cost=8
+    X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}
+    description=Les points d’harmonie se gagnent au cours d’une longue méditation.
+        A hauteur de {harmony_charge} de méditation, et peuvent servir de coût à certaines techniques majeures.
+        Les points d'harmonie donnent un bonus passif a la discrétion, l'initiative et aux techniques de résistance mentale et de perception.
+    <span class="f1">self=</span>
+<span class="f1">            Voile</span><span class="f2">self=Voile</span> obtiens un bonus a la discrétion de <span class="f1">{b_shadow_har_disc}{X}{harmony} #, et rend le ciblages plus difficiles de {harmony}{b_shadow_har_int}</span><span class="f2">[[{b_shadow_har_disc}{X}{harmony}]]</span>
+        Voile obtiens un bonus a son nombre d’action de <span class="f1">{b_wind_har_act}{X}{harmony}</span><span class="f2">[[ {b_wind_har_act}{X}{harmony}]]</span> et rend les attaques d’opportunités plus difficiles d'un facteur <span class="f1">{harmony}{b_wind_har_opp}*{X}</span><span class="f2">[[{harmony}{b_wind_har_opp}*{X}]]</span>
+        Voile obtiens un bonus limitant l'effet de certaines contraintes physiques (frottement vent, courant gravité, résistance des matériaux) pour les actions de Voile, facilitant les actions de mouvements.
+        Voile obtiens un bonus de <span class="f1">{harmony}{b_metal_har}*{X}</span><span class="f2">[[{harmony}{b_metal_har}*{X}]]</span> aux test de résistance mentale.
+    others=La conscience de Voile de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci se renforce.
+    special = Système de stack augmentant hors combat et diminuant lors de l’utilisation active des techniques liées.<span class="f1">#Regroupé les passifs sur l'harmonie, ne laissant que les actifs sur les compétences liées</span>
+    macro = {vset} {you} --harmony|[[?{Niveau d'harmonie}]]
+
+[shadow_har]
+    level=Avancée
+    type=Passif &amp; Actif/Instant
+<span class="f6">@@ -61,68 +95,73 @@</span>
+    cost=4
+    X = @{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel}
+    description=Passif - Augmente la discrétion de {b_shadow_har_disc}{X}{harmony}, et rend les actions de dégagement plus simple de {harmony}{b_shadow_har_int} degrés de difficultée.
+        Actif - Augmente pendant un cours instant la conscience de son environnement,
+            permettant de révéler la vrai nature des adversaire  et objets dans le champ de perception.
+    self= Voile augmente son état de conscience du réel, les adversaires et objets dans un cercle de <span class="f1">{b_shadow_har}*{X}</span><span class="f2">[[{b_shadow_har}*{X}]]</span> metres aux alentours revelent leur vraie nature.
+    others= Voile Obtiens pendant un cours instant une image de la réalité au dela des apparences. <span class="f1">{harmony}{b_metal_har}*{X}</span><span class="f2">[[{harmony}{b_metal_har}*{X}]]</span> aux test. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+    special= L’activation de la technique diminue le stack d’un point et montre &amp; ajuste le nouvel l'etat des passifs
+    macro <span class="f1">=</span><span class="f2">={vset} {you} --mod --harmony|-1</span>
+<span class="f2">        {m}show_harmony</span>
+
+[wind_har]
+    level=Avancée
+    display_name=Harmony Of Wind
+    X=@{Voile|repeating_skills_-Lk0LfoIZqkpZCKWUf8I_general_skilllevel}
+    cost=4
+    type=Passif &amp; Actif/Instant
+    description=Passif - Augmente le nombre d’action de {b_wind_har_act}{X}{harmony} et rend les attaques d’opportunités plus difficiles d'un facteur {harmony}{b_wind_har_opp}*{X}
+        Actif - Permet de se désengager d’une attaque magique ou physique et un replacer gratuitement. Compte comme une esquive totale de l’attaque.
+    self=Vous pouvez réapparaitre n'importe ou dans un cercle de <span class="f1">{X}</span><span class="f2">[[{X}]]</span> metres autours de vous.
+    others=La présence de Voile deviens intangible pendant un bref instant, la rendant insensible a toutes les formes de dégats. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+    special = L’activation de la technique diminue le stack d’un point et montre &amp; ajuste le nouvel l'etat des passifs
+    macro <span class="f1">=</span><span class="f2">={vset} {you} --mod --harmony|-1</span>
+<span class="f2">        {m}show_harmony</span>
+
+[water_har]
+    level=Avancée
+    display_name=Harmony Of Water
+    type=Passif &amp; Actif/Instant
+    cost=4
+    X = @{Voile|repeating_skills_-Lk0Li-kTIahFB0V9Iny_general_skilllevel}
+    description=Passif - Certaines contraintes physiques (frottement vent, courant gravité, résistance des matériaux)
+        sont moins limitants pour les actions du personnage, facilitant les actions de mouvements de <span class="f1">{X}</span><span class="f2">[[{X}]]</span> degrés.
+        Actif - Amplifie cet effet pendant un court instant, permettant d’effectuer des action défiant la physique.
+    self = Vous pouvez ignorer la plupars des contraintes physiques pendant <span class="f1">{X}</span><span class="f2">[[{X}]]</span> actions.
+    others= Pendant un cours instant, Voile dénie les effets des regles du monde materiel. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+    special = L’effet du passif dépend du nombre de stack d’Harmony, l’activation de l’actif diminue le stack d’un point.
+    macro <span class="f1">=</span><span class="f2">={vset} {you} --mod --harmony|-1</span>
+<span class="f2">        {m}show_harmony</span>
+
+[metal_har]
+    level=Avancée
+    display_name=Harmony Of Metal
+    type=Passif &amp; Actif/Instant
+    cost=4
+    X=@{Voile|repeating_skills_Lk0LjlHlBkETSvDcjDd_general_skilllevel}
+    description=Passif - Augmente la résistance mentale et la capacité à rester stoïque quelle que soit la situation,  rendant difficile la lecture de son langage corporel, ajoutant un bonus de <span class="f1">{harmony}{b_metal_har}*{X}</span><span class="f2">[[{harmony}{b_metal_har}*{X}]]</span> aux test dans ces domaines.
+        Actif - Permet d'atténuer les effets néfastes appliqués sur l’esprit. Gagnez un bonus de {b_metal_har}*{X} a votre resistances mentale.
+    self=Votre esprit se renforce, repoussant les effets déléteres sur vous.
+    others= La volontée de Voile s'affirme, soufflant les influences négatives. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+    special= L’effet du passif dépend du nombre de stack d’Harmony, l’activation de l’actif diminue le stack d’un point.
+    macro={vset} {you} --mod --harmony|-1
+        <span class="f1">{show_harmony}</span><span class="f2">{m}show_harmony</span>
+
+[momentum]
+    level=Ultime
+    display_name=Momentum
+    type=Reserve/Passif
+    cost=8
+    description=Les Points de Momentum se gagnent activement au cours d’un combat, en fonction du nombre d’attaques parades ou esquives effectuées dans le tour.
+        Chaque stack de momentum donne un bonus à l’esquive, la parade, à l’attaque,
+        la vitesse de déplacement,l’acrobatie et le saut, représentant le momentum progressivement gagné par le personnage.
+        Tant que le personnage a du momentum, il est particulièrement difficile de porter des attaques d’opportunités contre lui.
+    self=Vous gagnez un point de Momentum. Votre attaque et votre parade bénéficient d'un bonus de {b_momentum_dmg}*{momentum}, votre esquive beneficie d'un bonus de <span class="f1">{n_momentum_esq}*{momentum}</span><span class="f2">[[{n_momentum_esq}*{momentum}]]</span> et votre vitesse de déplacement est désormais de <span class="f1">{ag}+{b_momentum_speed}*{momentum}.</span><span class="f2">[[{ag}+{b_momentum_speed}*{momentum}]].</span>
+    others=La vitesse et la puissance de Voile augmente, ne laissant apparaitre qu'une silhouette. brouillée par la vitesse.
+    special = Momentum max - {b_momentum_max}*{momentum_max}.
+        Système de stack augmentant en combat et diminuant lors de l’utilisation active des techniques liées.
+    <span class="f2">momentum_vmax={b_momentum_max}*{momentum_max}</span>
+    macro=
+
+[impact]
+    level=Majeur
+    display_name=Impact
+<span class="f6">@@ -131,11 +170,11 @@</span>
+    type=Canalisation/Empower
+    description=Dépense l’ensemble du momentum dans une charge durant une action complète.
+        La puissance de l’impact fracture le sol et inflige de lourds dégâts aux
+        adversaires dans une large zone dépendant du nombre de points de momentum consumés
+    self=Vous perdez votre momentum
+    others=Un terrible impact sur une zone de <span class="f1">{b_impact_size}*{X}</span><span class="f2">[[{b_impact_size}*{X}]]</span> mètres infligeant <span class="f1">{X}*{b_impact}*{momentum}</span><span class="f2">[[{X}*{b_impact}*{momentum}]]</span> dégâts bonus à l’attaque
+    special= Système de stack augmentant en combat et diminuant lors de l’utilisation active des techniques liées.
+    macro = {vset} {you} --momentum|0
+        {vset} {you} --mod --temp_dmg|[[{X}*{b_impact}*{momentum}]]
+
+[adagio]
+<span class="f6">@@ -143,77 +182,80 @@</span>
+    display_name=Adagio
+    cost=4
+    type=Passif
+    X=@{Voile|repeating_skills_-Lk0Mbt8pCFsrUR0Oddn_general_skilllevel}
+    description=Chaque attaque contre un adversaire différent augmente le momentum
+    self=Voile <span class="f1">bounce sur jusque a</span><span class="f2">saute d'adversaire en adversaire (jusqu'a</span> {X} adversaires <span class="f1">différente,</span><span class="f2">différent),</span> n'appliquant que ses on <span class="f1">hit.</span><span class="f2">hit [[{on_hit}]].</span> Votre momentum augmente de <span class="f1">{X}{b_adagio}</span><span class="f2">[[{X}{b_adagio}]]</span> par adversaire.<span class="f1">#(Réafficher le bonus de momentum)</span>
+    others=Voile utilise ses differents adversaires pour rebondir de l'un a l'autre et augmenter son Momentum
+    special =
+    <span class="f1">macro=Augmenter le momentum</span><span class="f2">macro={vset} {you} --mod|{}</span>
+<span class="f2">        {m}show_momentum</span>
+
+[tempo_martial]
+    level=Ultime
+    display_name=Tempo Martial
+    type = Actif/Instant/Empower
+    cost=4
+    X=@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}
+    description=
+    self=Sacrifiez <span class="f1">jusqu'a {b_tempo_dep}</span><span class="f2">[[{b_tempo_dep}]] actions;</span> votre prochaine action physique gagne <span class="f1">{X}{b_tempo_degre}</span><span class="f2">[[{X}{b_tempo_degre}]]</span> degrés de réussite, vous gagnez un bonus de <span class="f1">{b_tempo}*{X}</span><span class="f2">[[{b_tempo}*{X}]]</span> a votre  prochaine attaque et votre prochaine la parade.
+    others=Voile se synchronyse au tempo de son adversaire pour se servir se ses propres actions contre lui.
+    special =
+    <span class="f1">macro=sacrifier actions et générer un hit/afficher le bonus</span><span class="f2">macro= {vset} {you} --mod actions|-{b_tempo_dep} --temp_dmg|[[{b_tempo}*{X}]] --temp_def|[[{b_tempo}*{X}]]</span>
+
+[sceau_phenix]
+    level=Ultime
+    display_name=Sceau Du Phenix
+    type=Actif/Durée/buff
+    cost=8
+    X = @{Voile|repeating_magic-vital-skills_-Lk0HmbYyglmpIEtJtRV_magic_vital_skilllevel}
+    description=Consomme {sceau_du_phenix_charge_level} points de la Porte de Sang, vous pouvez dépenser ses points meme si cela devait consummez plus que votre reserve. Si vous faites ainsi, vous perdez {b_phenix_alt_charge} points de vie maximum. Vous gagnez une grande regeneration et ne pouvez pas <span class="f1">mourrir.</span><span class="f2">mourir.</span>
+    self=Les {X} prochainnes attaques ne peuvent pas vous tuer, a chaque fois que vous devriez mourir regagnez {b_phenix_reg} points de vie a la place.
+    others=Dans l’adversité, le Phénix de Voile se relève de ses Cendre
+    special =
+    macro = <span class="f2">{vset} {door} --mod --blood_gate|-{sceau_du_phenix_charge_level}</span>
+
+[bis_repetitas]
+    level=Avancée
+    display_name=Bis Repetitas
+    type=Actif/Instant
+    cost=8<span class="f1"># Vraiment pas un gros fan de l'utilité de cette technique</span>
+    X = @{Voile|repeating_magic-vital-skills_-Lk0IHG528wQQzEWVnyC_magic_vital_skilllevel}
+    description=Consomme {b_bis_repetitas_charge_level} points de la Porte des Abysses. La prochaine attaque non technique portée contre un adversaire ciblé infligeras <span class="f1">X*{b_Bis_repetitas_Onhit}</span><span class="f2">[[{X}*{b_Bis_repetitas_Onhit}]]</span> pourcent de dégats suplémentaires.
+    self=La prochaine attaque non technique portée contre un adversaire ciblé infligeras <span class="f1">X*{b_Bis_repetitas_Onhit}</span><span class="f2">[[{X}*{b_Bis_repetitas_Onhit}]]</span> pourcent de dégats suplémentaires.
+    others=Dans un éclat de lumiere sanglante, un éclat de temps viens heurter la réalitée, brouillant le passé et le présent, frappant encore et encore.
+    special =
+    macro = <span class="f2">{vset} {door} --mod --abyss_gate|-{b_bis_repetitas_charge_level}</span>
+<span class="f2">        {vset} {you} --mod --temp_pdmg|[[{X}*{b_Bis_repetitas_Onhit}]]</span>
+<span class="f2">        {vset} {door} --mod --abyss_gate|-{b_bis_repetitas_charge_level}</span>
+
+
+[Lune de Sang]
+    level=Avancée
+    display_name=Lune de sang
+    cost=2
+    type=Actif/Empower
+    X = @{Voile|repeating_magic-vital-skills_-Lk0IPjvvYGG2jNhSLZL_magic_vital_skilllevel}
+    description=Consomme {b_lune_de_sang_charge_level} points de la Porte de <span class="f1">Sang</span>
+<span class="f1">        ouverture:</span><span class="f2">Sang,</span> crée un bouclier de valeur {b_sceaulunesang_shield}*{X} pour parer une attaque unique
+    self=Crée un bouclier d’une valeur <span class="f1">{b_sceaulunesang_shield}*{X}</span><span class="f2">[[{b_sceaulunesang_shield}*{X}]]</span>
+    others=Les veine de Voile éclatent projetant un mur de sang dans toutes les directions.
+    special =
+    macro = <span class="f2">{vset} {you} --mod --shield|[[{b_sceaulunesang_shield}*{X}]]</span>
+<span class="f2">        {vset} {door} --mod --blood_gate|-{b_lune_de_sang_charge_level}</span>
+
+[Sang]
+    level=Mineure
+    display_name=Sang
+    type=Actif/Instant
+    cost=2
+    X = @{Voile|repeating_magic-vital-skills_-Lk0Ikx5LI0341mCvRDZ_magic_vital_skilllevel}
+    description=Consomme {b_sang_charge_level} points de la Porte de Sang
+        Infligez {b_sang_dmg}*{X} blessures
+    self=Inflige  <span class="f1">{b_sang_dmg}*{X}</span><span class="f2">[[{b_sang_dmg}*{X}]]</span> blessures
+    others=Un éclat de douleur dans un éclat <span class="f1">d'acier</span><span class="f2">d'acier, voile inflige [[{b_sang_dmg}*{X}]] blessures</span>
+    special =
+    macro = <span class="f2">{vset} {door} --mod --blood_gate|-{b_sang_charge_level}</span>
+
+[Temps]
+    level=Mineure
+    display_name=Temps
+    type=Actif/Instant
+<span class="f6">@@ -222,11 +264,11 @@</span>
+    description=Consomme {b_temps_charge_level} points de la Porte de Abysses.
+        Un sceau se relance
+    self=Votre sceau se relance jusqu'a {X} fois
+    others=Ployant sous la force de la volontée des morts, le temps boucle un instant, répétant un sceau ancien.
+    special =
+    macro = <span class="f2">{vset} {door} --mod --abyss_gate|-{b_temps_charge_level}</span>
+
+[Souffle de sang]
+    level=Mineure
+    display_name=Souffle De Sang
+    type=Actif/Instant/Empower
+<span class="f6">@@ -235,11 +277,11 @@</span>
+    description=Consomme {b_souffle_de_sang_charge_level} points de la Porte de Souffrance
+        Votre prochaine attaque gagne un Fauchage
+    self=Votre prochaine attaque peut toucher jusqu'a {X} cibles supplémentaires sans malus, elle obeit aux regles de fauchage.
+    others= La souffrance canalisée en une lame éthérée, tranchant tout sur son passage
+    special =
+    macro = <span class="f2">{vset} {door} --mod --suffering_gate|-{b_souffle_de_sang_charge_level}</span>
+
+[Influx]
+    level=Mineure
+    display_name=Influx
+    type=Actif/Durée/Buff
+<span class="f6">@@ -248,11 +290,11 @@</span>
+    description=Consomme {b_influx_charge_level} points de la Porte de Abysses
+        Augmente les attributs physique de {b_influx_phys}{X}
+    self=Vous augmente vos attributs physique de {b_influx_phys}*{X}
+    others=
+    special =
+    macro = <span class="f2">{vset} {door} --mod --abyss_gate|-{b_influx_charge_level}</span>
+
+[Contresang]
+    level=Mineure
+    display_name=Contresang
+    type=Actif/Instant
+<span class="f6">@@ -261,11 +303,11 @@</span>
+    description=Consomme {b_contresang_charge_level} points de la Porte de Sang
+        Vous regagnez {b_contresang_soin}*{X} points de vie
+    self=Vous regagnez {b_contresang_soin}*{X} points de vie
+    others=La vitalité contenue dans le sang canalisée pour soigner meme les pires blessures.
+    special =
+    macro = <span class="f2">{vset} {door} --mod --blood_gate|-{b_contresang_charge_level}</span>
+
+[Ame]
+    level=Mineure
+    display_name=Ame
+    type=Actif/Instant
+<span class="f6">@@ -274,11 +316,11 @@</span>
+    description=Consomme {b_ame_charge_level} points de la Porte de Abysses
+        Augmente la zone d’un sceau a {b_ame_target}*{X} cible ou {b_ame_alt_range}*{X} metres
+    self=Augmente la zone d’un sceau a {b_ame_target}*{X} cible ou {b_ame_alt_range}*{X} metres
+    others= Les Combatants autours de Voile partagent sa puissance un instant.
+    special =
+    macro = <span class="f2">{vset} {door} --mod --abyss_gate|-{b_ame_charge_level}</span>
+
+[Veine]
+    level=Mineure
+    display_name=Veine
+    type=Actif/Instant
+<span class="f6">@@ -287,11 +329,11 @@</span>
+    description=Consomme {b_veine_charge_level} points de la Porte de Sang
+        Augmente la durée d’un sceau de {b_veine_duree}{X} tours
+    self=Augmente la durée d’un sceau de {b_veine_duree}*{X} tours
+    others=Une seule chose limite l'utilisation de la magie du sang. Le Sang.
+    special =
+    macro = <span class="f2">{vset} {door} --mod --blood_gate|-{b_veine_charge_level}</span>
+
+[Sang de Feu]
+    level=Mineure
+    display_name=Sang de Feu
+    cost=2
+<span class="f6">@@ -300,11 +342,11 @@</span>
+    description=Consomme {b_sangfeu_charge_level} points de la Porte de Sang.
+        Crée une flamme pouvant inflier {b_sangfeu_dmg}*{X} dégats
+    self=Crée une petite flamme pouvant inflier {b_sangfeu_dmg} dégats
+    others=Du torrent de flamme a la flammeche, le feu reste l'élément de la vie.
+    special =
+    macro = <span class="f2">{vset} {door} --mod --blood_gate|-{b_sangfeu_charge_level}</span>
+
+[Amplitude]
+    level=Mineure
+    display_name=Amplitude
+    type=Actif/Instant
+<span class="f6">@@ -347,59 +389,59 @@</span>
+[Brume de sang]
+    Level=Avancée
+    display_name=Brume de sang
+    type=Passif/Buff/Durée
+    cost=4
+    <span class="f1">X</span><span class="f2">B</span> = @{Voile|repeating_magic-vital-skills_-Lk0JovHaDzlyDlxntqG_magic_vital_skilllevel}
+    description= Lors de l’ouverture d’un sceau, offre un bonus de <span class="f1">{b_brumesang_value}*{X}</span><span class="f2">{b_brumesang_value}*{B}</span> sur votre prochaine esquive
+    <span class="f1">self=Offre</span><span class="f2">self= #Offre</span> un bonus de <span class="f1">{b_brumesang_value}*{X}</span><span class="f2">{b_brumesang_value}*{B}</span> sur votre prochaine esquive
+    others=
+    special <span class="f1">=Regrouper Bain de Sang, FoudreSang, Soif Impie, Ire Sanglante et Brume de Sang en une macro unique de lancement de sceau</span><span class="f2">=</span>
+    macro = # Ajouter a chaque déclenchement
+
+[Ire Sanglante]
+    Level=Avancée
+    display_name=Ire Sanglante
+    type=Passif/Empower/Durée
+    cost=2
+    <span class="f1">X</span><span class="f2">I</span> = @{Voile|repeating_magic-vital-skills_-Lk0K39r7eCcYVEBFeKy_magic_vital_skilllevel}
+    description= Lors de l’ouverture d’un sceau, offre un bonus de <span class="f1">{b_iresanglante_dmg}*{X}</span><span class="f2">{b_iresanglante_dmg}*{I}</span> dégat d’arme a votre prochaine attaque
+    <span class="f1">self=Vous</span><span class="f2">self= #Vous</span> gagnez un bonus de <span class="f1">{b_iresanglante_dmg}*{X}</span><span class="f2">{b_iresanglante_dmg}*{I}</span> dégat d’arme a votre prochaine attaque
+    others=
+    special =
+    macro = Afficher le total
+
+[Soif Impie]
+    Level=Avancée
+    display_name=Soif Impie
+    type=Passif/Instant &amp; Passif/Buff/Durée
+    cost=8
+    <span class="f1">X</span><span class="f2">S</span> = @{Voile|repeating_magic-vital-skills_-Lk0KBJLxY9ZzAgs4ZHh_magic_vital_skilllevel}
+    description= Lors de l’ouverture d’un sceau, offre un bonus de <span class="f1">{b_soifimpie_rgn}*{X}</span><span class="f2">{b_soifimpie_rgn}*{S}</span> en régénération
+    <span class="f1">self=Vous</span><span class="f2">self= #Vous</span> regagnez <span class="f1">({X}*{d_soif_heal})d10</span><span class="f2">({S}*{d_soif_heal})d10</span> points de vie et un bonus de <span class="f1">{b_soifimpie_rgn}*{X}</span><span class="f2">{b_soifimpie_rgn}*{S}</span> en régénération jusqu'a la fin du combat
+    others=
+    special=
+    macro =
+
+[FoudreSang]
+    Level=Avancée
+    display_name=FoudreSang
+    cost=4
+    type=Passif/Instant
+    <span class="f1">X</span><span class="f2">F</span> = @{Voile|repeating_magic-vital-skills_-Lk0KH9sMaVvV9aafAeU_magic_vital_skilllevel}
+    description= Lors de l’ouverture d’un sceau, offre un bonus <span class="f1">{b_foudresang_init}*{X}</span><span class="f2">{b_foudresang_init}*{F}</span> en Initiative
+    <span class="f1">self=Offre</span><span class="f2">self= #Offre</span> un bonus <span class="f1">{b_foudresang_init}*{X}</span><span class="f2">{b_foudresang_init}*{F}</span> en initiative sur votre prochaine attaque
+    others=
+    <span class="f1">special=Regrouper Bain de Sang, FoudreSang, Soif Impie, Ire Sanglante et Brume de Sang en une macro unique de lancement de sceau # Donner un maximum ?</span><span class="f2">special=</span>
+    macro =
+
+[Bain de Sang]
+    Level=Avancée
+    display_name=Bain de Sang
+    cost=16
+    type=Passif/Instant
+    <span class="f1">X</span><span class="f2">BA</span> = @{Voile|repeating_magic-vital-skills_-Lk0KWNdsKB9AeKJwoRI_magic_vital_skilllevel}
+    description= Lors de l’ouverture d’un sceau, offre un bonus <span class="f1">{b_bainsang_act}*{X}</span><span class="f2">{b_bainsang_act}*{BA}</span> en nombre d’action
+    <span class="f1">self=Offre</span><span class="f2">self= #Offre</span> un bonus <span class="f1">{b_bainsang_act}*{X}</span><span class="f2">{b_bainsang_act}*{BA}</span> en nombre d’action
+    others=
+    <span class="f1">special=Regrouper Bain de Sang, FoudreSang, Soif Impie, Ire Sanglante et Brume de Sang en une macro unique de lancement de sceau</span><span class="f2">special=</span>
+    macro =
+</pre>
+</body>
+</html>

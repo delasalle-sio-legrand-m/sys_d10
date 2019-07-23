@@ -1,0 +1,385 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="../term.css"/>
+
+</head>
+
+<body class="f9 b9">
+<pre>
+<span class="bold">diff --git a/Helpers/Characters/frene.ini b/Helpers/Characters/frene.ini</span>
+<span class="bold">index d91a793..e11a193 100644</span>
+<span class="bold">--- a/Helpers/Characters/frene.ini</span>
+<span class="bold">+++ b/Helpers/Characters/frene.ini</span>
+<span class="f6">@@ -25,85 +25,92 @@</span>
+    marques=@{selected|marque_hivers}
+    # Base = 4, Good = 11
+    #!token-mod --set statusmarkers|frozen-orb:[[2+2]]
+    #/em @{selected|character_name}
+
+<span class="f2">[start]</span>
+<span class="f2">    description=Macro de début de combat</span>
+<span class="f2">    self=Début du combat</span>
+<span class="f2">        Toutes les reserves sont réinitialisées.</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro={vset} {you} --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --momentum_dmg|0 --momentum_esq|0 --momentum_par|0
+</span>
+[morsure_hiver]
+    level=Ultime
+    type=Passif
+    display_name=Morsure de l'Hiver
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-DqcizrsE0yPbyAb7_magic_aspected_skilllevel}
+    cost=8
+    description=Sous certaines conditions, ou si un sort de glace atteint un ennemi directement,
+                il appliquera un stack de cet effet. Plus cet effet aura été appliqué, plus la cible subira de dégâts supplémentaires.
+    <span class="f1">self=</span><span class="f2">self=Durent jusqu'a la fin du combat, et peuvent stacker jusqu'a {X} fois. Ces marques augmentent de [[floor((({a_glace}+{a_feu})/2){b_morsure_hiver})]] pourcent les dégats subit</span>
+    others={target} est sous l'effet Morsure de l'Hiver et prend des dégâts supplémentaires
+    <span class="f1">special=Durent jusqu'a la fin du combat, et peuvent stacker jusqu'a {X} fois. Ces marques augmentent de floor((({a_glace}+{a_feu})/2){b_morsure_hiver}) pourcent les dégats subit</span>
+<span class="f1">    macro=</span><span class="f2">special=</span>
+<span class="f2">    macro=!setattr --sel --mod --[[floor((({a_glace}+{a_feu})/2){b_morsure_hiver})]]</span>
+
+[robustesse_hiver]
+    level=Ultime
+    type=Passif
+    display_name=Robustesse de l'Hiver
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-DqcizrsE0yPbyAb7_magic_aspected_skilllevel}
+    cost=8
+    description=Sous certaines conditions, ou si un sort de glace atteint un allié directement,
+                il appliquera un stack de cet effet. La cible gagne des résistances aux dégâts pour chaque stack.
+    <span class="f1">self=</span><span class="f2">self==Durent jusqu'a la fin du combat, et peuvent stacker jusqu'a [[{X}]] fois. Ces marques reduisent de [[floor((({a_air}+{a_bois})/2){b_robustesse_hiver})]] pourcent les dégats subits</span>
+    others={target} est sous l'effet Robustesse de l'Hiver et subit donc moins de dégâts.
+    <span class="f1">special=Durent jusqu'a la fin du combat, et peuvent stacker jusqu'a {X} fois. Ces marques reduisent de floor((({a_air}+{a_bois})/2){b_robustesse_hiver}) pourcent les dégats subits</span><span class="f2">special</span>
+    macro=
+
+[revigoration]
+    level=Avancée
+    type=Actif/Instant
+    display_name=Revigoration
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-Gm0UQajXFD5z2zat_magic_aspected_skilllevel}
+    cost=2
+    mp=2
+    description=Consomme les effets Robustesse de l'hiver d'une cible pour lui rendre <span class="f1">{X}*{b_revigoration}</span><span class="f2">[[{X}*{b_revigoration}]]</span> points de vie par effet.
+    <span class="f1">self=</span><span class="f2">self=[Coût : {mp}]  Soigne de [[{marques}*{X}*{a_eau}{b_revigoration}]] points de vie</span>
+    others=
+    <span class="f1">special=[Coût : {mp}]  Regagne {marques}*{X}*{a_eau}{b_revigoration} points de vie</span><span class="f2">special=</span>
+    macro=
+
+[transfert_froid]
+    level=Avancée
+    type=Actif/Instant
+    display_name=Transfert de Froid
+    cost=2
+    mp=3
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-Gn2T4CvHCEcxPHaZ_magic_aspected_skilllevel}
+    <span class="f1">description=[Coût</span><span class="f2">description=</span>
+<span class="f2">    self=Test DD+[[{a_glace}{b_transfert}]] pour resister</span>
+<span class="f2">    others=[Coût</span> : {mp}] Transfère jusqu'à {X} effets Morsure de l'hiver d'une cible ennemie vers une autre au choix.
+    <span class="f1">self=</span>
+<span class="f1">    others=</span>
+<span class="f1">    special=Test DD+{a_glace}{b_transfert} pour resister</span><span class="f2">special=</span>
+    macro=
+
+[symbiose_aspect]
+    level=Avancée
+    type=Passif/Instant
+    display_name=Symbiose de l'aspect
+    cost=4
+    mp=0
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-GphCfAF2s1firmtm_magic_aspected_skilllevel}
+    <span class="f1">description=A</span><span class="f2">description=</span>
+<span class="f2">    self=A</span> chaque attaque, l'aspect peut prendre jusqu'à <span class="f1">{X}*{b_symbiose}</span><span class="f2">[[{X}*{b_symbiose}]]</span> points de dégâts à votre place.<span class="f1">self=</span>
+    others=
+    special= <span class="f2">#ADD UN TRANSFERT</span>
+    macro=
+
+[stimulation_aspect]
+    level=Avancée
+    type=Passif/Buff
+    display_name=Stimulation de l'aspect
+    cost=4
+    mp=0
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-H0A4ZvDP4YcBL1NS_magic_aspected_skilllevel}
+    <span class="f1">description=Si</span><span class="f2">description=</span>
+<span class="f2">    self=Si</span> le personnage ne peut plus agir quelqu'en soit la raison,
+        l'aspect gagne <span class="f1">{X}{b_simulation_aspect}</span><span class="f2">[[{X}{b_simulation_aspect}]]</span> actions supplémentaires jusqu'à la reprise de contrôle du personnage.<span class="f1">self=</span>
+    others= Jinyah ne peut plus agir, mais son aspect s'en voit renforcé.
+    special=
+    macro=
+
+[garde_aspect]
+<span class="f6">@@ -114,34 +121,34 @@</span>
+    mp=0
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-H3by-ofAR9GZF4QH_magic_aspected_skilllevel}
+    description=Lorsque vous allez subir des dégâts, réduisez ces derniers.
+    self=
+    others=
+    special=Reduit les dégats subits de <span class="f1">{X}*{a_air}{b_garde_aspect}</span><span class="f2">[[{X}*{a_air}{b_garde_aspect}]]</span>
+    macro=
+
+[colere_aspect]
+    level=Avancée
+    type=Actif/Empower
+    display_name=Colère de l'aspect
+    cost=4
+    mp=4
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}
+    description=L'aspect peut supprimer toutes les marques de Morsure de l'hiver d'une cible pour augmenter les dégâts de son prochain sort.
+    <span class="f1">self={target} n'a plus</span><span class="f2">self=[Coût : {mp}] Augmente les degats</span> de <span class="f1">marques sur lui.</span><span class="f2">l'aspect de [[{marques}*{X}*{a_feu}{b_colere_aspect}]] pourcent</span>
+    others= L'aspect se charge de Froid et va renforcer son prochain sort.
+    <span class="f1">special=[Coût : {mp}] Augmente les degats de l'aspect de {marques}*{X}*{a_feu}{b_colere_aspect} pourcent</span><span class="f2">special=</span>
+    macro= <span class="f2">##{target} n'a plus de marques sur lui. Scale en fonction des marques</span>
+
+[prelude_hiver]
+    level=Avancée
+    type=Passif/Instant/Buff
+    display_name=prélude de l'hiver
+    cost=16
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-H7EpWwfDnT1p0ZH7_magic_aspected_skilllevel}
+    <span class="f1">description={X}</span><span class="f2">description=</span>
+<span class="f2">    self={X}</span> fois par combat, si le personnage devrait subir des dégâts létaux, Stase Cryogénique est utilisé sur lui-même a la place.<span class="f1">self=</span>
+    others= Jinyah se recouvre de glace, la protégeant ainsi des dégâts.
+    special= Voir le sort Stase Cryogénique, situé 3 sorts plus bas
+    macro=
+
+
+<span class="f6">@@ -154,12 +161,12 @@</span>
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HFQx4xIxRZTRebBS_magic_aspected_skilllevel}
+    description=Crée une armure de Givre sur une cible, lui conférant {X} effet Robustesse de l’hiver,
+                tout en créant un bouclier sur la cible.
+    self=
+    others= {target} reçoit un bouclier de Givre.
+    <span class="f1">special=[Coût</span><span class="f2">special=</span>
+<span class="f2">    macro=[Coût</span> : {mp}] Crée un bouclier mitigeant jusqu'a {X}*{a_air}{b_armure_givre}<span class="f1">macro=</span>
+
+[rayon_glace]
+    level=Simple
+    type=Actif/Instant
+    display_name=Rayon de Glace
+<span class="f6">@@ -167,12 +174,12 @@</span>
+    mp=5
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HKdLOZtOyW28mQ5v_magic_aspected_skilllevel}
+    description=Frappe un ennemi avec la puissance brute de la Glace, occasionnant de lourds dégâts si l’attaque touche.
+                Cette attaque inflige {X}{b_rayon_glace} effets Morsure de l’Hiver supplémentaires.
+    self=
+    <span class="f1">others=</span>
+<span class="f1">    special=[Coût</span><span class="f2">others=[Coût</span> : {mp}] Dodge DD+{X}. Inflige {X}*({a_feu}+{a_glace}){b_rayon_glace_dmg}
+    <span class="f2">special=</span>
+    macro=
+
+[stase_cryogenique]
+    level=Avancée
+    type=Actif/Empower
+<span class="f6">@@ -184,12 +191,12 @@</span>
+                 Régénère {X}{b_stase_cryogenique} points de vie par marque de Robustesse de l’Hiver sur la cible.
+                 Peut-être utilisé sur un ennemi affecté par Morsure de l’hiver pour les mêmes effets.
+                 Dure jusqu’au prochain tour de la cible.
+    self=
+    others= {target} ne peut pas agir jusqu'à son prochain tour et ne prendra pas de dégâts.
+    special=
+    <span class="f1">[Coût</span><span class="f2">macro=[Coût</span> : {mp}] Test DD+{a_glace}{b_stase_cc}. Régénère {marques}*{X}*{a_eau}{b_stase_cryogenique} points de vie.<span class="f1">macro=</span>
+
+[brume_gelee]
+    level=Simple
+    type=Actif/Buff/Durée
+    display_name=Brume Gelée
+<span class="f6">@@ -198,13 +205,13 @@</span>
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HO1ii7biiKBDKj6n_magic_aspected_skilllevel}
+    description=Invoque une brume qui recouvre une zone de {X}*{b_brume_gelee} metres de rayon handicapant la vision des ennemis,
+                et donnant un effet Robustesse de l’hiver aux alliés à l’intérieur chaque tour. La Brume dure {X} tours.
+    self=
+    others=Une brume gelée apparaît, handicapant la vision des ennemis.
+    special=
+    <span class="f1">[Coût</span><span class="f2">macro=[Coût</span> : {mp}] Augmente les seuils pour toucher des attaques de <span class="f1">({a_glace}+{a_metal}){b_brume_gelee}</span><span class="f2">([[{a_glace}+{a_metal}){b_brume_gelee}]]</span> pendant {X} tours
+
+<span class="f1">    macro=</span>
+[mur_reflechissant]
+    level=Avancée
+    type=Actif/Debuff
+    display_name=Mur réfléchissant
+    cost=4
+<span class="f6">@@ -213,12 +220,12 @@</span>
+    description=Invoque un grand mur qui bloque les attaques physiques et réfléchit les sorts.
+                Si un ennemi voit son attaque bloquée ou son sort réfléchi,
+                il subit un effet Morsure de l’hiver.
+    self=
+    others= Un mur de Glace apparaît, protégeant des attaques à venir.
+    special=
+    <span class="f1">[Coût</span><span class="f2">macro=[Coût</span> : {mp}] Crée un mur de {X} metres de haut et <span class="f1">{X}{b_mur_size}</span><span class="f2">[[{X}{b_mur_size}]]</span> Bloque toutes les attaques physiques a hauteur de <span class="f1">{X}*({a_terre}+{a_air}){b_mur}</span><span class="f2">[[{X}*({a_terre}+{a_air}){b_mur}]]</span> dégats et tout les dégats magiques a hauteur de <span class="f1">{X}*({a_glace}+{a_air}){b_mur}</span><span class="f2">[[{X}*({a_glace}+{a_air}){b_mur}]]</span> dégats.<span class="f1">macro=
+</span>
+[vague_glace]
+    level=Simple
+    type=Actif/Instant/Debuff
+    display_name=Vague de Glace
+<span class="f6">@@ -227,12 +234,12 @@</span>
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HR949Z-LVJ-tgb3C_magic_aspected_skilllevel}
+    description=Crée une grande vague de glace qui part du lanceur, occasionnant des dégâts,
+                applique Morsure de l’hiver, et entrave tout ennemi n’ayant pas réussi à l’esquiver.
+    self=
+    others= Une vague de Glace part de Jinyah, entravant tout ennemi pris dedans.
+    special=
+    <span class="f1">[Coût</span><span class="f2">macro=[Coût</span> : {mp}] Dodge DD+{X}, cone de 30 degré sur {X}{b_vague_glace} metres. Resistance a l'effet DD+{a_glace}{b_vague_glace_cc}. CC dure autant de tours que les degrés d'echec. Peut etre retanté chaque tour avec un DD inferieur.<span class="f1">macro=</span>
+
+[etreinte_glaciale]
+    level=Avancée
+    type=Actif/Instant/Durée
+    display_name=Etreinte Glaciale
+<span class="f6">@@ -242,12 +249,12 @@</span>
+    description= Ce sort nécessite que la cible soit affectée par au moins 3 effets Morsure de l’hiver.
+                 Tant que la cible est affectée par Morsure de l’hiver,
+                 elle prendra d’importants dégâts à chaque tour.
+
+    self=
+    <span class="f1">others=</span>
+<span class="f1">    special=[Coût</span><span class="f2">others=[Coût</span> : {mp}] Resistance <span class="f1">DD+{a_magma}/{b_etreinte_glaciale_res}.</span><span class="f2">DD+[[{a_magma}/{b_etreinte_glaciale_res}]].</span> Inflige <span class="f1">{X}*{marques}*({a_feu}+{a_glace}){b_etreinte_glaciale}</span><span class="f2">[[{X}*{marques}*({a_feu}+{a_glace}){b_etreinte_glaciale}]]</span> jusqu'a perte des marques.
+    <span class="f2">special=</span>
+    macro=
+
+[benediction_hiver]
+    level=Avancée
+    type=Actif/Buff/Durée
+<span class="f6">@@ -255,13 +262,13 @@</span>
+    cost=4
+    mp=6
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HXdpOLN295YW3N0p_magic_aspected_skilllevel}
+    description=Ce sort nécessite que la cible soit affectée par au moins 3 effets Robustesse de l’hiver.
+                La cible voit ses dégâts augmenter pendant {X} tours et gagne un effet Robustesse de l’hiver.
+    <span class="f1">self=</span><span class="f2">self=[Coût : {mp}] La cible vois sa prochaine action infliger [[{X}*{a_feu}*{marques}{b_benediction_hivers}]] pourcent dégats supplémentaires</span>
+    others= {target} reçoit une bénédiction de Givre, augmentant ses dégâts pendant un certain temps.
+    special=<span class="f1">[Coût : {mp}] La cible vois sa prochaine action infliger {X}*{a_feu}*{marques}{b_benediction_hivers} pourcent dégats supplémentaires</span>
+    macro=
+
+[blizzard]
+    level=Avancée
+    type=Actif/Durée
+<span class="f6">@@ -271,12 +278,12 @@</span>
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HZdpjSmhjPPyclyE_magic_aspected_skilllevel}
+    description= Crée une tempête dévastatrice dans une grande zone pendant {X} tours.
+                 Les ennemis pris dans le Blizzard prennent d’importants dégâts et subissent deux effets Morsure de l’hiver
+                 chaque tour commencé dans cette zone.
+    self=
+    <span class="f1">others=</span>
+<span class="f1">    special= [Coût</span><span class="f2">others=[Coût</span> : {mp}] Cercle de <span class="f1">{X}{b_blizzard_size}</span><span class="f2">[[{X}{b_blizzard_size}]]</span> metres de rayon, inflige <span class="f1">{marques}*({a_feu}+{a_glace}){b_blizzard}</span><span class="f2">[[{marques}*({a_feu}+{a_glace}){b_blizzard}]]</span> dure {X} tours
+    <span class="f2">special=</span>
+    macro=
+
+[dome_hiver]
+    level=Avancée
+    type=Actif/Canalisation/Buff
+<span class="f6">@@ -290,24 +297,24 @@</span>
+                il subira un effet Morsure de l’Hiver, et un de plus pour chaque action qu’il effectuera à l’intérieur.
+                Les alliés peuvent quitter le Dôme ou rentrer dedans à tout moment.
+
+    self=
+    others= Un grand dôme est invoqué, protégeant tous les alliés à l'intérieur.
+    special=
+    <span class="f1">[Coût</span><span class="f2">macro=[Coût</span> : {mp}] Dome canalisé dans un cercle de <span class="f1">{X}*{b_dome_hivers_size}</span><span class="f2">[[{X}*{b_dome_hivers_size}]]</span> de rayon autours du lanceur. Réduit les dégats subits de <span class="f1">({a_air}+{a_glace}){b_dome_hivers_prot}</span><span class="f2">([[{a_air}+{a_glace}){b_dome_hivers_prot}]]</span> pourcent et genere un bouclier protégeant de <span class="f1">{a_air}*{b_dome_hivers_shield}</span><span class="f2">[[{a_air}*{b_dome_hivers_shield}]]</span> points de dégats au début de chaque tour. Dure jusqu'a {X} tours; canalisé.<span class="f1">macro=
+</span>
+[hiver_sans_fin]
+    level=Avancée
+    type=Actif/Instant/Buff/Durée
+    display_name=Hiver sans fin
+    cost=8
+    mp=4
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HaVh4E6T6BvNJZu-_magic_aspected_skilllevel}
+    description=Sacrifie tous vos effets Robustesse de l’hiver
+    self=Vous infligez {X}*{marques}*{a_feu}{d_hivers_sans_fin} jusqu'à la fin du combat.
+    others=<span class="f1">special=</span> [Coût : {mp}] Jusqu'a la fin du combat vous gagnez <span class="f1">{X}*{marques}*{a_feu}{d_hivers_sans_fin}</span><span class="f2">[[{X}*{marques}*{a_feu}{d_hivers_sans_fin}]]</span> pourcent dégats supplémentaires
+    <span class="f2">special=</span>
+    macro=
+
+[bourrasque_gelee]
+    level=Simple
+    type=Actif/Instant/Debuff
+<span class="f6">@@ -316,12 +323,12 @@</span>
+    mp=3
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HdJw9y7nRiMbXl8s_magic_aspected_skilllevel}
+    description=Envoie une grosse bourrasque d’air glacé qui inflige des dégâts,
+                un effet Morsure de l’hiver, et repousse les ennemis autour du lanceur.
+    self=
+    <span class="f1">others=</span>
+<span class="f1">    special= [Coût</span><span class="f2">others=[Coût</span> : {mp}] Repousement <span class="f1">DD+{a_terre}{b_bourrasque}.</span><span class="f2">DD+[[{a_terre}{b_bourrasque}]].</span> Dégats <span class="f1">({a_feu}+{a_glace}){b_bourrasque_dmg}</span><span class="f2">([[{a_feu}+{a_glace}){b_bourrasque_dmg}]]</span> zone <span class="f1">{X}*{b_bourrasque_size}</span><span class="f2">[[{X}*{b_bourrasque_size}]]</span> metres.
+    <span class="f2">special=</span>
+    macro=
+
+[permafrost]
+    level=Ultime
+    type=Actif/Instant/Debuff/Durée
+<span class="f6">@@ -332,22 +339,22 @@</span>
+    description=Tous les ennemis aux alentours affectés par Morsure de l’hiver voient leurs mouvements considérablement ralentis.
+                Ils perdent {X} actions, ainsi que {X} points dans leur caractéristique principale (For/Agi/Psy),
+                et subissent des dégâts tous les tours, jusqu’à ce qu’ils ne soient plus affectés par Morsure de l’hiver.
+    self=
+    others= Les ennemis aux alentours voient leurs mouvements considérablement ralentis.
+    special=
+    <span class="f1">[Coût</span><span class="f2">macro=[Coût</span> : {mp}] Resist <span class="f1">DD+{a_magma}{b_permafrost_resist};</span><span class="f2">DD+[[{a_magma}{b_permafrost_resist}]];</span> Perdent <span class="f1">{X}*{a_metal}{b_permafrost_act}</span><span class="f2">[[{X}*{a_metal}{b_permafrost_act}]]</span> actions. Malus de <span class="f1">-{X}*{a_metal}{b_permafrost_carac}</span><span class="f2">[[-1*{X}*{a_metal}{b_permafrost_carac}]]</span> physiques et <span class="f1">-{X}*{a_vapeur}{b_permafrost_carac}</span><span class="f2">[[-1*{X}*{a_vapeur}{b_permafrost_carac}]]</span> magiques tant qu'ils sont affectés par une marque morsure de l'hiver.<span class="f1">macro=</span>
+
+[voile_aurore]
+    level=Ultime
+    type=Actif/Buff/Durée
+    display_name=Voile de l'aurore
+    cost=8
+    mp=16
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-Hga0BioOZVTROln9_magic_aspected_skilllevel}
+    description=Projette un voile sur toutes les cibles alliées affectés par Robustesse de l’hiver.
+                Ce voile annule les dégâts des <span class="f1">{X}*{b_voile_aurore}</span><span class="f2">[[{X}*{b_voile_aurore}]]</span> prochaines attaques/sorts.
+                Tant que le voile n’est pas brisé, la Volonté des personnes affectées augmente de {X} points.
+    self=
+    others= Un voile recouvre les alliés aux alentours, protégeant des dégâts et renforcant leur volonté.
+    special=
+    <span class="f1">[Coût</span><span class="f2">macro=[Coût</span> : {mp}] Protection de <span class="f1">{X}*{marques}*{a_air}*{b_voile_aurore}</span><span class="f2">[[{X}*{marques}*{a_air}*{b_voile_aurore}]]</span> sur les {X}{b_voile_aurore_spells} prochainnes attaques. Augmente la volontée de <span class="f1">{X}*{a_vapeur}{b_voile_aurore_buff}</span>
+<span class="f1">    macro=</span><span class="f2">[[{X}*{a_vapeur}{b_voile_aurore_buff}]]</span>
+<span class="bold">diff --git a/Helpers/Characters/reginald.ini b/Helpers/Characters/reginald.ini</span>
+<span class="bold">index c45368d..84b2a85 100644</span>
+<span class="bold">--- a/Helpers/Characters/reginald.ini</span>
+<span class="bold">+++ b/Helpers/Characters/reginald.ini</span>
+<span class="f6">@@ -152,10 +152,11 @@</span>
+    type = Instant - Buff - Arcana
+    description = Augmente toutes les defenses de la cible de {air}{Y}{X} pourcent
+    self = Un grand rai de lumière vous entoure et vous procure de l'energie.
+    others =
+    X = @{Reginald|repeating_magic-arcanist-skill_-LkQWmyQBIj1IRtasXuW_magic_arcanist_skilllevel}
+    <span class="f2">Y =</span> 
+    macro =
+    special = Le y pourrait correspondre a la qté de points de flux +1 pour eviter le *0
+
+[dementia]
+    cost=16
+<span class="bold">diff --git a/Helpers/Characters/voile.ini b/Helpers/Characters/voile.ini</span>
+<span class="bold">index 4fb17f2..4104814 100644</span>
+<span class="bold">--- a/Helpers/Characters/voile.ini</span>
+<span class="bold">+++ b/Helpers/Characters/voile.ini</span>
+<span class="f6">@@ -97,15 +97,30 @@</span>
+
+[attaque_macro]
+    description=Macro d'attaque
+    self=
+    others=
+    <span class="f1">macro=</span>
+<span class="f1">        !crit</span><span class="f2">macro=!crit</span> ?{Nombre de des d'attaque} P @{Voile|general_effective_Perfection} c @{Voile|crit_level} M @{Voile|skillcost_Technique_martiale} @{Voile|general_effective_Technique_martiale} E @{Voile|skillcost_Exploiter_les_points_faibles} @{Voile|general_effective_Exploiter_les_points_faibles} F @{Voile|general_effective_Fauchage} D @{Voile|general_effective_Coup_dechirant} H @{Voile|base_damage_dices} H @{Voile|exal_damage_dices} A @{Voile|Skill_general_attribute_select_attaque} s @{Voile|general_attack_threshold} l @{Voile|general_attack_addall} a a n @{Voile|undescored_name} + @{Voile|additional_damage_dices} + @{Voile|general_effective_weapon1} + @{Voile|general_effective_weapon2} t @{Voile|transcendence} + @{Voile|general_effective_weapon3} f @{Voile|pctinflicted} f @{Voile|pctinflicted_s} f @{Voile|pctinflicted_b} + @{Voile|temp_dmg} f @{Voile|temp_pdmg} + @{Voile|momentum_dmg} #ADD BUFF HAR
+        !setattr --name Voile --temp_pdmg|0 --temp_dmg|0
+        {m}change_momentum
+
+<span class="f2">[esquive_macro]</span>
+<span class="f2">    description=Macro d'esquive</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=!crit ?{Nombre de des d'esquive} I @{skillcost_Defense_impenetrable} @{general_effective_Defense_impenetrable} R @{general_effective_Rempart_parfait} c @{crit_level} H @{base_dodge_dices} A @{Skill_general_attribute_select_dodge} t @{transcendence} s ?{Seuil d'esquive} - ?{Dégats a esquiver|0} a e n @{undescored_name} v @{pctreceived} v @{pctreceived_s} v @{pctreceived_b} + @{Voile|temp_esq} + @{Voile|momentum_esq} #ADD BUFF HAR</span>
+<span class="f2">        !setattr --name Voile --temp_esq|0 --temp_dmg|0</span>
+<span class="f2">        {m}change_momentum</span>
+
+<span class="f2">[parade_macro]</span>
+<span class="f2">    description=Macro de parade</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=!crit ?{Nombre de des de defense} I @{skillcost_Defense_impenetrable} @{general_effective_Defense_impenetrable} R @{general_effective_Rempart_parfait} c @{crit_level} S @{general_skilllevel_Encaissement} @{general_effective_Encaissement} H @{base_defense_dices} H @{exal_defense_dices} s @{general_defense_threshold} l @{general_defense_addall} A @{Skill_general_attribute_select_defense} t @{transcendence} - ?{Dégats a parer|0} a d n @{undescored_name} + @{general_effective_shield1} + @{general_effective_shield2} + @{general_effective_shield3} v @{pctreceived} v @{pctreceived_s} v @{pctreceived_b} v @{Voile|temp_pdef} + @{Voile|temp_def} + @{Voile|momentum_esq}</span>
+<span class="f2">        !setattr --name Voile --temp_pdef|0 --temp_def|0</span>
+<span class="f2">        {m}change_momentum</span>
+
+[harmony]
+    level=Ultime
+    type = Reserve/Passif
+    display_name=Harmony
+    cost=8
+</pre>
+</body>
+</html>

@@ -88,19 +88,21 @@ def macro_one(character,output,version,suffix):
     for sect in config.sections():
         try:
             text=""
-            if (config[sect]["macro"]) != "":
+            if (config[sect]["macro"] != "" or config[sect]["others"] !="" or config[sect]["self"] !=""):
                 text+=term.bold_blue("[{name}]\n".format(name=sect))
                 selfw=replace_vars('/w {you} ',config,god,"self",sect,character)
-                text+=replace_vars(config[sect]["macro"],config,god,"macro",sect,character)
-                text+="\n"
+                if (config[sect]["macro"]):
+                    text+=replace_vars(config[sect]["macro"],config,god,"macro",sect,character)+"\n"
                 if (config[sect]['self']!=""):
                     for l in replace_vars(config[sect]["self"],config,god,"self",sect,character).split("\n"):
                         text+=selfw+l+"\n"
                 if (config[sect]["others"]!=""):
                     text+=replace_vars(config[sect]["others"],config,god,"others",sect,character)+"\n"
                 ret+=text
-        except KeyError:
-            pass # No macro found, not really important
+        except KeyError as e:
+            #if(e=="macro"):
+            #    pass # No macro found, not really important
+            print(errors["sectionnotfound"].format(section=e,where=sect))
 
     return ret
 
@@ -118,24 +120,27 @@ def show(characters,output,version,suffix):
             save_text_ansi(foutput,ret)
 
 def show_one(character,output,version,suffix):
-    config=configparser.ConfigParser(inline_comment_prefixes=" #")
+    config=configparser.ConfigParser(inline_comment_prefixes="#")
     config.read(character)
     ret=""
     for sect in config.sections():
-        text=""
-        if "display_name" not in config[sect]:
-            continue
-        text+=term.bold_blue("[{level}] {title} [{cost}]\n").format(title=config[sect]["display_name"],level=config[sect]["level"],cost=config[sect]["cost"])
-        for dname,sname in (("Type de technique","type"),('Description',"description"),("Description personelle",'self'),("Description publique","others"),("Spécial","special")):
-            try:
-                if not config[sect][sname]:
-                    continue
-                content=replace_vars(config[sect][sname],config,god,sname,sect,character)
-                adden=" {t}\n   {c}\n".format(t=term.blue_underline(dname),c=content.replace("\n","\n   "))
-                text+=adden
-            except KeyError:
-                dprint(errors["sectionnotfound"].format(section=sname,where=sect))
-        ret+=text+'\n'
+        try:
+            if ("display_name" not in config[sect]):
+                continue
+            text=""
+            text+=term.bold_blue("[{level}] {title} [{cost}]\n").format( title=config[sect]["display_name"], level=config[sect]["level"],cost=config[sect]["cost"])
+            for dname,sname in (("Type de technique","type"),('Description',"description"),("Description personelle",'self'),("Description publique","others"),("Spécial","special")):
+                try:
+                    if not config[sect][sname]:
+                        continue
+                    content=replace_vars(config[sect][sname],config,god,sname,sect,character)
+                    adden=" {t}\n   {c}\n".format(t=term.blue_underline(dname),c=content.replace("\n","\n   "))
+                    text+=adden
+                except KeyError:
+                    dprint(errors["sectionnotfound"].format(section=sname,where=sect))
+            ret+=text+'\n'
+        except KeyError as e:
+            print(errors["sectionnotfound"].format(section=e,where=sect))
     return ret
 
 toreplace=re.compile("(?:[^@]|^)\{([\w_-]+)\}")

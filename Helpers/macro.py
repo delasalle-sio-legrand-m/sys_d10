@@ -143,10 +143,11 @@ def show_one(character,output,version,suffix):
             print(errors["sectionnotfound"].format(section=e,where=sect))
     return ret
 
-toreplace=re.compile("(?:[^@]|^)\{([\w_-]+)\}")
+toreplace=re.compile("(?!@)\{([\w_-]+)\}")
 def replace_vars(text,char,god,section,name,character):
     vars=toreplace.findall(text)
     if vars:
+        print(vars)
         for group in vars:
             try:
                 text=text.replace("{"+group+"}",char[name][group])

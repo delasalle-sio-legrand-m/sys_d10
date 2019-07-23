@@ -15,9 +15,9 @@
 <span class="bold"><span class="f4">[turn]</span></span>
 !setattr --name Voile --Life_Points|[[{@{Voile|Life_Points}+@{Voile|regen}-1*(@{Voile|dot}),@{Voile|Life_Points_max}}kl1]]
 <span class="bold"><span class="f4">[show_harmony]</span></span>
-/w Voile &amp;{template:default} {{name=Etat d'harmonie}} {{initiative=+[[3*@{Voile|harmony}]]}} {{perception=+[[3*@{Voile|harmony}]]}} {{Discretion=[[@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}@{Voile|harmony}]]}} {{Nombre d'actions=[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}]]}} {{Attaques d'opportunités=-[[@{Voile|harmony}*2*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}]]}} {{RM=[[@{Voile|harmony}{b_metal_har}*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}]]}}
+/w Voile &amp;{template:default} {{name=Etat d'harmonie}} {{initiative=+[[3*@{Voile|harmony}]]}} {{perception=+[[3*@{Voile|harmony}]]}} {{Discretion=[[@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}@{Voile|harmony}]]}} {{Nombre d'actions=[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}]]}} {{Attaques d'opportunités=-[[@{Voile|harmony}*2*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}]]}} {{RM=[[@{Voile|harmony}*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}]]}}
 <span class="bold"><span class="f4">[change_harmony]</span></span>
-!setattr --name Voile --repeating_skills_-Lk0OZCwmTWY0AVmn5jZ_general_skilllevel|@{Voile|repeating_skills_-Lk0ONlvjF-Ke6kBOfV1_general_skilllevel}+[[@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}@{Voile|harmony}]] --repeating_skills_-Lk0Oqd0D-uzwPP2JgQI_general_skilllevel|@{Voile|repeating_skills_-Lk0OpSq7JnSaXtidJlz_general_skilllevel} --actions_max|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}]] --@{Voile|repeating_skills_-Lk0OpSq7JnSaXtidJlz_general_skilllevel}|[[repeating_skills_-Lk0Oqd0D-uzwPP2JgQI_general_skilllevel+@{Voile|harmony}{b_metal_har}*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}]] --Initiative|[[@{Voile|repeatinggeneral-combat-skills-LkJoCQxRED339Hi8os2_combat_skilllevel}+3*@{Voile|harmony}]]
+!setattr --name Voile --repeating_skills_-Lk0OZCwmTWY0AVmn5jZ_general_skilllevel|@{Voile|repeating_skills_-Lk0ONlvjF-Ke6kBOfV1_general_skilllevel}+[[@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}@{Voile|harmony}]] --repeating_skills_-Lk0Oqd0D-uzwPP2JgQI_general_skilllevel|@{Voile|repeating_skills_-Lk0OpSq7JnSaXtidJlz_general_skilllevel} --actions_max|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}]] --@{Voile|repeating_skills_-Lk0OpSq7JnSaXtidJlz_general_skilllevel}|[[repeating_skills_-Lk0Oqd0D-uzwPP2JgQI_general_skilllevel+@{Voile|harmony}*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}]] --Initiative|[[@{Voile|repeatinggeneral-combat-skills-LkJoCQxRED339Hi8os2_combat_skilllevel}+3*@{Voile|harmony}]]
 <span class="bold"><span class="f4">[show_momentum]</span></span>
 /w Voile &amp;{template:default} {{name=Momentum}} {{Attaque=[[5*@{Voile|momentum}]]}}{{Parade=[[5*@{Voile|momentum}]]}}{{Esquive=[[3*@{Voile|momentum}]]}}{{Déplacement=[[(@{Voile|base-Agilite}+@{Voile|exal-Agilite})+2*@{Voile|momentum}]]}}
 /w Voile Votre attaque et votre parade bénéficient d'un bonus de [[5*@{Voile|momentum}]], votre esquive beneficie d'un bonus de [[3*@{Voile|momentum}]] et votre vitesse de déplacement est désormais de [[(@{Voile|base-Agilite}+@{Voile|exal-Agilite})+2*@{Voile|momentum}]].
@@ -44,7 +44,7 @@
 <span class="bold"><span class="f4">[shadow_har]</span></span>
 !setattr --name Voile --mod --harmony|-1
 /w Voile Voile augmente son état de conscience du réel, les adversaires et objets dans un cercle de [[10*@{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel}]] metres aux alentours revelent leur vraie nature.
-Voile Obtiens pendant un cours instant une image de la réalité au dela des apparences. [[@{Voile|harmony}{b_metal_har}*@{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel}]] aux test. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+Voile Obtiens pendant un cours instant une image de la réalité au dela des apparences. [[@{Voile|harmony}*@{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel}]] aux test. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
 <span class="bold"><span class="f4">[wind_har]</span></span>
 !setattr --name Voile --mod --harmony|-1
 /w Voile Vous pouvez réapparaitre n'importe ou dans un cercle de [[@{Voile|repeating_skills_-Lk0LfoIZqkpZCKWUf8I_general_skilllevel}]] metres autours de vous.
@@ -68,11 +68,11 @@ Un terrible impact sur une zone de [[2*@{Voile|repeating_skills_-Lk0Mb-NlPrZS0G8
 <span class="bold"><span class="f4">[adagio]</span></span>
 !setattr --name Voile --momentum|[[{10*@{Voile|repeating_skills_-Lk0MZh88yaOnxpRaacq_general_skilllevel},(nmom)]]
 #change_momentum
-/w Voile Voile saute d'adversaire en adversaire (jusqu'a @{Voile|repeating_skills_-Lk0Mbt8pCFsrUR0Oddn_general_skilllevel} adversaires différent), n'appliquant que ses on hit [[00]]. Votre momentum augmente de [[@{Voile|repeating_skills_-Lk0Mbt8pCFsrUR0Oddn_general_skilllevel}{b_adagio}]] par adversaire.
+/w Voile Voile saute d'adversaire en adversaire (jusqu'a @{Voile|repeating_skills_-Lk0Mbt8pCFsrUR0Oddn_general_skilllevel} adversaires différent), n'appliquant que ses on hit [[00]]. Votre momentum augmente de [[@{Voile|repeating_skills_-Lk0Mbt8pCFsrUR0Oddn_general_skilllevel}]] par adversaire.
 Voile utilise ses differents adversaires pour rebondir de l'un a l'autre et augmenter son Momentum
 <span class="bold"><span class="f4">[tempo_martial]</span></span>
 !setattr --name Voile --mod --actions|-4 --temp_dmg|[[42*@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}]] --temp_def|[[42*@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}]]
-/w Voile Sacrifiez [[4]] actions; votre prochaine action physique gagne [[@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}{b_tempo_degre}]] degrés de réussite, vous gagnez un bonus de [[42*@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}]] a votre  prochaine attaque et votre prochaine la parade.
+/w Voile Sacrifiez [[4]] actions; votre prochaine action physique gagne [[@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}]] degrés de réussite, vous gagnez un bonus de [[42*@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}]] a votre  prochaine attaque et votre prochaine la parade.
 Voile se synchronyse au tempo de son adversaire pour se servir se ses propres actions contre lui.
 <span class="bold"><span class="f4">[sceau_phenix]</span></span>
 !setattr --name Hellsdoor --mod --blood_gate|-50
@@ -129,7 +129,7 @@ La seule chose qui différencie le rochers et la montagne.
 /w Voile Augmente la discrétion d'une cible de [[2*@{Voile|repeating_magic-vital-skills_-Lk0JZeeKHm5vfnrcqpp_magic_vital_skilllevel}]] jusqu'à la fin du combat
 Se frayer un chemin parmis les lignes adverses est bien plus facile lorsque on est invisible.
 <span class="bold"><span class="f4">[Torrent Pourpre]</span></span>
-!setattr --name Hellsdoor --mod --suffering_gate|[[?{Ouverture de la porte de la Souffrance}+@{Voile|repeating_magic-vital-skills_-Lk0JhpooCT7WC1qoCw2_magic_vital_skilllevel}{b_torrentpourpre_souffrance}]] --abyss_gate|[[?{Ouverture de la porte des Abysses}+@{Voile|repeating_magic-vital-skills_-Lk0JhpooCT7WC1qoCw2_magic_vital_skilllevel}{b_torrentpourpre_souffrance}]] --blood_gate|[[?{Ouverture de la porte de Sang}+@{Voile|repeating_magic-vital-skills_-Lk0JhpooCT7WC1qoCw2_magic_vital_skilllevel}{b_torrentpourpre_sang}]]
+!setattr --name Hellsdoor --mod --suffering_gate|[[?{Ouverture de la porte de la Souffrance}+@{Voile|repeating_magic-vital-skills_-Lk0JhpooCT7WC1qoCw2_magic_vital_skilllevel}2]] --abyss_gate|[[?{Ouverture de la porte des Abysses}+@{Voile|repeating_magic-vital-skills_-Lk0JhpooCT7WC1qoCw2_magic_vital_skilllevel}2]] --blood_gate|[[?{Ouverture de la porte de Sang}+@{Voile|repeating_magic-vital-skills_-Lk0JhpooCT7WC1qoCw2_magic_vital_skilllevel}5]]
 </pre>
 </body>
 </html>

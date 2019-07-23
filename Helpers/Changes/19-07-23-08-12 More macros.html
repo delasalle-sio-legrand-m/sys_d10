@@ -1,0 +1,764 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="../term.css"/>
+
+</head>
+
+<body class="f9 b9">
+<pre>
+<span class="bold">diff --git a/Helpers/Characters/frene.ini b/Helpers/Characters/frene.ini</span>
+<span class="bold">index 7e3e4b5..d91a793 100644</span>
+<span class="bold">--- a/Helpers/Characters/frene.ini</span>
+<span class="bold">+++ b/Helpers/Characters/frene.ini</span>
+<span class="f6">@@ -1,20 +1,33 @@</span>
+[DEFAULT]
+   #Penser a tout faire scale avec les affinitées
+    <span class="f1">a_eau={eau}</span>
+<span class="f1">    a_air={air}</span>
+<span class="f1">    a_feu={feu}</span>
+<span class="f1">    a_terre={terre}</span>
+<span class="f1">    a_glace={glace}</span>
+<span class="f1">    a_metal={metal}</span>
+<span class="f1">    a_magma={magma}</span>
+<span class="f1">    a_vapeur={vapeur}</span>
+<span class="f1">    a_bois={bois}</span>
+<span class="f1">    a_foudre={foudre}</span><span class="f2">a_eau=@{Jinyah|elem_eau_tot}/2+@{Eisvogel|elem_eau_tot}</span>
+<span class="f2">    a_air=@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot}</span>
+<span class="f2">    a_feu=@{Jinyah|elem_feu_tot_tot}/2+@{Eisvogel|elem_feu_tot}</span>
+<span class="f2">    a_terre=@{Jinyah|elem_terre_tot}/2+@{Eisvogel|elem_terre_tot}</span>
+<span class="f2">    a_glace=@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot}</span>
+<span class="f2">    a_metal=@{Jinyah|elem_metal_tot}/2+@{Eisvogel|elem_metal_tot}</span>
+<span class="f2">    a_magma=@{Jinyah|elem_magma_tot}/2+@{Eisvogel|elem_metal_tot}</span>
+<span class="f2">    a_vapeur=@{Jinyah|elem_vapeur_tot}/2+@{Eisvogel|elem_vapeur_tot}</span>
+<span class="f2">    a_bois=@{Jinyah|elem_bois_tot}/2+@{Eisvogel|elem_bois_tot}</span>
+<span class="f2">    a_foudre=@{Jinyah|elem_foudre_tot}/2+@{Eisvogel|elem_foudre_tot}</span>
+<span class="f2">    eau=@{Jinyah|elem_eau_tot}</span>
+<span class="f2">    air=@{Jinyah|elem_air_tot}</span>
+<span class="f2">    feu=@{Jinyah|elem_feu_tot_tot}</span>
+<span class="f2">    terre=@{Jinyah|elem_terre_tot}</span>
+<span class="f2">    glace=@{Jinyah|elem_glace_tot}</span>
+<span class="f2">    metal=@{Jinyah|elem_metal_tot}</span>
+<span class="f2">    magma=@{Jinyah|elem_magma_tot}</span>
+<span class="f2">    vapeur=@{Jinyah|elem_vapeur_tot}</span>
+<span class="f2">    bois=@{Jinyah|elem_bois_tot}</span>
+<span class="f2">    foudre=@{Jinyah|elem_foudre_tot}</span>
+<span class="f2">    you=Jinyah</span>
+<span class="f2">    him=Eisvogel</span>
+    marques=@{selected|marque_hivers}
+    # Base = 4, Good = 11
+    #!token-mod --set statusmarkers|frozen-orb:[[2+2]]
+    <span class="f2">#/em @{selected|character_name}</span>
+
+[morsure_hiver]
+    level=Ultime
+    type=Passif
+    display_name=Morsure de l'Hiver
+<span class="f6">@@ -85,11 +98,11 @@</span>
+    display_name=Stimulation de l'aspect
+    cost=4
+    mp=0
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-H0A4ZvDP4YcBL1NS_magic_aspected_skilllevel}
+    description=Si le personnage ne peut plus agir quelqu'en soit la raison,
+        l'aspect gagne {X}{b_simulation_aspect} actions supplémentaires jusqu'à la reprise de contrôle du personnage.
+    self=
+    others= Jinyah ne peut plus agir, mais son aspect s'en voit renforcé.
+    special=
+    macro=
+
+<span class="bold">diff --git a/Helpers/Characters/reginald.ini b/Helpers/Characters/reginald.ini</span>
+<span class="bold">index ad5ee67..8f6a318 100644</span>
+<span class="bold">--- a/Helpers/Characters/reginald.ini</span>
+<span class="bold">+++ b/Helpers/Characters/reginald.ini</span>
+<span class="f6">@@ -1,130 +1,242 @@</span>
+<span class="f2">[DEFAULT]</span>
+<span class="f2">    you=Reginald</span>
+<span class="f2">    eau=@{Reginald|elem_eau_tot}</span>
+<span class="f2">    air=@{Reginald|elem_air_tot}</span>
+<span class="f2">    feu=@{Reginald|elem_feu_tot}</span>
+<span class="f2">    terre=@{Reginald|elem_terre_tot}</span>
+<span class="f2">    glace=@{Reginald|elem_glace_tot}</span>
+<span class="f2">    metal=@{Reginald|elem_metal_tot}</span>
+<span class="f2">    magma=@{Reginald|elem_magma_tot}</span>
+<span class="f2">    vapeur=@{Reginald|elem_vapeur_tot}</span>
+<span class="f2">    bois=@{Reginald|elem_bois_tot}</span>
+<span class="f2">    foudre=@{Reginald|elem_foudre_tot}</span>
+<span class="f2">    power={? Magna Arcanum}</span>
+
+<span class="f2">[Elemental_damage]</span>
+<span class="f2">    description=Inflige des dégats élémentaires d'un type</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    element=  utilise une arcane élémentaire</span>
+<span class="f2">    macro=?{Element ultilisé|</span>
+<span class="f2">            Eau, {you} {element} d'air et inflige [[floor({eau}{b_elem}+{feu}+{power}{b_power})]] dégats |</span>
+<span class="f2">            Air, {you} {element} d'air et inflige [[floor({air}{b_elem}+{feu}+{power}{b_power})]] dégats |</span>
+<span class="f2">            Terre, {you} {element} d'air et inflige [[floor({terre}{b_elem}+{feu}+{power}{b_power})]] dégats |</span>
+<span class="f2">            Feu, {you} {element} d'air et inflige [[floor({feu}{b_elem}+{feu}+{power}{b_power})]] dégats |</span>
+<span class="f2">            Glace, {you} {element} d'air et inflige [[floor({glace}{b_elem}+{feu}+{power}{b_power})]] dégats |</span>
+<span class="f2">            Metal, {you} {element} d'air et inflige [[floor({metal}{b_elem}+{feu}+{power}{b_power})]] dégats |</span>
+<span class="f2">            Magma, {you} {element} d'air et inflige [[floor({magma}{b_elem}+{feu}+{power}{b_power})]] dégats |</span>
+<span class="f2">            Vapeur, {you} {element} d'air et inflige [[floor({vapeur}{b_elem}+{feu}+{power}{b_power})]] dégats |</span>
+<span class="f2">            Bois, {you} {element} d'air et inflige [[floor({bois}{b_elem}+{feu}+{power}{b_power})]] dégats |</span>
+<span class="f2">            Foudre, {you} {element} d'air et inflige [[floor({foudre}{b_elem}+{feu}+{power}{b_power})]] dégats</span>
+<span class="f2">        }</span>
+
+<span class="f2">[eau:soin]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane d'Eau: Votre arcanum soigne de [[{eau}{b_heal}]]</span>
+
+<span class="f2">[air:bouclier]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane d'Air: Votre arcanum  protege de [[{air}{b_shield}]]</span>
+
+<span class="f2">[terre:cc_physique]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane de Terre: Votre arcanum effectue une action de controle physique DD+[[{terre}{b_cc_physique}]]</span>
+
+<span class="f2">[glace:cc_magique]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane de Glace: Votre arcanum effectue une action de controle magique DD+[[{glace}{b_cc_magique}]]</span>
+
+<span class="f2">[metal:buff_phy]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane de Metal: Votre arcanum renforce une caractéristique physique de [[{metal}{b_buff_phy}]]</span>
+
+<span class="f2">[metal:res_phy]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane de Metal: Votre arcanum renforce une resistance physique de [[{metal}{b_buff_phy_res}]]</span>
+
+<span class="f2">[magma:maladie]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane de Magma: Votre arcanum inflige une affliction, infligeant [[{maladie}{b_maladie}]] dégats chaque tour.
+</span>
+<span class="f2">[vapeur:buff_mag]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane de Vapeur: Votre arcanum renforce une caractéristique magique de [[{metal}{b_buff_mag}]]</span>
+
+<span class="f2">[vapeur:res_mag]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane de Vapeur: Votre arcanum augmente une resistance magique de [[{vapeur}{b_buff_mag_res}]] pourcent</span>
+
+<span class="f2">[bois:diminution_degats]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane de Bois: Votre arcanum diminue les dégats de [[{bois}{b_diminution_degats}]]</span>
+
+<span class="f2">[bois:resistances]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane de Bois: Votre arcanum augmente les résistances de [[{bois}{b_diminution_degats_rec}]] pourcent</span>
+
+<span class="f2">[foudre:diminution_defences]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane de Foudre: Votre arcanum diminue les dégats de [[{foudre}{b_diminution_degats}]]</span>
+
+<span class="f2">[foudre:diminution_shields]</span>
+<span class="f2">    description=</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=Arcane de Foudre: Votre arcanum détruit les boucliers a hauteur de [[{foudre}{b_diminution_shield}]]</span>
+
+
+[aureola]
+    <span class="f2">cost=16</span>
+    level = Ultime
+    display_name = Arcanum Magnum : Aureola
+    type = <span class="f1">Actif</span><span class="f2">Arcana</span>
+    description = La cible devient inciblable, recupere {X} actions, 2* {X} dés reserve et 2* {X} points de vie. Si la cible est sous l'effet d'une alteration d'état (mort incluse), retirez là, et appliquez les soins normalement.
+    self = Un halo jaune au dessus de votre tếte vous protege.
+    others =
+    X = @{aureola_level}
+    macro =
+    special =
+
+[fluctus]
+    <span class="f2">cost=8</span>
+    level = Ultime
+    display_name = Praeter Arcanum : Fluctus
+    type = <span class="f1">Passif</span><span class="f2">Passif/Reserve</span>
+    description = Quand vous lancez un sort, gagnez {X} points de flux. Cette ressource expire en {X} heures. Pour chaque point de flux que vous avez bénéficiez d'une reduction des dégats de <span class="f1">{X}%</span><span class="f2">{X} pourcent</span> et une augmentation de tous vos dégats de <span class="f1">{X}%</span><span class="f2">{X} pourcent
+</span>    self =
+    others =
+    X = @{flux_level}
+    macro =
+    special = Penser a balancer la vitesse d'acquisition des points de flux
+
+
+[diluvium]
+    <span class="f2">cost=16</span>
+    level = Ultime
+    display_name = Arcanum Magnum : Diluvium
+    type = <span class="f1">Actif</span><span class="f2">Arcana</span> | Empower
+    description = Pour chaque carte posée ce tour-ci, copiez {X} fois le sort ciblé
+    self = Vous créez une tempete dans les arcanes, le réel se met a ployer sous le torrent d'energie que vous déployez.
+    others =
+    X = @{diluvium_level}
+    macro =
+    special =
+
+
+
+[tenacitas]
+    <span class="f2">cost=8</span>
+    level = Avancée
+    display_name = Arcanum Altum : Tenacitas (Ténacité)
+    type = Instant - Buff - <span class="f1">Arcane</span><span class="f2">Arcana</span>
+    description = Augmente toutes les defenses de la cible de <span class="f1">{air}{Y}{X}%</span><span class="f2">{air}{Y}{X} pourcent</span>
+    self = Un grand rai de lumière vous entoure et vous procure de l'energie.
+    others =
+    X = @{tenacitas_level}
+    macro =
+    special = Le y pourrait correspondre a la qté de points de flux +1 pour eviter le *0
+
+[dementia]
+    <span class="f2">cost=16</span>
+    level = Avancée
+    display_name = Praeter Arcanum : Dementia
+    type = Actif/Instant
+    description = Toute carte défaussée peut etre jouée contre {X} dés de votre réserve du tour
+    self =
+    others =
+    X = @{dementia_level}
+    macro =
+    special = Merci de revoir la formulation de dementia
+
+
+[praesagio]
+    <span class="f2">cost=16</span>
+    level = Avancée
+    display_name = Praeter Arcanum : Praesagio
+    type = Actif/Instant/Buff
+    description = Piochez {X} cartes, défaussez {X} cartes
+    self = Vous piochez....encore, et encore
+    others =
+    X = @{praesagio_level}
+    macro =
+    special =
+
+[capita]
+    <span class="f2">cost=8</span>
+    level = Avancée
+    display_name = Praeter Arcanum : Capita
+    type =  Actif/Instant
+    description = Consommez {X} points de flux, piochez {X} cartes
+    self =
+    others =
+    X = @{capita_level}
+    macro =
+    special =
+
+[Navia]
+    <span class="f2">cost=8</span>
+    level = Avancée
+    display_name = Praeter Arcanum : Navia
+    type =  Actif/Instant
+    description = Defaussez {X} cartes, Gagnez {X} points de flux
+    self =
+    others =
+    X = @{navia_level}
+    macro =
+    special =
+
+
+[scientia]
+    <span class="f2">cost=16</span>
+    level = Avancée
+    display_name = Praeter Arcanum : Scientia
+    type = Actif
+    description = Nommez une carte, dépensez {X} points de flux (en fonction du niveau), allez la chercher dans votre deck.
+    self =
+    others =
+    X = @{scientia_level}
+    macro =
+    special =
+
+[despectio]
+    <span class="f2">cost=4</span>
+    level = Avancée
+    display_name = Praeter Arcanum : Despectio
+    type = Passif
+    description = Augemente toutes les resistances de {X} par carte en main
+    self =
+    others =
+    X = @{despectio_level}
+    macro =
+    special = Attention il s'agit de resistances flat
+
+
+
+[ira]
+    <span class="f2">cost=16</span>
+    level = Avancée
+    display_name = Praeter Arcanum : Ira
+    type = Passif
+    description = Augmente l'efficacité de vos sorts de <span class="f1">{X}%</span><span class="f2">{X} pourcent</span> par carte utilisée dans un sort
+    self =
+    others =
+    X = @{ira_level}
+    macro =
+    special =
+<span class="bold">diff --git a/Helpers/Characters/tian.ini b/Helpers/Characters/tian.ini</span>
+<span class="bold">new file mode 100644</span>
+<span class="bold">index 0000000..ca428d6</span>
+<span class="bold">--- /dev/null</span>
+<span class="bold">+++ b/Helpers/Characters/tian.ini</span>
+<span class="f6">@@ -0,0 +1,193 @@</span>
+<span class="f2">[DEFAULT]</span>
+
+<span class="f2">[Qing Shen Xing]</span>
+<span class="f2">    level        = Avancée</span>
+<span class="f2">    display_name = Qing Shen Xing</span>
+<span class="f2">    description  =  Offre un point de destin et une réduction de difficulté pour toute action ayant un lien avec l’objet d’étude.</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = Passif</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 4</span>
+<span class="f2">    X            =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[Unification du Corps et de l`Esprit]</span>
+<span class="f2">    level        = Ultime</span>
+<span class="f2">    display_name = Unification du Corps et de l`Esprit</span>
+<span class="f2">    description  = Crée une nouvelle caractéristique l’Unité dont le calcul repose sur toutes les autres caractéristique. L’Unité peut être substitué à toute autre caractéristique pour des jets de compétences.</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = Passif/Reserve</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 8</span>
+<span class="f2">    X            =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[Creuset des Énergies]</span>
+<span class="f2">    level        = Ultime</span>
+<span class="f2">    display_name = Creuset des Énergies</span>
+<span class="f2">    description  = Crée une réserve nommé Qi des Origines basée sur toutes les affinités et dont la génération dépend de l’Unité.</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = Passif/Reserve</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 8</span>
+<span class="f2">    X            =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[D`énergie et de matière]</span>
+<span class="f2">    level        = Ultime</span>
+<span class="f2">    display_name = D`énergie et de matière</span>
+<span class="f2">    description  = Permet de Régénérer contre du Qi le corps de l’utilisateur ou créer tout objet dont la structure est mémorisée par l’utilisateur.</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = ?</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 8</span>
+<span class="f2">    X            =</span>
+<span class="f2">    Qi           =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[Apothéose]</span>
+<span class="f2">    level        = Avancée</span>
+<span class="f2">    display_name = Apothéose</span>
+<span class="f2">    description  = Cette technique renforce les caractéristiques secondaires (Pv &amp; Pf &amp; Déplacement) mais aussi toutes les résistances. Ces bonus sont déterminé par la caractéristique d’Unité et le niveau de la technique.</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = Actif/Buff/(? maintenu/durée?)</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 4</span>
+<span class="f2">    X            =</span>
+<span class="f2">    Qi           =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[Volonté transcendantale]</span>
+<span class="f2">    level        = Avancée</span>
+<span class="f2">    display_name = Volonté transcendantale</span>
+<span class="f2">    description  = Réduit de X Degrés de difficultés les jets liés à la Volonté et offre une relance pour ceux-ci. Permet de résister aux altérations d`états (mort/inconscience) contre un jet de volonté.</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = ?</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 16</span>
+<span class="f2">    X            =</span>
+<span class="f2">    Qi           =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[Négation selon Tian]</span>
+<span class="f2">    level        = Avancée</span>
+<span class="f2">    display_name = Négation selon Tian</span>
+<span class="f2">    description  = Technique de parade utilisant du QI pour réduire tout dégât reçu sur cette action. Cette technique permet de parer des énergies. (sort divin/magique/voile).</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = Actif/Empower</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 8*</span>
+<span class="f2">    X            =</span>
+<span class="f2">    Qi           =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[Inébranlable]</span>
+<span class="f2">    level        = Avancée</span>
+<span class="f2">    display_name = Inébranlable</span>
+<span class="f2">    description  = Offre X dés en parade et Y relances défensive (et Z pts de perfection défensive), toute action défensive coûte 1 action de plus à effectuer. (Activation contre un coût en Qi et idem pour maintien).</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = Actif/Buff/Maintenu</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 4</span>
+<span class="f2">    X            =</span>
+<span class="f2">    Qi           =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[Mouvement Intangible]</span>
+<span class="f2">    level        = Avancée</span>
+<span class="f2">    display_name = Mouvement Intangible</span>
+<span class="f2">    description  = Technique qui consume du Qi afin d’effectuer un déplacement sur des distances et directions irréelles. Ce déplacement n’offre pas d’attaques d’opportunités en désengagement ou sur le trajet.</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = Actif</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 8</span>
+<span class="f2">    X            =</span>
+<span class="f2">    Qi           =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[Infusion du Qi]</span>
+<span class="f2">    level        = Avancée</span>
+<span class="f2">    display_name = Infusion du Qi</span>
+<span class="f2">    description  = Infuse une cible de Qi, celle-ci devient manipulable à distance (coûte une action) et gagne un bonus de dégâts. La durée de l’infusion dépend du niveau de la technique.</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = Actif / Durée (?maintenu)</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 4</span>
+<span class="f2">    X            =</span>
+<span class="f2">    Qi           =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[Unicité élémentaire]</span>
+<span class="f2">    level        = Avancée</span>
+<span class="f2">    display_name = Unicité élémentaire</span>
+<span class="f2">    description  = Le Qi prend une nature élémentaire qui offre un bonus à toute action ou objet infusé par celui-ci ce bonus est pondéré par l’affinité en question. (Buff de Dégâts et effets).</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = Actif / (Durée?Maintenu?)</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 4</span>
+<span class="f2">    X            =</span>
+<span class="f2">    Qi           =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[Paume purificatrice]</span>
+<span class="f2">    level        = Avancée</span>
+<span class="f2">    display_name = Paume purificatrice</span>
+<span class="f2">    description  =  Attaque infusant du Qi dans le corps de la cible infligeant des dégâts internes visant à détruire tout autre type d`énergie surnaturelle (bonus de dégâts, détruit les buff/debuff, relâche les contrôles-&gt;altérations?).(Cette attaque peut être rendue non létale).
+    self         =</span>
+<span class="f2">    type         = Actif / Empower</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 8</span>
+<span class="f2">    X            =</span>
+<span class="f2">    Qi           =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[Poing fulgurant]</span>
+<span class="f2">    level        = Avancée</span>
+<span class="f2">    display_name = Poing fulgurant</span>
+<span class="f2">    description  = En échange de QI, Inflige une puissante attaque (Bonus de dégâts) à haute initiative. (technique est pondérée par l`affinité de Foudre?)</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = Actif / Empower (Buff ?)</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 8</span>
+<span class="f2">    X            =</span>
+<span class="f2">    Qi           =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+
+
+<span class="f2">[Châtiment Céleste]</span>
+<span class="f2">    level        = Ultime</span>
+<span class="f2">    display_name = Châtiment Céleste</span>
+<span class="f2">    description  = Attaque Ultime aux dégâts pondérés par le Qi et le nombre d`actions investies.</span>
+<span class="f2">    self         =</span>
+<span class="f2">    type         = Actif / Empower / Canalisation</span>
+<span class="f2">    others       =</span>
+<span class="f2">    cost         = 16</span>
+<span class="f2">    X            =</span>
+<span class="f2">    Qi           =</span>
+<span class="f2">    macro        =</span>
+<span class="f2">    special      =</span>
+<span class="bold">diff --git a/Helpers/Characters/voile.ini b/Helpers/Characters/voile.ini</span>
+<span class="bold">index 8e8c393..4fb17f2 100644</span>
+<span class="bold">--- a/Helpers/Characters/voile.ini</span>
+<span class="bold">+++ b/Helpers/Characters/voile.ini</span>
+<span class="f6">@@ -40,30 +40,31 @@</span>
+
+[turn]
+    description=Macro de début de tour
+    self=
+    others=
+    macro={vset} {you} <span class="f1">--mod --Life_Points|[[@{Voile|regen}-1*(@{Voile|dot})]]</span><span class="f2">--Life_Points|[[{@{Voile|Life_Points}+@{Voile|regen}-1*(@{Voile|dot}),@{Voile|Life_Points_max}}kl1]]</span>
+
+[show_harmony]
+    description=
+    self=
+    others=
+    X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}
+    macro=/w {you} &amp;{template:default} {{name=Etat d'harmonie}} {{initiative=+[[{b_harmony}*{harmony}]]}} {{perception=+[[{b_harmony}*{harmony}]]}} {{Discretion=[[{b_shadow_har_disc}{X}{harmony}]]}} {{Nombre <span class="f1">d'actions=[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+@{Voile|{b_wind_har_act}{X}*{harmony}}]]}}</span><span class="f2">d'actions=[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+{b_wind_har_act}{X}*{harmony}]]}}</span> {{Attaques d'opportunités=-[[{harmony}*{b_wind_har_opp}*{X}]]}} {{RM=[[{harmony}{b_metal_har}*{X}]]}}
+
+
+[change_harmony]
+    self=
+    others=
+    X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}
+    macro={vset} {you} --{Discretion_m}|{discretion}+[[{b_shadow_har_disc}{X}{harmony}]] --{Resistance_mentale_m}|{Resistance_mentale} <span class="f1">--actions_max|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+@{Voile|{b_wind_har_act}{X}*{harmony}}]]</span><span class="f2">--actions_max|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+{b_wind_har_act}{X}*{harmony}]]</span> --{Resistance_mentale}|[[{Resistance_mentale_m}+{harmony}{b_metal_har}*{X}]] --Initiative|[[{initiative}+{b_harmony}*{harmony}]]
+
+[show_momentum]
+    description=
+    others=
+    self=Votre attaque et votre parade bénéficient d'un bonus de [[{b_momentum_dmg}*{momentum}]], votre esquive beneficie d'un bonus de [[{b_momentum_esq}*{momentum}]] et votre vitesse de déplacement est désormais de [[{ag}+{b_momentum_speed}*{momentum}]].
+    <span class="f1">macro=/w</span><span class="f2">macro= /w</span> {you} &amp;{template:default} {{name=Momentum}} {{Attaque=[[{b_momentum_dmg}*{momentum}]]}}{{Parade=[[{b_momentum_dmg}*{momentum}]]}}{{Esquive=[[{b_momentum_esq}*{momentum}]]}}{{Déplacement=[[{ag}+{b_momentum_speed}*{momentum}]]}}
+
+[change_momentum]
+    self=
+    others=
+    macro=!setattr --name Voile --momentum|[[{{b_momentum_max}*{momentum_max},{momentum}+1}kl1]] --momentum_dmg|[[{b_momentum_dmg}*({momentum}+1)]] --momentum_par|[[{b_momentum_dmg}*({momentum}+1)]] --momentum_esq|[[{b_momentum_esq}*({momentum}+1)]]
+<span class="f6">@@ -74,11 +75,11 @@</span>
+    B = @{Voile|repeating_magic-vital-skills_-Lk0JovHaDzlyDlxntqG_magic_vital_skilllevel}
+    I = @{Voile|repeating_magic-vital-skills_-Lk0K39r7eCcYVEBFeKy_magic_vital_skilllevel}
+    S = @{Voile|repeating_magic-vital-skills_-Lk0KBJLxY9ZzAgs4ZHh_magic_vital_skilllevel}
+    F = @{Voile|repeating_magic-vital-skills_-Lk0KH9sMaVvV9aafAeU_magic_vital_skilllevel}
+    BA = @{Voile|repeating_magic-vital-skills_-Lk0KWNdsKB9AeKJwoRI_magic_vital_skilllevel}
+    <span class="f1">self=Offre</span><span class="f2">self = Offre</span> un bonus de [[{b_brumesang_value}*{B}]] sur votre prochaine esquive
+        Vous gagnez un bonus de [[{b_iresanglante_dmg}*{I}]] dégat d’arme a votre prochaine attaque
+        Vous regagnez [[({S}*{d_soif_heal})d10]] points de vie et un bonus de [[{b_soifimpie_rgn}*{S}]] en régénération jusqu'a la fin du combat
+        Offre un bonus [[{b_foudresang_init}*{F}]] en initiative sur votre prochaine attaque
+        Offre un bonus [[{b_bainsang_act}*{BA}]] en nombre d’action
+    macro= {m}change_blood
+<span class="f6">@@ -87,11 +88,12 @@</span>
+    B = @{Voile|repeating_magic-vital-skills_-Lk0JovHaDzlyDlxntqG_magic_vital_skilllevel}
+    I = @{Voile|repeating_magic-vital-skills_-Lk0K39r7eCcYVEBFeKy_magic_vital_skilllevel}
+    S = @{Voile|repeating_magic-vital-skills_-Lk0KBJLxY9ZzAgs4ZHh_magic_vital_skilllevel}
+    F = @{Voile|repeating_magic-vital-skills_-Lk0KH9sMaVvV9aafAeU_magic_vital_skilllevel}
+    BA = @{Voile|repeating_magic-vital-skills_-Lk0KWNdsKB9AeKJwoRI_magic_vital_skilllevel}
+    macro={vset} {you} --mod <span class="f1">--regen|[[{b_soifimpie_rgn}*{S}]] --Life_Points|[[({S}*{d_soif_heal})d10]] actions_max|[[{b_bainsang_act}*{BA}]]</span><span class="f2">--Life_Points|[[{@{Voile|{b_soifimpie_rgn}*{S}}+{b_soifimpie_rgn}*{S},@{Voile|Life_Points_max}}kl1]] --actions_max|[[{b_bainsang_act}*{BA}]]</span> --actions|[[{b_bainsang_act}*{BA}]] <span class="f2">--temp_dmg|[[{b_iresanglante_dmg}*{I}]] --temp_esq|[[{b_brumesang_value}*{B}]]</span>
+<span class="f2">        {vset} {you} --Life_Points|[[{(@{Voile|Life_Points}+{S}*{d_soif_heal})d10,@{Voile|Life_Points_max}}kl1]]</span>
+    self=
+    others=
+
+[attaque_macro]
+    description=Macro d'attaque
+<span class="f6">@@ -196,11 +198,11 @@</span>
+        adversaires dans une large zone dépendant du nombre de points de momentum consumés
+    self=Vous perdez votre momentum
+    others=Un terrible impact sur une zone de [[{b_impact_size}*{X}]] mètres infligeant [[{X}*{b_impact}*{momentum}]] dégâts bonus à l’attaque
+    special= Système de stack augmentant en combat et diminuant lors de l’utilisation active des techniques liées.
+    macro = {vset} {you} --mod --temp_dmg|[[{X}*{b_impact}*{momentum}]]
+        {vset} {you} --momentum|0 <span class="f2">--momentum_dmg|0 --momentum_par|0 --momentum_esq|0</span>
+
+[adagio]
+    level=Majeur
+    display_name=Adagio
+    cost=4
+<span class="f6">@@ -208,11 +210,13 @@</span>
+    X=@{Voile|repeating_skills_-Lk0Mbt8pCFsrUR0Oddn_general_skilllevel}
+    description=Chaque attaque contre un adversaire différent augmente le momentum
+    self=Voile saute d'adversaire en adversaire (jusqu'a {X} adversaires différent), n'appliquant que ses on hit [[{on_hit}]]. Votre momentum augmente de [[{X}{b_adagio}]] par adversaire.
+    others=Voile utilise ses differents adversaires pour rebondir de l'un a l'autre et augmenter son Momentum
+    special =
+    <span class="f2">nmom={{b_momentum_max}*{momentum_max},({momentum}+?{Nombre d'adversaires touchés})*{X}{b_adagio})}kl1</span>
+    macro={vset} {you} <span class="f1">--mod|{}</span><span class="f2">--momentum|[[{{b_momentum_max}*{momentum_max},(nmom)]]</span>
+<span class="f2">        {m}change_momentum  # Will not work 99% of the time</span>
+
+[tempo_martial]
+    level=Ultime
+    display_name=Tempo Martial
+    type = Actif/Instant/Empower
+<span class="f6">@@ -220,11 +224,11 @@</span>
+    X=@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}
+    description=
+    self=Sacrifiez [[{b_tempo_dep}]] actions; votre prochaine action physique gagne [[{X}{b_tempo_degre}]] degrés de réussite, vous gagnez un bonus de [[{b_tempo}*{X}]] a votre  prochaine attaque et votre prochaine la parade.
+    others=Voile se synchronyse au tempo de son adversaire pour se servir se ses propres actions contre lui.
+    special =
+    macro= {vset} {you} --mod <span class="f1">actions|-{b_tempo_dep}</span><span class="f2">--actions|-{b_tempo_dep}</span> --temp_dmg|[[{b_tempo}*{X}]] --temp_def|[[{b_tempo}*{X}]]
+
+[sceau_phenix]
+    level=Ultime
+    display_name=Sceau Du Phenix
+    type=Actif/Durée/buff
+<span class="f6">@@ -307,12 +311,12 @@</span>
+    display_name=Influx
+    type=Actif/Durée/Buff
+    X = @{Voile|repeating_magic-vital-skills_-Lk0J1ZhLzPrkvj3y3S0_magic_vital_skilllevel}
+    cost=8
+    description=Consomme {b_influx_charge_level} points de la Porte de Abysses
+        Augmente les attributs physique de <span class="f1">{b_influx_phys}{X}</span><span class="f2">{b_influx_phys}*{X}</span>
+    self=Vous augmente vos attributs physique de <span class="f1">{b_influx_phys}*{X}</span><span class="f2">[[{b_influx_phys}*{X}]]</span>
+    others=
+    special =
+    macro = {vset} {door} --mod --abyss_gate|-{b_influx_charge_level}
+
+[Contresang]
+<span class="f6">@@ -321,11 +325,11 @@</span>
+    type=Actif/Instant
+    X = @{Voile|repeating_magic-vital-skills_Lk0J6g4u8NBNAFB3asT_magic_vital_skilllevel}
+    cost=2
+    description=Consomme {b_contresang_charge_level} points de la Porte de Sang
+        Vous regagnez {b_contresang_soin}*{X} points de vie
+    self=Vous regagnez <span class="f1">{b_contresang_soin}*{X}</span><span class="f2">[[{b_contresang_soin}*{X}]]</span> points de vie
+    others=La vitalité contenue dans le sang canalisée pour soigner meme les pires blessures.
+    special =
+    macro = {vset} {door} --mod --blood_gate|-{b_contresang_charge_level}
+
+[Ame]
+<span class="f6">@@ -334,11 +338,11 @@</span>
+    type=Actif/Instant
+    cost=8
+    X = @{Voile|repeating_magic-vital-skills_-Lk0JFRyMCjaM7mSPEzI_magic_vital_skilllevel}
+    description=Consomme {b_ame_charge_level} points de la Porte de Abysses
+        Augmente la zone d’un sceau a {b_ame_target}*{X} cible ou {b_ame_alt_range}*{X} metres
+    self=Augmente la zone d’un sceau a <span class="f1">{b_ame_target}*{X}</span><span class="f2">[[{b_ame_target}*{X}]]</span> cible ou <span class="f1">{b_ame_alt_range}*{X}</span><span class="f2">[[{b_ame_alt_range}*{X}]]</span> metres
+    others= Les Combatants autours de Voile partagent sa puissance un instant.
+    special =
+    macro = {vset} {door} --mod --abyss_gate|-{b_ame_charge_level}
+
+[Veine]
+<span class="f6">@@ -347,11 +351,11 @@</span>
+    type=Actif/Instant
+    cost=8
+    X =@{Voile|repeating_magic-vital-skills_-Lk0JLLun1yA0Yaj8JZg_magic_vital_skilllevel}
+    description=Consomme {b_veine_charge_level} points de la Porte de Sang
+        Augmente la durée d’un sceau de {b_veine_duree}{X} tours
+    self=Augmente la durée d’un sceau de <span class="f1">{b_veine_duree}*{X}</span><span class="f2">[[{b_veine_duree}*{X}]]</span> tours
+    others=Une seule chose limite l'utilisation de la magie du sang. Le Sang.
+    special =
+    macro = {vset} {door} --mod --blood_gate|-{b_veine_charge_level}
+
+[Sang de Feu]
+<span class="f6">@@ -376,11 +380,12 @@</span>
+    description=Consomme {b_amplitude_chargelevel} points de la Porte de souffrance
+        Augmente la puissance de la prochaine attaque de {b_amplitude_percent}*{X} dégats
+    self=Augmente les dégats de la prochaine attaque de [[{b_amplitude_percent}*{X}]] dégats
+    others=La seule chose qui différencie le rochers et la montagne.
+    special =
+    macro = <span class="f2">{vset} {door} --mod --suffering_gate|-{b_amplitude_chargelevel}</span>
+<span class="f2">        {vset} {you} --mod --temp_dmg|[[{b_amplitude_percent}*{X}]]</span>
+
+[Ombre]
+    level=Mineure
+    display_name=Ombre
+    type=Actif/Durée/Buff
+<span class="f6">@@ -389,11 +394,11 @@</span>
+    description=Consomme @{b_ombre_chargelevel} points de la Porte de souffrance
+        Augmente la discrétion de {b_ombre_discretion}*{X}
+    self=Augmente la discrétion d'une cible de [[{b_ombre_discretion}*{X}]] jusqu'à la fin du combat
+    others=Se frayer un chemin parmis les lignes adverses est bien plus facile lorsque on est invisible.
+    special =
+    macro <span class="f1">=</span><span class="f2">={vset} {door} --mod --suffering_gate|-{b_ombre_chargelevel}</span>
+
+[Torrent Pourpre]
+    Level=Avancée
+    display_name=Torrent pourpre
+    type=Passif
+<span class="f6">@@ -403,11 +408,11 @@</span>
+        Lorsque vous gagnez un point dans la Porte de Sang, gagnez {X}{b_torrentpourpre_sang} points supplémentaires
+        Lorsque vous gagnez un point dans la Porte de Souffrance, gagnez {X}{b_torrentpourpre_souffrance} points supplémentaires
+    self= # Passif, pas de display
+    others=
+    special =
+    macro = <span class="f1">#Juste ajouter les points a</span><span class="f2">{vset} {door} --mod --suffering_gate|[[?{Ouverture de</span> la <span class="f1">macro d'ajout dans les 3</span><span class="f2">porte de la Souffrance}+{X}{b_torrentpourpre_souffrance}]] --abyss_gate|[[?{Ouverture de la porte des Abysses}+{X}{b_torrentpourpre_souffrance}]] --blood_gate|[[?{Ouverture de la porte de Sang}+{X}{b_torrentpourpre_sang}]]</span>
+
+[Brume de sang]
+    Level=Avancée
+    display_name=Brume de sang
+    type=Passif/Buff/Durée
+<span class="f6">@@ -415,32 +420,32 @@</span>
+    B = @{Voile|repeating_magic-vital-skills_-Lk0JovHaDzlyDlxntqG_magic_vital_skilllevel}
+    description= Lors de l’ouverture d’un sceau, offre un bonus de {b_brumesang_value}*{B} sur votre prochaine esquive
+    self= #Offre un bonus de {b_brumesang_value}*{B} sur votre prochaine esquive
+    others=
+    special =
+    macro =<span class="f1"># Ajouter a chaque déclenchement</span>
+
+[Ire Sanglante]
+    Level=Avancée
+    display_name=Ire Sanglante
+    type=Passif/Empower/Durée
+    cost=2
+    I = @{Voile|repeating_magic-vital-skills_-Lk0K39r7eCcYVEBFeKy_magic_vital_skilllevel}
+    description= Lors de l’ouverture d’un sceau, offre un bonus de {b_iresanglante_dmg}*{I} dégat d’arme a votre prochaine attaque
+    self=<span class="f1">#Vous gagnez un bonus de {b_iresanglante_dmg}*{I} dégat d’arme a votre prochaine attaque</span>
+    others=
+    special =
+    macro =<span class="f1">Afficher le total</span>
+
+[Soif Impie]
+    Level=Avancée
+    display_name=Soif Impie
+    type=Passif/Instant &amp; Passif/Buff/Durée
+    cost=8
+    S = @{Voile|repeating_magic-vital-skills_-Lk0KBJLxY9ZzAgs4ZHh_magic_vital_skilllevel}
+    description= Lors de l’ouverture d’un sceau, offre un bonus de {b_soifimpie_rgn}*{S} en régénération
+    self=<span class="f1">#Vous regagnez ({S}*{d_soif_heal})d10 points de vie et un bonus de {b_soifimpie_rgn}*{S} en régénération jusqu'a la fin du combat</span>
+    others=
+    special=
+    macro =
+
+[FoudreSang]
+<span class="f6">@@ -448,11 +453,11 @@</span>
+    display_name=FoudreSang
+    cost=4
+    type=Passif/Instant
+    F = @{Voile|repeating_magic-vital-skills_-Lk0KH9sMaVvV9aafAeU_magic_vital_skilllevel}
+    description= Lors de l’ouverture d’un sceau, offre un bonus {b_foudresang_init}*{F} en Initiative
+    self=<span class="f1">#Offre un bonus {b_foudresang_init}*{F} en initiative sur votre prochaine attaque</span>
+    others=
+    special=
+    macro =
+
+[Bain de Sang]
+<span class="f6">@@ -460,9 +465,9 @@</span>
+    display_name=Bain de Sang
+    cost=16
+    type=Passif/Instant
+    BA = @{Voile|repeating_magic-vital-skills_-Lk0KWNdsKB9AeKJwoRI_magic_vital_skilllevel}
+    description= Lors de l’ouverture d’un sceau, offre un bonus {b_bainsang_act}*{BA} en nombre d’action
+    self=<span class="f1">#Offre un bonus {b_bainsang_act}*{BA} en nombre d’action</span>
+    others=
+    special=
+    macro =
+</pre>
+</body>
+</html>

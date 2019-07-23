@@ -8,14 +8,53 @@
 <body class="f9 b9">
 <pre>
 <span class="bold">Characters/reginald.ini</span>
+<span class="bold"><span class="f4">[Elemental_damage]</span></span>
+?{Element ultilisé|
+Eau, Reginald utilise une arcane élémentaire d'air et inflige [[floor(@{Reginald|elem_eau_tot}*2+2d10+@{Reginald|elem_feu_tot}+{? Magna Arcanum}d4)]] dégats |
+Air, Reginald utilise une arcane élémentaire d'air et inflige [[floor(@{Reginald|elem_air_tot}*2+2d10+@{Reginald|elem_feu_tot}+{? Magna Arcanum}d4)]] dégats |
+Terre, Reginald utilise une arcane élémentaire d'air et inflige [[floor(@{Reginald|elem_terre_tot}*2+2d10+@{Reginald|elem_feu_tot}+{? Magna Arcanum}d4)]] dégats |
+Feu, Reginald utilise une arcane élémentaire d'air et inflige [[floor(@{Reginald|elem_feu_tot}*2+2d10+@{Reginald|elem_feu_tot}+{? Magna Arcanum}d4)]] dégats |
+Glace, Reginald utilise une arcane élémentaire d'air et inflige [[floor(@{Reginald|elem_glace_tot}*2+2d10+@{Reginald|elem_feu_tot}+{? Magna Arcanum}d4)]] dégats |
+Metal, Reginald utilise une arcane élémentaire d'air et inflige [[floor(@{Reginald|elem_metal_tot}*2+2d10+@{Reginald|elem_feu_tot}+{? Magna Arcanum}d4)]] dégats |
+Magma, Reginald utilise une arcane élémentaire d'air et inflige [[floor(@{Reginald|elem_magma_tot}*2+2d10+@{Reginald|elem_feu_tot}+{? Magna Arcanum}d4)]] dégats |
+Vapeur, Reginald utilise une arcane élémentaire d'air et inflige [[floor(@{Reginald|elem_vapeur_tot}*2+2d10+@{Reginald|elem_feu_tot}+{? Magna Arcanum}d4)]] dégats |
+Bois, Reginald utilise une arcane élémentaire d'air et inflige [[floor(@{Reginald|elem_bois_tot}*2+2d10+@{Reginald|elem_feu_tot}+{? Magna Arcanum}d4)]] dégats |
+Foudre, Reginald utilise une arcane élémentaire d'air et inflige [[floor(@{Reginald|elem_foudre_tot}*2+2d10+@{Reginald|elem_feu_tot}+{? Magna Arcanum}d4)]] dégats
+}
+<span class="bold"><span class="f4">[eau:soin]</span></span>
+Arcane d'Eau: Votre arcanum soigne de [[@{Reginald|elem_eau_tot}/2]]
+<span class="bold"><span class="f4">[air:bouclier]</span></span>
+Arcane d'Air: Votre arcanum  protege de [[@{Reginald|elem_air_tot}]]
+<span class="bold"><span class="f4">[terre:cc_physique]</span></span>
+Arcane de Terre: Votre arcanum effectue une action de controle physique DD+[[@{Reginald|elem_terre_tot}/9]]
+<span class="bold"><span class="f4">[glace:cc_magique]</span></span>
+Arcane de Glace: Votre arcanum effectue une action de controle magique DD+[[@{Reginald|elem_glace_tot}/9]]
+<span class="bold"><span class="f4">[metal:buff_phy]</span></span>
+Arcane de Metal: Votre arcanum renforce une caractéristique physique de [[@{Reginald|elem_metal_tot}/8]]
+<span class="bold"><span class="f4">[metal:res_phy]</span></span>
+Arcane de Metal: Votre arcanum renforce une resistance physique de [[@{Reginald|elem_metal_tot}/6]]
+<span class="bold"><span class="f4">[magma:maladie]</span></span>
+Arcane de Magma: Votre arcanum inflige une affliction, infligeant [[/8]] dégats chaque tour.
+<span class="bold"><span class="f4">[vapeur:buff_mag]</span></span>
+Arcane de Vapeur: Votre arcanum renforce une caractéristique magique de [[@{Reginald|elem_metal_tot}/8]]
+<span class="bold"><span class="f4">[vapeur:res_mag]</span></span>
+Arcane de Vapeur: Votre arcanum augmente une resistance magique de [[@{Reginald|elem_vapeur_tot}/6]] pourcent
+<span class="bold"><span class="f4">[bois:diminution_degats]</span></span>
+Arcane de Bois: Votre arcanum diminue les dégats de [[@{Reginald|elem_bois_tot}/8]]
+<span class="bold"><span class="f4">[bois:resistances]</span></span>
+Arcane de Bois: Votre arcanum augmente les résistances de [[@{Reginald|elem_bois_tot}/8]] pourcent
+<span class="bold"><span class="f4">[foudre:diminution_defences]</span></span>
+Arcane de Foudre: Votre arcanum diminue les dégats de [[@{Reginald|elem_foudre_tot}/8]]
+<span class="bold"><span class="f4">[foudre:diminution_shields]</span></span>
+Arcane de Foudre: Votre arcanum détruit les boucliers a hauteur de [[@{Reginald|elem_foudre_tot}3]]
 <span class="bold"><span class="f4">[aureola]</span></span>
-/w {you} Un halo jaune au dessus de votre tếte vous protege.
+/w Reginald Un halo jaune au dessus de votre tếte vous protege.
 <span class="bold"><span class="f4">[diluvium]</span></span>
-/w {you} Vous créez une tempete dans les arcanes, le réel se met a ployer sous le torrent d'energie que vous déployez.
+/w Reginald Vous créez une tempete dans les arcanes, le réel se met a ployer sous le torrent d'energie que vous déployez.
 <span class="bold"><span class="f4">[tenacitas]</span></span>
-/w {you} Un grand rai de lumière vous entoure et vous procure de l'energie.
+/w Reginald Un grand rai de lumière vous entoure et vous procure de l'energie.
 <span class="bold"><span class="f4">[praesagio]</span></span>
-/w {you} Vous piochez....encore, et encore
+/w Reginald Vous piochez....encore, et encore
 </pre>
 </body>
 </html>

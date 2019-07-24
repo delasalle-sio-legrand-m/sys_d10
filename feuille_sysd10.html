@@ -156,12 +156,14 @@
       };
     });
   });
+  // Shields
   on("change:base-force change:base-volonte", function() {
     getAttrs(["base-force","base-volonte","transcendence"], function(values) {
         setAttrs({"shield_maximum":(Number(values['base-force'])+Number(values['base-volonte'])+10)*Number(values['transcendence'])*20});
         setAttrs({"shield_max":(Number(values['base-force'])+Number(values['base-volonte'])+10)*Number(values['transcendence'])*20});
     });
   });
+  //mana
   on("change:base-psyche change:base-volonte change:magic_skilllevel_abime_mana", function() {
     getAttrs(["base-psyche","base-volonte","magic_skilllevel_abime_mana"], function(values) {
         setAttrs({"mana_maximum":(Number(values['base-psyche'])+Number(values['base-volonte'])+Number(values['magic_skilllevel_abime_mana']))*2});
@@ -497,7 +499,7 @@
 
           <input class="sheet-skill_name" style="margin-right: 4px;" type="text" name="attr_mana_skillname" disabled="true" value="Mana" title="Nom de la compétence" />
           <input type="number" min="0" value= "0" name="attr_mana" title="Mana actuel"/>
-          <input class="sheet-trait" disabled="true" value= "@{mana_maximum}" style="margin-right: 4px;" type="number"  name="attr_mirror_mana_maximum" title="Mana maximum" />
+          <input class="sheet-trait" disabled="true" value= "@{mana_maximum}" style="margin-right: 4px;"  name="attr_mirror_mana_maximum" title="Mana maximum" />
           <br/>
           <input class="sheet-skill_name" style="margin-right: 4px;" type="text" name="attr_magic_skillname_abime_mana" disabled="true" value="Abime de mana" title="Nom de la compétence" />
           <input type="number" min="0" value= "0" name="attr_magic_skilllevel_abime_mana" title="Reserve de mana"/>

@@ -15,7 +15,7 @@
 <span class="bold"><span class="f4">[turn]</span></span>
 !setattr --name Jinyah --Life_Points|[[{@{Jinyah|Life_Points}+@{Jinyah|regen}-1*(@{Jinyah|dot}),@{Jinyah|Life_Points|max}}kl1]] --mana|[[{@{Jinyah|mana}+floor((@{Jinyah|base-psyche}+@{Eisvogel|base-psyche})/2+@{Jinyah|magic_skilllevel_vortex_mana}+@{Eisvogel|magic_skilllevel_vortex_mana}),@{Jinyah|mana|max}}kl1]]
 <span class="bold"><span class="f4">[refresh_marques]</span></span>
-!token-mod --ignore-selected statusmarkers|frozen-orb:[[@{target|target|frostdamage}]]|bolt-shield:[[@{target|target|frostshield}]] --ids @{target|target|token_id}
+!token-mod --set --ignore-selected statusmarkers|frozen-orb:[[@{target|target|frostdamage}]]|bolt-shield:[[@{target|target|frostshield}]] --ids @{target|target|token_id}
 !setattr --name @{target|target|character_name} --pctinflicted_b|[[@{target|target|frostdamage}*floor((((@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot})+(@{Jinyah|elem_bois_tot}/2+@{Eisvogel|elem_bois_tot}))/2)/10)]] --pctreceived_b|[[@{target|target|frostshield}*floor((((@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot})+(@{Jinyah|elem_bois_tot}/2+@{Eisvogel|elem_bois_tot}))/2)/10)]]
 <span class="bold"><span class="f4">[set_marques]</span></span>
 !setattr --name @{target|target|character_name} ?{Changement|Robustesse de l'hiver, --frostshield|Morsure de l'hiver, --frostdamage}|?{Valeur }

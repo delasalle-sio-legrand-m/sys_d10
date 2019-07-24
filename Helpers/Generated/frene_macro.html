@@ -18,7 +18,7 @@
 !token-mod --ignore-selected --set statusmarkers|frozen-orb:[[@{target|target|frostdamage}]]|bolt-shield:[[@{target|target|frostshield}]] --ids @{target|target|token_id}
 !setattr --name @{target|target|character_name} --pctinflicted_b|[[@{target|target|frostdamage}*floor((((@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot})+(@{Jinyah|elem_bois_tot}/2+@{Eisvogel|elem_bois_tot}))/2)/8)]] --pctreceived_b|[[@{target|target|frostshield}*floor((((@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot})+(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot}))/2)/4)]]
 <span class="bold"><span class="f4">[set_marques]</span></span>
-!setattr --name @{target|target|character_name} ?{Changement|Robustesse de l'hiver, --frostshield|Morsure de l'hiver, --frostdamage}|?{Valeur }
+!setattr --name @{target|target|character_name} ?{Changement|Robustesse de l'hiver, --frostshield|Morsure de l'hiver, --frostdamage}|[[{?{Valeur },@{Jinyah|repeating_magic-aspected-skills_-Lk-DqcizrsE0yPbyAb7_magic_aspected_skilllevel}}kl1]]
 <span class="bold"><span class="f4">[morsure_hiver]</span></span>
 /w Jinyah Durent jusqu'a la fin du combat, et peuvent stacker jusqu'a @{Jinyah|repeating_magic-aspected-skills_-Lk-DqcizrsE0yPbyAb7_magic_aspected_skilllevel} fois. Ces marques augmentent de [[floor((((@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot})+(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot}))/2)/4)]] pourcent les dégats subit
 @{target|target|character_name} est sous l'effet Morsure de l'Hiver et prend des dégâts supplémentaires
@@ -30,8 +30,7 @@
 [Coût : 2]  Soigne @{target|target|character_name} de [[@{target|target|frostshield}*@{Jinyah|repeating_magic-aspected-skills_-Lk-Gm0UQajXFD5z2zat_magic_aspected_skilllevel}*(@{Jinyah|elem_eau_tot}/2+@{Eisvogel|elem_eau_tot})/2]] points de vie.
 <span class="bold"><span class="f4">[transfert_froid]</span></span>
 !setattr --name Jinyah --mod --mana|-3
-/w Jinyah Test DD+[[floor((@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot})/10)]] pour resister
-[Coût : 3] Transfère jusqu'à @{Jinyah|repeating_magic-aspected-skills_-Lk-Gn2T4CvHCEcxPHaZ_magic_aspected_skilllevel} effets Morsure de l'hiver d'une cible ennemie vers une autre au choix.
+[Coût : 3] Test DD+[[floor((@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot})/10)]] pour resister. Transfère jusqu'à @{Jinyah|repeating_magic-aspected-skills_-Lk-Gn2T4CvHCEcxPHaZ_magic_aspected_skilllevel} effets Morsure de l'hiver d'une cible ennemie vers une autre au choix.
 <span class="bold"><span class="f4">[symbiose_aspect]</span></span>
 /w Jinyah A chaque attaque, l'aspect peut prendre jusqu'à [[@{Jinyah|repeating_magic-aspected-skills_-Lk-GphCfAF2s1firmtm_magic_aspected_skilllevel}*10]] points de dégâts à votre place.
 <span class="bold"><span class="f4">[stimulation_aspect]</span></span>
@@ -41,7 +40,9 @@ Jinyah ne peut plus agir, mais son aspect s'en voit renforcé.
 <span class="bold"><span class="f4">[colere_aspect]</span></span>
 
 !setattr --name Jinyah --mod --mana|-4
-/w Jinyah [Coût : 4] Augmente les degats de l'aspect de [[@{target|target|frostdamage}*@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})/4]] pourcent
+!setattr --name Jinyah --mana|[[{@{Jinyah|mana}+floor(@{target|target|frostdamage}*@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}*(@{Jinyah|elem_eau_tot}/2+@{Eisvogel|elem_eau_tot})/6),@{Jinyah|mana}}kl1]]
+!setattr --name @{target|target|character_name} --frostdamage|0
+/w Jinyah [Coût : 4] Augmente les degats de l'aspect de [[@{target|target|frostdamage}*@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})/6]] pourcent
 L'aspect se charge de Froid et va renforcer son prochain sort.
 <span class="bold"><span class="f4">[prelude_hiver]</span></span>
 /w Jinyah @{Jinyah|repeating_magic-aspected-skills_-Lk-H7EpWwfDnT1p0ZH7_magic_aspected_skilllevel} fois par combat, si le personnage devrait subir des dégâts létaux, Stase Cryogénique est utilisé sur lui-même a la place.
@@ -74,6 +75,7 @@ Une vague de Glace part de Jinyah, entravant tout ennemi pris dedans.
 [Coût : 8] Resistance DD+[[floor((@{Jinyah|elem_magma_tot}/2+@{Eisvogel|elem_metal_tot})/3)]]. Inflige [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HTf54N8R6eNDEwxc_magic_aspected_skilllevel}*@{target|target|frostdamage}*((@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})+(@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot})))]] jusqu'a perte des marques.
 <span class="bold"><span class="f4">[benediction_hiver]</span></span>
 !setattr --name Jinyah --mod --mana|-6
+!setattr --name @{target|target|character_name} --mod --temp_pdmg|[[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HXdpOLN295YW3N0p_magic_aspected_skilllevel}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})*@{target|target|frostshield}/6)]]
 /w Jinyah [Coût : 6] La cible vois sa prochaine action infliger [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HXdpOLN295YW3N0p_magic_aspected_skilllevel}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})*@{target|target|frostshield}/6)]] pourcent dégats supplémentaires
 @{target|target|character_name} reçoit une bénédiction de Givre, augmentant ses dégâts pendant un certain temps.
 <span class="bold"><span class="f4">[blizzard]</span></span>
@@ -85,9 +87,10 @@ Une vague de Glace part de Jinyah, entravant tout ennemi pris dedans.
 Un grand dôme est invoqué, protégeant tous les alliés à l'intérieur.
 <span class="bold"><span class="f4">[hiver_sans_fin]</span></span>
 !setattr --name Jinyah --mod --mana|-4
+!setattr --name Jinyah --mod --pctinflicted_b|[[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HaVh4E6T6BvNJZu-_magic_aspected_skilllevel}*@{Jinyah|frostshield}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})/9)]]
 !setattr --name Jinyah --frostshield|0
 /w Jinyah Vous infligez @{Eisvogel|repeating_magic-aspected-skills_-Lk-HaVh4E6T6BvNJZu-_magic_aspected_skilllevel}*@{target|target|frostshield}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})/9 jusqu'à la fin du combat.
-[Coût : 4] Jusqu'a la fin du combat vous gagnez [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HaVh4E6T6BvNJZu-_magic_aspected_skilllevel}*@{target|target|frostshield}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})/9)]] pourcent dégats supplémentaires
+[Coût : 4] Jusqu'a la fin du combat vous gagnez [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HaVh4E6T6BvNJZu-_magic_aspected_skilllevel}*@{Jinyah|frostshield}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})/9)]] pourcent dégats supplémentaires
 <span class="bold"><span class="f4">[bourrasque_gelee]</span></span>
 !setattr --name Jinyah --mod --mana|-3
 [Coût : 3] Repousement DD+[[floor((@{Jinyah|elem_terre_tot}/2+@{Eisvogel|elem_terre_tot})/6)]]. Dégats ([[(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})+(@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot}))]] zone [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-HdJw9y7nRiMbXl8s_magic_aspected_skilllevel}**2]] metres.

@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="../term.css"/>
+
+</head>
+
+<body class="f9 b9">
+<pre>
+<span class="bold">diff --git a/Helpers/Characters/frene.ini b/Helpers/Characters/frene.ini</span>
+<span class="bold">index d7f183c..1e19986 100644</span>
+<span class="bold">--- a/Helpers/Characters/frene.ini</span>
+<span class="bold">+++ b/Helpers/Characters/frene.ini</span>
+<span class="f6">@@ -46,11 +46,11 @@</span>
+[refresh_marques]
+    description=Macro de recalcul d'etat des marques
+    self=
+    others=
+    macro=!token-mod --set --ignore-selected statusmarkers|frozen-orb:[[@{target|target|frostdamage}]]|bolt-shield:[[@{target|target|frostshield}]] --ids @{target|target|token_id}
+        !setattr --name @{target|target|character_name} --pctinflicted_b|[[@{target|target|frostdamage}*floor((({a_air}+{a_bois})/2){b_robustesse_hiver})]] <span class="f1">--pctreceived_b|[[@{target|target|frostshield}*floor((({a_air}+{a_bois})/2){b_robustesse_hiver})]]</span><span class="f2">--pctreceived_b|[[@{target|target|frostshield}*floor((({a_glace}+{a_feu})/2){b_morsure_hiver})]]
+</span>
+[set_marques]
+    description=Met les marques a une valeur spécifiée par l'utilisateur
+    self=
+    others=
+<span class="bold">diff --git a/Helpers/Characters/voile.ini b/Helpers/Characters/voile.ini</span>
+<span class="bold">index eff822a..c233141 100644</span>
+<span class="bold">--- a/Helpers/Characters/voile.ini</span>
+<span class="bold">+++ b/Helpers/Characters/voile.ini</span>
+<span class="f6">@@ -34,17 +34,19 @@</span>
+[start]
+    description=Macro de début de combat
+    self=Début du combat
+        Toutes les reserves sont réinitialisées.
+    others=
+    <span class="f2">X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}</span>
+    macro={vset} {you} --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --momentum_dmg|0 --momentum_esq|0 --momentum_par|0 <span class="f2">--actions|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}{b_wind_har_act})]]|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}{b_wind_har_act})]]
+</span>
+[turn]
+    description=Macro de début de tour
+    self=
+    others=
+    <span class="f2">X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}</span>
+    macro={vset} {you} --Life_Points|[[{@{{you}|Life_Points}+@{{you}|regen}-1*(@{{you}|dot}),@{{you}|Life_Points|max}}kl1]] <span class="f2">--actions|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}{b_wind_har_act})]]|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}{b_wind_har_act})]]</span>
+
+[multiple_seals]
+    description=Lance le prochain seau plusieurs fois
+    self=
+    others=
+<span class="f6">@@ -60,11 +62,11 @@</span>
+
+[change_harmony]
+    self=
+    others=
+    X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}
+    macro={vset} {you} --{Discretion_m}|[[{discretion}+{X}*{harmony}{b_shadow_har_disc}]] --{Discretion_m}|[[{X}*{harmony}{b_shadow_har_disc}]] <span class="f1">--actions|max|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}{b_wind_har_act})]]</span><span class="f2">--actions||[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}{b_wind_har_act})]]</span> --{Resistance_mentale_m}|[[floor(@{Voile|{Resistance_mentale_m}}+{harmony}*{X}{b_metal_har})]] --Initiative|[[{initiative}+{b_harmony}*{harmony}]]
+
+[show_momentum]
+    description=
+    others=
+    self=Votre attaque et votre parade bénéficient d'un bonus de [[{b_momentum_dmg}*{momentum}]], votre esquive beneficie d'un bonus de [[{b_momentum_esq}*{momentum}]] et votre vitesse de déplacement est désormais de [[{ag}+{b_momentum_speed}*{momentum}]].
+<span class="f6">@@ -232,11 +234,11 @@</span>
+    X=@{Voile|repeating_skills_-Lk0Mbt8pCFsrUR0Oddn_general_skilllevel}
+    description=Chaque attaque contre un adversaire différent augmente le momentum
+    self=Voile saute d'adversaire en adversaire (jusqu'a {X} adversaires différent), n'appliquant que ses on hit a chaque adversaire.
+    others=Voile utilise ses differents adversaires pour rebondir de l'un a l'autre et augmenter son Momentum
+    special =
+    macro={vset} {you} <span class="f1">--momentum|[[{{b_momentum_max}*{momentum_max},{{b_momentum_max}*{momentum_max},({momentum}+?{Nombre</span><span class="f2">--momentum|[[{{b_momentum_max}*{momentum_max},({momentum}+?{Nombre</span> d'adversaires <span class="f1">touchés})*{X}{b_adagio})}kl1]]</span><span class="f2">touchés})*{X}{b_adagio}}kl1]]</span>
+        {m}change_momentum  # Will not work 99% of the time
+
+[tempo_martial]
+    level=Ultime
+    display_name=Tempo Martial
+</pre>
+</body>
+</html>

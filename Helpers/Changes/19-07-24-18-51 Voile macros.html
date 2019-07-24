@@ -1,0 +1,119 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="../term.css"/>
+
+</head>
+
+<body class="f9 b9">
+<pre>
+<span class="bold">diff --git a/Helpers/Characters/voile.ini b/Helpers/Characters/voile.ini</span>
+<span class="bold">index c227290..08da0d0 100644</span>
+<span class="bold">--- a/Helpers/Characters/voile.ini</span>
+<span class="bold">+++ b/Helpers/Characters/voile.ini</span>
+<span class="f6">@@ -25,11 +25,11 @@</span>
+    Course_m=repeating_skills_-Lk0Ou0iuRqjFl3zh6j8_general_skilllevel
+    Accrobatie=@{Voile|repeating_skills_-Lk0OvBC82YsRXaMneDn_general_skilllevel}
+    Accrobatie_m=repeating_skills_-Lk0OyMid1KcRS6-i3NF_general_skilllevel
+    Saut=@{Voile|repeating_skills_-Lk0P-9iI72bg79b2W3e_general_skilllevel}
+    Saut_m=repeating_skills_-Lk0P0QpdsqtnER6E3hZ_general_skilllevel
+    <span class="f1">initiative=@{Voile|repeatinggeneral-combat-skills-LkJoCQxRED339Hi8os2_combat_skilllevel}</span><span class="f2">initiative=@{Voile|repeating_general-combat-skills-LkJoCQxRED339Hi8os2_combat_skilllevel}
+</span>    on_hit=00
+    m=#
+
+[start]
+    description=Macro de début de combat
+<span class="f6">@@ -47,18 +47,18 @@</span>
+[show_harmony]
+    description=
+    self=
+    others=
+    X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}
+    macro=/w {you} &amp;{template:default} {{name=Etat d'harmonie}} {{initiative=+[[{b_harmony}*{harmony}]]}} {{perception=+[[{b_harmony}*{harmony}]]}} <span class="f1">{{Discretion=[[{b_shadow_har_disc}{X}*{harmony}]]}}</span><span class="f2">{{Discretion=[[{X}*{harmony}{b_shadow_har_disc}]]}}</span> {{Nombre <span class="f1">d'actions=[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+{b_wind_har_act}{X}*{harmony}]]}}</span><span class="f2">d'actions=[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+{X}*{harmony}{b_wind_har_act}]]}}</span> {{Attaques <span class="f1">d'opportunités=-[[{harmony}*{b_wind_har_opp}*{X}]]}}</span><span class="f2">d'opportunités=-[[{harmony}*{X}{b_wind_har_opp}]]}}</span> {{RM=[[floor({harmony}*{X}{b_metal_har})]]}}
+
+
+[change_harmony]
+    self=
+    others=
+    X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}
+    macro={vset} {you} <span class="f1">--{Discretion_m}|{discretion}+[[{b_shadow_har_disc}{X}{harmony}]]</span><span class="f2">--{Discretion_m}|{discretion}+[[{b_shadow_har_disc}*{X}*{harmony}]]</span> --{Resistance_mentale_m}|{Resistance_mentale} <span class="f1">--actions_max|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+{b_wind_har_act}{X}*{harmony}]] --{Resistance_mentale}|[[{Resistance_mentale_m}+{harmony}{b_metal_har}*{X}]]</span><span class="f2">--actions_max|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+{b_wind_har_act}*{X}*{harmony}]] --{Resistance_mentale}|[[@{Voile|{Resistance_mentale_m}}+{harmony}*{b_metal_har}*{X}]]</span> --Initiative|[[{initiative}+{b_harmony}*{harmony}]]
+
+[show_momentum]
+    description=
+    others=
+    self=Votre attaque et votre parade bénéficient d'un bonus de [[{b_momentum_dmg}*{momentum}]], votre esquive beneficie d'un bonus de [[{b_momentum_esq}*{momentum}]] et votre vitesse de déplacement est désormais de [[{ag}+{b_momentum_speed}*{momentum}]].
+<span class="f6">@@ -88,11 +88,11 @@</span>
+    B = @{Voile|repeating_magic-vital-skills_-Lk0JovHaDzlyDlxntqG_magic_vital_skilllevel}
+    I = @{Voile|repeating_magic-vital-skills_-Lk0K39r7eCcYVEBFeKy_magic_vital_skilllevel}
+    S = @{Voile|repeating_magic-vital-skills_-Lk0KBJLxY9ZzAgs4ZHh_magic_vital_skilllevel}
+    F = @{Voile|repeating_magic-vital-skills_-Lk0KH9sMaVvV9aafAeU_magic_vital_skilllevel}
+    BA = @{Voile|repeating_magic-vital-skills_-Lk0KWNdsKB9AeKJwoRI_magic_vital_skilllevel}
+    macro={vset} {you} --mod <span class="f1">--Life_Points|[[{@{Voile|{b_soifimpie_rgn}*{S}}+{b_soifimpie_rgn}*{S},@{Voile|Life_Points|max}}kl1]]</span><span class="f2">--Life_Points|[[{b_soifimpie_rgn}*{S}}+{b_soifimpie_rgn}*{S},@{Voile|Life_Points|max}}kl1]]</span> --actions_max|[[{b_bainsang_act}*{BA}]] --actions|[[{b_bainsang_act}*{BA}]] --temp_dmg|[[{b_iresanglante_dmg}*{I}]] --temp_esq|[[{b_brumesang_value}*{B}]]
+        {vset} {you} --Life_Points|[[{(@{Voile|Life_Points}+{S}*{d_soif_heal})d10,@{Voile|Life_Points|max}}kl1]]
+    self=
+    others=
+
+[attaque_macro]
+<span class="f6">@@ -106,11 +106,11 @@</span>
+[esquive_macro]
+    description=Macro d'esquive
+    self=
+    others=
+    macro=!crit ?{Nombre de des d'esquive} I @{Voile|skillcost_Defense_impenetrable} @{Voile|general_effective_Defense_impenetrable} R @{Voile|general_effective_Rempart_parfait} c @{Voile|crit_level} H @{Voile|base_dodge_dices} A @{Voile|Skill_general_attribute_select_dodge} t @{Voile|transcendence} s ?{Voile|Seuil d'esquive} - ?{Dégats a esquiver|0} a e n @{Voile|undescored_name} v @{Voile|pctreceived} v @{Voile|pctreceived_s} v @{Voile|pctreceived_b} + @{Voile|temp_esq} + @{Voile|momentum_esq} #ADD BUFF HAR
+        !setattr --name Voile --temp_esq|0<span class="f1">--temp_dmg|0</span>
+        {m}change_momentum
+
+[parade_macro]
+    description=Macro de parade
+    self=
+<span class="f6">@@ -193,11 +193,11 @@</span>
+    cost=8
+    description=Les Points de Momentum se gagnent activement au cours d’un combat, en fonction du nombre d’attaques parades ou esquives effectuées dans le tour.
+        Chaque stack de momentum donne un bonus à l’esquive, la parade, à l’attaque,
+        la vitesse de déplacement,l’acrobatie et le saut, représentant le momentum progressivement gagné par le personnage.
+        Tant que le personnage a du momentum, il est particulièrement difficile de porter des attaques d’opportunités contre lui.
+    self=Vous gagnez un point de Momentum. Votre attaque et votre parade bénéficient d'un bonus de <span class="f1">{b_momentum_dmg}*{momentum},</span><span class="f2">[[{b_momentum_dmg}*{momentum}]],</span> votre esquive beneficie d'un bonus de [[{b_momentum_esq}*{momentum}]] et votre vitesse de déplacement est désormais de [[{ag}+{b_momentum_speed}*{momentum}]].
+    others=La vitesse et la puissance de Voile augmente, ne laissant apparaitre qu'une silhouette. brouillée par la vitesse.
+    special = Momentum max - {b_momentum_max}*{momentum_max}.
+        Système de stack augmentant en combat et diminuant lors de l’utilisation active des techniques liées.
+    momentum_vmax={b_momentum_max}*{momentum_max}
+    macro=
+<span class="f6">@@ -225,12 +225,11 @@</span>
+    X=@{Voile|repeating_skills_-Lk0Mbt8pCFsrUR0Oddn_general_skilllevel}
+    description=Chaque attaque contre un adversaire différent augmente le momentum
+    self=Voile saute d'adversaire en adversaire (jusqu'a {X} adversaires différent), n'appliquant que ses on hit [[{on_hit}]]. Votre momentum augmente de [[{X}{b_adagio}]] par adversaire.
+    others=Voile utilise ses differents adversaires pour rebondir de l'un a l'autre et augmenter son Momentum
+    special =
+<span class="f1">nmom={{b_momentum_max}*{momentum_max},({momentum}+?{Nombre d'adversaires touchés})*{X}{b_adagio})}kl1</span>    macro={vset} {you} <span class="f1">--momentum|[[{{b_momentum_max}*{momentum_max},(nmom)]]</span><span class="f2">--momentum|[[{{b_momentum_max}*{momentum_max},{{b_momentum_max}*{momentum_max},({momentum}+?{Nombre d'adversaires touchés})*{X}{b_adagio})}kl1]]</span>
+        {m}change_momentum  # Will not work 99% of the time
+
+[tempo_martial]
+    level=Ultime
+    display_name=Tempo Martial
+<span class="f6">@@ -264,11 +263,11 @@</span>
+    description=Consomme {b_bis_repetitas_charge_level} points de la Porte des Abysses. La prochaine attaque non technique portée contre un adversaire ciblé infligeras [[{X}*{b_Bis_repetitas_Onhit}]] pourcent de dégats suplémentaires.
+    self=La prochaine attaque non technique portée contre un adversaire ciblé infligeras [[{X}*{b_Bis_repetitas_Onhit}]] pourcent de dégats suplémentaires.
+    others=Dans un éclat de lumiere sanglante, un éclat de temps viens heurter la réalitée, brouillant le passé et le présent, frappant encore et encore.
+    special =
+    macro = {vset} {door} --mod --abyss_gate|-{b_bis_repetitas_charge_level}
+        {vset} {you} --mod <span class="f1">--temp_pdmg|[[{X}*{b_Bis_repetitas_Onhit}]]</span><span class="f2">--temp_pdmg|[[{X}*{b_bis_repetitas_onhit}]]</span>
+
+
+[Lune de Sang]
+    level=Avancée
+    display_name=Lune de sang
+<span class="f6">@@ -366,11 +365,11 @@</span>
+    type=Actif/Instant
+    cost=8
+    X =@{Voile|repeating_magic-vital-skills_-Lk0JLLun1yA0Yaj8JZg_magic_vital_skilllevel}
+    description=Consomme {b_veine_charge_level} points de la Porte de Sang
+        Augmente la durée d’un sceau de {b_veine_duree}{X} tours
+    self=Augmente la durée d’un sceau de <span class="f1">[[{b_veine_duree}*{X}]]</span><span class="f2">[[{X}{b_veine_duree}]]</span> tours
+    others=Une seule chose limite l'utilisation de la magie du sang. Le Sang.
+    special =
+    macro = {vset} {door} --mod --blood_gate|-{b_veine_charge_level}
+
+[Sang de Feu]
+</pre>
+</body>
+</html>

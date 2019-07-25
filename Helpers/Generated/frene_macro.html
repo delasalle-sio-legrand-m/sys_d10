@@ -9,7 +9,7 @@
 <pre>
 <span class="bold">Characters/frene.ini</span>
 <span class="bold"><span class="f4">[start]</span></span>
-!setattr --name Jinyah --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --momentum_dmg|0 --momentum_esq|0 --momentum_par|0 --mana|@{Jinyah|mana|max} --general_item_shield3|[[floor(@{Jinyah|repeating_magic-aspected-skills_-Lk-H3by-ofAR9GZF4QH_magic_aspected_skilllevel}*(@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot})/2)]] --colere_stacks|@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}
+!setattr --name Jinyah --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --momentum_dmg|0 --momentum_esq|0 --momentum_par|0 --mana|@{Jinyah|mana|max} --general_item_shield3|[[floor(@{Jinyah|repeating_magic-aspected-skills_-Lk-H3by-ofAR9GZF4QH_magic_aspected_skilllevel}*(@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot})/2)]] --colere_stacks|[[@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}]]
 /w Jinyah Début du combat
 /w Jinyah A chaque attaque, l'aspect peut prendre jusqu'à [[@{Jinyah|repeating_magic-aspected-skills_-Lk-GphCfAF2s1firmtm_magic_aspected_skilllevel}*10]] points de dégâts à votre place.
 /w Jinyah Si vous ne pouvez plus agir, votre aspect gagne [[floor(@{Jinyah|repeating_magic-aspected-skills_-Lk-H0A4ZvDP4YcBL1NS_magic_aspected_skilllevel})]] actions supplémentaires jusqu'à la reprise de contrôle du personnage.
@@ -36,11 +36,11 @@
 !setattr --name Jinyah --mod --mana|-3
 [Coût : 3] Test DD+[[floor((@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot})/7)]] pour resister. Transfère jusqu'à @{Jinyah|repeating_magic-aspected-skills_-Lk-Gn2T4CvHCEcxPHaZ_magic_aspected_skilllevel} effets Morsure de l'hiver d'une cible ennemie vers une autre au choix.
 <span class="bold"><span class="f4">[colere_aspect]</span></span>
-!setattr --name Jinyah --mod --mana|-6
-!setattr --name Jinyah --mana|[[{@{Jinyah|mana}+floor(@{target|target|frostdamage}*@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}*(@{Jinyah|elem_eau_tot}/2+@{Eisvogel|elem_eau_tot})/9), @{Jinyah|mana|max}}kl1]] --colere_stacks|[[@{Jinyah|colere_stacks}-1]]
+!setattr --name Jinyah --mod --mana|-0
+!setattr --name Jinyah --mana|[[{@{Jinyah|mana}+floor(@{target|target|frostdamage}*@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}*(@{Jinyah|elem_eau_tot}/2+@{Eisvogel|elem_eau_tot})/8), @{Jinyah|mana|max}}kl1]] --colere_stacks|[[@{Jinyah|colere_stacks}-1]]
 !setattr --name @{target|target|character_name} --frostdamage|0
-/w Jinyah Reste [[@{Jinyah|colere_stacks}-1]] utilisations
-[Coût : 6] Régenère [[floor(@{target|target|frostdamage}*@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}*(@{Jinyah|elem_eau_tot}/2+@{Eisvogel|elem_eau_tot})/9)]] points de Mana en drainant les marques de @{target|target|character_name}.
+/w Jinyah Il vous reste [[@{Jinyah|colere_stacks}-1]] utilisations de **[Colere de l'aspect]**
+[Coût : 0] Régenère [[floor(@{target|target|frostdamage}*@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}*(@{Jinyah|elem_eau_tot}/2+@{Eisvogel|elem_eau_tot})/8)]] points de Mana en drainant les marques de @{target|target|character_name}.
 Jinyah se couvre de froid et regagne du Mana.
 <span class="bold"><span class="f4">[armure_givre]</span></span>
 [Coût : 10] Crée un bouclier mitigeant jusqu'a [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HFQx4xIxRZTRebBS_magic_aspected_skilllevel}*(@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot})*7)]]

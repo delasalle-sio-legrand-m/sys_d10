@@ -25,7 +25,7 @@
    Sous certaines conditions, ou si un sort de glace atteint un allié directement,
    il appliquera un stack de cet effet. La cible gagne des résistances aux dégâts pour chaque stack.
  <span class="f4"><span class="underline">Description personelle</span></span>
-   Durent jusqu'a la fin du combat, et peuvent stacker jusqu'a [[@{Jinyah|repeating_magic-aspected-skills_-Lk-DqcizrsE0yPbyAb7_magic_aspected_skilllevel}]] fois. Ces marques reduisent de [[floor((((@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot})+(@{Jinyah|elem_bois_tot}/2+@{Eisvogel|elem_bois_tot}))/2)/8)]] pourcent les dégats subits
+   Durent jusqu'a la fin du combat, et peuvent stacker jusqu'a [[@{Jinyah|repeating_magic-aspected-skills_-Lk-DqcizrsE0yPbyAb7_magic_aspected_skilllevel}]] fois. Ces marques reduisent de [[floor((((@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot})+(@{Jinyah|elem_bois_tot}/2+@{Eisvogel|elem_bois_tot}))/2)/5)]] pourcent les dégats subits
  <span class="f4"><span class="underline">Description publique</span></span>
    @{target|target|character_name} est sous l'effet Robustesse de l'Hiver et subit donc moins de dégâts.
 
@@ -41,21 +41,21 @@
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Instant
  <span class="f4"><span class="underline">Description publique</span></span>
-   [Coût : 3] Test DD+[[floor((@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot})/10)]] pour resister. Transfère jusqu'à @{Jinyah|repeating_magic-aspected-skills_-Lk-Gn2T4CvHCEcxPHaZ_magic_aspected_skilllevel} effets Morsure de l'hiver d'une cible ennemie vers une autre au choix.
+   [Coût : 3] Test DD+[[floor((@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot})/7)]] pour resister. Transfère jusqu'à @{Jinyah|repeating_magic-aspected-skills_-Lk-Gn2T4CvHCEcxPHaZ_magic_aspected_skilllevel} effets Morsure de l'hiver d'une cible ennemie vers une autre au choix.
 
 <span class="bold"><span class="f4">[Avancée] Symbiose de l'aspect [4]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
    Passif/Instant
- <span class="f4"><span class="underline">Description personelle</span></span>
+ <span class="f4"><span class="underline">Description</span></span>
    A chaque attaque, l'aspect peut prendre jusqu'à [[@{Jinyah|repeating_magic-aspected-skills_-Lk-GphCfAF2s1firmtm_magic_aspected_skilllevel}*10]] points de dégâts à votre place.
 
 <span class="bold"><span class="f4">[Avancée] Stimulation de l'aspect [4]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
    Passif/Buff
- <span class="f4"><span class="underline">Description personelle</span></span>
+ <span class="f4"><span class="underline">Description</span></span>
    Si le personnage ne peut plus agir quelqu'en soit la raison,
    l'aspect gagne [[floor(@{Jinyah|repeating_magic-aspected-skills_-Lk-H0A4ZvDP4YcBL1NS_magic_aspected_skilllevel})]] actions supplémentaires jusqu'à la reprise de contrôle du personnage.
- <span class="f4"><span class="underline">Description publique</span></span>
+ <span class="f4"><span class="underline">Spécial</span></span>
    Jinyah ne peut plus agir, mais son aspect s'en voit renforcé.
 
 <span class="bold"><span class="f4">[Avancée] Garde de l'aspect [4]</span></span>
@@ -63,8 +63,6 @@
    Passif/Instant
  <span class="f4"><span class="underline">Description</span></span>
    Lorsque vous allez subir des dégâts, réduisez ces derniers.
- <span class="f4"><span class="underline">Spécial</span></span>
-   Reduit les dégats subits de [[floor(@{Jinyah|repeating_magic-aspected-skills_-Lk-H3by-ofAR9GZF4QH_magic_aspected_skilllevel}*(@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot})/2)]]
 
 <span class="bold"><span class="f4">[Avancée] Colère de l'aspect [4]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
@@ -72,16 +70,16 @@
  <span class="f4"><span class="underline">Description</span></span>
    Peut convertir les effets Morsure de l'Hiver d'une cible pour regagner du Mana.
  <span class="f4"><span class="underline">Description personelle</span></span>
-   [Coût : 4] Régenère [floor(@{target|target|frostdamage}*@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}*(@{Jinyah|elem_eau_tot}/2+@{Eisvogel|elem_eau_tot})/6] points de Mana en drainant les marques de @{target|target|character_name}.
+   Il vous reste [[@{Jinyah|colere_stacks}-1]] utilisations de **[Colere de l'aspect]**
  <span class="f4"><span class="underline">Description publique</span></span>
+   [Coût : 0] Régenère [[floor(@{target|target|frostdamage}*@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}*(@{Jinyah|elem_eau_tot}/2+@{Eisvogel|elem_eau_tot})/8)]] points de Mana en drainant les marques de @{target|target|character_name}.
    Jinyah se couvre de froid et regagne du Mana.
 
 <span class="bold"><span class="f4">[Avancée] prélude de l'hiver [16]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
    Passif/Instant/Buff
- <span class="f4"><span class="underline">Description personelle</span></span>
+ <span class="f4"><span class="underline">Description</span></span>
    @{Jinyah|repeating_magic-aspected-skills_-Lk-H7EpWwfDnT1p0ZH7_magic_aspected_skilllevel} fois par combat, si le personnage devrait subir des dégâts létaux, Stase Cryogénique est utilisé sur lui-même a la place.
- <span class="f4"><span class="underline">Description publique</span></span>
    Jinyah se recouvre de glace, la protégeant ainsi des dégâts.
  <span class="f4"><span class="underline">Spécial</span></span>
    Voir le sort Stase Cryogénique, situé 3 sorts plus bas
@@ -100,16 +98,15 @@
    Actif/Instant
  <span class="f4"><span class="underline">Description</span></span>
    Frappe un ennemi avec la puissance brute de la Glace, occasionnant de lourds dégâts si l’attaque touche.
-   Cette attaque inflige @{Eisvogel|repeating_magic-aspected-skills_-Lk-HKdLOZtOyW28mQ5v_magic_aspected_skilllevel} effets Morsure de l’Hiver supplémentaires.
  <span class="f4"><span class="underline">Description publique</span></span>
-   [Coût : 5] Envoie un rayon de Glace vers @{target|target|character_name}. Dodge DD+@{Eisvogel|repeating_magic-aspected-skills_-Lk-HKdLOZtOyW28mQ5v_magic_aspected_skilllevel}. Inflige [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-HKdLOZtOyW28mQ5v_magic_aspected_skilllevel}*((@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})+(@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot}))]] dégâts.
+   [Coût : 7] Envoie un rayon de Glace vers @{target|target|character_name}. Dodge DD+[[@{Eisvogel|repeating_magic-aspected-skills_-Lk-HKdLOZtOyW28mQ5v_magic_aspected_skilllevel}]]. Inflige [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HKdLOZtOyW28mQ5v_magic_aspected_skilllevel}*((@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})+(@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot}))*5)]] dégâts. Si cette attaque inflige des dégats, elle inflige [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-HKdLOZtOyW28mQ5v_magic_aspected_skilllevel}]] effets Morsure de l’Hiver supplémentaires.
 
 <span class="bold"><span class="f4">[Avancée] Stase Cryogénique [4]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Empower
  <span class="f4"><span class="underline">Description</span></span>
    Protège une cible des dégâts, l’empêche d’utiliser des actions.
-   Régénère @{Eisvogel|repeating_magic-aspected-skills_-Lk-HKdLOZtOyW28mQ5v_magic_aspected_skilllevel}/2 points de vie par marque de Robustesse de l’Hiver sur la cible.
+   Régénère @{Eisvogel|repeating_magic-aspected-skills_-Lk-HKdLOZtOyW28mQ5v_magic_aspected_skilllevel}*0.8 points de vie par marque de Robustesse de l’Hiver sur la cible.
    Peut-être utilisé sur un ennemi affecté par Morsure de l’hiver pour les mêmes effets.
    Dure jusqu’au prochain tour de la cible.
  <span class="f4"><span class="underline">Description publique</span></span>
@@ -119,10 +116,10 @@
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif/Buff/Durée
  <span class="f4"><span class="underline">Description</span></span>
-   Invoque une brume qui recouvre une zone de @{Eisvogel|repeating_magic-aspected-skills_-Lk-HO1ii7biiKBDKj6n_magic_aspected_skilllevel}*/9 metres de rayon handicapant la vision des ennemis,
+   Invoque une brume qui recouvre une zone de @{Eisvogel|repeating_magic-aspected-skills_-Lk-HO1ii7biiKBDKj6n_magic_aspected_skilllevel}*9 metres de rayon handicapant la vision des ennemis,
    et donnant un effet Robustesse de l’hiver aux alliés à l’intérieur chaque tour. La Brume dure @{Eisvogel|repeating_magic-aspected-skills_-Lk-HO1ii7biiKBDKj6n_magic_aspected_skilllevel} tours.
  <span class="f4"><span class="underline">Description publique</span></span>
-   Une brume gelée apparaît, recouvre une zone de [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-HO1ii7biiKBDKj6n_magic_aspected_skilllevel}*/9]] handicapant la vision des ennemis.
+   Une brume gelée apparaît, recouvre une zone de [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-HO1ii7biiKBDKj6n_magic_aspected_skilllevel}*9]] metres handicapant la vision des ennemis.
 
 <span class="bold"><span class="f4">[Avancée] Mur réfléchissant [4]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
@@ -151,7 +148,7 @@
    Tant que la cible est affectée par Morsure de l’hiver,
    elle prendra d’importants dégâts à chaque tour.
  <span class="f4"><span class="underline">Description publique</span></span>
-   [Coût : 8] Resistance DD+[[floor((@{Jinyah|elem_magma_tot}/2+@{Eisvogel|elem_metal_tot})/3)]]. Inflige [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HTf54N8R6eNDEwxc_magic_aspected_skilllevel}*@{target|target|frostdamage}*((@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})+(@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot})))]] dégâts à @{target|target|character_name} jusqu'à perte des marques de Morsure.
+   [Coût : 9] Resistance DD+[[floor((@{Jinyah|elem_magma_tot}/2+@{Eisvogel|elem_metal_tot})/3)]]. Inflige [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HTf54N8R6eNDEwxc_magic_aspected_skilllevel}*@{target|target|frostdamage}*((@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})+(@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot}))/3)]] dégâts par tour à @{target|target|character_name} jusqu'à perte des marques de Morsure.
 
 <span class="bold"><span class="f4">[Avancée] Bénédiction de l'hiver [4]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
@@ -159,10 +156,8 @@
  <span class="f4"><span class="underline">Description</span></span>
    Ce sort nécessite que la cible soit affectée par au moins 3 effets Robustesse de l’hiver.
    La cible voit ses dégâts augmenter pendant @{Eisvogel|repeating_magic-aspected-skills_-Lk-HXdpOLN295YW3N0p_magic_aspected_skilllevel} tours et gagne un effet Robustesse de l’hiver.
- <span class="f4"><span class="underline">Description personelle</span></span>
-   [Coût : 6] La cible vois sa prochaine action infliger [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HXdpOLN295YW3N0p_magic_aspected_skilllevel}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})*@{target|target|frostshield}/6)]] pourcent dégats supplémentaires
  <span class="f4"><span class="underline">Description publique</span></span>
-   @{target|target|character_name} reçoit une bénédiction de Givre, augmentant ses dégâts pour sa prochaine action.
+   [Coût : 6] @{target|target|character_name} reçoit une bénédiction de Givre. Sa prochaine action infligera [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HXdpOLN295YW3N0p_magic_aspected_skilllevel}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})*@{target|target|frostshield}/2)]] pourcent dégats supplémentaires.
 
 <span class="bold"><span class="f4">[Avancée] Blizzard [16]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
@@ -172,7 +167,7 @@
    Les ennemis pris dans le Blizzard prennent d’importants dégâts et subissent deux effets Morsure de l’hiver
    chaque tour commencé dans cette zone.
  <span class="f4"><span class="underline">Description publique</span></span>
-   [Coût : 7] Invoque un blizzard dans une zone de [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HZdpjSmhjPPyclyE_magic_aspected_skilllevel}*8)]] mètres de rayon qui inflige [[floor(@{target|target|frostdamage}*((@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})+(@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot})))]] par tour, dure @{Eisvogel|repeating_magic-aspected-skills_-Lk-HZdpjSmhjPPyclyE_magic_aspected_skilllevel} tours
+   [Coût : 7] Invoque un blizzard dans une zone de [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HZdpjSmhjPPyclyE_magic_aspected_skilllevel}*8)]] mètres de rayon qui inflige [[floor(((@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})+(@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot}))*5)]] par tour, dure @{Eisvogel|repeating_magic-aspected-skills_-Lk-HZdpjSmhjPPyclyE_magic_aspected_skilllevel} tours
 
 <span class="bold"><span class="f4">[Avancée] Dôme de l'hiver [16]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
@@ -192,7 +187,7 @@
  <span class="f4"><span class="underline">Description</span></span>
    Sacrifie tous vos effets Robustesse de l’hiver
  <span class="f4"><span class="underline">Description personelle</span></span>
-   Vous infligez @{Eisvogel|repeating_magic-aspected-skills_-Lk-HaVh4E6T6BvNJZu-_magic_aspected_skilllevel}*@{target|target|frostshield}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})/9 jusqu'à la fin du combat.
+   Vous infligez [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-HaVh4E6T6BvNJZu-_magic_aspected_skilllevel}*@{target|target|frostshield}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})/9]] jusqu'à la fin du combat.
  <span class="f4"><span class="underline">Description publique</span></span>
    [Coût : 4] Jusqu'a la fin du combat vous gagnez [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-HaVh4E6T6BvNJZu-_magic_aspected_skilllevel}*@{Jinyah|frostshield}*(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})/9)]] pourcent dégats supplémentaires
 
@@ -203,7 +198,7 @@
    Envoie une grosse bourrasque d’air glacé qui inflige des dégâts,
    un effet Morsure de l’hiver, et repousse les ennemis autour du lanceur.
  <span class="f4"><span class="underline">Description publique</span></span>
-   [Coût : 3] Inflige ([[(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})+(@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot}))]] dégâts sur une zone de [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-HdJw9y7nRiMbXl8s_magic_aspected_skilllevel}**2]] mètres, et tente de repousser les ennemis. DD+[[floor((@{Jinyah|elem_terre_tot}/2+@{Eisvogel|elem_terre_tot})/6)]].
+   [Coût : 3] Inflige [[floor(((@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})+(@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot}))*5)]] dégâts sur une zone de [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-HdJw9y7nRiMbXl8s_magic_aspected_skilllevel}**2]] mètres autours de vous, et tente de repousser les ennemis. DD+[[floor((@{Jinyah|elem_terre_tot}/2+@{Eisvogel|elem_terre_tot})/6)]].
 
 <span class="bold"><span class="f4">[Ultime] Permafrost [8]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
@@ -220,7 +215,7 @@
    Actif/Buff/Durée
  <span class="f4"><span class="underline">Description</span></span>
    Projette un voile sur toutes les cibles alliées affectés par Robustesse de l’hiver.
-   Ce voile annule les dégâts des [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-Hga0BioOZVTROln9_magic_aspected_skilllevel}*4]] prochaines attaques/sorts.
+   Ce voile annule les dégâts des [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-Hga0BioOZVTROln9_magic_aspected_skilllevel}*15]] prochaines attaques/sorts.
    Tant que le voile n’est pas brisé, la Volonté des personnes affectées augmente de @{Eisvogel|repeating_magic-aspected-skills_-Lk-Hga0BioOZVTROln9_magic_aspected_skilllevel} points.
  <span class="f4"><span class="underline">Description publique</span></span>
    Un voile recouvre les alliés aux alentours, protégeant des dégâts et renforçant leur volonté.

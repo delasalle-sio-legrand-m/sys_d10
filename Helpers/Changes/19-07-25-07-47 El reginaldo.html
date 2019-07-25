@@ -1,0 +1,187 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="../term.css"/>
+
+</head>
+
+<body class="f9 b9">
+<pre>
+<span class="bold">diff --git a/Helpers/Characters/frene.ini b/Helpers/Characters/frene.ini</span>
+<span class="bold">index 053b522..a594d05 100644</span>
+<span class="bold">--- a/Helpers/Characters/frene.ini</span>
+<span class="bold">+++ b/Helpers/Characters/frene.ini</span>
+<span class="f6">@@ -1,27 +1,27 @@</span>
+[DEFAULT]
+   #Penser a tout faire scale avec les affinitées
+    <span class="f1">a_eau=(@{Jinyah|elem_eau_tot}/2+@{Eisvogel|elem_eau_tot})</span>
+<span class="f1">    a_air=(@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot})</span>
+<span class="f1">    a_feu=(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot})</span>
+<span class="f1">    a_terre=(@{Jinyah|elem_terre_tot}/2+@{Eisvogel|elem_terre_tot})</span>
+<span class="f1">    a_glace=(@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot})</span>
+<span class="f1">    a_metal=(@{Jinyah|elem_metal_tot}/2+@{Eisvogel|elem_metal_tot})</span>
+<span class="f1">    a_magma=(@{Jinyah|elem_magma_tot}/2+@{Eisvogel|elem_metal_tot})</span>
+<span class="f1">    a_vapeur=(@{Jinyah|elem_vapeur_tot}/2+@{Eisvogel|elem_vapeur_tot})</span>
+<span class="f1">    a_bois=(@{Jinyah|elem_bois_tot}/2+@{Eisvogel|elem_bois_tot})</span>
+<span class="f1">    a_foudre=(@{Jinyah|elem_foudre_tot}/2+@{Eisvogel|elem_foudre_tot})</span>
+<span class="f1">    eau=(@{Jinyah|elem_eau_tot})</span>
+<span class="f1">    air=(@{Jinyah|elem_air_tot})</span>
+<span class="f1">    feu=(@{Jinyah|elem_feu_tot})</span>
+<span class="f1">    terre=(@{Jinyah|elem_terre_tot})</span>
+<span class="f1">    glace=(@{Jinyah|elem_glace_tot})</span>
+<span class="f1">    metal=(@{Jinyah|elem_metal_tot})</span>
+<span class="f1">    magma=(@{Jinyah|elem_magma_tot})</span>
+<span class="f1">    vapeur=(@{Jinyah|elem_vapeur_tot})</span>
+<span class="f1">    bois=(@{Jinyah|elem_bois_tot})</span>
+<span class="f1">    foudre=(@{Jinyah|elem_foudre_tot})</span><span class="f2">a_eau=(@{Jinyah|elem_eau_tot}/2+@{Eisvogel|elem_eau_tot}+@{Jinyah|elem_omega})
+    a_air=(@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    a_feu=(@{Jinyah|elem_feu_tot}/2+@{Eisvogel|elem_feu_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    a_terre=(@{Jinyah|elem_terre_tot}/2+@{Eisvogel|elem_terre_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    a_glace=(@{Jinyah|elem_glace_tot}/2+@{Eisvogel|elem_glace_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    a_metal=(@{Jinyah|elem_metal_tot}/2+@{Eisvogel|elem_metal_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    a_magma=(@{Jinyah|elem_magma_tot}/2+@{Eisvogel|elem_metal_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    a_vapeur=(@{Jinyah|elem_vapeur_tot}/2+@{Eisvogel|elem_vapeur_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    a_bois=(@{Jinyah|elem_bois_tot}/2+@{Eisvogel|elem_bois_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    a_foudre=(@{Jinyah|elem_foudre_tot}/2+@{Eisvogel|elem_foudre_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    eau=(@{Jinyah|elem_eau_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    air=(@{Jinyah|elem_air_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    feu=(@{Jinyah|elem_feu_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    terre=(@{Jinyah|elem_terre_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    glace=(@{Jinyah|elem_glace_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    metal=(@{Jinyah|elem_metal_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    magma=(@{Jinyah|elem_magma_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    vapeur=(@{Jinyah|elem_vapeur_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    bois=(@{Jinyah|elem_bois_tot}+@{Jinyah|elem_omega})</span>
+<span class="f2">    foudre=(@{Jinyah|elem_foudre_tot}+@{Jinyah|elem_omega})</span>
+    you=Jinyah
+    him=Eisvogel
+    simb=@{Jinyah|repeating_magic-aspected-skills_-Lk-GphCfAF2s1firmtm_magic_aspected_skilllevel}
+    simu=@{Jinyah|repeating_magic-aspected-skills_-Lk-H0A4ZvDP4YcBL1NS_magic_aspected_skilllevel}
+    garde=@{Jinyah|repeating_magic-aspected-skills_-Lk-H3by-ofAR9GZF4QH_magic_aspected_skilllevel}
+<span class="f6">@@ -42,11 +42,11 @@</span>
+        Si vous ne pouvez plus agir, votre aspect gagne [[floor({simu}{b_simulation_aspect})]] actions supplémentaires jusqu'à la reprise de contrôle du personnage.
+        Reduit les dégats subits de [[floor({garde}*{a_air}{b_garde_aspect})]]
+        {prelude} fois par combat, si le personnage devrait subir des dégâts létaux, Stase Cryogénique est utilisé sur lui-même a la place.
+        Il vous reste {colere} utilisations de **[Colere de l'Aspect]**
+    others=
+    macro={vset} {you} --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0<span class="f1">--momentum_dmg|0 --momentum_esq|0 --momentum_par|0</span> --mana|@{{you}|mana|max} --general_item_shield3|[[floor({garde}*{a_air}{b_garde_aspect})]] --colere_stacks|[[{colere}{b_colere_max}]] <span class="f2">--elem_omega|0
+</span>
+[turn]
+    description=Macro de début de tour
+    self=
+    others=
+<span class="f6">@@ -341,28 +341,28 @@</span>
+                et leur conférer deux effets Robustesse de l’hiver chaque tour. S’il s’avère qu’un ennemi se trouve au sein de ce dôme,
+                il subira un effet Morsure de l’Hiver, et un de plus pour chaque action qu’il effectuera à l’intérieur.
+                Les alliés peuvent quitter le Dôme ou rentrer dedans à tout moment.
+
+    self=
+    others=<span class="f1">Un grand dôme est invoqué, protégeant tous les alliés à l'intérieur.</span>
+    special=
+    macro=[Coût : {mp}] Dôme canalisé dans un cercle de [[{X}*{b_dome_hivers_size}]] metres de rayon autour du lanceur. Réduit les dégâts subis de <span class="f1">[[floor({a_air}+{a_glace}){b_dome_hivers_prot})]]</span><span class="f2">[[{floor(({a_air}+{a_glace}){b_dome_hivers_prot}),89+{X}}kl1]]</span> pourcents, et génère un bouclier protégeant de [[floor({a_air}*{b_dome_hivers_shield})]] points de dégats au début de chaque tour. Dure jusqu'a {X} tours. (Canalisé)
+        {manasub}-{mp}
+
+[hiver_sans_fin]
+    level=Avancée
+    type=Actif/Instant/Buff/Durée
+    display_name=Hiver sans fin
+    cost=8
+    mp=4
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HaVh4E6T6BvNJZu-_magic_aspected_skilllevel}
+    description=Sacrifie tous vos effets Robustesse de l’hiver
+    <span class="f1">self=Vous infligez [[{X}*{marques_s}*{a_feu}{d_hivers_sans_fin}]] jusqu'à la fin du combat.</span><span class="f2">self=</span>
+    others= [Coût : {mp}] <span class="f1">Jusqu'a</span><span class="f2">Vous gagnez [[floor({X}*@{{you}|frostshield}*({a_vapeur}+{a_metal}){d_hivers_sans_fin})]] jusqu'à</span> la fin du <span class="f1">combat vous gagnez [[floor({X}*@{{you}|frostshield}*{a_feu}{d_hivers_sans_fin})]] pourcent dégats supplémentaires</span><span class="f2">combat.</span>
+    special=
+    macro={manasub}-{mp}
+        {vset} {you} <span class="f1">--mod --pctinflicted_b|[[floor({X}*@{{you}|frostshield}*{a_feu}{d_hivers_sans_fin})]]</span><span class="f2">--elem_omega|[[{@{{you}|elem_omega}+floor({X}*@{{you}|frostshield}*({a_vapeur}+{a_metal}){d_hivers_sans_fin}), {X}*{b_omega_max}}kl1]]</span>
+        {vset} {you} --frostshield|0
+
+[bourrasque_gelee]
+    level=Simple
+    type=Actif/Instant/Debuff
+<span class="bold">diff --git a/Helpers/Characters/reginald.ini b/Helpers/Characters/reginald.ini</span>
+<span class="bold">index 818e3c0..b0b35df 100644</span>
+<span class="bold">--- a/Helpers/Characters/reginald.ini</span>
+<span class="bold">+++ b/Helpers/Characters/reginald.ini</span>
+<span class="f6">@@ -119,61 +119,76 @@</span>
+    self=
+    others=
+    macro=Arcane de Foudre: Votre arcanum détruit les boucliers a hauteur de [[({foudre}+{power}{b_power}){b_diminution_shield}]]
+
+[major:pyroclasm]
+    <span class="f1">description=Pyroclasme</span><span class="f2">display_name=Pyroclasme</span>
+<span class="f2">    description=</span>
+    self=
+    others=[Arcane majeure: Pyroclasme] Un incontrolable pyroclasme <span class="f1">s'enparre</span><span class="f2">s'emparre</span> de l'arcane, se répendant de cible en cible. L'arcane touche [[({power})d({feu}{b_pyroclasme})]] cibles aléatoires supplémentaires
+    macro=
+
+<span class="f1">[major:tital_wave]</span>
+<span class="f1">    description=Raz</span><span class="f2">[major:tidial_wave]</span>
+<span class="f2">    display_name=Raz</span> de marée
+    <span class="f2">description=</span>
+    self=
+    others=
+    <span class="f1">macro=</span><span class="f2">macro=[Arcane majeure: Raz de marée] Un raz de marée de puissance s'emparre de l'arcane, se répandant en ligne droite engloutissant tout sur son passage. L'arcane s'étend sur [[({power}+{eau})d{b_tidialwave}]] metres de long et [[({eau})d{b_tidialwave}]] de large.</span>
+
+[major:earthquake]
+    <span class="f2">display_name=Seisme</span>
+    description=
+    self=
+    others=
+    <span class="f1">macro=</span><span class="f2">macro=[Arcane majeure: Seïsme] Une onde sismique s'emparre de l'arcane, radiant du lanceur sur une distance de [[({power}+{terre})d{b_quake}]], les cibles a une distance de [[{terre}]] du lanceur subissent le double de l'effet de l'arcane.</span>
+
+[major:tornado]
+    <span class="f2">display_name=Tornade</span>
+    description=
+    self=
+    <span class="f1">others=</span><span class="f2">others=[Arcane majeure: Tornade] Une puissante tornade s'emparre de l'arcane, radiant autour du lanceur sur une distance de [[({power}+{air})d{b_tornado}]] metres, laissant l'oeil du cyclone *([[{air}]] metres)* intact.</span>
+    macro=
+
+[major:suspension]
+    <span class="f2">display_name=Suspension</span>
+    description=
+    <span class="f1">self=</span>
+<span class="f1">others=</span><span class="f2">self=Vous pouver choisir un nombre de tours plus court a la création, mais ne pouvez le changer après cela</span>
+<span class="f2">    others=[Arcane majeure: Suspension] Votre arcane est mise en suspens, prise dans la glace. L'arcane s'activera au début d'un tour choisi entre le suivant et [[floor(({power}+{glace}dF){b_suspension})]] tours.</span>
+    macro=
+
+[major:burning_ashes]
+    <span class="f2">display_name=Nuées ardentes</span>
+    description=
+    self=
+    <span class="f1">others=</span><span class="f2">others=[Arcane majeure: Nuées ardentes] Une nuée ardante s'emparre de l'arcane, démultipliant sa démence. Votre arcane cible jusqu'a [[floor(({magma}+{power}dF){b_burning})]] cibles supplémentaires.</span>
+    macro=
+
+<span class="f1">[major:artificier]</span><span class="f2">[major:artificer]</span>
+<span class="f2">    display_name=Artificier</span>
+    description=
+    self=
+    <span class="f1">others=</span><span class="f2">others=[Arcane majeure: Artificier] La main de l'artificier universel s'emparre de l'arcane. Votre arcane est désormais a votre disposition comme une réaction pour [[floor(({metal}+{power}){b_artificer})]] tours.</span>
+    macro=
+
+[major:corrosion]
+    <span class="f2">display_name=Corrosion</span>
+    description=
+    self=
+    <span class="f1">others=</span><span class="f2">others=[Arcane majeure: Corrosion] Une essence corrosive transfigure l'arcane. Celle-ci reste presente sous la forme d'un effet persistant pendant [[floor(({vapeur}+{power}dF){b_corrosion})]] tours.</span>
+    macro=
+
+[major:incontrolable_growth]
+    <span class="f1">description=</span><span class="f2">description=Croissance incontrolable</span>
+    self=
+    <span class="f1">others=</span><span class="f2">others=[Arcane majeure: Croissance incontrolable] Une croissance incontrolable s'emparre de l'arcane. Celle-ci se relancera pendant [[(({power}+{bois})/{b_incontrolable})d3!!]]</span>
+    macro=
+[major:split_second]
+    <span class="f2">display_name=Fraction d'instant</span>
+    description=
+    self=
+    <span class="f1">others=</span><span class="f2">others=[Arcane majeure: Fraction d'instant] Une fulgurance s'empare de l'arcane. Lancez cette derniere comme si elle avait [[({foudre}+{power})d3!!]] d'initiative de plus.</span>
+    macro=
+
+[aureola]
+    cost=16
+    level = Ultime
+    display_name = Arcanum Magnum : Aureola
+</pre>
+</body>
+</html>

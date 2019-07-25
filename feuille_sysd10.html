@@ -126,10 +126,10 @@
     });
   });
   // Endurance_Points
-  on("change:base-Force change:base-Agilite change:general_skilllevel_Endurance_surnaturelle", function() {
-    getAttrs(["base-Force","base-Agilite","base-Volonte","general_skilllevel_Endurance_surnaturelle"], function(values) {
-      setAttrs({"Endurance_Points_maximum":Number(values['base-Force'])*5+Number(values['base-Volonte'])*3});
-      setAttrs({"Endurance_Points_max":Number(values['base-Force'])*5+Number(values['base-Volonte'])*3});
+  on("change:base-Force change:base-Agilite change:general_skilllevel_Endurance_surnaturelle change:transcendence", function() {
+    getAttrs(["base-Force","base-Agilite","base-Volonte","general_skilllevel_Endurance_surnaturelle","transcendence"], function(values) {
+      setAttrs({"Endurance_Points_maximum":(Number(values['base-Force'])*5+Number(values['base-Volonte'])*3)*Math.pow(2,Number(values.transcendence-3))});
+      setAttrs({"Endurance_Points_max":(Number(values['base-Force'])*5+Number(values['base-Volonte'])*3)*Math.pow(2,Number(values.transcendence-3))});
     });
   });
   // attr_Grievious_Wounds

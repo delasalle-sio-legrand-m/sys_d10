@@ -8,7 +8,7 @@ import blessings
 term=blessings.Terminal()
 
 parser = argparse.ArgumentParser(description='Macro generator')
-parser.add_argument('command',choices=["macro","varnames","diff",'show',"index"],help="The selected command")
+parser.add_argument('command',choices=["macro","god","diff",'show',"index"],help="The selected command")
 parser.add_argument('characters',default=["all"],help="Name of the characters to list, all by default",nargs="*")
 parser.add_argument("-o",metavar="output",default="tty",help="File for the output command, tty by default",nargs="?")
 parser.add_argument("-s",metavar="suffix",default="",help="Suffix to append to all the files",nargs="?")
@@ -156,13 +156,30 @@ def replace_vars(text,char,god,section,name,character):
                         w="DEFAULT"
                     else:
                         w=character
-                    text=text.replace("{"+group+"}",god[w][group])
+                    if group[0]=="b":
+                        link="@{God|"+group+"}"
+                    else:
+                        link=god[w][group]
+
+                    text=text.replace("{"+group+"}",link)
+                    #print(group)
+                    ##char[name]["you"]+"_"
+                    #print(text)
                 except:
                     dprint(errors["noreplacement"].format(var=group,where=name))
     return text
 
-def varnames(e):
-    pass
+def god_macro(characters,output,version,suffix):
+    config=configparser.ConfigParser(inline_comment_prefixes="#")
+    config.read(join("Characters","God.ini"))
+    ret="!setattr --name God"
+    for sect in config.sections():
+        for elt in config[sect]:
+            if elt in config["DEFAULT"]:
+                continue
+                print(elt)
+            ret+=" --{}|{}".format(elt,config[sect][elt])
+    print(ret)
 
 def index(characters,output,version,suffix):
     write_index(output,suffix)
@@ -216,5 +233,5 @@ if __name__ == '__main__':
         sys.exit()
     if args.s!="":
         args.s=" "+args.s
-    commands={"macro":macro,"varnames":varnames,"diff":diff,"show":show,"index":index}
+    commands={"macro":macro,"god":god_macro,"diff":diff,"show":show,"index":index}
     commands[args.command](args.characters,args.o,args.version,args.s)

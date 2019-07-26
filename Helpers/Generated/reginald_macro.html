@@ -10,66 +10,66 @@
 <span class="bold">Characters/reginald.ini</span>
 <span class="bold"><span class="f4">[elemental_damage]</span></span>
 ?{Element ultilisé|
-Eau, Reginald utilise une arcane élémentaire d'eau et inflige [[floor(@{Reginald|elem_eau_tot}*2+2d10+@{Reginald|elem_feu_tot}+?{Magna Arcanum }d4)]] dégats |
-Air, Reginald utilise une arcane élémentaire d'air et inflige [[floor(@{Reginald|elem_air_tot}*2+2d10+@{Reginald|elem_feu_tot}+?{Magna Arcanum }d4)]] dégats |
-Terre, Reginald utilise une arcane élémentaire de terre et inflige [[floor(@{Reginald|elem_terre_tot}*2+2d10+@{Reginald|elem_feu_tot}+?{Magna Arcanum }d4)]] dégats |
-Feu, Reginald utilise une arcane élémentaire de feu et inflige [[floor(@{Reginald|elem_feu_tot}*2+2d10+@{Reginald|elem_feu_tot}+?{Magna Arcanum }d4)]] dégats |
-Glace, Reginald utilise une arcane élémentaire de glace et inflige [[floor(@{Reginald|elem_glace_tot}*2+2d10+@{Reginald|elem_feu_tot}+?{Magna Arcanum }d4)]] dégats |
-Metal, Reginald utilise une arcane élémentaire de metal et inflige [[floor(@{Reginald|elem_metal_tot}*2+2d10+@{Reginald|elem_feu_tot}+?{Magna Arcanum }d4)]] dégats |
-Magma, Reginald utilise une arcane élémentaire de magma et inflige [[floor(@{Reginald|elem_magma_tot}*2+2d10+@{Reginald|elem_feu_tot}+?{Magna Arcanum }d4)]] dégats |
-Vapeur, Reginald utilise une arcane élémentaire de vapeur et inflige [[floor(@{Reginald|elem_vapeur_tot}*2+2d10+@{Reginald|elem_feu_tot}+?{Magna Arcanum }d4)]] dégats |
-Bois, Reginald utilise une arcane élémentaire de bois et inflige [[floor(@{Reginald|elem_bois_tot}*2+2d10+@{Reginald|elem_feu_tot}+?{Magna Arcanum }d4)]] dégats |
-Foudre, Reginald utilise une arcane élémentaire de foudre et inflige [[floor(@{Reginald|elem_foudre_tot}*2+2d10+@{Reginald|elem_feu_tot}+?{Magna Arcanum }d4)]] dégats
+Eau, Reginald utilise une arcane élémentaire d'eau et inflige [[floor(@{Reginald|elem_eau_tot}@{God|b_elem}+@{Reginald|elem_feu_tot}+?{Magna Arcanum }@{God|b_power})]] dégats |
+Air, Reginald utilise une arcane élémentaire d'air et inflige [[floor(@{Reginald|elem_air_tot}@{God|b_elem}+@{Reginald|elem_feu_tot}+?{Magna Arcanum }@{God|b_power})]] dégats |
+Terre, Reginald utilise une arcane élémentaire de terre et inflige [[floor(@{Reginald|elem_terre_tot}@{God|b_elem}+@{Reginald|elem_feu_tot}+?{Magna Arcanum }@{God|b_power})]] dégats |
+Feu, Reginald utilise une arcane élémentaire de feu et inflige [[floor(@{Reginald|elem_feu_tot}@{God|b_elem}+@{Reginald|elem_feu_tot}+?{Magna Arcanum }@{God|b_power})]] dégats |
+Glace, Reginald utilise une arcane élémentaire de glace et inflige [[floor(@{Reginald|elem_glace_tot}@{God|b_elem}+@{Reginald|elem_feu_tot}+?{Magna Arcanum }@{God|b_power})]] dégats |
+Metal, Reginald utilise une arcane élémentaire de metal et inflige [[floor(@{Reginald|elem_metal_tot}@{God|b_elem}+@{Reginald|elem_feu_tot}+?{Magna Arcanum }@{God|b_power})]] dégats |
+Magma, Reginald utilise une arcane élémentaire de magma et inflige [[floor(@{Reginald|elem_magma_tot}@{God|b_elem}+@{Reginald|elem_feu_tot}+?{Magna Arcanum }@{God|b_power})]] dégats |
+Vapeur, Reginald utilise une arcane élémentaire de vapeur et inflige [[floor(@{Reginald|elem_vapeur_tot}@{God|b_elem}+@{Reginald|elem_feu_tot}+?{Magna Arcanum }@{God|b_power})]] dégats |
+Bois, Reginald utilise une arcane élémentaire de bois et inflige [[floor(@{Reginald|elem_bois_tot}@{God|b_elem}+@{Reginald|elem_feu_tot}+?{Magna Arcanum }@{God|b_power})]] dégats |
+Foudre, Reginald utilise une arcane élémentaire de foudre et inflige [[floor(@{Reginald|elem_foudre_tot}@{God|b_elem}+@{Reginald|elem_feu_tot}+?{Magna Arcanum }@{God|b_power})]] dégats
 }
 <span class="bold"><span class="f4">[zone]</span></span>
-L'arcane couvre une zone de [[?{Magna Arcanum }d6]] metres
+L'arcane couvre une zone de [[?{Magna Arcanum }@{God|b_zone}]] metres
 <span class="bold"><span class="f4">[durée]</span></span>
-L'arcane dure [[?{Magna Arcanum }d2]] tours
+L'arcane dure [[?{Magna Arcanum }@{God|b_duration}]] tours
 <span class="bold"><span class="f4">[eau:soin]</span></span>
-Arcane d'Eau: Votre arcanum soigne de [[(@{Reginald|elem_eau_tot}+?{Magna Arcanum }d4)/2]]
+Arcane d'Eau: Votre arcanum soigne de [[(@{Reginald|elem_eau_tot}+?{Magna Arcanum }@{God|b_power})@{God|b_heal}]]
 <span class="bold"><span class="f4">[air:bouclier]</span></span>
-Arcane d'Air: Votre arcanum  protege de [[(@{Reginald|elem_air_tot}+?{Magna Arcanum }d4)]]
+Arcane d'Air: Votre arcanum  protege de [[(@{Reginald|elem_air_tot}+?{Magna Arcanum }@{God|b_power})@{God|b_shield}]]
 <span class="bold"><span class="f4">[terre:cc_physique]</span></span>
-Arcane de Terre: Votre arcanum effectue une action de controle physique DD+[[(@{Reginald|elem_terre_tot}+?{Magna Arcanum }d4)/9]]
+Arcane de Terre: Votre arcanum effectue une action de controle physique DD+[[(@{Reginald|elem_terre_tot}+?{Magna Arcanum }@{God|b_power})@{God|b_cc_physique}]]
 <span class="bold"><span class="f4">[glace:cc_magique]</span></span>
-Arcane de Glace: Votre arcanum effectue une action de controle magique DD+[[(@{Reginald|elem_glace_tot}+?{Magna Arcanum }d4)/9]]
+Arcane de Glace: Votre arcanum effectue une action de controle magique DD+[[(@{Reginald|elem_glace_tot}+?{Magna Arcanum }@{God|b_power})@{God|b_cc_magique}]]
 <span class="bold"><span class="f4">[metal:buff_phy]</span></span>
-Arcane de Metal: Votre arcanum renforce une caractéristique physique de [[(@{Reginald|elem_metal_tot}+?{Magna Arcanum }d4)/8]]
+Arcane de Metal: Votre arcanum renforce une caractéristique physique de [[(@{Reginald|elem_metal_tot}+?{Magna Arcanum }@{God|b_power})@{God|b_buff_phy}]]
 <span class="bold"><span class="f4">[metal:res_phy]</span></span>
-Arcane de Metal: Votre arcanum renforce une resistance physique de [[(@{Reginald|elem_metal_tot}+?{Magna Arcanum }d4)/6]]
+Arcane de Metal: Votre arcanum renforce une resistance physique de [[(@{Reginald|elem_metal_tot}+?{Magna Arcanum }@{God|b_power})@{God|b_buff_phy_res}]]
 <span class="bold"><span class="f4">[magma:maladie]</span></span>
-Arcane de Magma: Votre arcanum inflige une affliction, infligeant [[(/8+?{Magna Arcanum }d4)]] dégats chaque tour.
+Arcane de Magma: Votre arcanum inflige une affliction, infligeant [[(/8+?{Magna Arcanum }@{God|b_power})@{God|b_maladie}]] dégats chaque tour.
 <span class="bold"><span class="f4">[vapeur:buff_mag]</span></span>
-Arcane de Vapeur: Votre arcanum renforce une caractéristique magique de [[(@{Reginald|elem_metal_tot}+?{Magna Arcanum }d4)/8]]
+Arcane de Vapeur: Votre arcanum renforce une caractéristique magique de [[(@{Reginald|elem_metal_tot}+?{Magna Arcanum }@{God|b_power})@{God|b_buff_mag}]]
 <span class="bold"><span class="f4">[vapeur:res_mag]</span></span>
-Arcane de Vapeur: Votre arcanum augmente une resistance magique de [[(@{Reginald|elem_vapeur_tot}+?{Magna Arcanum }d4)/6]] pourcent
+Arcane de Vapeur: Votre arcanum augmente une resistance magique de [[(@{Reginald|elem_vapeur_tot}+?{Magna Arcanum }@{God|b_power})@{God|b_buff_mag_res}]] pourcent
 <span class="bold"><span class="f4">[bois:diminution_degats]</span></span>
-Arcane de Bois: Votre arcanum diminue les dégats de [[(@{Reginald|elem_bois_tot}+?{Magna Arcanum }d4)/8]]
+Arcane de Bois: Votre arcanum diminue les dégats de [[(@{Reginald|elem_bois_tot}+?{Magna Arcanum }@{God|b_power})@{God|b_diminution_degats}]]
 <span class="bold"><span class="f4">[bois:resistances]</span></span>
-Arcane de Bois: Votre arcanum augmente les résistances de [[(@{Reginald|elem_bois_tot}+?{Magna Arcanum }d4)/8]] pourcent
+Arcane de Bois: Votre arcanum augmente les résistances de [[(@{Reginald|elem_bois_tot}+?{Magna Arcanum }@{God|b_power})@{God|b_diminution_degats_rec}]] pourcent
 <span class="bold"><span class="f4">[foudre:diminution_defences]</span></span>
-Arcane de Foudre: Votre arcanum diminue les dégats de [[(@{Reginald|elem_foudre_tot}+?{Magna Arcanum }d4)/8]]
+Arcane de Foudre: Votre arcanum diminue les dégats de [[(@{Reginald|elem_foudre_tot}+?{Magna Arcanum }@{God|b_power})@{God|b_diminution_degats}]]
 <span class="bold"><span class="f4">[foudre:diminution_shields]</span></span>
-Arcane de Foudre: Votre arcanum détruit les boucliers a hauteur de [[(@{Reginald|elem_foudre_tot}+?{Magna Arcanum }d4)3]]
+Arcane de Foudre: Votre arcanum détruit les boucliers a hauteur de [[(@{Reginald|elem_foudre_tot}+?{Magna Arcanum }@{God|b_power})@{God|b_diminution_shield}]]
 <span class="bold"><span class="f4">[major:pyroclasm]</span></span>
-[Arcane majeure: Pyroclasme] Un incontrolable pyroclasme s'emparre de l'arcane, se répendant de cible en cible. L'arcane touche [[(?{Magna Arcanum })d(@{Reginald|elem_feu_tot}/3)]] cibles aléatoires supplémentaires
+[Arcane majeure: Pyroclasme] Un incontrolable pyroclasme s'emparre de l'arcane, se répendant de cible en cible. L'arcane touche [[(?{Magna Arcanum })d(@{Reginald|elem_feu_tot}@{God|b_pyroclasme})]] cibles aléatoires supplémentaires
 <span class="bold"><span class="f4">[major:tidial_wave]</span></span>
-[Arcane majeure: Raz de marée] Un raz de marée de puissance s'emparre de l'arcane, se répandant en ligne droite engloutissant tout sur son passage. L'arcane s'étend sur [[(?{Magna Arcanum }+@{Reginald|elem_eau_tot})d4]] metres de long et [[(@{Reginald|elem_eau_tot})d4]] de large.
+[Arcane majeure: Raz de marée] Un raz de marée de puissance s'emparre de l'arcane, se répandant en ligne droite engloutissant tout sur son passage. L'arcane s'étend sur [[(?{Magna Arcanum }+@{Reginald|elem_eau_tot})d@{God|b_tidialwave}]] metres de long et [[(@{Reginald|elem_eau_tot})d@{God|b_tidialwave}]] de large.
 <span class="bold"><span class="f4">[major:earthquake]</span></span>
-[Arcane majeure: Seïsme] Une onde sismique s'emparre de l'arcane, radiant du lanceur sur une distance de [[(?{Magna Arcanum }+@{Reginald|elem_terre_tot})dd3]], les cibles a une distance de [[@{Reginald|elem_terre_tot}]] du lanceur subissent le double de l'effet de l'arcane.
+[Arcane majeure: Seïsme] Une onde sismique s'emparre de l'arcane, radiant du lanceur sur une distance de [[(?{Magna Arcanum }+@{Reginald|elem_terre_tot})d@{God|b_quake}]], les cibles a une distance de [[@{Reginald|elem_terre_tot}]] du lanceur subissent le double de l'effet de l'arcane.
 <span class="bold"><span class="f4">[major:tornado]</span></span>
-[Arcane majeure: Tornade] Une puissante tornade s'emparre de l'arcane, radiant autour du lanceur sur une distance de [[(?{Magna Arcanum }+@{Reginald|elem_air_tot})d3]] metres, laissant l'oeil du cyclone *([[@{Reginald|elem_air_tot}]] metres)* intact.
+[Arcane majeure: Tornade] Une puissante tornade s'emparre de l'arcane, radiant autour du lanceur sur une distance de [[(?{Magna Arcanum }+@{Reginald|elem_air_tot})d@{God|b_tornado}]] metres, laissant l'oeil du cyclone *([[@{Reginald|elem_air_tot}]] metres)* intact.
 <span class="bold"><span class="f4">[major:suspension]</span></span>
 /w Reginald Vous pouver choisir un nombre de tours plus court a la création, mais ne pouvez le changer après cela
-[Arcane majeure: Suspension] Votre arcane est mise en suspens, prise dans la glace. L'arcane s'activera au début d'un tour choisi entre le suivant et [[floor((?{Magna Arcanum }+@{Reginald|elem_glace_tot}dF)/4)]] tours.
+[Arcane majeure: Suspension] Votre arcane est mise en suspens, prise dans la glace. L'arcane s'activera au début d'un tour choisi entre le suivant et [[floor((?{Magna Arcanum }+@{Reginald|elem_glace_tot}dF)@{God|b_suspension})]] tours.
 <span class="bold"><span class="f4">[major:burning_ashes]</span></span>
-[Arcane majeure: Nuées ardentes] Une nuée ardante s'emparre de l'arcane, démultipliant sa démence. Votre arcane cible jusqu'a [[floor((@{Reginald|elem_magma_tot}+?{Magna Arcanum }dF)/2)]] cibles supplémentaires.
+[Arcane majeure: Nuées ardentes] Une nuée ardante s'emparre de l'arcane, démultipliant sa démence. Votre arcane cible jusqu'a [[floor((@{Reginald|elem_magma_tot}+?{Magna Arcanum }dF)@{God|b_burning})]] cibles supplémentaires.
 <span class="bold"><span class="f4">[major:artificer]</span></span>
-[Arcane majeure: Artificier] La main de l'artificier universel s'emparre de l'arcane. Votre arcane est désormais a votre disposition comme une réaction pour [[floor((@{Reginald|elem_metal_tot}+?{Magna Arcanum })/10)]] tours.
+[Arcane majeure: Artificier] La main de l'artificier universel s'emparre de l'arcane. Votre arcane est désormais a votre disposition comme une réaction pour [[floor((@{Reginald|elem_metal_tot}+?{Magna Arcanum })@{God|b_artificer})]] tours.
 <span class="bold"><span class="f4">[major:corrosion]</span></span>
-[Arcane majeure: Corrosion] Une essence corrosive transfigure l'arcane. Celle-ci reste presente sous la forme d'un effet persistant pendant [[floor((@{Reginald|elem_vapeur_tot}+?{Magna Arcanum }dF)/4)]] tours.
+[Arcane majeure: Corrosion] Une essence corrosive transfigure l'arcane. Celle-ci reste presente sous la forme d'un effet persistant pendant [[floor((@{Reginald|elem_vapeur_tot}+?{Magna Arcanum }dF)@{God|b_corrosion})]] tours.
 <span class="bold"><span class="f4">[major:incontrolable_growth]</span></span>
-[Arcane majeure: Croissance incontrolable] Une croissance incontrolable s'emparre de l'arcane. Celle-ci se relancera pendant [[((?{Magna Arcanum }+@{Reginald|elem_bois_tot})/5)d3!!]]
+[Arcane majeure: Croissance incontrolable] Une croissance incontrolable s'emparre de l'arcane. Celle-ci se relancera pendant [[((?{Magna Arcanum }+@{Reginald|elem_bois_tot})/@{God|b_incontrolable})d3!!]]
 <span class="bold"><span class="f4">[major:split_second]</span></span>
 [Arcane majeure: Fraction d'instant] Une fulgurance s'empare de l'arcane. Lancez cette derniere comme si elle avait [[(@{Reginald|elem_foudre_tot}+?{Magna Arcanum })d3!!]] d'initiative de plus.
 <span class="bold"><span class="f4">[aureola]</span></span>

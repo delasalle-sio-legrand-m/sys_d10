@@ -90,14 +90,14 @@ def macro_one(character,output,version,suffix):
             text=""
             if (config[sect]["macro"] != "" or config[sect]["others"] !="" or config[sect]["self"] !=""):
                 text+=term.bold_blue("[{name}]\n".format(name=sect))
-                selfw=replace_vars('/w {you} ',config,god,"self",sect,character)
+                selfw=replace_vars('/w {you} ',config,god,"self",sect,character,godlink=True)
                 if (config[sect]["macro"]):
-                    text+=replace_vars(config[sect]["macro"],config,god,"macro",sect,character)+"\n"
+                    text+=replace_vars(config[sect]["macro"],config,god,"macro",sect,character,godlink=True)+"\n"
                 if (config[sect]['self']!=""):
-                    for l in replace_vars(config[sect]["self"],config,god,"self",sect,character).split("\n"):
+                    for l in replace_vars(config[sect]["self"],config,god,"self",sect,character,godlink=True).split("\n"):
                         text+=selfw+l+"\n"
                 if (config[sect]["others"]!=""):
-                    text+=replace_vars(config[sect]["others"],config,god,"others",sect,character)+"\n"
+                    text+=replace_vars(config[sect]["others"],config,god,"others",sect,character,godlink=True)+"\n"
                 ret+=text
         except KeyError as e:
             #if(e=="macro"):
@@ -144,7 +144,7 @@ def show_one(character,output,version,suffix):
     return ret
 
 toreplace=re.compile("(?!@)\{([\w_-]+)\}")
-def replace_vars(text,char,god,section,name,character):
+def replace_vars(text,char,god,section,name,character,godlink=False):
     vars=toreplace.findall(text)
     if vars:
         for group in vars:
@@ -156,7 +156,7 @@ def replace_vars(text,char,god,section,name,character):
                         w="DEFAULT"
                     else:
                         w=character
-                    if group[0]=="b":
+                    if group[0]=="b" and godlink:
                         link="@{God|"+group+"}"
                     else:
                         link=god[w][group]
@@ -165,8 +165,9 @@ def replace_vars(text,char,god,section,name,character):
                     #print(group)
                     ##char[name]["you"]+"_"
                     #print(text)
-                except:
-                    dprint(errors["noreplacement"].format(var=group,where=name))
+                except KeyError as e:
+                    print(e)
+                    dprint(errors["noreplacement"].format(var=group,where=name+"@"+character))
     return text
 
 def god_macro(characters,output,version,suffix):
@@ -221,7 +222,7 @@ def get_all_chars(all):
         c=[]
     else:
         c=reserved_chars
-    names=[f for f in listdir("Characters") if (f not in reserved_chars and isfile(join("Characters", f)))]
+    names=[f for f in listdir("Characters") if (f not in c and isfile(join("Characters", f)))]
     return [join("Characters", f) for f in names],[n[:-4] for n in names] # MOAR BLOBSHITCODING
 
 if __name__ == '__main__':

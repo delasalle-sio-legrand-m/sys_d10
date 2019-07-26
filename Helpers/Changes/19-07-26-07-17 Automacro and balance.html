@@ -1,0 +1,636 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="../term.css"/>
+
+</head>
+
+<body class="f9 b9">
+<pre>
+<span class="bold">diff --git a/Helpers/Characters/God.ini b/Helpers/Characters/God.ini</span>
+<span class="bold">index f20166c..3a978a8 100644</span>
+<span class="bold">--- a/Helpers/Characters/God.ini</span>
+<span class="bold">+++ b/Helpers/Characters/God.ini</span>
+<span class="f6">@@ -16,34 +16,34 @@</span>
+
+[Characters/voile.ini]
+    b_harmony=2
+    harmony_charge=un point par semaine
+    b_shadow_har=10
+    <span class="f1">b_shadow_har_disc=</span>
+<span class="f1">    b_shadow_har_int=</span><span class="f2">b_shadow_har_disc=1</span>
+<span class="f2">    b_shadow_har_int=1</span>
+    b_metal_har=2
+    b_wind_har_act=4
+    b_wind_har_opp=3
+    b_momentum_dmg=5
+    b_momentum_speed=2
+    b_momentum_max=10
+    b_momentum_esq=3
+    b_impact=9
+    b_impact_size=2
+    <span class="f1">b_adagio=</span>
+<span class="f1">    b_tempo_dep=4</span>
+<span class="f1">    b_tempo_degre=</span><span class="f2">b_adagio=1</span>
+<span class="f2">    b_tempo_dep=6</span>
+<span class="f2">    b_tempo_degre=1</span>
+    b_tempo=42
+    b_phenix_reg=35
+    sceau_du_phenix_charge_level=100
+    b_phenix_alt_charge=10
+    b_bis_repetitas_charge_level=4
+    b_bis_repetitas_onhit= 50
+    <span class="f1">b_lune_de_sang_charge_level=40</span>
+<span class="f1">    b_sceaulunesang_shield=29</span><span class="f2">b_lune_de_sang_charge_level=50</span>
+<span class="f2">    b_sceaulunesang_shield=32</span>
+    b_sang_charge_level=25
+    <span class="f1">b_sang_dmg=30</span><span class="f2">b_sang_dmg=40</span>
+    b_temps_charge_level=6
+    b_souffle_de_sang_charge_level=10
+    b_souffle_de_sang=2
+    b_influx_charge_level=3
+    b_influx_phys=2
+<span class="f6">@@ -51,69 +51,71 @@</span>
+    b_contresang_charge_level=25
+    b_ame_charge_level=5
+    b_ame_target=2
+    b_ame_alt_range=10
+    b_veine_charge_level=20
+    <span class="f1">b_veine_duree=</span><span class="f2">b_veine_duree=1</span>
+    b_sangfeu_charge_level=25
+    b_sangfeu_dmg=30
+    b_amplitude_chargelevel=5
+    <span class="f1">b_amplitude_percent=35</span>
+<span class="f1">    b_ombre_chargelevel=7</span><span class="f2">b_amplitude_percent=25</span>
+<span class="f2">    b_ombre_chargelevel=10</span>
+    b_ombre_discretion=2
+    b_iresanglante_dmg=30
+    b_brumesang_value=20
+    <span class="f1">b_torrentpourpre_abysse=10</span>
+<span class="f1">    b_torrentpourpre_souffrance=15</span><span class="f2">b_torrentpourpre_abysse=20</span>
+<span class="f2">    b_base_abysse=100</span>
+<span class="f2">    b_torrentpourpre_souffrance=20</span>
+<span class="f2">    b_base_souffrance=75</span>
+    b_torrentpourpre_sang=20
+    <span class="f2">b_base_sang=50</span>
+    b_soifimpie_rgn=4
+    d_soif_heal=10
+    b_foudresang_init=9
+    b_bainsang_act=2
+
+[Characters/frene.ini]
+    <span class="f1">b_revigoration=/2</span>
+<span class="f1">    b_morsure_hiver=/4</span>
+<span class="f1">    b_robustesse_hiver=/5</span>
+<span class="f1">    b_transfert=/7</span><span class="f2">b_revigoration=2</span>
+<span class="f2">    b_morsure_hiver=4</span>
+<span class="f2">    b_robustesse_hiver=5</span>
+<span class="f2">    b_transfert=7</span>
+    b_symbiose=10
+    b_simulation_aspect=
+    <span class="f1">b_colere_aspect=/8</span><span class="f2">b_colere_aspect=8</span>
+    b_colere_max=
+    <span class="f1">b_garde_aspect=/2</span>
+<span class="f1">    b_armure_givre=*7</span>
+<span class="f1">    colere_aspect=/8</span>
+<span class="f1">    b_rayon_glace=</span>
+<span class="f1">    b_rayon_glace_dmg=*5</span>
+<span class="f1">    b_stase_cryogenique=*0.8</span>
+<span class="f1">    b_stase_cc=/8</span><span class="f2">b_garde_aspect=2</span>
+<span class="f2">    b_armure_givre=7</span>
+<span class="f2">    b_rayon_glace=1</span>
+<span class="f2">    b_rayon_glace_dmg=4</span>
+<span class="f2">    b_stase_cryogenique=0.8</span>
+<span class="f2">    b_stase_cc=8</span>
+    b_brume_gelee=9
+    <span class="f1">b_vague_glace=*5</span>
+<span class="f1">    b_vague_glace_cc=/6</span>
+<span class="f1">    b_etreinte_glaciale=/3</span>
+<span class="f1">    b_etreinte_glaciale_res=/3</span>
+<span class="f1">    d_hivers_sans_fin=/60</span><span class="f2">b_vague_glace=5</span>
+<span class="f2">    b_vague_glace_cc=6</span>
+<span class="f2">    b_etreinte_glaciale=4.5</span>
+<span class="f2">    b_etreinte_glaciale_res=3</span>
+<span class="f2">    d_hivers_sans_fin=60</span>
+    b_omega_max=10
+    <span class="f1">b_benediction_hivers=/2</span>
+<span class="f1">    b_mur=*3</span>
+<span class="f1">    b_mur_hp=*5</span>
+<span class="f1">    b_mur_size_h=*2</span>
+<span class="f1">    b_mur_size=*3</span>
+<span class="f1">    b_blizzard=*5</span>
+<span class="f1">    b_blizzard_size=*8</span>
+<span class="f1">    b_dome_hivers_size=2</span>
+<span class="f1">    b_dome_hivers_prot=</span>
+<span class="f1">    b_dome_hivers_shield=14</span>
+<span class="f1">    b_bourrasque=/6</span>
+<span class="f1">    b_bourrasque_dmg=*5</span>
+<span class="f1">    b_bourrasque_size=*2</span>
+<span class="f1">    b_permafrost_act=*0.6</span>
+<span class="f1">    b_permafrost_resist=/3</span>
+<span class="f1">    b_permafrost_carac=/6</span><span class="f2">b_benediction_hivers=2</span>
+<span class="f2">    b_mur=3</span>
+<span class="f2">    b_mur_hp=5</span>
+<span class="f2">    b_mur_size_h=2</span>
+<span class="f2">    b_mur_size=3</span>
+<span class="f2">    b_blizzard=5</span>
+<span class="f2">    b_blizzard_size=8</span>
+<span class="f2">    b_dome_hivers_size=3</span>
+<span class="f2">    b_dome_hivers_prot=0.8</span>
+<span class="f2">    b_dome_hivers_shield=15</span>
+<span class="f2">    b_bourrasque=6</span>
+<span class="f2">    b_bourrasque_dmg=5</span>
+<span class="f2">    b_bourrasque_size=2</span>
+<span class="f2">    b_permafrost_act=0.6</span>
+<span class="f2">    b_permafrost_resist=3</span>
+<span class="f2">    b_permafrost_carac=6</span>
+    b_voile_aurore=15
+    <span class="f1">b_voile_aurore_spells=*2</span>
+<span class="f1">    b_voile_aurore_buff=/2</span><span class="f2">b_voile_aurore_spells=2</span>
+<span class="f2">    b_voile_aurore_buff=2</span>
+
+[Characters/reginald.ini]
+    b_elem=*2+2d10
+    b_power=d4
+    b_quake=d3
+<span class="bold">diff --git a/Helpers/Characters/frene.ini b/Helpers/Characters/frene.ini</span>
+<span class="bold">index 9aa6727..d3abeba 100644</span>
+<span class="bold">--- a/Helpers/Characters/frene.ini</span>
+<span class="bold">+++ b/Helpers/Characters/frene.ini</span>
+<span class="f6">@@ -38,15 +38,15 @@</span>
+[start]
+    description=Macro de début de combat
+    self=Début du combat
+        A chaque attaque, l'aspect peut prendre jusqu'à [[{simb}*{b_symbiose}]] points de dégâts à votre place.
+        Si vous ne pouvez plus agir, votre aspect gagne [[floor({simu}{b_simulation_aspect})]] actions supplémentaires jusqu'à la reprise de contrôle du personnage.
+        Reduit les dégats subits de <span class="f1">[[floor({garde}*{a_air}{b_garde_aspect})]]</span><span class="f2">[[floor({garde}*{a_air}/{b_garde_aspect})]]</span>
+        {prelude} fois par combat, si le personnage devrait subir des dégâts létaux, Stase Cryogénique est utilisé sur lui-même a la place.
+        Il vous reste {colere} utilisations de **[Colere de l'Aspect]**
+    others=
+    macro={vset} {you} --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --mana|@{{you}|mana|max} <span class="f1">--general_item_shield3|[[floor({garde}*{a_air}{b_garde_aspect})]]</span><span class="f2">--pctreceived_b|0 --general_item_shield3|[[floor({garde}*{a_air}/{b_garde_aspect})]]</span> --colere_stacks|[[{colere}{b_colere_max}]] --elem_omega|0
+
+[turn]
+    description=Macro de début de tour
+    self=
+    others=
+<span class="f6">@@ -55,11 +55,11 @@</span>
+[refresh_marques]
+    description=Macro de recalcul d'etat des marques
+    self=
+    others=
+    macro=!token-mod --ignore-selected --set statusmarkers|frozen-orb:[[@{target|target|frostdamage}]]|bolt-shield:[[@{target|target|frostshield}]] --ids @{target|target|token_id}
+        !setattr --name @{target|target|character_name} <span class="f1">--pctreceived_b|[[@{target|target|frostdamage}*floor((({a_glace}+{a_feu})/2){b_morsure_hiver})-@{target|target|frostshield}*floor((({a_air}+{a_bois})/2){b_robustesse_hiver})]]</span><span class="f2">--pctreceived_b|[[@{target|target|frostdamage}*floor((({a_glace}+{a_feu})/2)/{b_morsure_hiver})-@{target|target|frostshield}*floor((({a_air}+{a_bois})/2)/{b_robustesse_hiver})]]
+</span>
+[refresh_all]
+    description=Refresh all marks
+    self=
+    others=
+<span class="f6">@@ -78,11 +78,11 @@</span>
+    display_name=Morsure de l'Hiver
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-DqcizrsE0yPbyAb7_magic_aspected_skilllevel}
+    cost=8
+    description=Sous certaines conditions, ou si un sort de glace atteint un ennemi directement,
+                il appliquera un stack de cet effet. Plus cet effet aura été appliqué, plus la cible subira de dégâts supplémentaires.
+    self=Durent jusqu'a la fin du combat, et peuvent stacker jusqu'a {X} fois. Ces marques augmentent de <span class="f1">[[floor((({a_glace}+{a_feu})/2){b_morsure_hiver})]]</span><span class="f2">[[floor((({a_glace}+{a_feu})/2)/{b_morsure_hiver})]]</span> pourcent les dégats subit
+    others={target} est sous l'effet Morsure de l'Hiver et prend des dégâts supplémentaires
+    special=
+    macro=
+
+[robustesse_hiver]
+<span class="f6">@@ -91,11 +91,11 @@</span>
+    display_name=Robustesse de l'Hiver
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-DqcizrsE0yPbyAb7_magic_aspected_skilllevel}
+    cost=8
+    description=Sous certaines conditions, ou si un sort de glace atteint un allié directement,
+                il appliquera un stack de cet effet. La cible gagne des résistances aux dégâts pour chaque stack.
+    self=Durent jusqu'a la fin du combat, et peuvent stacker jusqu'a [[{X}]] fois. Ces marques reduisent de <span class="f1">[[floor((({a_air}+{a_bois})/2){b_robustesse_hiver})]]</span><span class="f2">[[floor((({a_air}+{a_bois})/2)/{b_robustesse_hiver})]]</span> pourcent les dégats subits
+    others={target} est sous l'effet Robustesse de l'Hiver et subit donc moins de dégâts.
+    special=
+    macro=
+
+[revigoration]
+<span class="f6">@@ -103,27 +103,27 @@</span>
+    type=Actif/Instant
+    display_name=Revigoration
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-Gm0UQajXFD5z2zat_magic_aspected_skilllevel}
+    cost=2
+    mp=2
+    description=Consomme les effets Robustesse de l'hiver d'une cible pour lui rendre <span class="f1">[[{X}*{b_revigoration}]]</span><span class="f2">[[{X}/b_revigoration}]]</span> points de vie par effet.
+    self=
+    others=**Revigoration** [Coût : {mp}]  Soigne {target} de <span class="f1">[[{marques_s}*{X}*{a_eau}{b_revigoration}]]</span><span class="f2">[[{marques_s}*{X}*{a_eau}/{b_revigoration}]]</span> points de vie.
+    special=
+    macro={manasub}-{mp}
+        #!setattr --name @{target|target|character_name} <span class="f1">--Life_Points|[[{@{target|target|Life_Points}+{marques_s}*{X}*{a_eau}{b_revigoration},@{target|target|Life_Points|max}}kl1]]</span><span class="f2">--Life_Points|[[{@{target|target|Life_Points}+{marques_s}*{X}*{a_eau}/{b_revigoration},@{target|target|Life_Points|max}}kl1]]</span>
+
+[transfert_froid]
+    level=Avancée
+    type=Actif/Instant
+    display_name=Transfert de Froid
+    cost=2
+    mp=3
+    X=@{Jinyah|repeating_magic-aspected-skills_-Lk-Gn2T4CvHCEcxPHaZ_magic_aspected_skilllevel}
+    description=
+    self=
+    others=**Transfert de Froid** [Coût : {mp}] Test <span class="f1">DD+[[floor({a_glace}{b_transfert})]]</span><span class="f2">DD+[[floor({a_glace}/{b_transfert})]]</span> pour resister. Transfère jusqu'à {X} effets Morsure de l'hiver d'une cible ennemie vers une autre au choix.
+    special=
+    macro={manasub}-{mp}
+
+[symbiose_aspect]
+    level=Avancée
+<span class="f6">@@ -169,15 +169,15 @@</span>
+    display_name=Colère de l'aspect
+    cost=4
+    mp=0
+    description=Peut convertir les effets Morsure de l'Hiver d'une cible pour regagner du Mana.
+    self=Il vous reste [[@{Jinyah|colere_stacks}-1]] utilisations de **[Colere de l'aspect]**
+    others=**Colère de l'aspect** [Coût : {mp}] Régenère <span class="f1">[[floor({marques_d}*{colere}*{a_eau}{b_colere_aspect})]]</span><span class="f2">[[floor({marques_d}*{colere}*{a_eau}/{b_colere_aspect})]]</span> points de Mana en drainant les marques de {target}.
+        Jinyah se couvre de froid et regagne du Mana.
+    special=
+    macro= {manasub}-{mp}
+        {vset} {you} <span class="f1">--mana|[[{@{{you}|mana}+floor({marques_d}*{colere}*{a_eau}{b_colere_aspect}),</span><span class="f2">--mana|[[{@{{you}|mana}+floor({marques_d}*{colere}*{a_eau}/{b_colere_aspect}),</span> @{{you}|mana|max}}kl1]] --colere_stacks|[[@{Jinyah|colere_stacks}-1]]
+        {vset} {target} --frostdamage|0
+
+[prelude_hiver]
+    level=Avancée
+    type=Passif/Instant/Buff
+<span class="f6">@@ -194,62 +194,61 @@</span>
+[armure_givre]
+    level=Simple
+    type=Actif/Buff
+    display_name=Armure de Givre
+    cost=4
+    <span class="f1">mp=10</span><span class="f2">mp=8</span>
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HFQx4xIxRZTRebBS_magic_aspected_skilllevel}
+    description=Crée une armure de Givre sur une cible, lui conférant {X} effet Robustesse de l’hiver,
+                tout en créant un bouclier sur la cible.
+    self=
+    others= {target} reçoit un bouclier de Givre.
+    special=
+    macro=**Armure de Givre** [Coût : {mp}] Crée un bouclier mitigeant jusqu'a <span class="f1">[[floor({X}*{a_air}{b_armure_givre})]]</span><span class="f2">[[floor({X}*{a_air}*{b_armure_givre})]]</span>
+        {manasub}-{mp}
+
+[rayon_glace]
+    level=Simple
+    type=Actif/Instant
+    display_name=Rayon de Glace
+    cost=4
+    <span class="f1">mp=7</span><span class="f2">mp=5</span>
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HKdLOZtOyW28mQ5v_magic_aspected_skilllevel}
+    description=Frappe un ennemi avec la puissance brute de la Glace, occasionnant de lourds dégâts si l’attaque touche.
+    self=
+    others=**Rayon** [Coût : {mp}] Envoie un rayon de Glace vers {target}. Dodge DD+[[{X}]]. Inflige <span class="f1">[[floor({X}*({a_feu}+{a_glace}){b_rayon_glace_dmg})]]</span><span class="f2">[[floor({X}*({a_feu}+{a_glace})*{b_rayon_glace_dmg})]]</span> dégâts. Si cette attaque inflige des dégats, elle inflige <span class="f1">[[{X}{b_rayon_glace}]]</span><span class="f2">[[{X}*{b_rayon_glace}]]</span> effets Morsure de l’Hiver supplémentaires.
+    special=
+    macro={manasub}-{mp}
+
+[stase_cryogenique]
+    level=Avancée
+    type=Actif/Empower
+    display_name=Stase Cryogénique
+    cost=4
+    <span class="f1">mp=7</span><span class="f2">mp=6</span>
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HKdLOZtOyW28mQ5v_magic_aspected_skilllevel}
+    description= Protège une cible des dégâts, l’empêche d’utiliser des actions.
+                 Régénère <span class="f1">{X}{b_stase_cryogenique}</span><span class="f2">{X}*{b_stase_cryogenique}</span> points de vie par marque de Robustesse de l’Hiver sur la cible.
+                 Peut-être utilisé sur un ennemi affecté par Morsure de l’hiver pour les mêmes effets.
+                 Dure jusqu’au prochain tour de la cible.
+    self=
+    others= {target} ne peut pas agir jusqu'à son prochain tour et ne prendra pas de dégâts.
+    special=
+    macro=**Stase Cryogénique** [Coût : {mp}] Test <span class="f1">DD+[[floor({a_glace}{b_stase_cc})]].</span><span class="f2">DD+[[floor({a_glace}/{b_stase_cc})]].</span> Régénère <span class="f1">[[floor({marques_s}*{X}*{a_eau}{b_stase_cryogenique})]]</span><span class="f2">[[floor({marques_s}*{X}*{a_eau}*{b_stase_cryogenique})]]</span> points de vie.
+        {vset} {target} <span class="f1">--Life_Points|[[{@{target|target|Life_Points}+floor({marques_s}*{X}*{a_eau}{b_stase_cryogenique}),@{target|target|Life_Points|max}}kl1]]</span><span class="f2">--Life_Points|[[{@{target|target|Life_Points}+floor({marques_s}*{X}*{a_eau}*{b_stase_cryogenique}),@{target|target|Life_Points|max}}kl1]]</span>
+        {manasub}-{mp}
+
+[brume_gelee]
+    level=Simple
+    type=Actif/Buff/Durée
+    display_name=Brume Gelée
+    cost=4
+    mp=9
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HO1ii7biiKBDKj6n_magic_aspected_skilllevel}
+    description=Invoque une brume qui recouvre une zone de {X}*{b_brume_gelee} metres de rayon handicapant la vision des ennemis, et donnant un effet Robustesse de l’hiver aux alliés à l’intérieur chaque tour. La Brume dure {X} tours.
+    self=
+    others=Une brume gelée apparaît, recouvre une zone de [[{X}*{b_brume_gelee}]] metres handicapant la vision des <span class="f1">ennemis.</span><span class="f2">ennemis et donnant un effet Robustesse de l’hiver aux alliés à l’intérieur chaque tour. La Brume dure {X} tours.</span>
+    special=
+    macro=**Brume gelée** [Coût : {mp}] Augmente les seuils pour toucher des attaques de [[floor(({a_glace}+{a_metal}){b_brume_gelee})]] pendant {X} tours
+        {manasub}-{mp}
+
+[mur_reflechissant]
+<span class="f6">@@ -263,11 +262,11 @@</span>
+                Si un ennemi voit son attaque bloquée ou son sort réfléchi,
+                il subit un effet Morsure de l’hiver.
+    self=
+    others= Un mur de Glace apparaît, protégeant des attaques à venir.
+    special=
+    macro=**Mur réfléchissant** [Coût : {mp}] Crée un mur de <span class="f1">[[{X}{b_mur_size_h}]]</span><span class="f2">[[{X}*{b_mur_size_h}]]</span> metres de haut, [[{X}]] metres d'épaisseur et <span class="f1">[[{X}{b_mur_size}]]</span><span class="f2">[[{X}*{b_mur_size}]]</span> mètres de large. Bloque toutes les attaques physiques à hauteur de <span class="f1">[[{X}*({a_terre}+{a_air}){b_mur}]]</span><span class="f2">[[{X}*({a_terre}+{a_air})*{b_mur}]]</span> dégâts et tout les dégâts magiques a hauteur de <span class="f1">[[{X}*({a_glace}+{a_air}){b_mur}]]</span><span class="f2">[[{X}*({a_glace}+{a_air})*{b_mur}]]</span> dégâts le mur possède <span class="f1">[[{X}*({a_air}+{a_bois}){b_mur_hp}]]</span><span class="f2">[[{X}*({a_air}+{a_bois})*{b_mur_hp}]]</span> points de vie par 2³.
+        {manasub}-{mp}
+
+[vague_glace]
+    level=Simple
+    type=Actif/Instant/Debuff
+<span class="f6">@@ -278,26 +277,26 @@</span>
+    description=Crée une grande vague de glace qui part du lanceur, occasionnant des dégâts,
+                applique Morsure de l’hiver, et entrave tout ennemi n’ayant pas réussi à l’esquiver.
+    self=
+    others= Une vague de Glace part de Jinyah, entravant tout ennemi pris dedans.
+    special=
+    macro=**Vague de Glace** [Coût : {mp}] Dodge DD+[[{X}]], cone de 30 degrés sur <span class="f1">[[{X}{b_vague_glace}]]</span><span class="f2">[[{X}*{b_vague_glace}]]</span> mètres. Résistance à l'effet <span class="f1">DD+[[floor({a_glace}{b_vague_glace_cc})]].</span><span class="f2">DD+[[floor({a_glace}/{b_vague_glace_cc})]].</span> CC dure autant de tours que les degrés d'échec. Peut etre retenté chaque tour avec un DD inferieur.
+        {manasub}-{mp}
+
+[etreinte_glaciale]
+    level=Avancée
+    type=Actif/Instant/Durée
+    display_name=Etreinte Glaciale
+    cost=4
+    <span class="f1">mp=9</span><span class="f2">mp=7</span>
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HTf54N8R6eNDEwxc_magic_aspected_skilllevel}
+    description= Ce sort nécessite que la cible soit affectée par au moins 3 effets Morsure de l’hiver.
+                 Tant que la cible est affectée par Morsure de l’hiver,
+                 elle prendra d’importants dégâts à chaque tour.
+
+    self=
+    others=**Etreinte Glaciale** [Coût : {mp}] Resistance <span class="f1">DD+[[floor({a_magma}{b_etreinte_glaciale_res})]].</span><span class="f2">DD+[[floor({a_magma}/{b_etreinte_glaciale_res})]].</span> Inflige <span class="f1">[[floor({X}*{marques_d}*({a_feu}+{a_glace}){b_etreinte_glaciale})]]</span><span class="f2">[[floor({X}*{marques_d}*({a_feu}+{a_glace})/{b_etreinte_glaciale})]]</span> dégâts par tour à {target} jusqu'à perte des marques de Morsure.
+    special=
+    macro={manasub}-{mp}
+
+[benediction_hiver]
+    level=Avancée
+<span class="f6">@@ -307,14 +306,14 @@</span>
+    mp=6
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HXdpOLN295YW3N0p_magic_aspected_skilllevel}
+    description=Ce sort nécessite que la cible soit affectée par au moins 3 effets Robustesse de l’hiver.
+                La cible voit ses dégâts augmenter pendant {X} tours et gagne un effet Robustesse de l’hiver.
+    self=
+    others=**Bénédiction de l'Hiver** [Coût : {mp}] {target} reçoit une bénédiction de Givre. Sa prochaine action infligera <span class="f1">[[floor({X}*{a_feu}*{marques_s}{b_benediction_hivers})]]</span><span class="f2">[[floor({X}*{a_feu}*{marques_s}/{b_benediction_hivers})]]</span> pourcent dégats supplémentaires.
+    special=
+    macro={manasub}-{mp}
+        {vset} {target} --mod <span class="f1">--temp_pdmg|[[floor({X}*{a_feu}*{marques_s}{b_benediction_hivers})]]</span><span class="f2">--temp_pdmg|[[floor({X}*{a_feu}*{marques_s}/{b_benediction_hivers})]]</span>
+
+[blizzard]
+    level=Avancée
+    type=Actif/Durée
+    display_name=Blizzard
+<span class="f6">@@ -323,19 +322,19 @@</span>
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HZdpjSmhjPPyclyE_magic_aspected_skilllevel}
+    description= Crée une tempête dévastatrice dans une grande zone pendant {X} tours.
+                 Les ennemis pris dans le Blizzard prennent d’importants dégâts et subissent deux effets Morsure de l’hiver
+                 chaque tour commencé dans cette zone.
+    self=
+    others=**Blizzard** [Coût : {mp}] Invoque un blizzard dans une zone de <span class="f1">[[floor({X}{b_blizzard_size})]]</span><span class="f2">[[floor({X}*{b_blizzard_size})]]</span> mètres de rayon qui inflige <span class="f1">[[floor(({a_feu}+{a_glace}){b_blizzard})]]</span><span class="f2">[[floor(({a_feu}+{a_glace})*{b_blizzard})]]</span> par tour, dure {X} tours
+    special=
+    macro={manasub}-{mp}
+
+[dome_hiver]
+    level=Avancée
+    type=Actif/Canalisation/Buff
+    display_name=Dôme de l'hiver
+    <span class="f1">cost=16</span><span class="f2">cost=14</span>
+    mp=12
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HZShTmq5wdHs0Ug3_magic_aspected_skilllevel}
+    description=Invoque un grand dôme protecteur autour du lanceur.
+                Ce dôme va protéger tous les alliés qui se trouvent à l’intérieur d’une énorme quantité de dégâts,
+                et leur conférer deux effets Robustesse de l’hiver chaque tour. S’il s’avère qu’un ennemi se trouve au sein de ce dôme,
+<span class="f6">@@ -343,11 +342,11 @@</span>
+                Les alliés peuvent quitter le Dôme ou rentrer dedans à tout moment.
+
+    self=
+    others=
+    special=
+    macro=**Dôme de l'Hiver** [Coût : {mp}] Dôme canalisé dans un cercle de [[{X}*{b_dome_hivers_size}]] metres de rayon autour du lanceur. Réduit les dégâts subis de <span class="f1">[[{floor(({a_air}+{a_glace}){b_dome_hivers_prot}),89+{X}}kl1]]</span><span class="f2">[[{floor(({a_air}+{a_glace})*{b_dome_hivers_prot}),89+{X}}kl1]]</span> pourcents, et génère un bouclier protégeant de [[floor({a_air}*{b_dome_hivers_shield})]] points de dégats au début de chaque tour. Dure jusqu'a {X} tours. (Canalisé)
+        {manasub}-{mp}
+
+[hiver_sans_fin]
+    level=Avancée
+    type=Actif/Instant/Buff/Durée
+<span class="f6">@@ -355,14 +354,14 @@</span>
+    cost=8
+    mp=4
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HaVh4E6T6BvNJZu-_magic_aspected_skilllevel}
+    description=Sacrifie tous vos effets Robustesse de l’hiver
+    self=
+    others=**Hiver sans fin** [Coût : {mp}] <span class="f1">Vous gagnez [[floor({X}*@{{you}|frostshield}*({a_vapeur}+{a_metal}){d_hivers_sans_fin})]]</span><span class="f2">Votre affinité *Omega* augmente de [[floor({X}*@{{you}|frostshield}*({a_vapeur}+{a_metal})/{d_hivers_sans_fin})]]</span> jusqu'à la fin du combat.
+    special=
+    macro={manasub}-{mp}
+        {vset} {you} <span class="f1">--elem_omega|[[{@{{you}|elem_omega}+floor({X}*@{{you}|frostshield}*({a_vapeur}+{a_metal}){d_hivers_sans_fin}),</span><span class="f2">--elem_omega|[[{@{{you}|elem_omega}+floor({X}*@{{you}|frostshield}*({a_vapeur}+{a_metal})/{d_hivers_sans_fin}),</span> {X}*{b_omega_max}}kl1]]
+        {vset} {you} --frostshield|0
+
+[bourrasque_gelee]
+    level=Simple
+    type=Actif/Instant/Debuff
+<span class="f6">@@ -371,11 +370,11 @@</span>
+    mp=3
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HdJw9y7nRiMbXl8s_magic_aspected_skilllevel}
+    description=Envoie une grosse bourrasque d’air glacé qui inflige des dégâts,
+                un effet Morsure de l’hiver, et repousse les ennemis autour du lanceur.
+    self=
+    others=**Bourrasque gelée** [Coût : {mp}] Inflige <span class="f1">[[floor(({a_feu}+{a_glace}){b_bourrasque_dmg})]]</span><span class="f2">[[floor(({a_feu}+{a_glace})/{b_bourrasque_dmg})]]</span> dégâts sur une zone de [[{X}*{b_bourrasque_size}]] mètres autours de vous, et tente de repousser les ennemis. <span class="f1">DD+[[floor({a_terre}{b_bourrasque})]].</span><span class="f2">DD+[[floor({a_terre}/{b_bourrasque})]].</span>
+    special=
+    macro={manasub}-{mp}
+
+[permafrost]
+    level=Ultime
+<span class="f6">@@ -388,11 +387,11 @@</span>
+                Ils perdent {X} actions, ainsi que {X} points dans leur caractéristique principale (For/Agi/Psy),
+                et subissent des dégâts tous les tours, jusqu’à ce qu’ils ne soient plus affectés par Morsure de l’hiver.
+    self=
+    others= Les ennemis aux alentours voient leurs mouvements considérablement ralentis.
+    special=
+    macro=**Permafrost** [Coût : {mp}] Tente de ralentir les actions adverses. Resist <span class="f1">DD+[[floor({a_magma}{b_permafrost_resist})]].</span><span class="f2">DD+[[floor({a_magma}/{b_permafrost_resist})]].</span> Les ennemis affectés par Morsure de l'Hiver perdent <span class="f1">[[floor({X}*{a_metal}{b_permafrost_act})]]</span><span class="f2">[[floor({X}*{a_metal}*{b_permafrost_act})]]</span> actions, et également <span class="f1">[[floor(-1*{X}*{a_metal}{b_permafrost_carac})]]</span><span class="f2">[[floor(-1*{X}*{a_metal}/{b_permafrost_carac})]]</span> dans leur caractéristiques physiques et <span class="f1">[[floor(-1*{X}*{a_vapeur}{b_permafrost_carac})]]</span><span class="f2">[[floor(-1*{X}*{a_vapeur}/{b_permafrost_carac})]]</span> dans leur caractéristiques magiques tant qu'ils sont affectés par Morsure de l'hiver.
+        {manasub}-{mp}
+
+[voile_aurore]
+    level=Ultime
+    type=Actif/Buff/Durée
+<span class="f6">@@ -404,8 +403,8 @@</span>
+                Ce voile annule les dégâts des [[{X}*{b_voile_aurore}]] prochaines attaques/sorts.
+                Tant que le voile n’est pas brisé, la Volonté des personnes affectées augmente de {X} points.
+    self=
+    others= Un voile recouvre les alliés aux alentours, protégeant des dégâts et renforçant leur volonté.
+    special=
+    macro=**Voile de l'aurore** [Coût : {mp}] Protection de [[{X}*({a_air}+{a_bois})*{b_voile_aurore}]] sur les <span class="f1">[[{X}{b_voile_aurore_spells}]]</span><span class="f2">[[{X}*{b_voile_aurore_spells}]]</span> prochaines attaques. Augmente la volonté de <span class="f1">[[{X}*{a_vapeur}{b_voile_aurore_buff}]]</span><span class="f2">[[{X}*{a_vapeur}/{b_voile_aurore_buff}]]</span>
+        {manasub}-{mp}
+        #zone et prot
+<span class="bold">diff --git a/Helpers/Characters/npc.ini b/Helpers/Characters/npc.ini</span>
+<span class="bold">new file mode 100644</span>
+<span class="bold">index 0000000..a604363</span>
+<span class="bold">--- /dev/null</span>
+<span class="bold">+++ b/Helpers/Characters/npc.ini</span>
+<span class="f6">@@ -0,0 +1,35 @@</span>
+<span class="f2">[DEFAULT]</span>
+
+
+<span class="f2">[start]</span>
+<span class="f2">    description=Macro de début de combat</span>
+<span class="f2">    self=Initialisation de {target}</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=!setattr --name {target} --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --mana|@{{target}|mana|max} --pctreceived_b|0 --elem_omega|0</span>
+
+<span class="f2">[turn]</span>
+<span class="f2">    description=Macro de tour</span>
+<span class="f2">    self=Tour de {target}</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=!setattr --name {target} --Life_Points|[[{@{{target}|Life_Points}+@{{you}|regen}-1*(@{{target}|dot}),@{{target}|Life_Points|max}}kl1]] --mana|{manaregen}</span>
+
+<span class="f2">[ataque_macro]</span>
+<span class="f2">    description=Macro d'attaque</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=!crit ?{Nombre de des d'attaque} P @{selected|general_effective_Perfection} c @{selected|crit_level} M @{selected|skillcost_Technique_martiale} @{selected|general_effective_Technique_martiale} E @{selected|skillcost_Exploiter_les_points_faibles} @{selected|general_effective_Exploiter_les_points_faibles} F @{selected|general_effective_Fauchage} D @{selected|general_effective_Coup_dechirant} H @{selected|base_damage_dices} H @{selected|exal_damage_dices} A @{selected|Skill_general_attribute_select_attaque} s @{selected|general_attack_threshold} l @{selected|general_attack_addall} a a n @{selected|undescored_name} + @{selected|additional_damage_dices} + @{selected|general_effective_weapon1} + @{selected|general_effective_weapon2} t @{selected|transcendence} + @{selected|general_effective_weapon3} f @{selected|pctinflicted} f @{selected|pctinflicted_s} f @{selected|pctinflicted_b} + @{selected|temp_dmg} f @{selected|temp_pdmg}
+        !setattr --name @{selected|character_name} --temp_pdmg|0 --temp_dmg|0</span>
+
+<span class="f2">[esquive_macro]</span>
+<span class="f2">    description=Macro d'esquive</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=!crit ?{Nombre de des d'esquive} I @{selected|skillcost_Defense_impenetrable} @{selected|general_effective_Defense_impenetrable} R @{selected|general_effective_Rempart_parfait} c @{selected|crit_level} H @{selected|base_dodge_dices} A @{selected|Skill_general_attribute_select_dodge} t @{selected|transcendence} s ?{selected|Seuil d'esquive} - ?{Dégats a esquiver|0} a e n @{selected|undescored_name} v @{selected|pctreceived} v @{selected|pctreceived_s} v @{selected|pctreceived_b} + @{selected|temp_esq}</span>
+<span class="f2">        !setattr --name @{selected|character_name} --temp_esq|0</span>
+
+<span class="f2">[parade_macro]</span>
+<span class="f2">    description=Macro de parade</span>
+<span class="f2">    self=</span>
+<span class="f2">    others=</span>
+<span class="f2">    macro=!crit ?{Nombre de des de defense} I @{selected|skillcost_Defense_impenetrable} @{selected|general_effective_Defense_impenetrable} R @{selected|general_effective_Rempart_parfait} c @{selected|crit_level} S @{selected|general_skilllevel_Encaissement} @{selected|general_effective_Encaissement} H @{selected|base_defense_dices} H @{selected|exal_defense_dices} s @{selected|general_defense_threshold} l @{selected|general_defense_addall} A @{selected|Skill_general_attribute_select_defense} t @{selected|transcendence} - ?{Dégats a parer|0} a d n @{selected|undescored_name} + @{selected|general_effective_shield1} + @{selected|general_effective_shield2} + @{selected|general_effective_shield3} v @{selected|pctreceived} v @{selected|pctreceived_s} v @{selected|pctreceived_b} v @{selected|temp_pdef} + @{selected|temp_def}</span>
+<span class="f2">        !setattr t--name @{selected|character_name} --temp_pdef|0 --temp_def|0</span>
+<span class="bold">diff --git a/Helpers/Characters/voile.ini b/Helpers/Characters/voile.ini</span>
+<span class="bold">index 7b1e4f5..dcf9d25 100644</span>
+<span class="bold">--- a/Helpers/Characters/voile.ini</span>
+<span class="bold">+++ b/Helpers/Characters/voile.ini</span>
+<span class="f6">@@ -35,18 +35,18 @@</span>
+    description=Macro de début de combat
+    self=Début du combat
+        Toutes les reserves sont réinitialisées.
+    others=
+    X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}
+    macro={vset} {you} --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --momentum_dmg|0 --momentum_esq|0 <span class="f2">--pctreceived_b|0</span> --momentum_par|0 <span class="f1">--actions|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}{b_wind_har_act})]]|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}{b_wind_har_act})]]</span><span class="f2">--actions|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}/{b_wind_har_act})]]|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}/{b_wind_har_act})]]</span>
+
+[turn]
+    description=Macro de début de tour
+    self=
+    others=
+    X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}
+    macro={vset} {you} --Life_Points|[[{@{{you}|Life_Points}+@{{you}|regen}-1*(@{{you}|dot}),@{{you}|Life_Points|max}}kl1]] <span class="f1">--actions|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}{b_wind_har_act})]]|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}{b_wind_har_act})]]</span><span class="f2">--actions|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}/{b_wind_har_act})]]|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}/{b_wind_har_act})]]</span>
+
+[multiple_seals]
+    description=Lance le prochain seau plusieurs fois
+    self=
+    others=
+<span class="f6">@@ -55,18 +55,18 @@</span>
+[show_harmony]
+    description=
+    self=
+    others=
+    X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}
+    macro=/w {you} &amp;{template:default} {{name=Etat d'harmonie}} {{initiative=+[[{b_harmony}*{harmony}]]}} {{perception=+[[{b_harmony}*{harmony}]]}} <span class="f1">{{Discretion=+[[{harmony}{b_shadow_har_disc}]]}}</span><span class="f2">{{Discretion=+[[{harmony}*{b_shadow_har_disc}]]}}</span> {{Nombre <span class="f1">d'actions=[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}{b_wind_har_act})]]}}</span><span class="f2">d'actions=[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}/{b_wind_har_act})]]}}</span> {{Attaques <span class="f1">d'opportunités=+[[floor({harmony}*{X}{b_wind_har_opp})]]seuil}}</span><span class="f2">d'opportunités=+[[floor({harmony}*{X}/{b_wind_har_opp})]]seuil}}</span> {{RM=+[[floor({harmony}*{X}/{b_metal_har})]]}}
+    #Devrait afficher l'etat actuel, pas théorique
+
+[change_harmony]
+    self=
+    others=
+    X=@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}
+    macro={vset} {you} <span class="f1">--{Discretion_m}|[[{discretion}+{X}*{harmony}{b_shadow_har_disc}]] --{Discretion_m}|[[{X}*{harmony}{b_shadow_har_disc}]]</span><span class="f2">--{Discretion_m}|[[{discretion}+{X}*{harmony}*{b_shadow_har_disc}]] --{Discretion_m}|[[{X}*{harmony}*{b_shadow_har_disc}]]</span> --actions||[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor({X}*{harmony}/{b_wind_har_act})]] <span class="f1">--{Resistance_mentale_m}|[[floor({Resistance_mentale}+{harmony}*{X}{b_metal_har})]]</span><span class="f2">--{Resistance_mentale_m}|[[floor({Resistance_mentale}+{harmony}*{X}/{b_metal_har})]]</span> --Initiative|[[{initiative}+{b_harmony}*{harmony}]]
+
+[show_momentum]
+    description=
+    others=
+    self=Votre attaque et votre parade bénéficient d'un bonus de [[{b_momentum_dmg}*{momentum}]], votre esquive beneficie d'un bonus de [[{b_momentum_esq}*{momentum}]] et votre vitesse de déplacement est désormais de [[{ag}+{b_momentum_speed}*{momentum}]].
+<span class="f6">@@ -96,12 +96,12 @@</span>
+    B = @{Voile|repeating_magic-vital-skills_-Lk0JovHaDzlyDlxntqG_magic_vital_skilllevel}
+    I = @{Voile|repeating_magic-vital-skills_-Lk0K39r7eCcYVEBFeKy_magic_vital_skilllevel}
+    S = @{Voile|repeating_magic-vital-skills_-Lk0KBJLxY9ZzAgs4ZHh_magic_vital_skilllevel}
+    F = @{Voile|repeating_magic-vital-skills_-Lk0KH9sMaVvV9aafAeU_magic_vital_skilllevel}
+    BA = @{Voile|repeating_magic-vital-skills_-Lk0KWNdsKB9AeKJwoRI_magic_vital_skilllevel}
+    macro={vset} {you} --mod --actions||[[{b_bainsang_act}*{BA}*@{Voile|multiple_seals}]] <span class="f2">--actions|[[{b_bainsang_act}*{BA}*@{Voile|multiple_seals}]]</span> --temp_dmg|[[{b_iresanglante_dmg}*{I}*@{Voile|multiple_seals}]] --temp_esq|[[{b_brumesang_value}*{B}*@{Voile|multiple_seals}]]
+        {vset} {you} --Life_Points|[[{@{Voile|Life_Points}+{b_soifimpie_rgn}*{S}* <span class="f1">@{Voile|multiple_seals}},</span><span class="f2">@{Voile|multiple_seals},</span> @{Voile|Life_Points|max}}kl1]]
+        {reset_multiple}
+    self=
+    others=
+
+[attaque_macro]
+<span class="f6">@@ -145,11 +145,11 @@</span>
+    level=Avancée
+    type=Passif &amp; Actif/Instant
+    display_name=Harmony Of Shadow
+    cost=4
+    X = @{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel}
+    description=Passif - Augmente la discrétion de <span class="f1">{b_shadow_har_disc}{X}{harmony},</span><span class="f2">{b_shadow_har_disc}*{X}*{harmony},</span> et rend les actions de dégagement plus simple de <span class="f1">{harmony}{b_shadow_har_int}</span><span class="f2">{harmony}*{b_shadow_har_int}</span> degrés de difficultée.
+        Actif - Augmente pendant un cours instant la conscience de son environnement,
+            permettant de révéler la vrai nature des adversaire  et objets dans le champ de perception.
+    self= Voile augmente son état de conscience du réel, les adversaires et objets dans un cercle de [[{b_shadow_har}*{X}]] metres aux alentours revelent leur vraie nature.
+    others= ** Harmonie de l'ombre ** Voile obtiens pendant un cours instant une image de la réalité au dela des apparences, dans un rayon de [[{harmony}{b_shadow_har}*{X}]] metres. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+    special= L’activation de la technique diminue le stack d’un point et montre &amp; ajuste le nouvel l'etat des passifs
+<span class="f6">@@ -159,11 +159,11 @@</span>
+    level=Avancée
+    display_name=Harmony Of Wind
+    X=@{Voile|repeating_skills_-Lk0LfoIZqkpZCKWUf8I_general_skilllevel}
+    cost=4
+    type=Passif &amp; Actif/Instant
+    description=Passif - Augmente le nombre d’action de <span class="f1">{X}{harmony}{b_wind_har_act}</span><span class="f2">{X}{harmony}/{b_wind_har_act}</span> et rend les attaques d’opportunités plus difficiles d'un facteur {harmony}/{b_wind_har_opp}*{X}
+        Actif - Permet de se désengager d’une attaque magique ou physique et un replacer gratuitement. Compte comme une esquive totale de l’attaque.
+    self=Vous pouvez réapparaitre n'importe ou dans un cercle de [[{X}]] metres autours de vous.
+    others= ** Harmonie du vent ** La présence de Voile deviens intangible pendant un bref instant, la rendant insensible a toutes les formes de dégats. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+    special = L’activation de la technique diminue le stack d’un point et montre &amp; ajuste le nouvel l'etat des passifs
+    macro ={vset} {you} --mod --harmony|-1
+<span class="f6">@@ -186,12 +186,12 @@</span>
+    level=Avancée
+    display_name=Harmony Of Metal
+    type=Passif &amp; Actif/Instant
+    cost=4
+    X=@{Voile|repeating_skills_Lk0LjlHlBkETSvDcjDd_general_skilllevel}
+    description=Passif - Augmente la résistance mentale et la capacité à rester stoïque quelle que soit la situation,  rendant difficile la lecture de son langage corporel, ajoutant un bonus de <span class="f1">[[{harmony}{b_metal_har}*{X}]]</span><span class="f2">[[{harmony}/{b_metal_har}*{X}]]</span> aux test dans ces domaines.
+        Actif - Permet d'atténuer les effets néfastes appliqués sur l’esprit. Gagnez un bonus de <span class="f1">{b_metal_har}*{X}</span><span class="f2">[[{X}/{b_metal_har}]]</span> a votre resistances mentale.
+    self=Votre esprit se renforce, repoussant les effets déléteres sur vous.
+    others= ** Harmonie du metal ** La volontée de Voile s'affirme, soufflant les influences négatives. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+    special= L’effet du passif dépend du nombre de stack d’Harmony, l’activation de l’actif diminue le stack d’un point.
+    macro={vset} {you} --mod --harmony|-1
+
+<span class="f6">@@ -234,11 +234,11 @@</span>
+    X=@{Voile|repeating_skills_-Lk0Mbt8pCFsrUR0Oddn_general_skilllevel}
+    description=Chaque attaque contre un adversaire différent augmente le momentum
+    self=Voile saute d'adversaire en adversaire (jusqu'a {X} adversaires différent), n'appliquant que ses on hit a chaque adversaire.
+    others= ** Adagio ** Voile utilise ses differents adversaires pour rebondir de l'un a l'autre et augmenter son Momentum
+    special =
+    macro={vset} {you} --momentum|[[{{b_momentum_max}*{momentum_max},({momentum}+?{Nombre d'adversaires <span class="f1">touchés})*{X}{b_adagio}}kl1]]</span><span class="f2">touchés})*{X}*{b_adagio}}kl1]]</span>
+        {m}change_momentum  # Will not work 99% of the time
+
+[tempo_martial]
+    level=Ultime
+    display_name=Tempo Martial
+<span class="f6">@@ -382,12 +382,12 @@</span>
+    display_name=Veine
+    type=Actif/Instant
+    cost=8
+    X =@{Voile|repeating_magic-vital-skills_-Lk0JLLun1yA0Yaj8JZg_magic_vital_skilllevel}
+    description=Consomme {b_veine_charge_level} points de la Porte de Sang
+        Augmente la durée d’un sceau de <span class="f1">{b_veine_duree}{X}</span><span class="f2">{b_veine_duree}*{X}</span> tours
+    self=Augmente la durée d’un sceau de <span class="f1">[[{X}{b_veine_duree}*@{Voile|multiple_seals}]]</span><span class="f2">[[{X}*{b_veine_duree}*@{Voile|multiple_seals}]]</span> tours
+    others= ** Veine ** Une seule chose limite l'utilisation de la magie du sang. Le Sang.
+    special =
+    macro = {vset} {door} --mod --blood_gate|[[-{b_veine_charge_level}*@{Voile|multiple_seals}]]
+        {reset_multiple}
+
+<span class="f6">@@ -397,11 +397,11 @@</span>
+    cost=2
+    type=Actif/Instant/Durée #Canalisation possible?
+    X =@{Voile|repeating_magic-vital-skills_-Lk0JQiMYucKCBgRDi2V_magic_vital_skilllevel}
+    description=Consomme {b_sangfeu_charge_level} points de la Porte de Sang.
+        Crée une flamme pouvant inflier {b_sangfeu_dmg}*{X} dégats
+    self=Crée [[@{Voile|multiple_seals}*{X}]] <span class="f1">petite flamme</span><span class="f2">petites flammes</span> pouvant inflier [[{b_sangfeu_dmg}]] dégats
+    others= ** Sang de Feu ** Du torrent de flamme a la flammeche, le feu reste l'élément de la vie.
+    special =
+    macro = {vset} {door} --mod --blood_gate|[[-{b_sangfeu_charge_level}*@{Voile|multiple_seals}]]
+        {reset_multiple}
+
+<span class="f6">@@ -444,11 +444,11 @@</span>
+        Lorsque vous gagnez un point dans la Porte de Sang, gagnez {X}{b_torrentpourpre_sang} points supplémentaires
+        Lorsque vous gagnez un point dans la Porte de Souffrance, gagnez {X}{b_torrentpourpre_souffrance} points supplémentaires
+    self= # Passif, pas de display
+    others=
+    special =
+    macro = {vset} {door} --mod --suffering_gate|[[floor(?{Ouverture de la porte de la <span class="f1">Souffrance}*({X}*{b_torrentpourpre_abysse}+100)/100)]]</span><span class="f2">Souffrance}*({X}*{b_torrentpourpre_abysse}+{b_base_abysse})/100)]]</span> --abyss_gate|[[floor(?{Ouverture de la porte des <span class="f1">Abysses}*({X}*{b_torrentpourpre_souffrance}+100)/100)]]</span><span class="f2">Abysses}*({X}*{b_torrentpourpre_souffrance}+{b_base_souffrance})/100)]]</span> --blood_gate|[[floor(?{Ouverture de la porte de <span class="f1">Sang}*({X}*{b_torrentpourpre_sang}+100)/100)]]</span><span class="f2">Sang}*({X}*{b_torrentpourpre_sang}+{b_base_sang})/100)]]</span>
+
+[Brume_de_sang]
+    Level=Avancée
+    display_name=Brume de sang
+    type=Passif/Buff/Durée
+</pre>
+</body>
+</html>

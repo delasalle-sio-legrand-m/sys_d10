@@ -160,13 +160,8 @@ def replace_vars(text,char,god,section,name,character,godlink=False):
                         link="@{God|"+group+"}"
                     else:
                         link=god[w][group]
-
                     text=text.replace("{"+group+"}",link)
-                    #print(group)
-                    ##char[name]["you"]+"_"
-                    #print(text)
                 except KeyError as e:
-                    print(e)
                     dprint(errors["noreplacement"].format(var=group,where=name+"@"+character))
     return text
 

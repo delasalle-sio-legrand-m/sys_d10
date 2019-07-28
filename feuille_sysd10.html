@@ -209,7 +209,7 @@
     <div class="sheet-col">
       <table class="sheet-center sheet-black">
         <tr>
-          <td><h3 class="sheet-center">Points de compétence :</h3></td>
+          <td colspan="2"><h3 class="sheet-center">Points de compétence :</h3></td>
           <br/>
         </tr>
         <tr>
@@ -225,7 +225,12 @@
               <option value="20">d20</option>
               <option value="30">d30</option>
               <option value="100">d100</option>
+              <option value="200">d200</option>
+              <option value="400">d400</option>
               <option value="1000">d1000</option>
+              <option value="2000">d2000</option>
+              <option value="4000">d4000</option>
+              <option value="8000">d8000</option>
               <option value="10000">d10000</option>
             </select>
           </td>
@@ -589,7 +594,7 @@
       <select class="sheet-skill_select" style="margin-right:4px" name="attr_Skill_general_attribute_select_attaque">
         <option value="@{base-Force} A @{exal-Force}">For</option>
         <option value="@{base-Agilite} A @{exal-Agilite}">Agi</option>
-        <option value="@{base-custom} + @{exal-custom}">Spé</option>
+        <option value="@{base-custom} A @{exal-custom}">Spé</option>
       </select>
       ><input type="number" class="sheet-numberbox" name="attr_general_attack_threshold" title="Seuil pour toucher l'attaque" value="0"/>
       &forall;<input type="number" class="sheet-numberbox" name="attr_general_attack_addall" title="Modificateur sur chaque des" value="0"/>

@@ -39,25 +39,25 @@
  <span class="f4"><span class="underline">Type de technique</span></span>
    Arcana
  <span class="f4"><span class="underline">Description publique</span></span>
-   **[Arcane Majeure: Nuées ardentes]** Une nuée ardante s'emparre de l'arcanum, démultipliant sa démence. Votre arcanum cible jusqu'a [[floor(((@{Reginald|elem_magma_tot}+@{Reginald|elem_omega})+?{Magna Arcanum}dF)/2)]] cibles supplémentaires.
+   **[Arcane Majeure: Nuées ardentes]** Une nuée ardante s'emparre de l'arcanum, démultipliant sa démence. Votre arcanum cible jusqu'a [[floor(((@{Reginald|elem_magma_tot}+@{Reginald|elem_omega})+?{Magna Arcanum}d2)/2)]] cibles supplémentaires.
 
 <span class="bold"><span class="f4">[Avancée] Artificier [0]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
    Arcana
  <span class="f4"><span class="underline">Description publique</span></span>
-   **[Arcane Majeure: Artificier]** La main de l'artificier universel s'emparre de l'arcanum. Votre arcanum est désormais a votre disposition comme une réaction pour [[floor(((@{Reginald|elem_metal_tot}+@{Reginald|elem_omega})+?{Magna Arcanum})/8)]] tours.
+   **[Arcane Majeure: Artificier]** La main de l'artificier universel s'emparre de l'arcanum. Votre arcanum est désormais a votre disposition comme une réaction pour [[floor(((@{Reginald|elem_metal_tot}+@{Reginald|elem_omega})+?{Magna Arcanum}d2)/9)]] tours.
 
 <span class="bold"><span class="f4">[Avancée] Corrosion [0]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
    Arcana
  <span class="f4"><span class="underline">Description publique</span></span>
-   **[Arcane Majeure: Corrosion]** Une essence corrosive transfigure l'arcanum. Celle-ci reste presente sous la forme d'un effet persistant pendant [[floor(((@{Reginald|elem_vapeur_tot}+@{Reginald|elem_omega})+?{Magna Arcanum})/2)]] tours, infligeant un effet réduit.
+   **[Arcane Majeure: Corrosion]** Une essence corrosive transfigure l'arcanum. Celle-ci reste presente sous la forme d'un effet persistant pendant [[floor(((@{Reginald|elem_vapeur_tot}+@{Reginald|elem_omega})+?{Magna Arcanum})/3)]] tours, infligeant un effet réduit.
 
 <span class="bold"><span class="f4">[Avancée] Fraction d'instant [0]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
    Arcana
  <span class="f4"><span class="underline">Description publique</span></span>
-   **[Arcane Majeure: Fraction d'instant]** Une fulgurance s'empare de l'arcanum. Lancez cette derniere comme si elle avait [[(@{Reginald|elem_foudre_tot}+@{Reginald|elem_omega})+?{Magna Arcanum}1d4!!]] d'initiative de plus.
+   **[Arcane Majeure: Fraction d'instant]** Une fulgurance s'empare de l'arcanum. Lancez cette derniere comme si elle avait [[(@{Reginald|elem_foudre_tot}+@{Reginald|elem_omega})+?{Magna Arcanum}1d3!!]] d'initiative de plus.
 
 <span class="bold"><span class="f4">[Ultime] Arcanum Magnum : Aureola [16]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
@@ -86,10 +86,8 @@
    Instant - Buff - Arcana
  <span class="f4"><span class="underline">Description</span></span>
    Augmente toutes les defenses de la cible.
- <span class="f4"><span class="underline">Description personelle</span></span>
-   Augmentez les défences de la cible de [[floor(?{Magna Arcanum}d2=2+(@{Reginald|elem_bois_tot}+@{Reginald|elem_omega})*0.4)]] pourcent
  <span class="f4"><span class="underline">Description publique</span></span>
-   **[Arcane avancée : Tenacitas]** Un grand rai de lumière entoure votre @{target|target|character_name} et lui procure de l'energie.
+   **[Arcane avancée : Tenacitas]** Un grand rai de lumière entoure @{target|target|character_name} augmentant ses defenses.
 
 <span class="bold"><span class="f4">[Avancée] Praeter Arcanum : Dementia [16]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
@@ -129,13 +127,13 @@
  <span class="f4"><span class="underline">Type de technique</span></span>
    Actif | Buff
  <span class="f4"><span class="underline">Description personelle</span></span>
-   [Cout: 4] Reaction - Augmentez vos resistances pour la prochaine action de [[@{Reginald|repeating_magic-arcanist-skills_-LkQX-7OEF6WHkQtzrfQ_magic_arcanist_skilllevel}*1]] par carte en main.
+   [Cout: 2] Reaction - Augmentez vos resistances pour la prochaine action de [[@{Reginald|repeating_magic-arcanist-skills_-LkQX-7OEF6WHkQtzrfQ_magic_arcanist_skilllevel}*1]] pourcent par carte en main.
 
 <span class="bold"><span class="f4">[Avancée] Praeter Arcanum : Celeritas [8]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
    Passif
  <span class="f4"><span class="underline">Description</span></span>
-   Vous pouvez jouer une arcane en tant que réaction. Payez un cout en flux en tant que cout supplémentaire.
+   Vous pouvez jouer une arcanum en tant que réaction. Payez un cout en flux en tant que cout supplémentaire.
  <span class="f4"><span class="underline">Description personelle</span></span>
    Il vous reste jusqu'à [[@{Reginald|celeritas_rem}]] utilisations ce tour-ci.
 

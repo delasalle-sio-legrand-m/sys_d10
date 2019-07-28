@@ -9,7 +9,7 @@
 <pre>
 <span class="bold">Characters/npc.ini</span>
 <span class="bold"><span class="f4">[start]</span></span>
-!setattr --sel --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --mana|@{selected|mana|max} --pctreceived_b|0 --elem_omega|0
+!setattr --sel --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --mana|@{selected|mana|max} --pctreceived_b|0 --pctreceived_s|0 --elem_omega|0
 /w gm Initialisation de @{selected|character_name}
 <span class="bold"><span class="f4">[turn]</span></span>
 !setattr --sel --Life_Points|[[{@{selected|Life_Points}+@{selected|regen}-1*(@{selected|dot}),@{selected|Life_Points|max}}kl1]]

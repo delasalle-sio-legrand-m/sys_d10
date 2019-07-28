@@ -157,6 +157,8 @@ def replace_vars(text,char,god,section,name,character,godlink=False):
                     else:
                         w=character
                     if group[0]=="b" and godlink:
+                        if group not in god[w]:
+                            raise KeyError
                         link="@{God|"+group+"}"
                     else:
                         link=god[w][group]

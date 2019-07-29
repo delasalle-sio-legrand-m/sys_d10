@@ -39,7 +39,7 @@
 **[&amp;#9784; : @{God|b_volontee_cost}]**
 <span class="bold"><span class="f4">[negation_selon_tian]</span></span>
 !setattr --name Tian-Hu --mod --qi|-@{God|b_negation_cost}
-!crit ?{Nombre de des de defense} I @{Tian-Hu|skillcost_Defense_impenetrable} @{Tian-Hu|general_effective_Defense_impenetrable} R @{Tian-Hu|general_effective_Rempart_parfait} c @{Tian-Hu|crit_level} S @{Tian-Hu|general_skilllevel_Encaissement} @{Tian-Hu|general_effective_Encaissement} H @{Tian-Hu|base_defense_dices} H @{Tian-Hu|exal_defense_dices} s @{Tian-Hu|general_defense_threshold} l @{Tian-Hu|general_defense_addall} A @{Tian-Hu|Skill_general_attribute_select_defense} t @{Tian-Hu|transcendence} - ?{Dégats a parer|0} a d n @{Tian-Hu|undescored_name} + @{Tian-Hu|general_effective_shield1} + @{Tian-Hu|general_effective_shield2} + @{Tian-Hu|general_effective_shield3} v @{Tian-Hu|pctreceived} v @{Tian-Hu|pctreceived_s} v @{Tian-Hu|pctreceived_b} v @{Tian-Hu|temp_pdef} + @{Tian-Hu|temp_def} + @{Tian-Hu|parry_power} v @{Tian-Hu|pctreceived_in} +@{Tian-Hu|elemental_dmg}
+!crit ?{Nombre de des de defense} I @{Tian-Hu|skillcost_Defense_impenetrable} @{Tian-Hu|general_effective_Defense_impenetrable} R @{Tian-Hu|general_effective_Rempart_parfait} c @{Tian-Hu|crit_level} S @{Tian-Hu|general_skilllevel_Encaissement} @{Tian-Hu|general_effective_Encaissement} H @{Tian-Hu|base_defense_dices} H @{Tian-Hu|exal_defense_dices} s @{Tian-Hu|general_defense_threshold} l @{Tian-Hu|general_defense_addall} A @{Tian-Hu|Skill_general_attribute_select_defense} t @{Tian-Hu|transcendence} - ?{Dégats a parer|0} a d n @{Tian-Hu|undescored_name} + @{Tian-Hu|general_effective_shield1} + @{Tian-Hu|general_effective_shield2} + @{Tian-Hu|general_effective_shield3} v @{Tian-Hu|pctreceived} v @{Tian-Hu|pctreceived_s} v @{Tian-Hu|pctreceived_b} v @{Tian-Hu|temp_pdef} + @{Tian-Hu|temp_def} + @{Tian-Hu|parry_power} v @{Tian-Hu|pctreceived_in} + @{Tian-Hu|elemental_dmg}
 !setattr --name Tian-Hu --temp_pdef|0 --temp_def|0
 /w Tian-Hu Vous pouvez parrer toute attaque quelqu'en soit le type. Si cette parrade est totale, vous effectuez un bloquage total dans une zone de @{Tian-Hu|repeating_defensive-combat-skills_-LkV8Omfhl2uh-tu6YYe_defensive_combat_skilllevel} metres.
 **[&amp;#9784; : @{God|b_negation_cost}]**
@@ -67,11 +67,11 @@
 !setattr --name Tian-Hu --mod --maintien_qi|-@{God|b_unicite_maintien}
 <span class="bold"><span class="f4">[paume_purificatrice]</span></span>
 !setattr --name Tian-Hu --mod --qi|-@{God|b_peaume_cost} --temp_dmg|[[@{Tian-Hu|repeating_offensive-combat-skills_-LkVA0e3odWsx6PblWZp_offensive_combat_skilllevel}*@{God|b_peaume_dmg}]]
-/w Tian-Hu Votre prochaine attaque inflige [[@{Tian-Hu|repeating_offensive-combat-skills_-LkVA0e3odWsx6PblWZp_offensive_combat_skilllevel}*@{God|b_peaume_dmg}]] dégats supplémentaires, ajoutez [[floor(@{Tian-Hu|repeating_offensive-combat-skills_-LkVA0e3odWsx6PblWZp_offensive_combat_skilllevel}*@{God|b_peaume_DD})]] DD au jet de resistance pour retirer chaque altération sur la cible
+/w Tian-Hu Votre prochaine attaque inflige [[@{God|b_peaume_dmg}]] dégats réduits, si vous infligez des dégats a la cible, ajoutez [[floor(@{Tian-Hu|repeating_offensive-combat-skills_-LkVA0e3odWsx6PblWZp_offensive_combat_skilllevel}*@{God|b_peaume_DD})]] DD au jet de resistance pour retirer chaque altération sur la cible
 **[&amp;#9784; : @{God|b_peaume_cost}]**
 <span class="bold"><span class="f4">[poing_fulgurant]</span></span>
-!setattr --name Tian-Hu --mod --qi|-@{God|b_poing_fulgurant_cost} --temp_dmg|[[@{Tian-Hu|repeating_offensive-combat-skills_-LkVA8-PjuYfMZAlP9bh_offensive_combat_skilllevel}*@{God|b_poing_fulgurant_dmg}]]
-/w Tian-Hu Votre attaque compte comme ayant [[@{Tian-Hu|repeating_offensive-combat-skills_-LkVA8-PjuYfMZAlP9bh_offensive_combat_skilllevel}*@{God|b_poing_fulgurant_init}]] d'initiative de plus et [[@{Tian-Hu|repeating_offensive-combat-skills_-LkVA8-PjuYfMZAlP9bh_offensive_combat_skilllevel}*@{God|b_poing_fulgurant_dmg}]] dégats de plus
+!setattr --name Tian-Hu --mod --qi|-@{God|b_poing_fulgurant_cost}
+/w Tian-Hu Votre attaque compte comme ayant [[@{Tian-Hu|repeating_offensive-combat-skills_-LkVA8-PjuYfMZAlP9bh_offensive_combat_skilllevel}*@{God|b_poing_fulgurant_init}]] d'initiative de plus
 **[&amp;#9784; : @{God|b_poing_fulgurant_cost}]**
 <span class="bold"><span class="f4">[chatiment_celeste]</span></span>
 !setattr --name Tian-Hu --mod --temp_dmg|[[?{Actions investies}*@{Tian-Hu|repeating_offensive-combat-skills_-LkVAHd9Ww93XuUmP8qF_offensive_combat_skilllevel}*@{God|b_chatiment_dmg}]] --temp_pdmg|[[@{Tian-Hu|repeating_offensive-combat-skills_-LkVAHd9Ww93XuUmP8qF_offensive_combat_skilllevel}*@{God|b_chatiment_pct}]] --maintien_qi|1

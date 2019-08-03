@@ -23,6 +23,7 @@ Foudre, [Elemental Arcana : Foudre] Reginald inflige [[floor((@{Reginald|elem_fo
 }
 <span class="bold"><span class="f4">[start]</span></span>
 !setattr --name Reginald --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --pctreceived_b|0 --pctreceived_s|0 --elem_omega|0 --fluctus|0|@{God|b_fluctus_max} --celeritas_rem|@{Reginald|repeating_magic-arcanist-skills_-LkQX0DClz2M8VxOowqB_magic_arcanist_skilllevel}
+/w Reginald &amp;{template:default} {{name=Recap}} {{Pioche=[[@{Reginald|repeating_magic-arcanist-skills_-LlDufu7rs3DASaoHMiR_magic_arcanist_skilllevel}+1]]}} {{Main=[[@{Reginald|repeating_magic-arcanist-skills_-LlDumsZJAUiKOWyYmCJ_magic_arcanist_skilllevel}+2]] cartes}} {{Garde=[[@{Reginald|repeating_magic-arcanist-skills_-LlDupiroKLZ178dNUab_magic_arcanist_skilllevel}]]}} {{Repioche=[[@{Reginald|repeating_magic-arcanist-skills_-LlDv0eJhZrBtn8bzu1c_magic_arcanist_skilllevel}+1]] c/tour}}
 <span class="bold"><span class="f4">[turn]</span></span>
 !setattr --name Reginald --Life_Points|[[{@{Reginald|Life_Points}+@{Reginald|regen}-1*(@{Reginald|dot}),@{Reginald|Life_Points|max}}kl1]]
 /w Reginald #Il vous reste [[@{Reginald|repeating_magic-arcanist-skills_-LkQWs05EBazluf88DO6_magic_arcanist_skilllevel}*@{God|b_dementia}]] utilisation de Dementia ce tour-ci.
@@ -93,9 +94,8 @@ L'arcane dure [[?{Magna Arcanum}@{God|b_duration}]] tours
 <span class="bold"><span class="f4">[dementia]</span></span>
 !setattr --name Reginald --mod --fluctus|?{Niveau de l'arcane | Base, -2 | Avancée, -4 | Ultime, -8}
 /w Reginald Vous pouvez jouer une arcane lorsque vous vous en défaussez. Payez un cout en flux en tant que cout supplémentaire.
-<span class="bold"><span class="f4">[praesagio]</span></span>
-!setattr --name Reginald --mod --fluctus|[[-1*?{Nombre de cartes a piocher ?}*@{God|b_praesagio}]]
-/w Reginald Défaussez vous d'autant de cartes vous en avez piochées mois @{Reginald|repeating_magic-arcanist-skills_-LkQWtDwDDutHYZMeUfI_magic_arcanist_skilllevel}. Vous perdez @{God|b_praesagio} points de flux par carte piochée
+<span class="bold"><span class="f4">[talionis]</span></span>
+/w Reginald Si vous effectuez une parade complete, vous pouvez lancer une arcanum comme une reaction, si vous ne le faites pas gagnez @{Reginald|repeating_magic-arcanist-skills_-LkQWtDwDDutHYZMeUfI_magic_arcanist_skilllevel} points de flux.
 <span class="bold"><span class="f4">[capita]</span></span>
 !setattr --name Reginald --mod --fluctus|[[-1*?{Nombre de cartes a piocher ?}*@{God|b_capita}]]
 /w Reginald Payez @{God|b_capita} points de flux par carte piochée

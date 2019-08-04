@@ -1,0 +1,284 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="../term.css"/>
+
+</head>
+
+<body class="f9 b9">
+<pre>
+<span class="bold">diff --git a/Helpers/Characters/God.ini b/Helpers/Characters/God.ini</span>
+<span class="bold">index 9cb2fa9..74084e5 100644</span>
+<span class="bold">--- a/Helpers/Characters/God.ini</span>
+<span class="bold">+++ b/Helpers/Characters/God.ini</span>
+<span class="f6">@@ -46,11 +46,11 @@</span>
+    b_temps_charge_level=6
+    b_souffle_de_sang_charge_level=10
+    b_souffle_de_sang=2
+    b_influx_charge_level=3
+    b_influx_phys=2
+    <span class="f1">b_contresang_soin=9</span><span class="f2">b_contresang_soin=14</span>
+    b_contresang_charge_level=25
+    b_ame_charge_level=5
+    b_ame_target=2
+    b_ame_alt_range=10
+    b_veine_charge_level=20
+<span class="f6">@@ -84,11 +84,11 @@</span>
+    b_colere_aspect=8
+    b_colere_max=
+    b_garde_aspect=2
+    b_armure_givre=7
+    b_rayon_glace=1
+    <span class="f1">b_rayon_glace_dmg=4</span><span class="f2">b_rayon_glace_dmg=3</span>
+    b_stase_cryogenique=0.8
+    b_stase_cc=8
+    b_brume_gelee=9
+    b_vague_glace=5
+    b_vague_glace_cc=6
+<span class="f6">@@ -105,22 +105,22 @@</span>
+    b_blizzard_size=8
+    b_dome_hivers_size=3
+    b_dome_hivers_prot=0.8
+    b_dome_hivers_shield=15
+    b_bourrasque=6
+    <span class="f1">b_bourrasque_dmg=5</span><span class="f2">b_bourrasque_dmg=2.5</span>
+    b_bourrasque_size=2
+    b_permafrost_act=0.6
+    b_permafrost_resist=3
+    b_permafrost_carac=6
+    b_voile_aurore=15
+    b_voile_aurore_spells=2
+    b_voile_aurore_buff=2
+
+[Characters/reginald.ini]
+    <span class="f1">b_elem=4</span>
+<span class="f1">    b_power=7</span><span class="f2">b_elem=6</span>
+<span class="f2">    b_power=7r&lt;3</span>
+    b_quake=3
+    b_zone=3
+    b_duration=d2
+    b_heal=3
+    b_shield=3
+<span class="f6">@@ -130,12 +130,13 @@</span>
+    b_buff_phy_res=5
+    maladie=8
+    b_maladie=1
+    b_buff_mag=7
+    b_buff_mag_res=5
+    <span class="f1">b_diminution_degats=5</span>
+<span class="f1">    b_diminution_degats_rec=5</span><span class="f2">b_diminution_degats=4</span>
+<span class="f2">    b_diminution_degats_rec=4</span>
+<span class="f2">    b_augmentation_degats=4</span>
+    b_diminution_shield=6
+    b_pyroclasme=3
+    b_tidialwave=3
+    b_tornado=2
+    b_suspension=4
+<span class="f6">@@ -144,13 +145,13 @@</span>
+    b_corrosion=3
+    b_incontrolable=6
+    b_aureola=2
+    b_fluctus_res=0.4
+    b_fluctus_dmg=0.45
+    <span class="f1">b_fluctus_max=30</span><span class="f2">b_fluctus_max=40</span>
+    b_dilluvium=4
+    <span class="f1">b_tenacitas=0.25</span><span class="f2">b_tenacitas=2</span>
+    b_dementia=2
+    b_despectio=1
+    b_despectio_cost=2
+    b_celeritas=2
+    b_scientia=3
+<span class="f6">@@ -174,15 +175,15 @@</span>
+    b_mouvement_cost=6
+    b_mouvement_power=12
+    b_infusion_cost=7
+    b_infusion_maintien=1
+    b_infusion_dmg=9
+    <span class="f1">b_inebranlable_cost=5</span>
+<span class="f1">    b_inebranlable_maintien=3</span><span class="f2">b_inebranlable_cost=3</span>
+<span class="f2">    b_inebranlable_maintien=4</span>
+    b_inebranlable_encaissement=2
+    b_inebranlable_reduction=-2.3
+    <span class="f1">b_inebranlable_actions=5</span><span class="f2">b_inebranlable_actions=4</span>
+    b_unicite_dmg=5
+    b_unicite_cost=4
+    b_unicite_maintien=3
+    b_peaume_cost=6
+    b_peaume_DD=1
+<span class="bold">diff --git a/Helpers/Characters/frene.ini b/Helpers/Characters/frene.ini</span>
+<span class="bold">index 452c8fc..eddc889 100644</span>
+<span class="bold">--- a/Helpers/Characters/frene.ini</span>
+<span class="bold">+++ b/Helpers/Characters/frene.ini</span>
+<span class="f6">@@ -246,11 +246,11 @@</span>
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HO1ii7biiKBDKj6n_magic_aspected_skilllevel}
+    description=Invoque une brume qui recouvre une zone de {X}*{b_brume_gelee} metres de rayon handicapant la vision des ennemis, et donnant un effet Robustesse de l’hiver aux alliés à l’intérieur chaque tour. La Brume dure {X} tours.
+    self=
+    others=Une brume gelée apparaît, recouvre une zone de [[{X}*{b_brume_gelee}]] metres handicapant la vision des ennemis et donnant un effet Robustesse de l’hiver aux alliés à l’intérieur chaque tour. La Brume dure {X} tours.
+    special=
+    macro=**Brume gelée** [Coût : {mp}] Augmente les seuils pour toucher des attaques de <span class="f1">[[floor(({a_glace}+{a_metal}){b_brume_gelee})]]</span><span class="f2">[[floor(({a_glace}+{a_metal})/{b_brume_gelee})]]</span> pendant {X} tours
+        {manasub}-{mp}
+
+[mur_reflechissant]
+    level=Avancée
+    type=Actif/Debuff
+<span class="f6">@@ -370,11 +370,11 @@</span>
+    mp=3
+    X=@{Eisvogel|repeating_magic-aspected-skills_-Lk-HdJw9y7nRiMbXl8s_magic_aspected_skilllevel}
+    description=Envoie une grosse bourrasque d’air glacé qui inflige des dégâts,
+                un effet Morsure de l’hiver, et repousse les ennemis autour du lanceur.
+    self=
+    others=**Bourrasque gelée** [Coût : {mp}] Inflige <span class="f1">[[floor(({a_feu}+{a_glace})/{b_bourrasque_dmg})]]</span><span class="f2">[[floor(({a_feu}+{a_glace})*{b_bourrasque_dmg})]]</span> dégâts sur une zone de [[{X}*{b_bourrasque_size}]] mètres autours de vous, et tente de repousser les ennemis. DD+[[floor({a_terre}/{b_bourrasque})]].
+    special=
+    macro={manasub}-{mp}
+
+[permafrost]
+    level=Ultime
+<span class="bold">diff --git a/Helpers/Characters/reginald.ini b/Helpers/Characters/reginald.ini</span>
+<span class="bold">index 7d7d185..147f12c 100644</span>
+<span class="bold">--- a/Helpers/Characters/reginald.ini</span>
+<span class="bold">+++ b/Helpers/Characters/reginald.ini</span>
+<span class="f6">@@ -8,11 +8,11 @@</span>
+    metal=(@{Reginald|elem_metal_tot}+@{Reginald|elem_omega})
+    magma=(@{Reginald|elem_magma_tot}+@{Reginald|elem_omega})
+    vapeur=(@{Reginald|elem_vapeur_tot}+@{Reginald|elem_omega})
+    bois=(@{Reginald|elem_bois_tot}+@{Reginald|elem_omega})
+    foudre=(@{Reginald|elem_foudre_tot}+@{Reginald|elem_omega})
+    <span class="f1">power=?{Magna Arcanum}</span><span class="f2">power=(?{Magna Arcanum}*2)</span>
+    inline_power=?{Magna Arcanum&amp;#125;
+    U=&amp;#10070;
+    A=&amp;#9733;
+    dementia_cost = @{Reginald|repeating_magic-arcanist-skills_-LkQWs05EBazluf88DO6_magic_arcanist_skilllevel}
+    celeritas_level = @{Reginald|repeating_magic-arcanist-skills_-LkQX0DClz2M8VxOowqB_magic_arcanist_skilllevel}
+<span class="f6">@@ -59,11 +59,11 @@</span>
+
+[durée]
+    description=Durée de l'arcane
+    self=
+    others=
+    macro=L'arcane dure <span class="f1">[[{power}{b_duration}]]</span><span class="f2">[[({power}+1){b_duration}]]</span> tours
+
+[eau:soin]
+    description=
+    self=
+    others=
+<span class="f6">@@ -71,11 +71,11 @@</span>
+
+[air:bouclier]
+    description=
+    self=
+    others=
+    macro=**Arcane d'Air:** Votre arcanum protege de [[({air}+({power})d({b_power}))*{b_shield}]]
+
+[terre:cc_physique]
+    description=
+    self=
+    others=
+<span class="f6">@@ -131,11 +131,11 @@</span>
+
+[foudre:diminution_defences]
+    description=
+    self=
+    others=
+    macro=**Arcane de Foudre:** Votre arcanum augmente les dégats infligés de <span class="f1">[[floor(({foudre}+({power})d({b_power}))/({b_diminution_degats}))]]</span><span class="f2">[[floor(({foudre}+({power})d({b_power}))/({b_augmentation_degats}))]]</span> pourcent
+
+[foudre:diminution_shields]
+    description=
+    self=
+    others=
+<span class="f6">@@ -269,11 +269,11 @@</span>
+    type = Passif/Reserve
+    description =  Quand vous lancez un arcanum, gagnez un points de flux. Cette ressource expire en [[{X}]] heures. Pour chaque point de flux que vous avez bénéficiez d'une reduction des dégats de [[{X}*{b_fluctus_res}]] pourcent et une augmentation de toutes vos affinitées de [[floor({X}*{b_fluctus_dmg})]]
+    self = &amp;{template:default} {{name=Fluctus}} {{Total=[[@{{you}|fluctus}]]}} {{Dégats reduits=[[{floor({X}*{b_fluctus_res}*@{{you}|fluctus}),89+{X}}kl1]]}} {{Affinité=[[{floor({X}*{b_fluctus_dmg}*@{{you}|fluctus}),20+{X}}kl1]]}}
+    others =
+    X = @{Reginald|repeating_magic-arcanist-skills_-LkQWgSHgZEPZZfjYA7Q_magic_arcanist_skilllevel}
+    macro = !setattr --name {you} <span class="f1">--pctreceived_s|[[-{floor({X}*{b_fluctus_res}*@{{you}|fluctus}),89+{X}}kl1]]</span><span class="f2">--pctreceived_s|[[-1*{floor({X}*{b_fluctus_res}*@{{you}|fluctus}),89+{X}}kl1]]</span> --elem_omega|[[{floor({X}*{b_fluctus_dmg}*@{{you}|fluctus}),20+{X}}kl1]]
+    special =
+
+[gain_fluctus]
+    self=
+    cost=
+<span class="f6">@@ -302,11 +302,11 @@</span>
+    self =
+    others = **[Arcane avancée : Tenacitas]** Un grand rai de lumière entoure {target} augmentant ses defenses.
+    X = @{Reginald|repeating_magic-arcanist-skills_-LkQWmyQBIj1IRtasXuW_magic_arcanist_skilllevel}
+    Y =
+    special=
+    macro =!setattr --name {target} <span class="f1">--pctreceived_s|[[{@{target|target|pctreceived_s}+ floor(({power}+{bois})*{b_tenacitas}) +floor({bois}),99}kl1]]</span><span class="f2">--pctreceived_s|[[{@{target|target|pctreceived_s}- floor(({power}+{bois})*{b_tenacitas}),-99}kl1]]</span>
+
+[dementia]
+    cost=16
+    level = Avancée
+    display_name = Praeter Arcanum : Dementia
+<span class="bold">diff --git a/Helpers/Characters/tian.ini b/Helpers/Characters/tian.ini</span>
+<span class="bold">index e17b1b5..f42509b 100644</span>
+<span class="bold">--- a/Helpers/Characters/tian.ini</span>
+<span class="bold">+++ b/Helpers/Characters/tian.ini</span>
+<span class="f6">@@ -26,11 +26,11 @@</span>
+    vapeur       = (@{Tian-Hu|elem_vapeur_tot}+@{Tian-Hu|elem_omega})
+    bois         = (@{Tian-Hu|elem_bois_tot}+@{Tian-Hu|elem_omega})
+    foudre       = (@{Tian-Hu|elem_foudre_tot}+@{Tian-Hu|elem_omega})
+
+[start]
+    self         = Votre déplacement est de <span class="f1">[[{sp}+{ap_level}]]</span><span class="f2">[[{sp}*2+{ap_level}]]</span>
+    description  =
+    others       =
+    macro        = !setattr --name Tian-Hu --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --pctreceived_b|0 --pctreceived_s|0 --elem_omega|0 --qi|0|[[{qi_level}*{b_qimax}]]  --element|0  --element_dmg|0 --general_item_shield3|[[{b_apotheose}*{ap_level}*@{Tian-Hu|base-custom}]] --general_skilllevel_Endurance_surnaturelle|[[{end}+{ap_level}]] --parry_power|[[{neg_level}*{b_negation_par}]] --maintien_qi|0 --elemental_dmg|0 --pctreceived_in|0
+
+[turn]
+<span class="f6">@@ -154,14 +154,14 @@</span>
+    level        = Avancée
+    display_name = Inébranlable
+    description  =
+    self         = Vous gagnez [[floor({X}*{b_inebranlable_reduction})]] pourcentage de dégats reduits et  [[{X}*{b_inebranlable_encaissement}]] en Encaissement payez {b_inebranlable_actions} actions en tant que cout supplémentaires. # ptct received
+    type         = Actif/Buff/Maintenu
+    others       = **[{D} : {b_inebranlable_cost} / <span class="f1">{b_inebranlable_encaissement}]**</span><span class="f2">{b_inebranlable_cost} / {b_inebranlable_encaissement}a]**</span>
+    cost         = 4
+    X            = @{Tian-Hu|repeating_defensive-combat-skills_-LkV8Z5ezvreujA1cBnz_defensive_combat_skilllevel}
+    macro        = !setattr --name {you} --mod <span class="f1">--maintien_qi|{b_inebranlable_cost}</span><span class="f2">--maintien_qi|{b_inebranlable_maintien} --qi|{b_inebranlable_cost}</span> --general_skilllevel_Encaissement|[[{Encaissement}+{X}*{b_inebranlable_encaissement}]] --pctreceived_in|[[floor({X}*{b_inebranlable_reduction})]]
+    special      =
+
+[inebranlable:desactivation]
+    self=
+    others=
+<span class="f6">@@ -251,7 +251,7 @@</span>
+    self         = Canalisation; Vous perdez un point de régénération de Ki pour la durée du combat
+    type         = Actif / Empower / Canalisation
+    others       = **[{D} : {b_chatiment_cost}]** {you} commence a cannaliser une action
+    cost         = 16
+    X            = @{Tian-Hu|repeating_offensive-combat-skills_-LkVAHd9Ww93XuUmP8qF_offensive_combat_skilllevel}
+    macro        = !setattr --name {you} --mod --temp_dmg|[[?{Actions investies}*{X}*{b_chatiment_dmg}]] --temp_pdmg|[[{X}*{b_chatiment_pct}]] --maintien_qi|1 <span class="f2">--qi|{b_chatiment_cost}</span>
+    special      =
+<span class="bold">diff --git a/Helpers/Characters/voile.ini b/Helpers/Characters/voile.ini</span>
+<span class="bold">index ede5c9d..15be983 100644</span>
+<span class="bold">--- a/Helpers/Characters/voile.ini</span>
+<span class="bold">+++ b/Helpers/Characters/voile.ini</span>
+<span class="f6">@@ -68,12 +68,13 @@</span>
+
+[show_momentum]
+    description=
+    others=
+    self=Votre attaque et votre parade bénéficient d'un bonus de [[{b_momentum_dmg}*{momentum}]], votre esquive beneficie d'un bonus de [[{b_momentum_esq}*{momentum}]] et votre vitesse de déplacement est désormais de [[{ag}+{b_momentum_speed}*{momentum}]].
+    macro= /w {you} &amp;{template:default} {{name=Momentum}} <span class="f1">{{Attaque=[[{b_momentum_dmg}*{momentum}]]}}{{Parade=[[{b_momentum_dmg}*{momentum}]]}}{{Esquive=[[{b_momentum_esq}*{momentum}]]}}{{Déplacement=[[{ag}+{b_momentum_speed}*{momentum}]]}}</span><span class="f2">{{Attaque=[[{b_momentum_dmg}*{momentum}]]}}{{Parade=[[{b_momentum_dmg}*{momentum}]]}}{{Esquive=[[{b_momentum_esq}*{momentum}]]}}{{Déplacement=[[{ag}*2+{b_momentum_speed}*{momentum}]]}}</span> {{Accrobatie=[[floor({Accrobatie}+{momentum}*{b_momentum_sec})]]}} {{Saut=[[floor({Saut}+{momentum}*{b_momentum_sec})]]}} {{Course=[[floor({Course}+{momentum}*{b_momentum_sec})]]}}
+        <span class="f2">!setattr --name Voile --momentum_dmg|[[{b_momentum_dmg}*{momentum}]] --momentum_par|[[{b_momentum_dmg}*{momentum}]] --momentum_esq|[[{b_momentum_esq}*{momentum}]] --{Course_m}|[[floor({Course}+{momentum}*{b_momentum_sec})]] --{Saut_m}|[[floor({Saut}+{momentum}*{b_momentum_sec})]] --{Accrobatie_m}|[[floor({Accrobatie}+{momentum}*{b_momentum_sec})]]</span>
+        
+[change_momentum]
+    self=
+    others=
+    macro=!setattr --name Voile --momentum|[[{{b_momentum_max}*{momentum_max},{momentum}+1}kl1]] --momentum_dmg|[[{b_momentum_dmg}*({momentum}+1)]] --momentum_par|[[{b_momentum_dmg}*({momentum}+1)]] --momentum_esq|[[{b_momentum_esq}*({momentum}+1)]] --{Course_m}|[[floor({Course}+{momentum}*{b_momentum_sec})]] --{Saut_m}|[[floor({Saut}+{momentum}*{b_momentum_sec})]] --{Accrobatie_m}|[[floor({Accrobatie}+{momentum}*{b_momentum_sec})]]
+
+<span class="f6">@@ -234,12 +235,11 @@</span>
+    X=@{Voile|repeating_skills_-Lk0Mbt8pCFsrUR0Oddn_general_skilllevel}
+    description=Chaque attaque contre un adversaire différent augmente le momentum
+    self=Voile saute d'adversaire en adversaire (jusqu'a {X} adversaires différent), n'appliquant que ses on hit a chaque adversaire.
+    others= ** Adagio ** Voile utilise ses differents adversaires pour rebondir de l'un a l'autre et augmenter son Momentum
+    special =
+    macro={vset} {you} <span class="f1">--momentum|[[{{b_momentum_max}*{momentum_max},({momentum}+?{Nombre</span><span class="f2">--momentum|[[{{b_momentum_max}*{momentum_max},{momentum}+(?{Nombre</span> d'adversaires <span class="f1">touchés})*{X}*{b_adagio}}kl1]]</span>
+<span class="f1">        {m}change_momentum  # Will not work 99% of the time</span><span class="f2">touchés})*{b_adagio}}kl1]]</span>
+
+[tempo_martial]
+    level=Ultime
+    display_name=Tempo Martial
+    type = Actif/Instant/Empower
+</pre>
+</body>
+</html>

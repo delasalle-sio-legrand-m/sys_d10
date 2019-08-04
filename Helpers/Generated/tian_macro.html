@@ -10,7 +10,7 @@
 <span class="bold">Characters/tian.ini</span>
 <span class="bold"><span class="f4">[start]</span></span>
 !setattr --name Tian-Hu --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --pctreceived_b|0 --pctreceived_s|0 --elem_omega|0 --qi|0|[[@{Tian-Hu|repeating_skills_-LkV6EpN8WozHEhlnFYW_general_skilllevel}*@{God|b_qimax}]]  --element|0  --element_dmg|0 --general_item_shield3|[[@{God|b_apotheose}*@{Tian-Hu|repeating_defensive-combat-skills_-LkV7mqaRZOJzt-BC22s_defensive_combat_skilllevel}*@{Tian-Hu|base-custom}]] --general_skilllevel_Endurance_surnaturelle|[[@{Tian-Hu|repeating_defensive-combat-skills_-LkqZjm5yBZBnnu7vXhR_defensive_combat_skilllevel}+@{Tian-Hu|repeating_defensive-combat-skills_-LkV7mqaRZOJzt-BC22s_defensive_combat_skilllevel}]] --parry_power|[[@{Tian-Hu|repeating_defensive-combat-skills_-LkV8Omfhl2uh-tu6YYe_defensive_combat_skilllevel}*@{God|b_negation_par}]] --maintien_qi|0 --elemental_dmg|0 --pctreceived_in|0
-/w Tian-Hu Votre déplacement est de [[(@{Tian-Hu|base-custom}+@{Tian-Hu|exal-custom})+@{Tian-Hu|repeating_defensive-combat-skills_-LkV7mqaRZOJzt-BC22s_defensive_combat_skilllevel}]]
+/w Tian-Hu Votre déplacement est de [[(@{Tian-Hu|base-custom}+@{Tian-Hu|exal-custom})*2+@{Tian-Hu|repeating_defensive-combat-skills_-LkV7mqaRZOJzt-BC22s_defensive_combat_skilllevel}]]
 <span class="bold"><span class="f4">[turn]</span></span>
 !setattr --name Tian-Hu --Life_Points|[[{@{Tian-Hu|Life_Points}+@{Tian-Hu|regen}-1*(@{Tian-Hu|dot}),@{Tian-Hu|Life_Points|max}}kl1]] --qi|[[{@{Tian-Hu|qi}+@{God|b_regen_qi_flat}+@{Tian-Hu|repeating_skills_-LkV6EpN8WozHEhlnFYW_general_skilllevel}*@{God|b_regen_qi}-@{Tian-Hu|maintien_qi},@{Tian-Hu|repeating_skills_-LkV6EpN8WozHEhlnFYW_general_skilllevel}*@{God|b_qimax}}kl1]]
 <span class="bold"><span class="f4">[attaque]</span></span>
@@ -44,9 +44,9 @@
 /w Tian-Hu Vous pouvez parrer toute attaque quelqu'en soit le type. Si cette parrade est totale, vous effectuez un bloquage total dans une zone de @{Tian-Hu|repeating_defensive-combat-skills_-LkV8Omfhl2uh-tu6YYe_defensive_combat_skilllevel} metres.
 **[&amp;#9784; : @{God|b_negation_cost}]**
 <span class="bold"><span class="f4">[inebranlable]</span></span>
-!setattr --name Tian-Hu --mod --maintien_qi|@{God|b_inebranlable_cost} --general_skilllevel_Encaissement|[[@{Tian-Hu|repeating_defensive-combat-skills_-Lkqsaj0X8qOQ1g4bJdB_defensive_combat_skilllevel}+@{Tian-Hu|repeating_defensive-combat-skills_-LkV8Z5ezvreujA1cBnz_defensive_combat_skilllevel}*@{God|b_inebranlable_encaissement}]] --pctreceived_in|[[floor(@{Tian-Hu|repeating_defensive-combat-skills_-LkV8Z5ezvreujA1cBnz_defensive_combat_skilllevel}*@{God|b_inebranlable_reduction})]]
+!setattr --name Tian-Hu --mod --maintien_qi|@{God|b_inebranlable_maintien} --qi|@{God|b_inebranlable_cost} --general_skilllevel_Encaissement|[[@{Tian-Hu|repeating_defensive-combat-skills_-Lkqsaj0X8qOQ1g4bJdB_defensive_combat_skilllevel}+@{Tian-Hu|repeating_defensive-combat-skills_-LkV8Z5ezvreujA1cBnz_defensive_combat_skilllevel}*@{God|b_inebranlable_encaissement}]] --pctreceived_in|[[floor(@{Tian-Hu|repeating_defensive-combat-skills_-LkV8Z5ezvreujA1cBnz_defensive_combat_skilllevel}*@{God|b_inebranlable_reduction})]]
 /w Tian-Hu Vous gagnez [[floor(@{Tian-Hu|repeating_defensive-combat-skills_-LkV8Z5ezvreujA1cBnz_defensive_combat_skilllevel}*@{God|b_inebranlable_reduction})]] pourcentage de dégats reduits et  [[@{Tian-Hu|repeating_defensive-combat-skills_-LkV8Z5ezvreujA1cBnz_defensive_combat_skilllevel}*@{God|b_inebranlable_encaissement}]] en Encaissement payez @{God|b_inebranlable_actions} actions en tant que cout supplémentaires.
-**[&amp;#9784; : @{God|b_inebranlable_cost} / @{God|b_inebranlable_encaissement}]**
+**[&amp;#9784; : @{God|b_inebranlable_cost} / @{God|b_inebranlable_cost} / @{God|b_inebranlable_encaissement}a]**
 <span class="bold"><span class="f4">[inebranlable:desactivation]</span></span>
 !setattr --name Tian-Hu --mod --maintien_qi|-@{God|b_inebranlable_cost} --general_skilllevel_Encaissement|[[@{Tian-Hu|repeating_defensive-combat-skills_-Lkqsaj0X8qOQ1g4bJdB_defensive_combat_skilllevel}]] --pctreceived_in|0
 <span class="bold"><span class="f4">[mouvement_intangible]</span></span>
@@ -74,7 +74,7 @@
 /w Tian-Hu Votre attaque compte comme ayant [[@{Tian-Hu|repeating_offensive-combat-skills_-LkVA8-PjuYfMZAlP9bh_offensive_combat_skilllevel}*@{God|b_poing_fulgurant_init}]] d'initiative de plus
 **[&amp;#9784; : @{God|b_poing_fulgurant_cost}]**
 <span class="bold"><span class="f4">[chatiment_celeste]</span></span>
-!setattr --name Tian-Hu --mod --temp_dmg|[[?{Actions investies}*@{Tian-Hu|repeating_offensive-combat-skills_-LkVAHd9Ww93XuUmP8qF_offensive_combat_skilllevel}*@{God|b_chatiment_dmg}]] --temp_pdmg|[[@{Tian-Hu|repeating_offensive-combat-skills_-LkVAHd9Ww93XuUmP8qF_offensive_combat_skilllevel}*@{God|b_chatiment_pct}]] --maintien_qi|1
+!setattr --name Tian-Hu --mod --temp_dmg|[[?{Actions investies}*@{Tian-Hu|repeating_offensive-combat-skills_-LkVAHd9Ww93XuUmP8qF_offensive_combat_skilllevel}*@{God|b_chatiment_dmg}]] --temp_pdmg|[[@{Tian-Hu|repeating_offensive-combat-skills_-LkVAHd9Ww93XuUmP8qF_offensive_combat_skilllevel}*@{God|b_chatiment_pct}]] --maintien_qi|1 --qi|@{God|b_chatiment_cost}
 /w Tian-Hu Canalisation; Vous perdez un point de régénération de Ki pour la durée du combat
 **[&amp;#9784; : @{God|b_chatiment_cost}]** Tian-Hu commence a cannaliser une action
 </pre>

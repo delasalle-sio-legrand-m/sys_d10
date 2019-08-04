@@ -8,7 +8,7 @@
 <body class="f9 b9">
 <pre>
 <span class="bold">diff --git a/Helpers/Characters/God.ini b/Helpers/Characters/God.ini</span>
-<span class="bold">index 9cb2fa9..74084e5 100644</span>
+<span class="bold">index 9cb2fa9..8a13014 100644</span>
 <span class="bold">--- a/Helpers/Characters/God.ini</span>
 <span class="bold">+++ b/Helpers/Characters/God.ini</span>
 <span class="f6">@@ -46,11 +46,11 @@</span>
@@ -35,7 +35,7 @@
     b_brume_gelee=9
     b_vague_glace=5
     b_vague_glace_cc=6
-<span class="f6">@@ -105,22 +105,22 @@</span>
+<span class="f6">@@ -105,22 +105,23 @@</span>
     b_blizzard_size=8
     b_dome_hivers_size=3
     b_dome_hivers_prot=0.8
@@ -52,14 +52,15 @@
 
 [Characters/reginald.ini]
     <span class="f1">b_elem=4</span>
-<span class="f1">    b_power=7</span><span class="f2">b_elem=6</span>
+<span class="f1">    b_power=7</span><span class="f2">b_power_arcana=1.5</span>
+<span class="f2">    b_elem=6</span>
 <span class="f2">    b_power=7r&lt;3</span>
     b_quake=3
     b_zone=3
     b_duration=d2
     b_heal=3
     b_shield=3
-<span class="f6">@@ -130,12 +130,13 @@</span>
+<span class="f6">@@ -130,12 +131,13 @@</span>
     b_buff_phy_res=5
     maladie=8
     b_maladie=1
@@ -74,7 +75,7 @@
     b_tidialwave=3
     b_tornado=2
     b_suspension=4
-<span class="f6">@@ -144,13 +145,13 @@</span>
+<span class="f6">@@ -144,13 +146,13 @@</span>
     b_corrosion=3
     b_incontrolable=6
     b_aureola=2
@@ -82,13 +83,13 @@
     b_fluctus_dmg=0.45
     <span class="f1">b_fluctus_max=30</span><span class="f2">b_fluctus_max=40</span>
     b_dilluvium=4
-    <span class="f1">b_tenacitas=0.25</span><span class="f2">b_tenacitas=2</span>
+    <span class="f1">b_tenacitas=0.25</span><span class="f2">b_tenacitas=1.4</span>
     b_dementia=2
     b_despectio=1
     b_despectio_cost=2
     b_celeritas=2
     b_scientia=3
-<span class="f6">@@ -174,15 +175,15 @@</span>
+<span class="f6">@@ -174,15 +176,15 @@</span>
     b_mouvement_cost=6
     b_mouvement_power=12
     b_infusion_cost=7
@@ -134,7 +135,7 @@
 [permafrost]
     level=Ultime
 <span class="bold">diff --git a/Helpers/Characters/reginald.ini b/Helpers/Characters/reginald.ini</span>
-<span class="bold">index 7d7d185..147f12c 100644</span>
+<span class="bold">index 7d7d185..6ea2fb4 100644</span>
 <span class="bold">--- a/Helpers/Characters/reginald.ini</span>
 <span class="bold">+++ b/Helpers/Characters/reginald.ini</span>
 <span class="f6">@@ -8,11 +8,11 @@</span>
@@ -143,7 +144,7 @@
     vapeur=(@{Reginald|elem_vapeur_tot}+@{Reginald|elem_omega})
     bois=(@{Reginald|elem_bois_tot}+@{Reginald|elem_omega})
     foudre=(@{Reginald|elem_foudre_tot}+@{Reginald|elem_omega})
-    <span class="f1">power=?{Magna Arcanum}</span><span class="f2">power=(?{Magna Arcanum}*2)</span>
+    <span class="f1">power=?{Magna Arcanum}</span><span class="f2">power=floor(?{Magna Arcanum}*@{God|b_power_arcana})</span>
     inline_power=?{Magna Arcanum&amp;#125;
     U=&amp;#10070;
     A=&amp;#9733;
@@ -203,7 +204,7 @@
     X = @{Reginald|repeating_magic-arcanist-skills_-LkQWmyQBIj1IRtasXuW_magic_arcanist_skilllevel}
     Y =
     special=
-    macro =!setattr --name {target} <span class="f1">--pctreceived_s|[[{@{target|target|pctreceived_s}+ floor(({power}+{bois})*{b_tenacitas}) +floor({bois}),99}kl1]]</span><span class="f2">--pctreceived_s|[[{@{target|target|pctreceived_s}- floor(({power}+{bois})*{b_tenacitas}),-99}kl1]]</span>
+    macro =!setattr --name {target} <span class="f1">--pctreceived_s|[[{@{target|target|pctreceived_s}+ floor(({power}+{bois})*{b_tenacitas}) +floor({bois}),99}kl1]]</span><span class="f2">--pctreceived_s|[[{@{target|target|pctreceived_s}- floor(({power}+{bois})*{b_tenacitas}),-99}kh1]]</span>
 
 [dementia]
     cost=16

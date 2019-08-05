@@ -170,7 +170,7 @@ def replace_vars(text,char,god,section,name,character,godlink=False):
 def god_macro(characters,output,version,suffix):
     config=configparser.ConfigParser(inline_comment_prefixes="#")
     config.read(join("Characters","God.ini"))
-    ret="!setattr --name God"
+    ret="!setattr --name God --silent "
     for sect in config.sections():
         for elt in config[sect]:
             if elt in config["DEFAULT"]:

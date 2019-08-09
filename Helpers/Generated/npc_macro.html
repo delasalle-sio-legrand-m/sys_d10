@@ -25,6 +25,10 @@
 !setattr t--name @{selected|character_name} --temp_pdef|0 --temp_def|0
 <span class="bold"><span class="f4">[tir_macro]</span></span>
 !crit ?{Nombre de des de tir} T @{selected|skillcost_Tir_precis} @{selected|general_effective_Tir_precis} i @{selected|general_effective_Tir_implacable} M @{selected|skillcost_Technique_martiale} @{selected|general_effective_Technique_martiale} E @{selected|skillcost_Exploiter_les_points_faibles} @{selected|general_effective_Exploiter_les_points_faibles} L @{selected|base_shoot_dices} c @{selected|crit_level} l @{selected|add_shoot_dices} t @{selected|transcendence} s ?{Seuil de tir|6} a a n @{selected|undescored_name} f @{selected|pctinflicted} f @{selected|pctinflicted_s} f @{selected|pctinflicted_b}
+<span class="bold"><span class="f4">[place_aoe]</span></span>
+!areasOfEffectApplyEffectAtToken @{target|token_id} ?{Specify radius:}
+<span class="bold"><span class="f4">[direction_aoe]</span></span>
+!areasOfEffectApplyEffectAtCone @{selected|token_id} ?{Specify radius:}
 </pre>
 </body>
 </html>

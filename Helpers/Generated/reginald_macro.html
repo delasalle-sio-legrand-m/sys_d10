@@ -62,9 +62,12 @@ L'arcane dure [[(?{Magna Arcanum|0}*@{God|b_power_arcana}+1)@{God|b_duration}]] 
 **[Arcane Majeure: Pyroclasme]** Un incontrolable pyroclasme s'emparre de l'arcanum, se répendant de cible en cible. L'arcane touche [[[[floor(?{Magna Arcanum|0}*@{God|b_power_arcana}+1)]]d[[floor((@{Reginald|elem_feu_tot}+@{Reginald|elem_omega})/@{God|b_pyroclasme})]]]] cibles aléatoires supplémentaires
 <span class="bold"><span class="f4">[major:tidial_wave]</span></span>
 **[Arcane Majeure: Raz de marée]** Un raz de marée de puissance s'emparre de l'arcanum, se répandant en ligne droite engloutissant tout sur son passage. L'arcane s'étend sur [[[[floor((?{Magna Arcanum|0}*@{God|b_power_arcana}+(@{Reginald|elem_eau_tot}+@{Reginald|elem_omega}))*@{God|b_tidialwave})]]d@{God|b_d_tidialwave}]] metres de long et [[(@{Reginald|elem_eau_tot}+@{Reginald|elem_omega})+2d@{God|b_d_tidialwave}]] de large.
+/w Reginald [Placer la zone](!&amp;#13;#place_aoe Wave)
 <span class="bold"><span class="f4">[major:earthquake]</span></span>
 **[Arcane Majeure: Seïsme]** Une onde sismique s'emparre de l'arcanum, radiant du lanceur sur une distance de [[[[floor(?{Magna Arcanum|0}*@{God|b_power_arcana}+(@{Reginald|elem_terre_tot}+@{Reginald|elem_omega}))]]d@{God|b_quake}]] metres, les cibles a une distance de [[(@{Reginald|elem_terre_tot}+@{Reginald|elem_omega})]] metres du lanceur subissent le double de l'effet de l'arcane.
+/w Reginald [Placer la zone](!&amp;#13;#place_aoe Impact)
 <span class="bold"><span class="f4">[major:tornado]</span></span>
+/w Reginald [Placer la zone](!&amp;#13;#place_aoe Cyclone)
 **[Arcane Majeure: Tornade]** Une puissante tornade s'emparre de l'arcanum, radiant autour du lanceur sur une distance de [[[[floor(?{Magna Arcanum|0}*@{God|b_power_arcana}+1)]]d@{God|b_tornado}+(@{Reginald|elem_air_tot}+@{Reginald|elem_omega})]] metres, laissant l'oeil du cyclone *([[floor((@{Reginald|elem_air_tot}+@{Reginald|elem_omega})/2)]] metres)* intact.
 <span class="bold"><span class="f4">[major:suspension]</span></span>
 /w Reginald Vous pouver choisir un nombre de tours plus court a la création, mais ne pouvez le changer après cela

@@ -8,7 +8,7 @@
 <body class="f9 b9">
 <pre>
 <span class="bold">diff --git a/Helpers/Characters/God.ini b/Helpers/Characters/God.ini</span>
-<span class="bold">index 02f0eb6..bed917d 100644</span>
+<span class="bold">index 02f0eb6..4fb06ec 100644</span>
 <span class="bold">--- a/Helpers/Characters/God.ini</span>
 <span class="bold">+++ b/Helpers/Characters/God.ini</span>
 <span class="f6">@@ -27,32 +27,33 @@</span>
@@ -18,13 +18,13 @@
     b_momentum_esq=4
     b_momentum_sec=0.3
     <span class="f1">b_impact=9</span>
-<span class="f1">    b_impact_size=2</span><span class="f2">b_impact=6</span>
-<span class="f2">    b_impact_size=0.5</span>
+<span class="f1">    b_impact_size=2</span><span class="f2">b_impact=4.5</span>
+<span class="f2">    b_impact_size=0.13</span>
     b_adagio=1
     b_tempo_dep=6
     b_tempo_degre=1
     b_tempo=42
-    <span class="f2">b_tempo_max=336</span>
+    <span class="f2">b_tempo_max=252</span>
     b_phenix_reg=35
     sceau_du_phenix_charge_level=100
     b_phenix_alt_charge=10
@@ -47,14 +47,18 @@
     b_ame_alt_range=10
     b_veine_charge_level=20
     b_veine_duree=1
-<span class="f6">@@ -66,12 +67,12 @@</span>
+<span class="f6">@@ -64,14 +65,14 @@</span>
+    b_ombre_discretion=2
+    b_iresanglante_dmg=30
     b_brumesang_value=20
     b_torrentpourpre_abysse=20
     b_base_abysse=100
-    b_torrentpourpre_souffrance=20
-    b_base_souffrance=75
-    <span class="f1">b_torrentpourpre_sang=20</span>
-<span class="f1">    b_base_sang=50</span><span class="f2">b_torrentpourpre_sang=10</span>
+    <span class="f1">b_torrentpourpre_souffrance=20</span>
+<span class="f1">    b_base_souffrance=75</span>
+<span class="f1">    b_torrentpourpre_sang=20</span>
+<span class="f1">    b_base_sang=50</span><span class="f2">b_torrentpourpre_souffrance=10</span>
+<span class="f2">    b_base_souffrance=40</span>
+<span class="f2">    b_torrentpourpre_sang=10</span>
 <span class="f2">    b_base_sang=25</span>
     b_soifimpie_rgn=4
     d_soif_heal=10
@@ -258,7 +262,7 @@
 [inebranlable]
     level        = Avancée
 <span class="bold">diff --git a/Helpers/Characters/voile.ini b/Helpers/Characters/voile.ini</span>
-<span class="bold">index 8a94785..c960a9b 100644</span>
+<span class="bold">index 8a94785..009f9d7 100644</span>
 <span class="bold">--- a/Helpers/Characters/voile.ini</span>
 <span class="bold">+++ b/Helpers/Characters/voile.ini</span>
 <span class="f6">@@ -34,11 +34,11 @@</span>
@@ -315,7 +319,7 @@
         adversaires dans une large zone dépendant du nombre de points de momentum consumés
     self=Vous perdez votre momentum
         [Placer l'Impact](!&amp;#13;#place_aoe Impact)
-    others=** Impact ** Un terrible impact sur une zone de <span class="f1">[[{b_impact_size}*{X}]]</span><span class="f2">[[floor({b_impact_size}*{X}*{momentum}+1)]]</span> mètres infligeant [[{X}*{b_impact}*{momentum}]] dégâts bonus à l’attaque
+    others=** Impact ** Un terrible impact sur une zone de <span class="f1">[[{b_impact_size}*{X}]]</span><span class="f2">[[floor({b_impact_size}*{X}*{momentum}+0.5)]]</span> mètres infligeant [[{X}*{b_impact}*{momentum}]] dégâts bonus à l’attaque
     special= Système de stack augmentant en combat et diminuant lors de l’utilisation active des techniques liées.
     macro = {vset} {you} --mod --temp_dmg|[[{X}*{b_impact}*{momentum}]]
         {vset} {you} --momentum|0 --momentum_dmg|0 --momentum_par|0 --momentum_esq|0
@@ -334,13 +338,25 @@
     others= ** Tempo Martial ** Voile se synchronyse au tempo de ses adversaires pour se servir de leurs actions contre eux.
     special =
     macro= {vset} {you} --mod --actions|-{b_tempo_dep}
-        <span class="f1">--temp_dmg|[[{b_tempo}*{X}]] --temp_def|[[{b_tempo}*{X}]] --temp_esq|[[{b_tempo}*{X}]]</span><span class="f2">{vset} {you} --tempo_dmg|[[{@{Voile|tempo_dmg}+{b_tempo}*{X},{b_tempo_max}*{X}}kl1]] --tempo_def|[[{@{Voile|tempo_def}+{b_tempo}*{X},{b_tempo_max}*{X}}kl1]] --tempo_esq|[[{@{Voile|tempo_esq}+{b_tempo}*{X},{b_tempo_max}*{X}}kl1]]</span>
+        <span class="f1">--temp_dmg|[[{b_tempo}*{X}]] --temp_def|[[{b_tempo}*{X}]] --temp_esq|[[{b_tempo}*{X}]]</span><span class="f2">{vset} {you} --tempo_dmg|[[{@{Voile|tempo_dmg}+{b_tempo}*{X},{b_tempo_max}*{X}}kl1]] --tempo_par|[[{@{Voile|tempo_par}+{b_tempo}*{X},{b_tempo_max}*{X}}kl1]] --tempo_esq|[[{@{Voile|tempo_esq}+{b_tempo}*{X},{b_tempo_max}*{X}}kl1]]</span>
 
 [sceau_phenix]
     level=Ultime
     display_name=Sceau Du Phenix
     type=Actif/Durée/buff
-<span class="f6">@@ -439,12 +448,12 @@</span>
+<span class="f6">@@ -260,11 +269,10 @@</span>
+    description=Consomme {sceau_du_phenix_charge_level} points de la Porte de Sang, vous pouvez dépenser ses points meme si cela devait consummez plus que votre reserve. Si vous faites ainsi, vous perdez [[{b_phenix_alt_charge}*@{Voile|multiple_seals}]] points de vie maximum. Vous gagnez une grande regeneration et ne pouvez pas mourir.
+    self=Les {X} prochainnes attaques ne peuvent pas vous tuer, a chaque fois que vous devriez mourir regagnez [[{b_phenix_reg}*@{Voile|multiple_seals}]] points de vie a la place.
+    others= ** Sceau du Phenix ** Dans l’adversité, le Phénix de Voile se relève de ses Cendre
+    special =
+    macro = {vset} {door} --mod --blood_gate|-[[{sceau_du_phenix_charge_level}*@{Voile|multiple_seals}]]
+<span class="f1">        {reset_multiple}</span>
+
+[bis_repetitas]
+    level=Avancée
+    display_name=Bis Repetitas
+    type=Actif/Instant
+<span class="f6">@@ -439,12 +447,12 @@</span>
     display_name=Torrent pourpre
     type=Passif
     cost=8

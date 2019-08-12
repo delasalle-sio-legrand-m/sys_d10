@@ -9,7 +9,7 @@
 <pre>
 <span class="bold">Characters/frene.ini</span>
 <span class="bold"><span class="f4">[start]</span></span>
-!setattr --name Jinyah --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --mana|@{Jinyah|mana|max} --pctreceived_b|0 --pctreceived_s|0 --general_item_shield3|[[floor(@{Jinyah|repeating_magic-aspected-skills_-Lk-H3by-ofAR9GZF4QH_magic_aspected_skilllevel}*(@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot}+@{Jinyah|elem_omega})/@{God|b_garde_aspect})]] --colere_stacks|[[@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}@{God|b_colere_max}]] --elem_omega|0
+!setattr --name Jinyah --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --mana|@{Jinyah|mana|max} --pctreceived_b|0 --pctreceived_s|0 --general_item_shield3|[[floor(@{Jinyah|repeating_magic-aspected-skills_-Lk-H3by-ofAR9GZF4QH_magic_aspected_skilllevel}*(@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot}+@{Jinyah|elem_omega})/@{God|b_garde_aspect})]] --colere_stacks|[[@{Jinyah|repeating_magic-aspected-skills_-Lk-H4mC0xWsyjFR0rGK_magic_aspected_skilllevel}@{God|b_colere_max}]] --elem_omega|0
 /w Jinyah Début du combat
 /w Jinyah A chaque attaque, l'aspect peut prendre jusqu'à [[@{Jinyah|repeating_magic-aspected-skills_-Lk-GphCfAF2s1firmtm_magic_aspected_skilllevel}*@{God|b_symbiose}]] points de dégâts à votre place.
 /w Jinyah Si vous ne pouvez plus agir, votre aspect gagne [[floor(@{Jinyah|repeating_magic-aspected-skills_-Lk-H0A4ZvDP4YcBL1NS_magic_aspected_skilllevel}@{God|b_simulation_aspect})]] actions supplémentaires jusqu'à la reprise de contrôle du personnage.
@@ -101,8 +101,9 @@ Une vague de Glace part de Jinyah, entravant tout ennemi pris dedans.
 !setattr --name Jinyah --mod --mana|-8
 Les ennemis aux alentours voient leurs mouvements considérablement ralentis.
 <span class="bold"><span class="f4">[voile_aurore]</span></span>
-**Voile de l'aurore** [Coût : 16] Protection de [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-Hga0BioOZVTROln9_magic_aspected_skilllevel}*((@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot}+@{Jinyah|elem_omega})+(@{Jinyah|elem_bois_tot}/2+@{Eisvogel|elem_bois_tot}+@{Jinyah|elem_omega}))*@{God|b_voile_aurore})]] sur les [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-Hga0BioOZVTROln9_magic_aspected_skilllevel}*@{God|b_voile_aurore_spells}]] prochaines attaques. Augmente la volonté de [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-Hga0BioOZVTROln9_magic_aspected_skilllevel}*(@{Jinyah|elem_vapeur_tot}/2+@{Eisvogel|elem_vapeur_tot}+@{Jinyah|elem_omega})/@{God|b_voile_aurore_buff}]]
-!setattr --name Jinyah --mod --mana|-16
+**Voile de l'aurore** [Coût : 10] Toutes les cibles affectées par un effet *Robustesse de l'Hiver* recoivent une protection de [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-Hga0BioOZVTROln9_magic_aspected_skilllevel}*((@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot}+@{Jinyah|elem_omega})+(@{Jinyah|elem_bois_tot}/2+@{Eisvogel|elem_bois_tot}+@{Jinyah|elem_omega}))*@{God|b_voile_aurore})]] sur la prochaine attaque. Tant qu'ils ont des marques de *Robustesse de l'Hiver* ils beneficient d'un bonus de [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-Hga0BioOZVTROln9_magic_aspected_skilllevel}*(@{Jinyah|elem_vapeur_tot}/2+@{Eisvogel|elem_vapeur_tot}+@{Jinyah|elem_omega})*@{God|b_voile_aurore_buff})]] en volonté (cet effet est cumulable jusqu'a [[@{Eisvogel|repeating_magic-aspected-skills_-Lk-Hga0BioOZVTROln9_magic_aspected_skilllevel}+1]] fois)
+!setattr --name Jinyah --mod --mana|-10
+[Protection de l'aurore](!&amp;#13;#aurore [[floor(@{Eisvogel|repeating_magic-aspected-skills_-Lk-Hga0BioOZVTROln9_magic_aspected_skilllevel}*((@{Jinyah|elem_air_tot}/2+@{Eisvogel|elem_air_tot}+@{Jinyah|elem_omega})+(@{Jinyah|elem_bois_tot}/2+@{Eisvogel|elem_bois_tot}+@{Jinyah|elem_omega}))*@{God|b_voile_aurore})]])
 Un voile recouvre les alliés aux alentours, protégeant des dégâts et renforçant leur volonté.
 </pre>
 </body>

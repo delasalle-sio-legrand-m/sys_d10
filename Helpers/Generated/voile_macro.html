@@ -9,18 +9,18 @@
 <pre>
 <span class="bold">Characters/voile.ini</span>
 <span class="bold"><span class="f4">[start]</span></span>
-!setattr --name Voile --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --momentum_dmg|0 --momentum_esq|0 --pctreceived_b|0 --pctreceived_s|0 --tempo_dmg|0 --tempo_par|0 --tempo_esq|0 --momentum_par|0 --actions|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor(@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}/@{God|b_wind_har_act})]]|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor(@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}/@{God|b_wind_har_act})]]
+!setattr --name Voile --momentum|0 --temp_dmg|0 --temp_pdmg|0 --temp_esq|0 --temp_def|0 --temp_pdef|0 --regen|0 --dot|0 --frostdamage|0 --frostshield|0 --momentum_dmg|0 --momentum_esq|0 --pctreceived_b|0 --pctreceived_s|0 --tempo_dmg|0 --tempo_par|0 --tempo_esq|0 --momentum_par|0 --actions|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor(@{Voile|harmony}*@{God|b_wind_har_act})]]|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor(@{Voile|harmony}*@{God|b_wind_har_act})]] --bloodbath_charges|[[@{Voile|repeating_magic-vital-skills_-Lk0KWNdsKB9AeKJwoRI_magic_vital_skilllevel}]]
 /w Voile Début du combat
 /w Voile Toutes les reserves sont réinitialisées.
 <span class="bold"><span class="f4">[turn]</span></span>
-!setattr --name Voile --Life_Points|[[{@{Voile|Life_Points}+@{Voile|regen}-1*(@{Voile|dot}),@{Voile|Life_Points|max}}kl1]] --actions|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor(@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}/@{God|b_wind_har_act})]]|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor(@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}/@{God|b_wind_har_act})]]
-/w Voile Les [[@{Voile|repeating_magic-vital-skills_-Lk0KWNdsKB9AeKJwoRI_magic_vital_skilllevel}*@{God|b_bloodbath}]] premiers sceaux de votre tour comptent comme des action libres
+!setattr --name Voile --Life_Points|[[{@{Voile|Life_Points}+@{Voile|regen}-1*(@{Voile|dot}),@{Voile|Life_Points|max}}kl1]] --actions|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor(@{Voile|harmony}*@{God|b_wind_har_act})]]|[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor(@{Voile|harmony}*@{God|b_wind_har_act})]]
+/w Voile Il vous reste @{Voile|bloodbath_charges} utilisations de *Bain de sang*
 <span class="bold"><span class="f4">[multiple_seals]</span></span>
 !setattr --name Voile --multiple_seals|[[?{Nombre de sceaux}]]
 <span class="bold"><span class="f4">[show_harmony]</span></span>
-/w Voile &amp;{template:default} {{name=Etat d'harmonie}} {{initiative=+[[@{God|b_harmony}*@{Voile|harmony}]]}} {{perception=+[[@{God|b_harmony}*@{Voile|harmony}]]}} {{Discretion=+[[@{Voile|harmony}*@{God|b_shadow_har_disc}]]}} {{Nombre d'actions=[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor(@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}/@{God|b_wind_har_act})]]}} {{Attaques d'opportunités=+[[floor(@{Voile|harmony}*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}/@{God|b_wind_har_opp})]]seuil}} {{RM=+[[floor(@{Voile|harmony}*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}/@{God|b_metal_har})]]}}
+/w Voile &amp;{template:default} {{name=Etat d'harmonie}} {{initiative=+[[@{Voile|harmony}]]}} {{perception=+[[@{Voile|harmony}]]}} {{Discretion=+[[@{Voile|harmony}*@{God|b_shadow_har_disc}]]}} {{Nombre d'actions=[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor(@{Voile|harmony}/@{God|b_wind_har_act})]]}} {{Attaques d'opportunités=+[[floor(@{Voile|harmony}*@{God|b_wind_har_opp})]]seuil}} {{RM=+[[floor(@{Voile|harmony}*@{God|b_metal_har})]]}} {{Esquive=-[[@{God|b_eth_har}*@{Voile|harmony}]]DD}}
 <span class="bold"><span class="f4">[change_harmony]</span></span>
-!setattr --name Voile --repeating_skills_-Lk0OZCwmTWY0AVmn5jZ_general_skilllevel|[[@{Voile|repeating_skills_-Lk0ONlvjF-Ke6kBOfV1_general_skilllevel}+@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}*@{God|b_shadow_har_disc}]] --repeating_skills_-Lk0OZCwmTWY0AVmn5jZ_general_skilllevel|[[@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}*@{God|b_shadow_har_disc}]] --actions||[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor(@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}*@{Voile|harmony}/@{God|b_wind_har_act})]] --repeating_skills_-Lk0Oqd0D-uzwPP2JgQI_general_skilllevel|[[floor(@{Voile|repeating_skills_-Lk0OpSq7JnSaXtidJlz_general_skilllevel}+@{Voile|harmony}*@{Voile|repeating_skills_-Lk0LDt03hSUUtdwbzLV_general_skilllevel}/@{God|b_metal_har})]] --Initiative|[[@{Voile|repeating_general-combat-skills_-LkJoCQxRED339Hi8os2_general_combat_skilllevel}+@{God|b_harmony}*@{Voile|harmony}]]
+!setattr --name Voile --repeating_skills_-Lk0OZCwmTWY0AVmn5jZ_general_skilllevel|[[@{Voile|repeating_skills_-Lk0ONlvjF-Ke6kBOfV1_general_skilllevel}+@{Voile|harmony}*@{God|b_shadow_har_disc}]] --actions||[[@{Voile|base-Agilite}+@{Voile|exal-Agilite}+@{Voile|general_skilllevel_supernatural_reflexes}*2+floor(@{Voile|harmony}/@{God|b_wind_har_act})]] --repeating_skills_-Lk0Oqd0D-uzwPP2JgQI_general_skilllevel|[[floor(@{Voile|repeating_skills_-Lk0OpSq7JnSaXtidJlz_general_skilllevel}+@{Voile|harmony}*@{God|b_metal_har})]] --Initiative|[[@{Voile|repeating_general-combat-skills_-LkJoCQxRED339Hi8os2_general_combat_skilllevel}+@{God|b_harmony}*@{Voile|harmony}]]
 <span class="bold"><span class="f4">[show_momentum]</span></span>
 /w Voile &amp;{template:default} {{name=Momentum}} {{Attaque=[[@{God|b_momentum_dmg}*@{Voile|momentum}]]}}{{Parade=[[@{God|b_momentum_dmg}*@{Voile|momentum}]]}}{{Esquive=[[@{God|b_momentum_esq}*@{Voile|momentum}]]}}{{Déplacement=[[(@{Voile|base-Agilite}+@{Voile|exal-Agilite})*2+@{God|b_momentum_speed}*@{Voile|momentum}]]}} {{Accrobatie=[[floor(@{Voile|repeating_skills_-Lk0OvBC82YsRXaMneDn_general_skilllevel}+@{Voile|momentum}*@{God|b_momentum_sec})]]}} {{Saut=[[floor(@{Voile|repeating_skills_-Lk0P-9iI72bg79b2W3e_general_skilllevel}+@{Voile|momentum}*@{God|b_momentum_sec})]]}} {{Course=[[floor(@{Voile|repeating_skills_-Lk0OsyNJXcxSDfPiOrM_general_skilllevel}+@{Voile|momentum}*@{God|b_momentum_sec})]]}}
 !setattr --name Voile --momentum_dmg|[[@{God|b_momentum_dmg}*@{Voile|momentum}]] --momentum_par|[[@{God|b_momentum_dmg}*@{Voile|momentum}]] --momentum_esq|[[@{God|b_momentum_esq}*@{Voile|momentum}]] --repeating_skills_-Lk0Ou0iuRqjFl3zh6j8_general_skilllevel|[[floor(@{Voile|repeating_skills_-Lk0OsyNJXcxSDfPiOrM_general_skilllevel}+@{Voile|momentum}*@{God|b_momentum_sec})]] --repeating_skills_-Lk0P0QpdsqtnER6E3hZ_general_skilllevel|[[floor(@{Voile|repeating_skills_-Lk0P-9iI72bg79b2W3e_general_skilllevel}+@{Voile|momentum}*@{God|b_momentum_sec})]] --repeating_skills_-Lk0OyMid1KcRS6-i3NF_general_skilllevel|[[floor(@{Voile|repeating_skills_-Lk0OvBC82YsRXaMneDn_general_skilllevel}+@{Voile|momentum}*@{God|b_momentum_sec})]]
@@ -32,7 +32,6 @@
 /w Voile Offre un bonus de [[@{God|b_brumesang_value}*@{Voile|repeating_magic-vital-skills_-Lk0JovHaDzlyDlxntqG_magic_vital_skilllevel}*@{Voile|multiple_seals}]] sur votre prochaine esquive
 /w Voile Vous gagnez un bonus de [[@{God|b_iresanglante_dmg}*@{Voile|repeating_magic-vital-skills_-Lk0K39r7eCcYVEBFeKy_magic_vital_skilllevel}*@{Voile|multiple_seals}]] dégat d’arme a votre prochaine attaque
 /w Voile Vous regagnez [[(@{Voile|repeating_magic-vital-skills_-Lk0KBJLxY9ZzAgs4ZHh_magic_vital_skilllevel}*10)]] points de vie et un bonus de [[@{God|b_soifimpie_rgn}*@{Voile|repeating_magic-vital-skills_-Lk0KBJLxY9ZzAgs4ZHh_magic_vital_skilllevel}*@{Voile|multiple_seals}]] en régénération jusqu'a la fin du combat
-/w Voile Offre un bonus [[@{God|b_foudresang_init}*@{Voile|repeating_magic-vital-skills_-Lk0KH9sMaVvV9aafAeU_magic_vital_skilllevel}*@{Voile|multiple_seals}]] en initiative sur votre prochaine attaque
 <span class="bold"><span class="f4">[change_blood]</span></span>
 !setattr --name Voile --mod --temp_dmg|[[@{God|b_iresanglante_dmg}*@{Voile|repeating_magic-vital-skills_-Lk0K39r7eCcYVEBFeKy_magic_vital_skilllevel}*@{Voile|multiple_seals}]] --temp_esq|[[@{God|b_brumesang_value}*@{Voile|repeating_magic-vital-skills_-Lk0JovHaDzlyDlxntqG_magic_vital_skilllevel}*@{Voile|multiple_seals}]]
 !setattr --name Voile --Life_Points|[[{@{Voile|Life_Points}+@{God|b_soifimpie_rgn}*@{Voile|repeating_magic-vital-skills_-Lk0KBJLxY9ZzAgs4ZHh_magic_vital_skilllevel}* @{Voile|multiple_seals}, @{Voile|Life_Points|max}}kl1]]
@@ -58,8 +57,8 @@
 /w Voile Vous changez votre niveau d'harmonie
 <span class="bold"><span class="f4">[shadow_har]</span></span>
 !setattr --name Voile --mod --harmony|-1
-/w Voile Voile augmente son état de conscience du réel, les adversaires et objets dans un cercle de [[@{God|b_shadow_har}*@{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel}]] metres aux alentours revelent leur vraie nature.
-** Harmonie de l'ombre ** Voile obtiens pendant un cours instant une image de la réalité au dela des apparences, dans un rayon de [[@{Voile|harmony}@{God|b_shadow_har}*@{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel}]] metres. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+/w Voile Voile augmente son état de conscience du réel, les adversaires et objets dans un cercle de [[@{Voile|harmony}*@{God|b_shadow_har}*@{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel}]] metres aux alentours revelent leur vraie nature.
+** Harmonie de l'ombre ** Voile obtiens pendant un cours instant une image de la réalité au dela des apparences, dans un rayon de [[@{Voile|harmony}*@{God|b_shadow_har}*@{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel}]] metres. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
 <span class="bold"><span class="f4">[wind_har]</span></span>
 !setattr --name Voile --mod --harmony|-1
 /w Voile Vous pouvez réapparaitre n'importe ou dans un cercle de [[@{Voile|repeating_skills_-Lk0LfoIZqkpZCKWUf8I_general_skilllevel}]] metres autours de vous.
@@ -72,6 +71,15 @@
 !setattr --name Voile --mod --harmony|-1
 /w Voile Votre esprit se renforce, repoussant les effets déléteres sur vous.
 ** Harmonie du metal ** La volontée de Voile s'affirme, soufflant les influences négatives. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+<span class="bold"><span class="f4">[eth_har]</span></span>
+!setattr --name Voile --mod --harmony|-1
+/w Voile Vos @{Voile|repeatingskills-LmB7uy3RJYrpPka9OF-_general_skilllevel} prochainnes actions comptent comme des actions libres
+** Harmonie Etherée **
+<span class="bold"><span class="f4">[fou_har]</span></span>
+!setattr --name Voile --mod --harmony|-1 --temp_dmg|[[floor(@{Voile|repeatingskills-LmB7wXOYC7NRwRFVws5_general_skilllevel}*@{Voile|shields}*@{God|b_fou_dmg})]]
+!setattr --name Voile --shields|0
+/w Voile Votre prochainne attaque infligera [[floor(@{Voile|repeatingskills-LmB7wXOYC7NRwRFVws5_general_skilllevel}*@{Voile|shields}*@{God|b_fou_dmg})]] dégats de foudre supplementaire
+** Harmonie Foudroyante **
 <span class="bold"><span class="f4">[momentum]</span></span>
 /w Voile Vous gagnez un point de Momentum. Votre attaque et votre parade bénéficient d'un bonus de [[@{God|b_momentum_dmg}*@{Voile|momentum}]], votre esquive beneficie d'un bonus de [[@{God|b_momentum_esq}*@{Voile|momentum}]] et votre vitesse de déplacement est désormais de [[(@{Voile|base-Agilite}+@{Voile|exal-Agilite})+@{God|b_momentum_speed}*@{Voile|momentum}]].
 La vitesse et la puissance de Voile augmente, ne laissant apparaitre qu'une silhouette. brouillée par la vitesse.
@@ -160,6 +168,9 @@ La vitesse et la puissance de Voile augmente, ne laissant apparaitre qu'une silh
 !setattr --name Voile --multiple_seals|1
 /w Voile La prochaine attaque portée contre un adversaire ciblé infligeras [[@{Voile|repeating_magic-vital-skills_-Lk0IHG528wQQzEWVnyC_magic_vital_skilllevel}*@{God|b_Bis_repetitas_Onhit}]] pourcent de dégats suplémentaires.
 ** Bis Repetitas ** Dans un éclat de lumiere sanglante, un éclat de temps viens heurter la réalitée, brouillant le passé et le présent, frappant encore et encore.
+<span class="bold"><span class="f4">[Bain_de_Sang]</span></span>
+!setattr --name Voile --mod --bloodbath_charges|-1
+/w Voile Il vous reste [[@{Voile|bloodbath_charges}-1]] charges de *Bain de sang*
 </pre>
 </body>
 </html>

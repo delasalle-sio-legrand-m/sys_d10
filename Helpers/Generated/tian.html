@@ -25,7 +25,7 @@
  <span class="f4"><span class="underline">Description</span></span>
    Crée une réserve nommé Qi des Origines basée sur toutes les affinités et dont la génération dépend de l’Unité.
  <span class="f4"><span class="underline">Description personelle</span></span>
-   Vous possedez actuellement @{Tian-Hu|qi} &amp;#9784;, votre régénération est de [[1+@{Tian-Hu|repeating_skills_-LkV6EpN8WozHEhlnFYW_general_skilllevel}*2-@{Tian-Hu|maintien_qi}]]
+   Vous possedez actuellement @{Tian-Hu|qi} &amp;#9784;, votre régénération est de [[1+@{Tian-Hu|repeating_skills_-LkV6EpN8WozHEhlnFYW_general_skilllevel}*2-@{Tian-Hu|maintien_qi}]], il vous reste @{Tian-Hu|usurpation_charges} charges *d'Usurpation du Souffle*
 
 <span class="bold"><span class="f4">[Ultime] D’énergie et de matière [8]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
@@ -109,15 +109,21 @@
  <span class="f4"><span class="underline">Description publique</span></span>
    **[&amp;#9784; : 6]**
 
-<span class="bold"><span class="f4">[Avancée] Poing fulgurant [4]</span></span>
+<span class="bold"><span class="f4">[Avancée] Usurpation du souffle [8]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>
-   Actif / Empower
+   Actif  / Instant
  <span class="f4"><span class="underline">Description</span></span>
-   En échange de QI, Inflige une puissante attaque (Bonus de dégâts) à haute initiative.
+   recharge la réserve de Qi en absorbant et convertissant de force les énergies environnantes, sacrifie de la regen de Qi contre un gain de Qi.
  <span class="f4"><span class="underline">Description personelle</span></span>
-   Votre attaque compte comme ayant [[@{Tian-Hu|repeating_offensive-combat-skills_-LkVA8-PjuYfMZAlP9bh_offensive_combat_skilllevel}*12]] d'initiative de plus
- <span class="f4"><span class="underline">Description publique</span></span>
-   **[&amp;#9784; : 3]**
+   Regagnez immediatement **[[floor(6*@{Tian-Hu|repeating_skills_-LkV6EpN8WozHEhlnFYW_general_skilllevel})]] &amp;#9784;** votre regeneration de Qi est diminuée de 2 jusqu'a la fin du combat. Il vous reste [[@{Tian-Hu|usurpation_charges}-1]] utilisations de *Usurpation du souffle*.
+
+<span class="bold"><span class="f4">[Avancée] Unification avec le monde [8]</span></span>
+ <span class="f4"><span class="underline">Type de technique</span></span>
+   Passif
+ <span class="f4"><span class="underline">Description</span></span>
+   Offre une forte réduction de tous dégats descendant dans les PV négatifs (s'applique aux dégats subits pas pour les parades ou encaissement =&gt; si besoin de scale alors sur l'unité ? )
+ <span class="f4"><span class="underline">Description personelle</span></span>
+   Lorsque vous subissez des dégats réduisant vos points de vie en dessous de zero, reduisez les points de vie perdus a [[floor(@{Tian-Hu|Life_Points|max}*(11-@{Tian-Hu|repeating_skills_-Lku53eb0UiRIdWDfZfV_general_skilllevel})*0.5)]] si ce seuil de dégats devait ne pas etre atteint, regagnez 2 &amp;#9784;.
 
 <span class="bold"><span class="f4">[Ultime] Châtiment Céleste [16]</span></span>
  <span class="f4"><span class="underline">Type de technique</span></span>

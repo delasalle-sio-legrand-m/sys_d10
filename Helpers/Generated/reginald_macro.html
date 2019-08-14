@@ -100,13 +100,12 @@ Une auréole se forme au dessus de votre tête et une voix angélique vous murmu
 !setattr --name @{target|target|character_name} --pctreceived_s|[[{@{target|target|pctreceived_s}- floor((?{Magna Arcanum|0}*@{God|b_power_arcana}+(@{Reginald|elem_bois_tot}+@{Reginald|elem_omega}))*@{God|b_tenacitas}),-99}kh1]]
 **[Arcane avancée : Tenacitas]** Un grand rai de lumière entoure @{target|target|character_name} augmentant ses defenses.
 <span class="bold"><span class="f4">[major:marcor]</span></span>
-!setattr --name Reginald --mod --fluctus|?{Niveau de l'arcane | Base, -2 | Avancée, -4 | Ultime, -8}
-/w Reginald Vous pouvez jouer une arcane lorsque vous vous en défaussez. Payez un cout en flux en tant que cout supplémentaire.
+Diminuez la réganération de la cible de [[[[floor(((@{Reginald|elem_magma_tot}+@{Reginald|elem_omega})+?{Magna Arcanum|0}*@{God|b_power_arcana})*@{God|b_marcor})]]d@{God|b_marcor_d}]] points
 <span class="bold"><span class="f4">[talionis]</span></span>
 /w Reginald Si vous effectuez une parade complete, vous pouvez lancer une arcanum comme une reaction, si vous ne le faites pas gagnez @{Reginald|repeating_magic-arcanist-skills_-LkQWtDwDDutHYZMeUfI_magic_arcanist_skilllevel} points de flux.
-<span class="bold"><span class="f4">[capita]</span></span>
-!setattr --name Reginald --mod --fluctus|[[-1*?{Nombre de cartes a piocher ?}*@{God|b_capita}]]
-/w Reginald Payez @{God|b_capita} points de flux par carte piochée
+<span class="bold"><span class="f4">[major:cylpeos_varietas]</span></span>
+!setattr --name Reginald --cylpeos_res|[[{floor((?{Magna Arcanum|0}*@{God|b_power_arcana}+(@{Reginald|elem_air_tot}+@{Reginald|elem_omega}))*@{God|b_cylpeos_shield},80}kl1]] --shield|[[{@{Reginald|shield}+floor((?{Magna Arcanum|0}*@{God|b_power_arcana}+(@{Reginald|elem_air_tot}+@{Reginald|elem_omega}))*@{God|b_cylpeos_shield},@{Reginald|shield|max}}kl1]]
+/w Reginald Augmentez vos defences de [[floor(((@{Reginald|elem_bois_tot}+@{Reginald|elem_omega}))*@{God|b_cylpeos}]] jusqu'a la fin du combat et gagnez un bouclier
 <span class="bold"><span class="f4">[navia]</span></span>
 !setattr --name Reginald --mod --fluctus|[[?{Nombre de cartes a defausser ?}*@{God|b_navia}]]
 <span class="bold"><span class="f4">[scientia]</span></span>

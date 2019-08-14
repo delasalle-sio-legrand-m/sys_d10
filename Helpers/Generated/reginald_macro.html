@@ -29,7 +29,6 @@ Foudre, [Elemental Arcana : Foudre] Reginald inflige [[[[floor((@{Reginald|elem_
 !setattr --name Reginald --temp_pdef|0 --temp_def|0
 <span class="bold"><span class="f4">[turn]</span></span>
 !setattr --name Reginald --Life_Points|[[{@{Reginald|Life_Points}+@{Reginald|regen}-1*(@{Reginald|dot}),@{Reginald|Life_Points|max}}kl1]]
-/w Reginald #Il vous reste [[@{Reginald|repeating_magic-arcanist-skills_-LkQWs05EBazluf88DO6_magic_arcanist_skilllevel}*@{God|b_dementia}]] utilisation de Dementia ce tour-ci.
 <span class="bold"><span class="f4">[zone]</span></span>
 L'arcane couvre une zone de [[[[?{Magna Arcanum|0}*@{God|b_power_arcana}+1]]d@{God|b_zone}]] metres
 /w Reginald [Placer la zone](!&amp;#13;#place_aoe Arcana)
@@ -100,7 +99,7 @@ Une auréole se forme au dessus de votre tête et une voix angélique vous murmu
 <span class="bold"><span class="f4">[tenacitas]</span></span>
 !setattr --name @{target|target|character_name} --pctreceived_s|[[{@{target|target|pctreceived_s}- floor((?{Magna Arcanum|0}*@{God|b_power_arcana}+(@{Reginald|elem_bois_tot}+@{Reginald|elem_omega}))*@{God|b_tenacitas}),-99}kh1]]
 **[Arcane avancée : Tenacitas]** Un grand rai de lumière entoure @{target|target|character_name} augmentant ses defenses.
-<span class="bold"><span class="f4">[dementia]</span></span>
+<span class="bold"><span class="f4">[major:marcor]</span></span>
 !setattr --name Reginald --mod --fluctus|?{Niveau de l'arcane | Base, -2 | Avancée, -4 | Ultime, -8}
 /w Reginald Vous pouvez jouer une arcane lorsque vous vous en défaussez. Payez un cout en flux en tant que cout supplémentaire.
 <span class="bold"><span class="f4">[talionis]</span></span>

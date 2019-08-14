@@ -56,11 +56,11 @@ L'arcane dure [[(?{Magna Arcanum|0}*@{God|b_power_arcana}+1)@{God|b_duration}]] 
 <span class="bold"><span class="f4">[vapeur:res_mag]</span></span>
 **Arcane de Vapeur:** Votre arcanum augmente une ou plusieurs resistances magiques de [[floor([[floor((@{Reginald|elem_vapeur_tot}+@{Reginald|elem_omega})+?{Magna Arcanum|0}*@{God|b_power_arcana})]]d@{God|b_d_cc}/@{God|b_buff_mag_res})]]
 <span class="bold"><span class="f4">[bois:diminution_degats]</span></span>
-**Arcane de Bois:** Votre arcanum diminue les dégats infligés de [[floor([[floor((@{Reginald|elem_bois_tot}+@{Reginald|elem_omega})+?{Magna Arcanum|0}*@{God|b_power_arcana})]]d@{God|b_d_cc}/@{God|b_diminution_degats})]] pourcent
+**Arcane de Bois:** Votre arcanum diminue les dégats infligés de [[floor([[floor((@{Reginald|elem_bois_tot}+@{Reginald|elem_omega})+?{Magna Arcanum|0}*@{God|b_power_arcana})]]d@{God|b_d_cc}/@{God|b_diminution_degats})]]&amp;#37;
 <span class="bold"><span class="f4">[bois:resistances]</span></span>
-**Arcane de Bois:** Votre arcanum augmente votre résistances aux dégats de [[floor([[floor((@{Reginald|elem_bois_tot}+@{Reginald|elem_omega})+?{Magna Arcanum|0}*@{God|b_power_arcana})]]d@{God|b_d_cc}/@{God|b_diminution_degats_rec})]] pourcent
+**Arcane de Bois:** Votre arcanum augmente votre résistances aux dégats de [[floor([[floor((@{Reginald|elem_bois_tot}+@{Reginald|elem_omega})+?{Magna Arcanum|0}*@{God|b_power_arcana})]]d@{God|b_d_cc}/@{God|b_diminution_degats_rec})]]&amp;#37;
 <span class="bold"><span class="f4">[foudre:diminution_defences]</span></span>
-**Arcane de Foudre:** Votre arcanum augmente les dégats subits de [[floor([[floor((@{Reginald|elem_foudre_tot}+@{Reginald|elem_omega})+?{Magna Arcanum|0}*@{God|b_power_arcana})]]d@{God|b_d_cc}/@{God|b_augmentation_degats})]] pourcent
+**Arcane de Foudre:** Votre arcanum augmente les dégats subits de [[floor([[floor((@{Reginald|elem_foudre_tot}+@{Reginald|elem_omega})+?{Magna Arcanum|0}*@{God|b_power_arcana})]]d@{God|b_d_cc}/@{God|b_augmentation_degats})]]&amp;#37;
 <span class="bold"><span class="f4">[foudre:diminution_shields]</span></span>
 **Arcane de Foudre:** Votre arcanum détruit les boucliers a hauteur de [[floor([[floor((@{Reginald|elem_foudre_tot}+@{Reginald|elem_omega})+?{Magna Arcanum|0}*@{God|b_power_arcana})]]d@{God|b_d_cc}*@{God|b_diminution_shield})]]
 <span class="bold"><span class="f4">[major:pyroclasm]</span></span>
@@ -107,8 +107,8 @@ Diminuez la régénération de la cible de [[[[floor(((@{Reginald|elem_magma_tot
 <span class="bold"><span class="f4">[talionis]</span></span>
 /w Reginald Si vous effectuez une parade complete, vous pouvez lancer une arcanum comme une reaction, si vous ne le faites pas gagnez @{Reginald|repeating_magic-arcanist-skills_-LkQWtDwDDutHYZMeUfI_magic_arcanist_skilllevel} points de flux.
 <span class="bold"><span class="f4">[major:cylpeos_varietas]</span></span>
-!setattr --name Reginald --cylpeos_res|[[{floor((?{Magna Arcanum|0}*@{God|b_power_arcana}+(@{Reginald|elem_bois_tot}+@{Reginald|elem_omega}))*@{God|b_cylpeos}),80}kl1]] --shield|[[{@{Reginald|shield}+floor((?{Magna Arcanum|0}*@{God|b_power_arcana}+(@{Reginald|elem_air_tot}+@{Reginald|elem_omega}))*@{God|b_cylpeos_shield}),@{Reginald|shield|max}}kl1]]
-Augmentez vos defences de [[floor(((@{Reginald|elem_bois_tot}+@{Reginald|elem_omega}))*@{God|b_cylpeos})]] jusqu'a la fin du combat et gagnez un bouclier
+!setattr --name Reginald --cylpeos_res|[[{floor((@{Reginald|elem_bois_tot}+@{Reginald|elem_omega})*@{God|b_cylpeos}),80}kl1]] --shield|[[{@{Reginald|shield}+floor((?{Magna Arcanum|0}*@{God|b_power_arcana}+(@{Reginald|elem_air_tot}+@{Reginald|elem_omega}))*@{God|b_cylpeos_shield}),@{Reginald|shield|max}}kl1]]
+Augmentez vos defences de [[floor(((@{Reginald|elem_bois_tot}+@{Reginald|elem_omega})+@{Reginald|repeating_magic-arcanist-skills_-LkQWvCDiPLXAaxbS00K_magic_arcanist_skilllevel}*@{God|b_cylpeos_pct})*@{God|b_cylpeos})]]&amp;#37; jusqu'a la fin du combat et gagnez un bouclier
 <span class="bold"><span class="f4">[navia]</span></span>
 !setattr --name Reginald --mod --fluctus|[[?{Nombre de cartes a defausser ?}*@{God|b_navia}]]
 <span class="bold"><span class="f4">[scientia]</span></span>
@@ -116,7 +116,7 @@ Augmentez vos defences de [[floor(((@{Reginald|elem_bois_tot}+@{Reginald|elem_om
 /w Reginald **[Arcane avancée : Scientia]** Nommez une carte, allez la chercher dans votre deck.
 <span class="bold"><span class="f4">[despectio]</span></span>
 !setattr --name Reginald --fluctus|[[@{Reginald|fluctus}-@{God|b_despectio_cost}]] --temp_pdef|[[{@{Reginald|repeating_magic-arcanist-skills_-LkQX-7OEF6WHkQtzrfQ_magic_arcanist_skilllevel}*?{Nombre de cartes en main}*@{God|b_despectio},99}kl1]]
-/w Reginald [Cout: @{God|b_despectio_cost}] Reaction - Augmentez vos resistances pour la prochaine action de [[@{Reginald|repeating_magic-arcanist-skills_-LkQX-7OEF6WHkQtzrfQ_magic_arcanist_skilllevel}*@{God|b_despectio}]] pourcent par carte en main.
+/w Reginald [Cout: @{God|b_despectio_cost}] Reaction - Augmentez vos resistances pour la prochaine action de [[@{Reginald|repeating_magic-arcanist-skills_-LkQX-7OEF6WHkQtzrfQ_magic_arcanist_skilllevel}*@{God|b_despectio}]]&amp;#37; par carte en main.
 <span class="bold"><span class="f4">[celeritas]</span></span>
 !setattr --name Reginald --mod --fluctus|?{Niveau de l'arcane | Base, [[-1*@{God|b_celeritas}]] | Avancée, [[-2*@{God|b_celeritas}]] | Ultime, [[-4*@{God|b_celeritas}]]} --celeritas_rem|-1
 /w Reginald Il vous reste jusqu'à [[@{Reginald|celeritas_rem}]] utilisations ce tour-ci.

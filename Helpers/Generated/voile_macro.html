@@ -58,11 +58,11 @@
 <span class="bold"><span class="f4">[shadow_har]</span></span>
 !setattr --name Voile --mod --harmony|-1
 /w Voile Voile augmente son état de conscience du réel, les adversaires et objets dans un cercle de [[@{Voile|harmony}*@{God|b_shadow_har}*@{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel}]] metres aux alentours revelent leur vraie nature.
-** Harmonie de l'ombre ** Voile obtiens pendant un cours instant une image de la réalité au dela des apparences, dans un rayon de [[@{Voile|harmony}*@{God|b_shadow_har}*@{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel}]] metres. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+** Harmonie de l'ombre ** Voile obtiens pendant un cours instant une image de la réalité au dela des apparences, dans un rayon de [[@{Voile|harmony}*@{God|b_shadow_har}*@{Voile|repeating_skills_-Lk0Ld9vbR5NTT6DFitP_general_skilllevel}]] metres.
 <span class="bold"><span class="f4">[wind_har]</span></span>
 !setattr --name Voile --mod --harmony|-1
 /w Voile Vous pouvez réapparaitre n'importe ou dans un cercle de [[@{Voile|repeating_skills_-Lk0LfoIZqkpZCKWUf8I_general_skilllevel}]] metres autours de vous.
-** Harmonie du vent ** La présence de Voile deviens intangible pendant un bref instant, la rendant insensible a toutes les formes de dégats. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+** Harmonie du vent ** La présence de Voile deviens intangible pendant un bref instant, la rendant insensible a toutes les formes de dégats.
 <span class="bold"><span class="f4">[water_har]</span></span>
 !setattr --name Voile --mod --harmony|-1
 /w Voile Vous pouvez ignorer la plupars des contraintes physiques pendant [[@{Voile|repeating_skills_-Lk0Li-kTIahFB0V9Iny_general_skilllevel}]] actions.
@@ -70,16 +70,16 @@
 <span class="bold"><span class="f4">[metal_har]</span></span>
 !setattr --name Voile --mod --harmony|-1
 /w Voile Votre esprit se renforce, repoussant les effets déléteres sur vous.
-** Harmonie du metal ** La volontée de Voile s'affirme, soufflant les influences négatives. Sa conscience de sa place dans le monde et de la maniere dont elle peut interagir avec celui ci s'affaiblit.
+** Harmonie du metal ** La volontée de Voile s'affirme, soufflant les influences négatives.
 <span class="bold"><span class="f4">[eth_har]</span></span>
 !setattr --name Voile --mod --harmony|-1
-/w Voile Vos @{Voile|repeating_skills_-LmBMUm9kLgbLrFbzmsi_general_skilllevel} prochainnes actions comptent comme des actions libres
-** Harmonie Etherée **
+/w Voile Vos @{Voile|repeating_skills_-LmBMUm9kLgbLrFbzmsi_general_skilllevel} prochaines actions comptent comme des actions libres
+** Harmonie Etherée ** La vitesse de Voile semble démultipliée pendant un instant.
 <span class="bold"><span class="f4">[fou_har]</span></span>
 !setattr --name Voile --mod --harmony|-1 --temp_dmg|[[floor(@{Voile|repeating_skills_-LmBMY-4IJtvXEUdPjkN_general_skilllevel}*@{Voile|shield}*@{God|b_fou_dmg})]]
 !setattr --name Voile --shield|0
 /w Voile Votre prochainne attaque infligera [[floor(@{Voile|repeating_skills_-LmBMY-4IJtvXEUdPjkN_general_skilllevel}*@{Voile|shield}*@{God|b_fou_dmg})]] dégats de foudre supplementaire
-** Harmonie Foudroyante **
+** Harmonie Foudroyante ** Les boucliers de Voile volent en éclat, l'energie s'accumulant dans son arme, flamboyant d'energie a travers le champs de bataille
 <span class="bold"><span class="f4">[momentum]</span></span>
 /w Voile Vous gagnez un point de Momentum. Votre attaque et votre parade bénéficient d'un bonus de [[@{God|b_momentum_dmg}*@{Voile|momentum}]], votre esquive beneficie d'un bonus de [[@{God|b_momentum_esq}*@{Voile|momentum}]] et votre vitesse de déplacement est désormais de [[(@{Voile|base-Agilite}+@{Voile|exal-Agilite})+@{God|b_momentum_speed}*@{Voile|momentum}]].
 La vitesse et la puissance de Voile augmente, ne laissant apparaitre qu'une silhouette. brouillée par la vitesse.
@@ -97,11 +97,11 @@ La vitesse et la puissance de Voile augmente, ne laissant apparaitre qu'une silh
 !setattr --name Voile --mod --actions|-@{God|b_tempo_dep}
 !setattr --name Voile --tempo_dmg|[[{@{Voile|tempo_dmg}+@{God|b_tempo}*@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel},@{God|b_tempo_max}*@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}}kl1]] --tempo_par|[[{@{Voile|tempo_par}+@{God|b_tempo}*@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel},@{God|b_tempo_max}*@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}}kl1]] --tempo_esq|[[{@{Voile|tempo_esq}+@{God|b_tempo}*@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel},@{God|b_tempo_max}*@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}}kl1]]
 /w Voile Sacrifiez [[@{God|b_tempo_dep}]] actions; votre prochaine action physique baisse de [[round(@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}*@{God|b_tempo_degre})]] degrés de difiiculté, vous gagnez un bonus de [[@{God|b_tempo}*@{Voile|repeating_skills_-Lk0NBFvdaBqbDj1zZ6l_general_skilllevel}]] a votre prochaine attaque, votre prochaine parade et votre prochaine esquive.
-** Tempo Martial ** Voile se synchronyse au tempo de ses adversaires pour se servir de leurs actions contre eux.
+** Tempo Martial ** Voile se synchronyse au tempo de ses adversaires pour se servir de leurs actions contre eux, faisant tourbilloner sa lance autour d'elle.
 <span class="bold"><span class="f4">[sceau_phenix]</span></span>
 !setattr --name Hellsdoor --mod --blood_gate|-[[80]]
-/w Voile Les @{Voile|repeating_magic-vital-skills_-Lk0HmbYyglmpIEtJtRV_magic_vital_skilllevel} prochainnes attaques ne peuvent pas vous tuer, a chaque fois que vous devriez mourir regagnez [[@{God|b_phenix_reg}]] points de vie a la place.
-** Sceau du Phenix ** Dans l’adversité, le Phénix de Voile se relève de ses Cendre
+/w Voile Les @{Voile|repeating_magic-vital-skills_-Lk0HmbYyglmpIEtJtRV_magic_vital_skilllevel} prochaines attaques ne peuvent pas vous tuer, a chaque fois que vous devriez mourir regagnez [[@{God|b_phenix_reg}]] points de vie a la place.
+** Sceau du Phenix ** Dans l’adversité, le Phénix de Voile se relève de ses Cendre, les blessures se refermant dans une gerbe de sang frais.
 <span class="bold"><span class="f4">[Lune_de_Sang]</span></span>
 !setattr --name Voile --mod --shield|[[@{God|b_sceaulunesang_shield}*@{Voile|repeating_magic-vital-skills_-Lk0IPjvvYGG2jNhSLZL_magic_vital_skilllevel}*@{Voile|multiple_seals}]]
 !setattr --name Hellsdoor --mod --blood_gate|[[-1*@{God|b_lune_de_sang_charge_level}*@{Voile|multiple_seals}]]
@@ -118,60 +118,56 @@ La vitesse et la puissance de Voile augmente, ne laissant apparaitre qu'une silh
 !setattr --name Voile --Life_Points|[[{@{Voile|Life_Points}+[[@{God|b_contresang_soin}*@{Voile|multiple_seals}]],@{Voile|Life_Points|max}}kl1]]
 !setattr --name Voile --multiple_seals|1
 /w Voile Vous regagnez [[@{God|b_contresang_soin}*@{Voile|repeating_magic-vital-skills_-Lk0J6g4u8NBNAFB3asT_magic_vital_skilllevel}*@{Voile|multiple_seals}]] points de vie
-** Contresang ** La vitalité contenue dans le sang canalisée pour soigner meme les pires blessures.
-<span class="bold"><span class="f4">[Veine]</span></span>
-!setattr --name Hellsdoor --mod --blood_gate|[[-@{God|b_veine_charge_level}*@{Voile|multiple_seals}]]
-!setattr --name Voile --multiple_seals|1
-/w Voile Augmente la durée d’un sceau de [[@{Voile|repeating_magic-vital-skills_-Lk0JLLun1yA0Yaj8JZg_magic_vital_skilllevel}*@{God|b_veine_duree}*@{Voile|multiple_seals}]] tours
-** Veine ** Une seule chose limite l'utilisation de la magie du sang. Le Sang.
+** Contresang ** Le sang jaillit des veines de la main gauche de Voile pour combler les blessures.
 <span class="bold"><span class="f4">[Sang_de_Feu]</span></span>
 !setattr --name Hellsdoor --mod --blood_gate|[[-@{God|b_sangfeu_charge_level}*@{Voile|multiple_seals}]]
 !setattr --name Voile --multiple_seals|1
 /w Voile Crée [[@{Voile|multiple_seals}*@{Voile|repeating_magic-vital-skills_-Lk0JQiMYucKCBgRDi2V_magic_vital_skilllevel}]] petites flammes pouvant inflier [[@{God|b_sangfeu_dmg}]] dégats
-** Sang de Feu ** Du torrent de flamme a la flammeche, le feu reste l'élément de la vie.
+** Sang de Feu ** Une flamme jaillit des mains de Voile.
 <span class="bold"><span class="f4">[Amplitude]</span></span>
 !setattr --name Hellsdoor --mod --suffering_gate|[[-@{God|b_amplitude_chargelevel}*@{Voile|multiple_seals}]]
 !setattr --name Voile --mod --temp_dmg|[[@{God|b_amplitude_percent}*@{Voile|repeating_magic-vital-skills_-Lk0JVQp9Lw7kRfWBI5G_magic_vital_skilllevel}*@{Voile|multiple_seals}]]
 !setattr --name Voile --multiple_seals|1
 /w Voile Augmente les dégats de la prochaine attaque de [[@{God|b_amplitude_percent}*@{Voile|repeating_magic-vital-skills_-Lk0JVQp9Lw7kRfWBI5G_magic_vital_skilllevel}*@{Voile|multiple_seals}]] dégats
-** Amplitude ** La seule chose qui différencie le rochers et la montagne.
+** Amplitude ** La lance de Voile semble accellerer soudainement, laissant entendre en traversant l'air un hurlement d'ame en peine.
 <span class="bold"><span class="f4">[Ombre]</span></span>
 !setattr --name Hellsdoor --mod --suffering_gate|[[-@{God|b_ombre_chargelevel}*@{Voile|multiple_seals}]]
 !setattr --name Voile --multiple_seals|1
 /w Voile Augmente la discrétion d'une cible de [[@{God|b_ombre_discretion}*@{Voile|repeating_magic-vital-skills_-Lk0JZeeKHm5vfnrcqpp_magic_vital_skilllevel}*@{Voile|multiple_seals}]] jusqu'à la fin du combat
-** Ombre ** Se frayer un chemin parmis les lignes adverses est bien plus facile lorsque on est invisible.
+** Ombre ** Une energie lugubre recouvre la peau de Voile, la dissimulant aux regards.
 <span class="bold"><span class="f4">[Souffle_de_sang]</span></span>
 !setattr --name Hellsdoor --mod --suffering_gate|[[-@{God|b_souffle_de_sang_charge_level}*@{Voile|multiple_seals}]]
 !setattr --name Voile --multiple_seals|1
 /w Voile Votre prochaine attaque peut toucher jusqu'a [[@{Voile|repeating_magic-vital-skills_-Lk0IuscZnLZGW3GnEx0_magic_vital_skilllevel}*@{God|b_souffle_de_sang}*@{Voile|multiple_seals}]] cibles supplémentaires sans malus, elle obeit aux regles de fauchage.
-** Souffle de Sang **La souffrance canalisée en une lame éthérée, tranchant tout sur son passage
+** Souffle de Sang ** Dans une détonnation de tonnere, une lame lugubre trache l'air a la suite de l'attaque de Voile.
 <span class="bold"><span class="f4">[Torrent_Pourpre]</span></span>
 !setattr --name Hellsdoor --mod --suffering_gate|[[floor(?{Ouverture de la porte de la Souffrance}*(@{Voile|repeating_magic-vital-skills_-Lk0JhpooCT7WC1qoCw2_magic_vital_skilllevel}*@{God|b_torrentpourpre_souffrance}+@{God|b_base_abysse})/100)]] --abyss_gate|[[floor(?{Ouverture de la porte des Abysses}*(@{Voile|repeating_magic-vital-skills_-Lk0JhpooCT7WC1qoCw2_magic_vital_skilllevel}*@{God|b_torrentpourpre_abysse}+@{God|b_base_souffrance})/100)]] --blood_gate|[[floor(?{Ouverture de la porte de Sang}*(@{Voile|repeating_magic-vital-skills_-Lk0JhpooCT7WC1qoCw2_magic_vital_skilllevel}*@{God|b_torrentpourpre_sang}+@{God|b_base_sang})/100)]]
 <span class="bold"><span class="f4">[Temps]</span></span>
 !setattr --name Hellsdoor --mod --abyss_gate|[[-@{God|b_temps_charge_level}*@{Voile|multiple_seals}]]
 !setattr --name Voile --multiple_seals|1
 /w Voile Votre sceau se relance jusqu'a [[@{Voile|repeating_magic-vital-skills_-Lk0Iq6aEZjX8hGsfbZg_magic_vital_skilllevel}*@{Voile|multiple_seals}]] fois
-** Temps ** Ployant sous la force de la volontée des morts, le temps boucle un instant, répétant un sceau ancien.
+** Temps ** Une energie sombre jaillit du visage de Voile, copiant ses mouvements avec un leger retard.
 <span class="bold"><span class="f4">[Ame]</span></span>
 !setattr --name Hellsdoor --mod --abyss_gate|[[-@{God|b_ame_charge_level}*@{Voile|multiple_seals}]]
 !setattr --name Voile --multiple_seals|1
 /w Voile Augmente la zone d’un sceau a [[@{God|b_ame_target}*@{Voile|repeating_magic-vital-skills_-Lk0JFRyMCjaM7mSPEzI_magic_vital_skilllevel}*@{Voile|multiple_seals}]] cible ou [[@{God|b_ame_alt_range}*@{Voile|repeating_magic-vital-skills_-Lk0JFRyMCjaM7mSPEzI_magic_vital_skilllevel}*@{Voile|multiple_seals}]] metres
-** Ame ** Les Combatants autours de Voile partagent sa puissance un instant.
+** Ame ** Une magie noire se déploie soudainement, étoufant toute une zone dans un miasme de mort.
 <span class="bold"><span class="f4">[Influx]</span></span>
 !setattr --name Hellsdoor --mod --abyss_gate|[[-@{God|b_influx_charge_level}*@{Voile|multiple_seals}]]
 !setattr --name Voile --multiple_seals|1
 /w Voile Vous augmente vos attributs physique de [[@{God|b_influx_phys}*@{Voile|repeating_magic-vital-skills_-Lk0J1ZhLzPrkvj3y3S0_magic_vital_skilllevel}*@{Voile|multiple_seals}]]
-** Influx **
+** Influx ** Une energie tenebreuse recouvre Voile.
 <span class="bold"><span class="f4">[bis_repetitas]</span></span>
 !setattr --name Hellsdoor --mod --abyss_gate|-[[@{God|b_bis_repetitas_charge_level}*@{Voile|multiple_seals}]]
 !setattr --name Voile --mod --temp_pdmg|[[@{Voile|repeating_magic-vital-skills_-Lk0IHG528wQQzEWVnyC_magic_vital_skilllevel}*@{God|b_bis_repetitas_onhit}*@{Voile|multiple_seals}]]
 !setattr --name Voile --multiple_seals|1
 /w Voile La prochaine attaque portée contre un adversaire ciblé infligeras [[@{Voile|repeating_magic-vital-skills_-Lk0IHG528wQQzEWVnyC_magic_vital_skilllevel}*@{God|b_Bis_repetitas_Onhit}]]&amp;#37; de dégats suplémentaires.
-** Bis Repetitas ** Dans un éclat de lumiere sanglante, un éclat de temps viens heurter la réalitée, brouillant le passé et le présent, frappant encore et encore.
+** Bis Repetitas ** Dans un éclat d'energie sombre, un éclat de temps viens heurter la réalitée, brouillant le passé et le présent, frappant encore et encore.
 <span class="bold"><span class="f4">[Bain_de_Sang]</span></span>
 !setattr --name Voile --mod --bloodbath_charges|-1
 /w Voile Choisisez l'un : Regagnez [[@{Voile|repeating_magic-vital-skills_-Lk0KWNdsKB9AeKJwoRI_magic_vital_skilllevel}*@{God|b_bloodbath_heal}]] points de vie, regagnez [[@{God|b_bloodbath_act}]] actions ou regagnez [[@{Voile|repeating_magic-vital-skills_-Lk0KWNdsKB9AeKJwoRI_magic_vital_skilllevel}*@{God|b_bloodbath}]] points de sang
 /w Voile Il vous reste [[@{Voile|bloodbath_charges}-1]] charges de *Bain de sang*
+**Bain de Sang** Les veines de Voile semble soudainement virer au noir sur ses bras.
 </pre>
 </body>
 </html>

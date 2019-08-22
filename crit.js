@@ -48,7 +48,7 @@ on("chat:message", function(msg) {
 			if (d_vars.coup_d!=0) { // Parsing the mutilating strike
                 var table_r = JSON.parse(ops[0]["content"])["rolls"][dec]["results"]; dec+=2;
 				for (var t=0,i=0,len=table_r.length ; i<len ; i++){
-					d_vars.coup_d_results.push(table_r[i]["v"]);
+					d_vars.coup_d_results.push(table_r[i]["v"]+d_vars.add_to_all);
 				}
             }
 			if (d_vars.encaissement!=0) { // Parsing the tanking
